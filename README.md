@@ -1,4 +1,4 @@
-# e-ISKCON
+# eISKCON
 Software Assistance for Temple, Devotee & Community Care Acitivites.
 
 ## Getting Started
@@ -63,7 +63,7 @@ Add additional notes about how to deploy this on a live system
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://github.com/ISKCON-Cultural-Centre/eISKCON/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://github.com/ISKCON-Cultural-Centre/eISKCON/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
