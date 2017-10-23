@@ -1,5 +1,5 @@
 # eISKCON
-Software Assistance for Temple, Devotee & Community Care Acitivites.
+Software Assistance for Temple, Devotee & Community Care Services.
 
 ## Getting Started
 
