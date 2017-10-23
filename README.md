@@ -1,6 +1,5 @@
-# Project Title
-
-One Paragraph of project description goes here
+# e-ISKCON
+Software Assistance for Temple, Devotee & Community Care Acitivites.
 
 ## Getting Started
 
@@ -58,9 +57,9 @@ Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [Angular 4.0](https://angular.io/) - The web framework
+* [Node & LoopBack](https://loopback.io/) - Middleware
+
 
 ## Contributing
 
