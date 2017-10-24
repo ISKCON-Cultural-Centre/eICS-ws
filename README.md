@@ -6,30 +6,21 @@ Software Assistance for Temple, Devotee & Community Care Services.
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites
+1. Node.js Version 6.x
+   curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+   sudo apt-get install -y nodejs
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
 
 ### Installing
+#### API Server Installation
+cd ./your/location
+npm install
+node .
 
-A step by step series of examples that tell you have to get a development env running
+#### Client Code Installation
+cd ./your/location/client
+npm install
 
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
