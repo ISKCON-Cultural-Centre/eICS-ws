@@ -75,4 +75,4 @@ typings/
 .project
 .strong-pm
 coverage
-
+datasources.json

@@ -6,9 +6,9 @@
   "mysqld": {
     "host": "localhost",
     "port": 3306,
-    "url": "mysql://icc:<password>@localhost/icc",
+    "url": "mysql://icc:Jagannath03$@localhost/icc",
     "database": "icc",
-    "password": "<password",
+    "password": "Jagannath03$",
     "name": "mysqld",
     "user": "icc",
     "connector": "mysql"
