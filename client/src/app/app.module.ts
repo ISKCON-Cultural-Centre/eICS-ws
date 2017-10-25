@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router';
 import { UserModule } from './pages/user-module/user.module';
 
 
-import { IrkccCustomMaterialModule } from './irkcc-custom-material.module';
+import { MaterialModule } from './material.module';
 
 import { SDKBrowserModule } from './sdk';
 import { AuthGuard, AuthService } from './services';
@@ -31,7 +31,7 @@ import { ResetPasswordComponent } from './pages/user-module/reset-password/reset
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    IrkccCustomMaterialModule,
+    MaterialModule,
     UserModule,
     HttpModule,
     SDKBrowserModule.forRoot(),
@@ -39,7 +39,7 @@ import { ResetPasswordComponent } from './pages/user-module/reset-password/reset
       { path: 'login', component: LoginComponent },
       { path: 'reset', component: ResetPasswordComponent },
       { path: 'about', component: AboutComponent, canActivate: [AuthGuard] },
-      { path: '', component: HomeComponent, canActivate: [AuthGuard] },      
+      { path: '', component: HomeComponent, canActivate: [AuthGuard] },
       { path: '**', redirectTo: '/' }
     ])
   ],

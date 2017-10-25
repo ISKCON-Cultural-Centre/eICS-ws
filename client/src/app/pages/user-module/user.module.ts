@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-import { IrkccCustomMaterialModule } from '../../irkcc-custom-material.module';
+import { MaterialModule } from '../../material.module';
 
 import { LoginComponent } from './login/login.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
@@ -12,7 +12,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    IrkccCustomMaterialModule
+    MaterialModule
   ],
   declarations: [LoginComponent, ResetPasswordComponent]
 })
