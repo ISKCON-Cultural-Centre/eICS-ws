@@ -22,8 +22,7 @@
 			</mat-form-field>
       <br />
 			<button mat-raised-button  (click)="login(email, password)">Login</button>
-			<button mat-raised-button (click)="setState('reset')">Reset password</button>
-			<button mat-raised-button (click)="setState('signup')">Signup</button>
+			<button mat-raised-button (click)="setState('reset')">Forgot password</button>
     </form>
 
     <form *ngIf="state == 'reset'">
@@ -39,54 +38,6 @@
 			</mat-form-field>
       <br />
 			<button mat-raised-button (click)="resetPassword(email)">Reset password</button>
-			<button mat-raised-button  (click)="setState('login')">Login</button>
-			<button mat-raised-button (click)="setState('signup')">Signup</button>
-    </form>
-
-    <form *ngIf="state == 'signup'">
-      <h3>Login</h3>
-			<mat-form-field>
-			    <input matInput placeholder="Username" #username>
-			    <mat-error *ngIf="emailFormControl.hasError('required')">
-			      Email is <strong>required</strong>
-			    </mat-error>
-			</mat-form-field>
-			<mat-form-field>
-			    <input matInput placeholder="Email" #email [formControl]="emailFormControl">
-			    <mat-error *ngIf="emailFormControl.hasError('pattern')">
-			      Please enter a valid email address
-			    </mat-error>
-			    <mat-error *ngIf="emailFormControl.hasError('required')">
-			      Email is <strong>required</strong>
-			    </mat-error>
-			</mat-form-field>
-			<mat-form-field>
-			    <input type="password" matInput placeholder="Password" #password [formControl]="passwordFormControl">
-			    <mat-error *ngIf="passwordFormControl.hasError('required')">
-			      Password is <strong>required</strong>
-			    </mat-error>
-			</mat-form-field>
-			<mat-form-field>
-			    <input type="password" matInput placeholder="Confirm Password" #confirmPassword [formControl]="passwordFormControl">
-			    <mat-error *ngIf="passwordFormControl.hasError('required')">
-			      Password is <strong>required</strong>
-			    </mat-error>
-			</mat-form-field>
-      <br />
-			<mat-select placeholder="Type" #type>
-			  <mat-option [value]="'free'">
-			    Free
-			  </mat-option>
-				<mat-option [value]="'paid'">
-			    Paid
-			  </mat-option>
-			</mat-select>
-      <br />
-
-			<button mat-raised-button (click)="signup(username, email, password, confirmPassword, type)">Signup</button>
-			<button mat-raised-button (click)="setState('reset')">Reset password</button>
-			<button mat-raised-button (click)="setState('login')">Login</button>
-
     </form>
   </div>
 </div>
