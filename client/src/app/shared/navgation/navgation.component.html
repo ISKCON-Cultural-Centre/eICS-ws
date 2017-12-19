@@ -1,9 +1,0 @@
-<ul class="nav nav-pills" *ngIf="!isLogin">
-  <li role="presentation" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-    <a [routerLink]="['']" href="#">Home</a>
-  </li>
-  <li role="presentation" [routerLinkActive]="['active']">
-    <a [routerLink]="['about']" href="#">About</a>
-  </li>
-  <li role="presentation"><a (click)="logout()" href="#">Logout</a></li>
-</ul>
