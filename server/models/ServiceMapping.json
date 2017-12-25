@@ -2,9 +2,13 @@
   "name": "ServiceMapping",
   "options": {
     "idInjection": false,
+    "base": "RoleMapping",
     "mysql": {
       "schema": "icc",
       "table": "service-mapping"
+    },
+    "mixins": {
+      "GenerateKey" : true
     },
     "relations": {
       "fkServiceMappingService1rel": {

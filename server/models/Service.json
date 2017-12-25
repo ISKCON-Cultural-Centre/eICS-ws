@@ -2,10 +2,21 @@
   "name": "Service",
   "options": {
     "idInjection": false,
+    "base": "Role",
     "mysql": {
       "schema": "icc",
       "table": "service"
     },
+    "mixins": {
+      "TimeStamp" : {
+        "createdAt" : "created-on",
+        "updatedAt" : "updated-on",
+        "required" : false,
+        "validateUpsert": true,
+        "silenceWarnings": false
+      },
+      "GenerateKey" : true
+    },     
     "relations": {}
   },
   "properties": {
