@@ -176,105 +176,105 @@
     "public": true
   },
 
-  "CreditNote": {
-    "dataSource": "mysqld1",
+  "MgCreditNote": {
+    "dataSource": "mysqld",
     "public": true
   },
-"DeliveryNote": {
-    "dataSource": "mysqld1",
-    "public": true
-  },
-"DevoteeElectronicAddress": {
-    "dataSource": "mysqld1",
-    "public": true
-  },
-"DevoteePhysicalAddress": {
-    "dataSource": "mysqld1",
-    "public": true
-  },
-"Invoice": {
-    "dataSource": "mysqld1",
-    "public": true
-  },
-"OrderChannel": {
-    "dataSource": "mysqld1",
-    "public": true
-  },
-"OrderLine": {
-    "dataSource": "mysqld1",
-    "public": true
-  },
-"OrderReturn": {
-    "dataSource": "mysqld1",
-    "public": true
-  },
-"OrderReturnLine": {
-    "dataSource": "mysqld1",
-    "public": true
-  },
-"OrderStatus": {
-    "dataSource": "mysqld1",
-    "public": true
-  },
-"Product": {
-    "dataSource": "mysqld1",
-    "public": true
-  },
-"ProductAttribute": {
-    "dataSource": "mysqld1",
-    "public": true
-  },
-"ProductAttributeInstance": {
-    "dataSource": "mysqld1",
-    "public": true
-  },
-"ProductSku": {
-    "dataSource": "mysqld1",
-    "public": true
-  },
-"StockCurrent": {
-    "dataSource": "mysqld1",
-    "public": true
-  },
-"StockInward": {
-    "dataSource": "mysqld1",
-    "public": true
-  },
-"StockInwardDiary": {
-    "dataSource": "mysqld1",
-    "public": true
-  },
-"Supplier": {
-    "dataSource": "mysqld1",
-    "public": true
-  },
-"SupplierElectronicAddress": {
-    "dataSource": "mysqld1",
-    "public": true
-  },
-"SupplierPhysicalAddress": {
-    "dataSource": "mysqld1",
-    "public": true
-  },
-"TaxCategory": {
-    "dataSource": "mysqld1",
-    "public": true
-  },
-"TaxCategoryComponent": {
-    "dataSource": "mysqld1",
-    "public": true
-  },
-"TaxComponent": {
-    "dataSource": "mysqld1",
-    "public": true
-  },
-"TaxLine": {
-    "dataSource": "mysqld1",
-    "public": true
-  },
-"UnitOfMeasure": {
-    "dataSource": "mysqld1",
-    "public": true
-  }
+  "MgDeliveryNote": {
+      "dataSource": "mysqld",
+      "public": true
+    },
+  "MgDevoteeElectronicAddress": {
+      "dataSource": "mysqld",
+      "public": true
+    },
+  "MgDevoteePhysicalAddress": {
+      "dataSource": "mysqld",
+      "public": true
+    },
+  "MgInvoice": {
+      "dataSource": "mysqld",
+      "public": true
+    },
+  "MgOrderChannel": {
+      "dataSource": "mysqld",
+      "public": true
+    },
+  "MgOrderLine": {
+      "dataSource": "mysqld",
+      "public": true
+    },
+  "MgOrderReturn": {
+      "dataSource": "mysqld",
+      "public": true
+    },
+  "MgOrderReturnLine": {
+      "dataSource": "mysqld",
+      "public": true
+    },
+  "MgOrderStatus": {
+      "dataSource": "mysqld",
+      "public": true
+    },
+  "MgProduct": {
+      "dataSource": "mysqld",
+      "public": true
+    },
+  "MgProductAttribute": {
+      "dataSource": "mysqld",
+      "public": true
+    },
+  "MgProductAttributeInstance": {
+      "dataSource": "mysqld",
+      "public": true
+    },
+  "MgProductSku": {
+      "dataSource": "mysqld",
+      "public": true
+    },
+  "MgStockCurrent": {
+      "dataSource": "mysqld",
+      "public": true
+    },
+  "MgStockInward": {
+      "dataSource": "mysqld",
+      "public": true
+    },
+  "MgStockInwardDiary": {
+      "dataSource": "mysqld",
+      "public": true
+    },
+  "MgSupplier": {
+      "dataSource": "mysqld",
+      "public": true
+    },
+  "MgSupplierElectronicAddress": {
+      "dataSource": "mysqld",
+      "public": true
+    },
+  "MgSupplierPhysicalAddress": {
+      "dataSource": "mysqld",
+      "public": true
+    },
+  "MgTaxCategory": {
+      "dataSource": "mysqld",
+      "public": true
+    },
+  "MgTaxCategoryComponent": {
+      "dataSource": "mysqld",
+      "public": true
+    },
+  "MgTaxComponent": {
+      "dataSource": "mysqld",
+      "public": true
+    },
+  "MgTaxLine": {
+      "dataSource": "mysqld",
+      "public": true
+    },
+  "MgUnitOfMeasure": {
+      "dataSource": "mysqld",
+      "public": true
+    }
 }
 

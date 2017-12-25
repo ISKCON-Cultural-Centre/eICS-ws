@@ -8,16 +8,6 @@
     },
     "relations": {}
   },
-  "mixins": {
-    "TimeStamp" : {
-      "createdAt" : "created-on",
-      "updatedAt" : "updated-on",
-      "required" : false,
-      "validateUpsert": true,
-      "silenceWarnings": false
-    },
-    "GenerateKey" : true
-  },
   "properties": {
     "id": {
       "type": "String",
@@ -37,7 +27,7 @@
     },
     "level": {
       "type": "String",
-      "required": true,
+      "required": false,
       "length": 30,
       "precision": null,
       "scale": null,
@@ -47,12 +37,12 @@
         "dataLength": 30,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
     "description": {
       "type": "String",
-      "required": true,
+      "required": false,
       "length": 50,
       "precision": null,
       "scale": null,
@@ -62,7 +52,7 @@
         "dataLength": 50,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
     "createdOn": {

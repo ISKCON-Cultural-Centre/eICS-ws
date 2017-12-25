@@ -1,0 +1,56 @@
+{
+  "name": "MgSupplierElectronicAddress",
+  "options": {
+    "idInjection": false,
+    "mysql": {
+      "schema": "icc",
+      "table": "mg-supplier-electronic-address"
+    },
+    "relations": {
+      "fkSupplierElectronicAddressElectronicAddress1rel": {
+        "model": "ElectronicAddress",
+        "type": "belongsTo",
+        "foreignKey": "electronicAddressId"
+      },
+      "fkSupplierElectronicAddressSupplier1rel": {
+        "model": "MgSupplier",
+        "type": "belongsTo",
+        "foreignKey": "supplierId"
+      }
+    }
+  },
+  "properties": {
+    "electronicAddressId": {
+      "type": "String",
+      "required": true,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "id": 2,
+      "mysql": {
+        "columnName": "electronic-address-id",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "supplierId": {
+      "type": "String",
+      "required": true,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "id": 1,
+      "mysql": {
+        "columnName": "supplier-id",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    }
+  }
+}

@@ -431,8 +431,7 @@ CREATE TABLE IF NOT EXISTS `payment` (
     REFERENCES `devotee` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -1031,10 +1030,10 @@ COLLATE = utf8_unicode_ci;
 -- Table `pledge-payment`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pledge-payment` (
-  `id` VARCHAR(36) CHARACTER SET 'utf8' NOT NULL,
+  `id` VARCHAR(36) NOT NULL,
   `instalment-number` SMALLINT(6) NOT NULL,
   `pledge-date` DATE NULL,
-  `pledge-id` VARCHAR(36) CHARACTER SET 'utf8' NULL,
+  `pledge-id` VARCHAR(36) NULL,
   `created-on` DATETIME NULL DEFAULT NULL,
   `updated-on` DATETIME NULL DEFAULT NULL,
   `created-by` VARCHAR(36) CHARACTER SET 'utf8' NULL DEFAULT NULL,
@@ -1054,8 +1053,7 @@ CREATE TABLE IF NOT EXISTS `pledge-payment` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_unicode_ci;
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
