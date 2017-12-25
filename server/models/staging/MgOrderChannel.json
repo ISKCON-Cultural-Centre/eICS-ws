@@ -1,10 +1,10 @@
 {
-  "name": "PaymentModeMaster",
+  "name": "MgOrderChannel",
   "options": {
     "idInjection": false,
     "mysql": {
       "schema": "icc",
-      "table": "payment-mode-master"
+      "table": "mg-order-channel"
     },
     "relations": {}
   },
@@ -25,34 +25,19 @@
         "nullable": "N"
       }
     },
-    "modeName": {
+    "name": {
       "type": "String",
-      "required": true,
+      "required": false,
       "length": 50,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "mode-name",
+        "columnName": "name",
         "dataType": "varchar",
         "dataLength": 50,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "N"
-      }
-    },
-    "description": {
-      "type": "String",
-      "required": true,
-      "length": 100,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "description",
-        "dataType": "varchar",
-        "dataLength": 100,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "N"
+        "nullable": "Y"
       }
     }
   }

@@ -1,10 +1,10 @@
 {
-  "name": "PaymentModeMaster",
+  "name": "MgSupplier",
   "options": {
     "idInjection": false,
     "mysql": {
       "schema": "icc",
-      "table": "payment-mode-master"
+      "table": "mg-supplier"
     },
     "relations": {}
   },
@@ -25,31 +25,46 @@
         "nullable": "N"
       }
     },
-    "modeName": {
+    "supplierName": {
+      "type": "String",
+      "required": true,
+      "length": 255,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "supplier-name",
+        "dataType": "varchar",
+        "dataLength": 255,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "taxIdentificationNumber": {
+      "type": "String",
+      "required": true,
+      "length": 20,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "tax-identification-number",
+        "dataType": "varchar",
+        "dataLength": 20,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "gstnNumber": {
       "type": "String",
       "required": true,
       "length": 50,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "mode-name",
+        "columnName": "gstn-number",
         "dataType": "varchar",
         "dataLength": 50,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "N"
-      }
-    },
-    "description": {
-      "type": "String",
-      "required": true,
-      "length": 100,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "description",
-        "dataType": "varchar",
-        "dataLength": 100,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "N"

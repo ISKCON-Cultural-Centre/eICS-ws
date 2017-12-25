@@ -7,15 +7,10 @@
       "table": "devotee"
     },
     "relations": {
-      "fkDevoteeElectronicAddress1rel": {
-        "model": "ElectronicAddress",
+      "fkDevoteeCircle1rel": {
+        "model": "Circle",
         "type": "belongsTo",
-        "foreignKey": "electronicAddressId"
-      },
-      "fkDevoteePhysicalAddress1rel": {
-        "model": "PhysicalAddress",
-        "type": "belongsTo",
-        "foreignKey": "physicalAddressId"
+        "foreignKey": "circleId"
       },
       "fkDevoteeSpiritualLevelMaster1rel": {
         "model": "SpiritualLevelMaster",
@@ -56,6 +51,21 @@
         "nullable": "Y"
       }
     },
+    "circleId": {
+      "type": "String",
+      "required": false,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "circle-id",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
     "spiritualName": {
       "type": "String",
       "required": false,
@@ -81,36 +91,6 @@
         "columnName": "gender",
         "dataType": "char",
         "dataLength": 1,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "physicalAddressId": {
-      "type": "String",
-      "required": false,
-      "length": 36,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "physical-address-id",
-        "dataType": "varchar",
-        "dataLength": 36,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "electronicAddressId": {
-      "type": "String",
-      "required": false,
-      "length": 36,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "electronic-address-id",
-        "dataType": "varchar",
-        "dataLength": 36,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
@@ -144,6 +124,21 @@
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
+      }
+    },
+    "creditLimit": {
+      "type": "String",
+      "required": true,
+      "length": null,
+      "precision": 10,
+      "scale": 2,
+      "mysql": {
+        "columnName": "credit-limit",
+        "dataType": "decimal",
+        "dataLength": null,
+        "dataPrecision": 10,
+        "dataScale": 2,
+        "nullable": "N"
       }
     },
     "realm": {

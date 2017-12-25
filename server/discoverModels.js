@@ -11,11 +11,11 @@ ds.discoverModelDefinitions({ schema: 'icc' }, function (err, models) {
 
     var count = models.length;
       //console.log(models.length);
-      //console.log(models);
+      console.log(models);
   _.each(models, function(model){
           //console.log(model);
     ds.discoverSchema(model.name, {  associations: true }, function(err, schema){
-          //console.log(schema);
+          console.log(schema);
       var outputName = outputPath + '/' +schema.name + '.json';
       fs.writeFile(outputName, JSON.stringify(schema, null, 2), function(err) {
         if(err) {
