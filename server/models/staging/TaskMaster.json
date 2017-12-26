@@ -1,10 +1,10 @@
 {
-  "name": "Service",
+  "name": "TaskMaster",
   "options": {
     "idInjection": false,
     "mysql": {
       "schema": "icc",
-      "table": "service"
+      "table": "task-master"
     },
     "relations": {}
   },
@@ -25,64 +25,64 @@
         "nullable": "N"
       }
     },
-    "name": {
+    "taskName": {
       "type": "String",
       "required": true,
-      "length": 512,
+      "length": 50,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "name",
+        "columnName": "task-name",
         "dataType": "varchar",
-        "dataLength": 512,
+        "dataLength": 50,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "N"
       }
     },
-    "description": {
+    "applicationRoute": {
+      "type": "String",
+      "required": true,
+      "length": 255,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "application-route",
+        "dataType": "varchar",
+        "dataLength": 255,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "taskDescription": {
       "type": "String",
       "required": false,
-      "length": 512,
+      "length": 100,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "description",
+        "columnName": "task-description",
         "dataType": "varchar",
-        "dataLength": 512,
+        "dataLength": 100,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
       }
     },
-    "created": {
-      "type": "Date",
-      "required": false,
+    "approvalRulesApplyInd": {
+      "type": "Number",
+      "required": true,
       "length": null,
-      "precision": null,
-      "scale": null,
+      "precision": 3,
+      "scale": 0,
       "mysql": {
-        "columnName": "created",
-        "dataType": "datetime",
+        "columnName": "approval-rules-apply-ind",
+        "dataType": "tinyint",
         "dataLength": null,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "modified": {
-      "type": "Date",
-      "required": false,
-      "length": null,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "modified",
-        "dataType": "datetime",
-        "dataLength": null,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
+        "dataPrecision": 3,
+        "dataScale": 0,
+        "nullable": "N"
       }
     },
     "createdOn": {

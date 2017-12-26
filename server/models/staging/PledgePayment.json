@@ -1,12 +1,23 @@
 {
-  "name": "Service",
+  "name": "PledgePayment",
   "options": {
     "idInjection": false,
     "mysql": {
       "schema": "icc",
-      "table": "service"
+      "table": "pledge-payment"
     },
-    "relations": {}
+    "relations": {
+      "fkPledgePaymentMgPayment1rel": {
+        "model": "Payment",
+        "type": "belongsTo",
+        "foreignKey": "mgPaymentId"
+      },
+      "fkPledgePaymentPledge1rel": {
+        "model": "Pledge",
+        "type": "belongsTo",
+        "foreignKey": "pledgeId"
+      }
+    }
   },
   "properties": {
     "id": {
@@ -25,61 +36,46 @@
         "nullable": "N"
       }
     },
-    "name": {
-      "type": "String",
+    "instalmentNumber": {
+      "type": "Number",
       "required": true,
-      "length": 512,
-      "precision": null,
-      "scale": null,
+      "length": null,
+      "precision": 5,
+      "scale": 0,
       "mysql": {
-        "columnName": "name",
-        "dataType": "varchar",
-        "dataLength": 512,
-        "dataPrecision": null,
-        "dataScale": null,
+        "columnName": "instalment-number",
+        "dataType": "smallint",
+        "dataLength": null,
+        "dataPrecision": 5,
+        "dataScale": 0,
         "nullable": "N"
       }
     },
-    "description": {
+    "pledgeDate": {
+      "type": "Date",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "pledge-date",
+        "dataType": "date",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "pledgeId": {
       "type": "String",
       "required": false,
-      "length": 512,
+      "length": 36,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "description",
+        "columnName": "pledge-id",
         "dataType": "varchar",
-        "dataLength": 512,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "created": {
-      "type": "Date",
-      "required": false,
-      "length": null,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "created",
-        "dataType": "datetime",
-        "dataLength": null,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "modified": {
-      "type": "Date",
-      "required": false,
-      "length": null,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "modified",
-        "dataType": "datetime",
-        "dataLength": null,
+        "dataLength": 36,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
@@ -143,6 +139,21 @@
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
+      }
+    },
+    "mgPaymentId": {
+      "type": "String",
+      "required": true,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "mg-payment-id",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
       }
     }
   }

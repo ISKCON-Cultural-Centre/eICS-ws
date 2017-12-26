@@ -1,12 +1,18 @@
 {
-  "name": "Service",
+  "name": "Pledge",
   "options": {
     "idInjection": false,
     "mysql": {
       "schema": "icc",
-      "table": "service"
+      "table": "pledge"
     },
-    "relations": {}
+    "relations": {
+      "fkPledgeDevotee2rel": {
+        "model": "Devotee",
+        "type": "belongsTo",
+        "foreignKey": "devoteeId"
+      }
+    }
   },
   "properties": {
     "id": {
@@ -25,61 +31,91 @@
         "nullable": "N"
       }
     },
-    "name": {
-      "type": "String",
+    "startDate": {
+      "type": "Date",
       "required": true,
-      "length": 512,
+      "length": null,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "name",
-        "dataType": "varchar",
-        "dataLength": 512,
+        "columnName": "start-date",
+        "dataType": "date",
+        "dataLength": null,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "N"
       }
     },
-    "description": {
+    "endDate": {
       "type": "String",
       "required": false,
-      "length": 512,
+      "length": 50,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "description",
+        "columnName": "end-date",
         "dataType": "varchar",
-        "dataLength": 512,
+        "dataLength": 50,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
       }
     },
-    "created": {
-      "type": "Date",
+    "pledgeAmount": {
+      "type": "String",
+      "required": true,
+      "length": null,
+      "precision": 15,
+      "scale": 2,
+      "mysql": {
+        "columnName": "pledge-amount",
+        "dataType": "decimal",
+        "dataLength": null,
+        "dataPrecision": 15,
+        "dataScale": 2,
+        "nullable": "N"
+      }
+    },
+    "instalmentCount": {
+      "type": "Number",
       "required": false,
       "length": null,
-      "precision": null,
-      "scale": null,
+      "precision": 5,
+      "scale": 0,
       "mysql": {
-        "columnName": "created",
-        "dataType": "datetime",
+        "columnName": "instalment-count",
+        "dataType": "smallint",
         "dataLength": null,
-        "dataPrecision": null,
-        "dataScale": null,
+        "dataPrecision": 5,
+        "dataScale": 0,
         "nullable": "Y"
       }
     },
-    "modified": {
-      "type": "Date",
-      "required": false,
+    "pauseInd": {
+      "type": "Number",
+      "required": true,
       "length": null,
+      "precision": 3,
+      "scale": 0,
+      "mysql": {
+        "columnName": "pause-ind",
+        "dataType": "tinyint",
+        "dataLength": null,
+        "dataPrecision": 3,
+        "dataScale": 0,
+        "nullable": "N"
+      }
+    },
+    "devoteeId": {
+      "type": "String",
+      "required": false,
+      "length": 36,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "modified",
-        "dataType": "datetime",
-        "dataLength": null,
+        "columnName": "devotee-id",
+        "dataType": "varchar",
+        "dataLength": 36,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"

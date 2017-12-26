@@ -1,18 +1,12 @@
 {
-  "name": "ServiceMapping",
+  "name": "MgStockInward",
   "options": {
     "idInjection": false,
     "mysql": {
       "schema": "icc",
-      "table": "service-mapping"
+      "table": "mg-stock-inward"
     },
-    "relations": {
-      "fkServiceMappingService1rel": {
-        "model": "Service",
-        "type": "belongsTo",
-        "foreignKey": "roleId"
-      }
-    }
+    "relations": {}
   },
   "properties": {
     "id": {
@@ -31,44 +25,44 @@
         "nullable": "N"
       }
     },
-    "principalType": {
+    "supplierInvoiceNumber": {
       "type": "String",
-      "required": false,
-      "length": 512,
+      "required": true,
+      "length": 50,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "principal-type",
+        "columnName": "supplier-invoice-number",
         "dataType": "varchar",
-        "dataLength": 512,
+        "dataLength": 50,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "Y"
+        "nullable": "N"
       }
     },
-    "principalId": {
-      "type": "String",
-      "required": false,
-      "length": 255,
+    "invoiceDate": {
+      "type": "Date",
+      "required": true,
+      "length": null,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "principal-id",
-        "dataType": "varchar",
-        "dataLength": 255,
+        "columnName": "invoice-date",
+        "dataType": "date",
+        "dataLength": null,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "Y"
+        "nullable": "N"
       }
     },
-    "roleId": {
+    "supplierId": {
       "type": "String",
       "required": true,
       "length": 36,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "role-id",
+        "columnName": "supplier-id",
         "dataType": "varchar",
         "dataLength": 36,
         "dataPrecision": null,

@@ -1,15 +1,26 @@
 {
-  "name": "Service",
+  "name": "DevoteeEventCalendar",
   "options": {
     "idInjection": false,
     "mysql": {
       "schema": "icc",
-      "table": "service"
+      "table": "devotee-event-calendar"
     },
-    "relations": {}
+    "relations": {
+      "fkDevoteeEventCalendarDevotee2rel": {
+        "model": "Devotee",
+        "type": "belongsTo",
+        "foreignKey": "devoteeId"
+      },
+      "fkDevoteeEventCalendarEventMaster1rel": {
+        "model": "EventMaster",
+        "type": "belongsTo",
+        "foreignKey": "eventMasterId"
+      }
+    }
   },
   "properties": {
-    "id": {
+    "devoteeId": {
       "type": "String",
       "required": true,
       "length": 36,
@@ -17,7 +28,7 @@
       "scale": null,
       "id": 1,
       "mysql": {
-        "columnName": "id",
+        "columnName": "devotee-id",
         "dataType": "varchar",
         "dataLength": 36,
         "dataPrecision": null,
@@ -25,61 +36,31 @@
         "nullable": "N"
       }
     },
-    "name": {
-      "type": "String",
+    "eventDate": {
+      "type": "Date",
       "required": true,
-      "length": 512,
+      "length": null,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "name",
-        "dataType": "varchar",
-        "dataLength": 512,
+        "columnName": "event-date",
+        "dataType": "date",
+        "dataLength": null,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "N"
       }
     },
-    "description": {
+    "eventMasterId": {
       "type": "String",
       "required": false,
-      "length": 512,
+      "length": 36,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "description",
+        "columnName": "event-master-id",
         "dataType": "varchar",
-        "dataLength": 512,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "created": {
-      "type": "Date",
-      "required": false,
-      "length": null,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "created",
-        "dataType": "datetime",
-        "dataLength": null,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "modified": {
-      "type": "Date",
-      "required": false,
-      "length": null,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "modified",
-        "dataType": "datetime",
-        "dataLength": null,
+        "dataLength": 36,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"

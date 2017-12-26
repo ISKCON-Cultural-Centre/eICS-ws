@@ -1,12 +1,23 @@
 {
-  "name": "Service",
+  "name": "DevoteeKarmiFamily",
   "options": {
     "idInjection": false,
     "mysql": {
       "schema": "icc",
-      "table": "service"
+      "table": "devotee-karmi-family"
     },
-    "relations": {}
+    "relations": {
+      "fkDevoteeKarmiFamilyDevotee2rel": {
+        "model": "Devotee",
+        "type": "belongsTo",
+        "foreignKey": "devoteeId"
+      },
+      "fkDevoteeKarmiFamilyRelationshipMaster1rel": {
+        "model": "RelationshipMaster",
+        "type": "belongsTo",
+        "foreignKey": "relationshipId"
+      }
+    }
   },
   "properties": {
     "id": {
@@ -25,61 +36,46 @@
         "nullable": "N"
       }
     },
-    "name": {
-      "type": "String",
-      "required": true,
-      "length": 512,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "name",
-        "dataType": "varchar",
-        "dataLength": 512,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "N"
-      }
-    },
-    "description": {
+    "familyName": {
       "type": "String",
       "required": false,
-      "length": 512,
+      "length": 100,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "description",
+        "columnName": "family-name",
         "dataType": "varchar",
-        "dataLength": 512,
+        "dataLength": 100,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
       }
     },
-    "created": {
-      "type": "Date",
+    "relationshipId": {
+      "type": "String",
       "required": false,
-      "length": null,
+      "length": 36,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "created",
-        "dataType": "datetime",
-        "dataLength": null,
+        "columnName": "relationship-id",
+        "dataType": "varchar",
+        "dataLength": 36,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
       }
     },
-    "modified": {
-      "type": "Date",
+    "devoteeId": {
+      "type": "String",
       "required": false,
-      "length": null,
+      "length": 36,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "modified",
-        "dataType": "datetime",
-        "dataLength": null,
+        "columnName": "devotee-id",
+        "dataType": "varchar",
+        "dataLength": 36,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"

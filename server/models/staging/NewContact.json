@@ -1,12 +1,23 @@
 {
-  "name": "Service",
+  "name": "NewContact",
   "options": {
     "idInjection": false,
     "mysql": {
       "schema": "icc",
-      "table": "service"
+      "table": "new-contact"
     },
-    "relations": {}
+    "relations": {
+      "fkTable1ElectronicAddress1rel": {
+        "model": "ElectronicAddress",
+        "type": "belongsTo",
+        "foreignKey": "electronicAddressId"
+      },
+      "fkTable1PhysicalAddress1rel": {
+        "model": "PhysicalAddress",
+        "type": "belongsTo",
+        "foreignKey": "physicalAddressId"
+      }
+    }
   },
   "properties": {
     "id": {
@@ -27,59 +38,74 @@
     },
     "name": {
       "type": "String",
-      "required": true,
-      "length": 512,
+      "required": false,
+      "length": 255,
       "precision": null,
       "scale": null,
       "mysql": {
         "columnName": "name",
         "dataType": "varchar",
-        "dataLength": 512,
+        "dataLength": 255,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
-    "description": {
+    "physicalAddressId": {
       "type": "String",
       "required": false,
-      "length": 512,
+      "length": 36,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "description",
+        "columnName": "physical-address-id",
         "dataType": "varchar",
-        "dataLength": 512,
+        "dataLength": 36,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
       }
     },
-    "created": {
-      "type": "Date",
+    "electronicAddressId": {
+      "type": "String",
       "required": false,
-      "length": null,
+      "length": 36,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "created",
-        "dataType": "datetime",
-        "dataLength": null,
+        "columnName": "electronic-address-id",
+        "dataType": "varchar",
+        "dataLength": 36,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
       }
     },
-    "modified": {
-      "type": "Date",
+    "reference": {
+      "type": "String",
       "required": false,
-      "length": null,
+      "length": 100,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "modified",
-        "dataType": "datetime",
-        "dataLength": null,
+        "columnName": "reference",
+        "dataType": "varchar",
+        "dataLength": 100,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "comments": {
+      "type": "String",
+      "required": false,
+      "length": 45,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "comments",
+        "dataType": "varchar",
+        "dataLength": 45,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"

@@ -1,16 +1,16 @@
 {
-  "name": "ServiceMapping",
+  "name": "MgDeliveryNote",
   "options": {
     "idInjection": false,
     "mysql": {
       "schema": "icc",
-      "table": "service-mapping"
+      "table": "mg-delivery-note"
     },
     "relations": {
-      "fkServiceMappingService1rel": {
-        "model": "Service",
+      "fkDeliveryNoteOrder1rel": {
+        "model": "MgOrder",
         "type": "belongsTo",
-        "foreignKey": "roleId"
+        "foreignKey": "orderId"
       }
     }
   },
@@ -31,46 +31,46 @@
         "nullable": "N"
       }
     },
-    "principalType": {
-      "type": "String",
-      "required": false,
-      "length": 512,
+    "deliveredDate": {
+      "type": "Date",
+      "required": true,
+      "length": null,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "principal-type",
-        "dataType": "varchar",
-        "dataLength": 512,
+        "columnName": "delivered-date",
+        "dataType": "datetime",
+        "dataLength": null,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "Y"
+        "nullable": "N"
       }
     },
-    "principalId": {
+    "deliveryNotes": {
       "type": "String",
-      "required": false,
+      "required": true,
       "length": 255,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "principal-id",
+        "columnName": "delivery-notes",
         "dataType": "varchar",
         "dataLength": 255,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "Y"
+        "nullable": "N"
       }
     },
-    "roleId": {
+    "orderId": {
       "type": "String",
       "required": true,
-      "length": 36,
+      "length": 16,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "role-id",
+        "columnName": "order-id",
         "dataType": "varchar",
-        "dataLength": 36,
+        "dataLength": 16,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "N"

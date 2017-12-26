@@ -1,12 +1,18 @@
 {
-  "name": "Service",
+  "name": "ElectronicAddress",
   "options": {
     "idInjection": false,
     "mysql": {
       "schema": "icc",
-      "table": "service"
+      "table": "electronic-address"
     },
-    "relations": {}
+    "relations": {
+      "fkElectronicAddressElectronicAddressTypeMaster1rel": {
+        "model": "ElectronicAddressTypeMaster",
+        "type": "belongsTo",
+        "foreignKey": "electronicAddressTypeMasterId"
+      }
+    }
   },
   "properties": {
     "id": {
@@ -25,61 +31,31 @@
         "nullable": "N"
       }
     },
-    "name": {
-      "type": "String",
-      "required": true,
-      "length": 512,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "name",
-        "dataType": "varchar",
-        "dataLength": 512,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "N"
-      }
-    },
-    "description": {
+    "electronicAddressTypeMasterId": {
       "type": "String",
       "required": false,
-      "length": 512,
+      "length": 36,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "description",
+        "columnName": "electronic-address-type-master-id",
         "dataType": "varchar",
-        "dataLength": 512,
+        "dataLength": 36,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
       }
     },
-    "created": {
-      "type": "Date",
+    "electronicAddress": {
+      "type": "String",
       "required": false,
-      "length": null,
+      "length": 50,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "created",
-        "dataType": "datetime",
-        "dataLength": null,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "modified": {
-      "type": "Date",
-      "required": false,
-      "length": null,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "modified",
-        "dataType": "datetime",
-        "dataLength": null,
+        "columnName": "electronic-address",
+        "dataType": "varchar",
+        "dataLength": 50,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"

@@ -184,11 +184,11 @@
       "dataSource": "mysqld",
       "public": true
     },
-  "MgDevoteeElectronicAddress": {
+  "DevoteeElectronicAddress": {
       "dataSource": "mysqld",
       "public": true
     },
-  "MgDevoteePhysicalAddress": {
+  "DevoteePhysicalAddress": {
       "dataSource": "mysqld",
       "public": true
     },

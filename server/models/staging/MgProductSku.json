@@ -1,21 +1,26 @@
 {
-  "name": "Devotee",
+  "name": "MgProductSku",
   "options": {
     "idInjection": false,
     "mysql": {
       "schema": "icc",
-      "table": "devotee"
+      "table": "mg-product-sku"
     },
     "relations": {
-      "fkDevoteeCircle1rel": {
-        "model": "Circle",
+      "fkProductInstanceProductAttributeInstance1rel": {
+        "model": "MgProductAttributeInstance",
         "type": "belongsTo",
-        "foreignKey": "circleId"
+        "foreignKey": "productAttributeInstanceId"
       },
-      "fkDevoteeSpiritualLevelMaster1rel": {
-        "model": "SpiritualLevelMaster",
+      "fkProductSkuHsn1rel": {
+        "model": "MgHsn",
         "type": "belongsTo",
-        "foreignKey": "spiritualLevelMasterId"
+        "foreignKey": "hsnCode"
+      },
+      "fkProductSkuProduct1rel": {
+        "model": "MgProduct",
+        "type": "belongsTo",
+        "foreignKey": "productId"
       }
     }
   },
@@ -36,198 +41,123 @@
         "nullable": "N"
       }
     },
-    "legalName": {
-      "type": "String",
-      "required": false,
-      "length": 100,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "legal-name",
-        "dataType": "varchar",
-        "dataLength": 100,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "circleId": {
-      "type": "String",
-      "required": false,
-      "length": 36,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "circle-id",
-        "dataType": "varchar",
-        "dataLength": 36,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "spiritualName": {
-      "type": "String",
-      "required": false,
-      "length": 100,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "spiritual-name",
-        "dataType": "varchar",
-        "dataLength": 100,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "gender": {
-      "type": "Boolean",
-      "required": false,
-      "length": 1,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "gender",
-        "dataType": "char",
-        "dataLength": 1,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "shikshaLevel": {
-      "type": "String",
-      "required": false,
-      "length": 100,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "shiksha-level",
-        "dataType": "varchar",
-        "dataLength": 100,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "spiritualLevelMasterId": {
-      "type": "String",
-      "required": false,
-      "length": 36,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "spiritual-level-master-id",
-        "dataType": "varchar",
-        "dataLength": 36,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "creditLimit": {
+    "barCode": {
       "type": "String",
       "required": true,
-      "length": null,
-      "precision": 10,
-      "scale": 2,
+      "length": 255,
+      "precision": null,
+      "scale": null,
       "mysql": {
-        "columnName": "credit-limit",
-        "dataType": "decimal",
-        "dataLength": null,
-        "dataPrecision": 10,
-        "dataScale": 2,
+        "columnName": "bar-code",
+        "dataType": "varchar",
+        "dataLength": 255,
+        "dataPrecision": null,
+        "dataScale": null,
         "nullable": "N"
       }
     },
-    "realm": {
+    "barCodeType": {
       "type": "String",
       "required": false,
-      "length": 512,
+      "length": 50,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "realm",
+        "columnName": "bar-code-type",
         "dataType": "varchar",
-        "dataLength": 512,
+        "dataLength": 50,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
       }
     },
-    "username": {
+    "title": {
       "type": "String",
-      "required": false,
-      "length": 512,
+      "required": true,
+      "length": 255,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "username",
+        "columnName": "title",
         "dataType": "varchar",
-        "dataLength": 512,
+        "dataLength": 255,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "maximumRetailPrice": {
+      "type": "Number",
+      "required": true,
+      "length": null,
+      "precision": 22,
+      "scale": null,
+      "mysql": {
+        "columnName": "maximum-retail-price",
+        "dataType": "double",
+        "dataLength": null,
+        "dataPrecision": 22,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "discounted": {
+      "type": "String",
+      "required": false,
+      "length": 5,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "discounted",
+        "dataType": "varchar",
+        "dataLength": 5,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
       }
     },
-    "password": {
-      "type": "String",
-      "required": false,
-      "length": 512,
-      "precision": null,
-      "scale": null,
+    "discountAllowedInd": {
+      "type": "Number",
+      "required": true,
+      "length": null,
+      "precision": 3,
+      "scale": 0,
       "mysql": {
-        "columnName": "password",
-        "dataType": "varchar",
-        "dataLength": 512,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
+        "columnName": "discount-allowed-ind",
+        "dataType": "tinyint",
+        "dataLength": null,
+        "dataPrecision": 3,
+        "dataScale": 0,
+        "nullable": "N"
       }
     },
-    "email": {
-      "type": "String",
-      "required": false,
-      "length": 512,
-      "precision": null,
-      "scale": null,
+    "inStockQty": {
+      "type": "Number",
+      "required": true,
+      "length": null,
+      "precision": 10,
+      "scale": 0,
       "mysql": {
-        "columnName": "email",
-        "dataType": "varchar",
-        "dataLength": 512,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
+        "columnName": "in-stock-qty",
+        "dataType": "int",
+        "dataLength": null,
+        "dataPrecision": 10,
+        "dataScale": 0,
+        "nullable": "N"
       }
     },
-    "emailverified": {
+    "manageStock": {
       "type": "Number",
       "required": false,
       "length": null,
       "precision": 3,
       "scale": 0,
       "mysql": {
-        "columnName": "emailVerified",
+        "columnName": "manage-stock",
         "dataType": "tinyint",
         "dataLength": null,
         "dataPrecision": 3,
         "dataScale": 0,
-        "nullable": "Y"
-      }
-    },
-    "verificationtoken": {
-      "type": "String",
-      "required": false,
-      "length": 512,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "verificationToken",
-        "dataType": "varchar",
-        "dataLength": 512,
-        "dataPrecision": null,
-        "dataScale": null,
         "nullable": "Y"
       }
     },
@@ -289,6 +219,66 @@
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
+      }
+    },
+    "productAttributeInstanceId": {
+      "type": "String",
+      "required": true,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "product-attribute-instance-id",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "productId": {
+      "type": "String",
+      "required": true,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "product-id",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "sellPrice": {
+      "type": "Number",
+      "required": true,
+      "length": null,
+      "precision": 22,
+      "scale": null,
+      "mysql": {
+        "columnName": "sell-price",
+        "dataType": "double",
+        "dataLength": null,
+        "dataPrecision": 22,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "hsnCode": {
+      "type": "String",
+      "required": true,
+      "length": 50,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "hsn-code",
+        "dataType": "varchar",
+        "dataLength": 50,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
       }
     }
   }

@@ -1,21 +1,16 @@
 {
-  "name": "Devotee",
+  "name": "PhysicalAddress",
   "options": {
     "idInjection": false,
     "mysql": {
       "schema": "icc",
-      "table": "devotee"
+      "table": "physical-address"
     },
     "relations": {
-      "fkDevoteeCircle1rel": {
-        "model": "Circle",
+      "fkPhysicalAddressAddressTypeMaster1rel": {
+        "model": "PhysicalAddressTypeMaster",
         "type": "belongsTo",
-        "foreignKey": "circleId"
-      },
-      "fkDevoteeSpiritualLevelMaster1rel": {
-        "model": "SpiritualLevelMaster",
-        "type": "belongsTo",
-        "foreignKey": "spiritualLevelMasterId"
+        "foreignKey": "addressTypeMasterId"
       }
     }
   },
@@ -36,29 +31,14 @@
         "nullable": "N"
       }
     },
-    "legalName": {
-      "type": "String",
-      "required": false,
-      "length": 100,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "legal-name",
-        "dataType": "varchar",
-        "dataLength": 100,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "circleId": {
+    "addressTypeMasterId": {
       "type": "String",
       "required": false,
       "length": 36,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "circle-id",
+        "columnName": "address-type-master-id",
         "dataType": "varchar",
         "dataLength": 36,
         "dataPrecision": null,
@@ -66,14 +46,14 @@
         "nullable": "Y"
       }
     },
-    "spiritualName": {
+    "addressLine1": {
       "type": "String",
       "required": false,
       "length": 100,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "spiritual-name",
+        "columnName": "address-line-1",
         "dataType": "varchar",
         "dataLength": 100,
         "dataPrecision": null,
@@ -81,29 +61,14 @@
         "nullable": "Y"
       }
     },
-    "gender": {
-      "type": "Boolean",
-      "required": false,
-      "length": 1,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "gender",
-        "dataType": "char",
-        "dataLength": 1,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "shikshaLevel": {
+    "addressLine2": {
       "type": "String",
       "required": false,
       "length": 100,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "shiksha-level",
+        "columnName": "address-line-2",
         "dataType": "varchar",
         "dataLength": 100,
         "dataPrecision": null,
@@ -111,121 +76,61 @@
         "nullable": "Y"
       }
     },
-    "spiritualLevelMasterId": {
+    "addressArea": {
       "type": "String",
       "required": false,
-      "length": 36,
+      "length": 100,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "spiritual-level-master-id",
+        "columnName": "address-area",
         "dataType": "varchar",
-        "dataLength": 36,
+        "dataLength": 100,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
       }
     },
-    "creditLimit": {
-      "type": "String",
-      "required": true,
-      "length": null,
-      "precision": 10,
-      "scale": 2,
-      "mysql": {
-        "columnName": "credit-limit",
-        "dataType": "decimal",
-        "dataLength": null,
-        "dataPrecision": 10,
-        "dataScale": 2,
-        "nullable": "N"
-      }
-    },
-    "realm": {
+    "addressCity": {
       "type": "String",
       "required": false,
-      "length": 512,
+      "length": 100,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "realm",
+        "columnName": "address-city",
         "dataType": "varchar",
-        "dataLength": 512,
+        "dataLength": 100,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
       }
     },
-    "username": {
+    "addressCountry": {
       "type": "String",
       "required": false,
-      "length": 512,
+      "length": 100,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "username",
+        "columnName": "address-country",
         "dataType": "varchar",
-        "dataLength": 512,
+        "dataLength": 100,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
       }
     },
-    "password": {
+    "addressPin": {
       "type": "String",
       "required": false,
-      "length": 512,
+      "length": 10,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "password",
+        "columnName": "address-pin",
         "dataType": "varchar",
-        "dataLength": 512,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "email": {
-      "type": "String",
-      "required": false,
-      "length": 512,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "email",
-        "dataType": "varchar",
-        "dataLength": 512,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "emailverified": {
-      "type": "Number",
-      "required": false,
-      "length": null,
-      "precision": 3,
-      "scale": 0,
-      "mysql": {
-        "columnName": "emailVerified",
-        "dataType": "tinyint",
-        "dataLength": null,
-        "dataPrecision": 3,
-        "dataScale": 0,
-        "nullable": "Y"
-      }
-    },
-    "verificationtoken": {
-      "type": "String",
-      "required": false,
-      "length": 512,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "verificationToken",
-        "dataType": "varchar",
-        "dataLength": 512,
+        "dataLength": 10,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"

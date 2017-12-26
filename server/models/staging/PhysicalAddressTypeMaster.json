@@ -1,18 +1,12 @@
 {
-  "name": "ServiceMapping",
+  "name": "PhysicalAddressTypeMaster",
   "options": {
     "idInjection": false,
     "mysql": {
       "schema": "icc",
-      "table": "service-mapping"
+      "table": "physical-address-type-master"
     },
-    "relations": {
-      "fkServiceMappingService1rel": {
-        "model": "Service",
-        "type": "belongsTo",
-        "foreignKey": "roleId"
-      }
-    }
+    "relations": {}
   },
   "properties": {
     "id": {
@@ -31,49 +25,79 @@
         "nullable": "N"
       }
     },
-    "principalType": {
+    "addressType": {
       "type": "String",
       "required": false,
-      "length": 512,
+      "length": 50,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "principal-type",
+        "columnName": "address-type",
         "dataType": "varchar",
-        "dataLength": 512,
+        "dataLength": 50,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
       }
     },
-    "principalId": {
-      "type": "String",
+    "createdOn": {
+      "type": "Date",
       "required": false,
-      "length": 255,
+      "length": null,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "principal-id",
-        "dataType": "varchar",
-        "dataLength": 255,
+        "columnName": "created-on",
+        "dataType": "datetime",
+        "dataLength": null,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
       }
     },
-    "roleId": {
+    "updatedOn": {
+      "type": "Date",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "updated-on",
+        "dataType": "datetime",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "createdBy": {
       "type": "String",
-      "required": true,
+      "required": false,
       "length": 36,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "role-id",
+        "columnName": "created-by",
         "dataType": "varchar",
         "dataLength": 36,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "N"
+        "nullable": "Y"
+      }
+    },
+    "updatedBy": {
+      "type": "String",
+      "required": false,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "updated-by",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
       }
     }
   }
