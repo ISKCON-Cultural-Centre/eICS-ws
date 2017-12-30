@@ -26,7 +26,7 @@ ds.discoverModelDefinitions({ schema: 'icc' }, function (err, models) {
       });
       fs.writeFile(outputPath + '/' + schema.name + '.js', jsFileString(schema.name), function(err) {
         if (err) throw err;
-        console.log('Created ' + schema.name + '.json file');
+        console.log('Created ' + schema.name + '.js file');
       });
       count = count - 1;
       if (count === 0) {

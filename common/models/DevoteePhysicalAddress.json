@@ -1,0 +1,63 @@
+{
+	"name": "DevoteePhysicalAddress",
+	"properties": {
+		"devoteeId": {
+			"type": "string",
+			"required": true,
+			"length": 36,
+			"precision": null,
+			"scale": null,
+			"id": 2,
+			"mysql": {
+				"columnName": "devotee-id",
+				"dataType": "varchar",
+				"dataLength": 36,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "N"
+			}
+		},
+		"physicalAddressId": {
+			"type": "string",
+			"required": true,
+			"length": 36,
+			"precision": null,
+			"scale": null,
+			"id": 1,
+			"mysql": {
+				"columnName": "physical-address-id",
+				"dataType": "varchar",
+				"dataLength": 36,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "N"
+			},
+			"updateOnly": false
+		},
+		"preferredFlag": {
+			"type": "number",
+			"required": true,
+			"length": null,
+			"precision": 3,
+			"scale": 0,
+			"mysql": {
+				"columnName": "preferred-flag",
+				"dataType": "tinyint",
+				"dataLength": null,
+				"dataPrecision": 3,
+				"dataScale": 0,
+				"nullable": "N"
+			}
+		}
+	},
+	"settings": {
+		"strict": false,
+		"forceId": false,
+		"replaceOnPUT": true,
+		"idInjection": false,
+		"mysql": {
+			"schema": "icc",
+			"table": "devotee-physical-address"
+		}
+	}
+}

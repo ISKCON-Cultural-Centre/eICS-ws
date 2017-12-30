@@ -1,0 +1,47 @@
+{
+	"name": "MgUnitOfMeasure",
+	"properties": {
+		"id": {
+			"type": "string",
+			"required": true,
+			"length": 36,
+			"precision": null,
+			"scale": null,
+			"id": 1,
+			"mysql": {
+				"columnName": "id",
+				"dataType": "varchar",
+				"dataLength": 36,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "N"
+			},
+			"updateOnly": false
+		},
+		"uomName": {
+			"type": "string",
+			"required": false,
+			"length": 50,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "uom-name",
+				"dataType": "varchar",
+				"dataLength": 50,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "Y"
+			}
+		}
+	},
+	"settings": {
+		"strict": false,
+		"forceId": false,
+		"replaceOnPUT": true,
+		"idInjection": false,
+		"mysql": {
+			"schema": "icc",
+			"table": "mg-unit-of-measure"
+		}
+	}
+}

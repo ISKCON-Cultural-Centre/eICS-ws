@@ -1,0 +1,101 @@
+{
+  "name": "DevoteeLanguage",
+  "options": {
+    "idInjection": false,
+    "mysql": {
+      "schema": "icc",
+      "table": "devotee-language"
+    },
+    "relations": {
+      "fkDevoteeLanguageDevotee1rel": {
+        "model": "Devotee",
+        "type": "belongsTo",
+        "foreignKey": "devoteeId"
+      },
+      "fkTable1Language1rel": {
+        "model": "Language",
+        "type": "belongsTo",
+        "foreignKey": "languageId"
+      }
+    }
+  },
+  "properties": {
+    "devoteeId": {
+      "type": "String",
+      "required": true,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "id": 1,
+      "mysql": {
+        "columnName": "devotee-id",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "languageId": {
+      "type": "String",
+      "required": true,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "id": 2,
+      "mysql": {
+        "columnName": "language-id",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "readInd": {
+      "type": "Number",
+      "required": true,
+      "length": null,
+      "precision": 3,
+      "scale": 0,
+      "mysql": {
+        "columnName": "read-ind",
+        "dataType": "tinyint",
+        "dataLength": null,
+        "dataPrecision": 3,
+        "dataScale": 0,
+        "nullable": "N"
+      }
+    },
+    "writeInd": {
+      "type": "Number",
+      "required": true,
+      "length": null,
+      "precision": 3,
+      "scale": 0,
+      "mysql": {
+        "columnName": "write-ind",
+        "dataType": "tinyint",
+        "dataLength": null,
+        "dataPrecision": 3,
+        "dataScale": 0,
+        "nullable": "N"
+      }
+    },
+    "speakInd": {
+      "type": "Number",
+      "required": true,
+      "length": null,
+      "precision": 3,
+      "scale": 0,
+      "mysql": {
+        "columnName": "speak-ind",
+        "dataType": "tinyint",
+        "dataLength": null,
+        "dataPrecision": 3,
+        "dataScale": 0,
+        "nullable": "N"
+      }
+    }
+  }
+}

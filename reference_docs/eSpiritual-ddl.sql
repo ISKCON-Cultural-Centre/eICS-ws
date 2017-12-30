@@ -9,27 +9,11 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Table `deeksha-guru`
+-- Table `guru`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `deeksha-guru` (
+CREATE TABLE IF NOT EXISTS `guru` (
   `id` VARCHAR(36) NOT NULL,
   `name` VARCHAR(100) NULL,
-  `created-on` DATETIME NULL DEFAULT NULL,
-  `updated-on` DATETIME NULL DEFAULT NULL,
-  `created-by` VARCHAR(36) NULL DEFAULT NULL,
-  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
--- Table `spiritual-level-master`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `spiritual-level-master` (
-  `id` VARCHAR(36) NOT NULL,
-  `level` VARCHAR(30) NULL,
-  `description` VARCHAR(50) NULL,
   `created-on` DATETIME NULL DEFAULT NULL,
   `updated-on` DATETIME NULL DEFAULT NULL,
   `created-by` VARCHAR(36) NULL DEFAULT NULL,
@@ -63,6 +47,16 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
+-- Table `language`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `language` (
+  `id` VARCHAR(36) NOT NULL,
+  `language` VARCHAR(50) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `devotee`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `devotee` (
@@ -72,7 +66,6 @@ CREATE TABLE IF NOT EXISTS `devotee` (
   `spiritual-name` VARCHAR(100) NULL DEFAULT NULL,
   `gender` CHAR(1) NULL DEFAULT NULL,
   `shiksha-level` VARCHAR(100) NULL DEFAULT NULL,
-  `spiritual-level-master-id` VARCHAR(36) NULL,
   `credit-limit` DECIMAL(10,2) NOT NULL DEFAULT 0,
   `realm` VARCHAR(512) NULL DEFAULT NULL,
   `username` VARCHAR(512) NULL DEFAULT NULL,
@@ -84,19 +77,28 @@ CREATE TABLE IF NOT EXISTS `devotee` (
   `updated-on` DATETIME NULL DEFAULT NULL,
   `created-by` VARCHAR(36) NULL DEFAULT NULL,
   `updated-by` VARCHAR(36) NULL DEFAULT NULL,
+  `access-id` VARCHAR(100) NULL,
+  `gothra` VARCHAR(50) NULL,
+  `nakshatra` VARCHAR(50) NULL,
+  `government-unique-id` VARCHAR(20) NULL,
+  `income-tax-id` VARCHAR(20) NULL,
+  `lpm-id` VARCHAR(20) NULL,
+  `kc-association-date` DATE NULL,
+  `mother-tongue-language-id` VARCHAR(36) NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_devotee_id_idx` (`id` ASC),
-  INDEX `fk_devotee_spiritual-level-master1_idx` (`spiritual-level-master-id` ASC),
   INDEX `fk_devotee_circle1_idx` (`circle-id` ASC),
   UNIQUE INDEX `created-by_UNIQUE` (`created-by` ASC),
-  CONSTRAINT `fk_devotee_spiritual-level-master1`
-    FOREIGN KEY (`spiritual-level-master-id`)
-    REFERENCES `spiritual-level-master` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+  UNIQUE INDEX `access-id_UNIQUE` (`access-id` ASC),
+  INDEX `fk_devotee_language1_idx` (`mother-tongue-language-id` ASC),
   CONSTRAINT `fk_devotee_circle1`
     FOREIGN KEY (`circle-id`)
     REFERENCES `circle` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_devotee_language1`
+    FOREIGN KEY (`mother-tongue-language-id`)
+    REFERENCES `language` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -122,17 +124,18 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `devotee-karmi-family`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `devotee-karmi-family` (
-  `id` VARCHAR(36) CHARACTER SET 'utf8' NOT NULL,
   `family-name` VARCHAR(100) CHARACTER SET 'utf8' NULL,
-  `relationship-id` VARCHAR(36) CHARACTER SET 'utf8' NULL,
-  `devotee-id` VARCHAR(36) CHARACTER SET 'utf8' NULL,
+  `devotee-id` VARCHAR(36) CHARACTER SET 'utf8' NOT NULL,
+  `related-devotee-id` VARCHAR(36) NOT NULL,
+  `relationship-id` VARCHAR(36) CHARACTER SET 'utf8' NOT NULL,
   `created-on` DATETIME NULL DEFAULT NULL,
   `updated-on` DATETIME NULL DEFAULT NULL,
   `created-by` VARCHAR(36) CHARACTER SET 'utf8' NULL DEFAULT NULL,
   `updated-by` VARCHAR(36) CHARACTER SET 'utf8' NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`devotee-id`, `related-devotee-id`, `relationship-id`),
   INDEX `fk_devotee-karmi-family_relationship-master1_idx` (`relationship-id` ASC),
   INDEX `fk_devotee-karmi-family_devotee2_idx` (`devotee-id` ASC),
+  INDEX `fk_devotee-karmi-family_devotee1_idx` (`related-devotee-id` ASC),
   CONSTRAINT `fk_devotee-karmi-family_devotee2`
     FOREIGN KEY (`devotee-id`)
     REFERENCES `devotee` (`id`)
@@ -142,10 +145,14 @@ CREATE TABLE IF NOT EXISTS `devotee-karmi-family` (
     FOREIGN KEY (`relationship-id`)
     REFERENCES `relationship-master` (`id`)
     ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_devotee-karmi-family_devotee1`
+    FOREIGN KEY (`related-devotee-id`)
+    REFERENCES `devotee` (`id`)
+    ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_unicode_ci;
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
@@ -159,37 +166,59 @@ CREATE TABLE IF NOT EXISTS `accesstoken` (
   `userId` VARCHAR(512) CHARACTER SET 'utf8' NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_unicode_ci;
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `devotee-spiritual-family`
+-- Table `spiritual-level-master`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `devotee-spiritual-family` (
+CREATE TABLE IF NOT EXISTS `spiritual-level-master` (
+  `id` VARCHAR(36) NOT NULL,
+  `level` VARCHAR(30) NULL,
+  `description` VARCHAR(50) NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `devotee-spiritual-progress`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `devotee-spiritual-progress` (
   `id` VARCHAR(36) CHARACTER SET 'utf8' NOT NULL,
   `devotee-id` VARCHAR(36) CHARACTER SET 'utf8' NULL,
-  `guiding-devotee-id` VARCHAR(36) CHARACTER SET 'utf8' NULL,
+  `level-date` DATE NOT NULL,
   `created-on` DATETIME NULL DEFAULT NULL,
   `updated-on` DATETIME NULL DEFAULT NULL,
   `created-by` VARCHAR(36) CHARACTER SET 'utf8' NULL DEFAULT NULL,
   `updated-by` VARCHAR(36) CHARACTER SET 'utf8' NULL DEFAULT NULL,
+  `spiritual-level-master-id` VARCHAR(36) NOT NULL,
+  `guru-id` VARCHAR(36) NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_devotee-spiritual-family_devotee1_idx` (`devotee-id` ASC),
-  INDEX `fk_devotee-spiritual-family_devotee2_idx` (`guiding-devotee-id` ASC),
+  INDEX `fk_devotee-spiritual-family_spiritual-level-master1_idx` (`spiritual-level-master-id` ASC),
+  INDEX `fk_devotee-spiritual-family_guru1_idx` (`guru-id` ASC),
   CONSTRAINT `fk_devotee-spiritual-family_devotee1`
     FOREIGN KEY (`devotee-id`)
     REFERENCES `devotee` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_devotee-spiritual-family_devotee2`
-    FOREIGN KEY (`guiding-devotee-id`)
-    REFERENCES `devotee` (`id`)
+  CONSTRAINT `fk_devotee-spiritual-family_spiritual-level-master1`
+    FOREIGN KEY (`spiritual-level-master-id`)
+    REFERENCES `spiritual-level-master` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_devotee-spiritual-family_guru1`
+    FOREIGN KEY (`guru-id`)
+    REFERENCES `guru` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_unicode_ci;
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
@@ -205,8 +234,7 @@ CREATE TABLE IF NOT EXISTS `acl` (
   `principalId` VARCHAR(512) CHARACTER SET 'utf8' NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_unicode_ci;
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
@@ -221,8 +249,7 @@ CREATE TABLE IF NOT EXISTS `outreach-master` (
   `updated-by` VARCHAR(36) COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_unicode_ci;
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
@@ -237,8 +264,7 @@ CREATE TABLE IF NOT EXISTS `event-master` (
   `updated-by` VARCHAR(36) CHARACTER SET 'utf8' NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_unicode_ci;
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
@@ -266,8 +292,7 @@ CREATE TABLE IF NOT EXISTS `devotee-event-calendar` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_unicode_ci;
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
@@ -319,8 +344,7 @@ CREATE TABLE IF NOT EXISTS `donation-type-master` (
   `updated-by` VARCHAR(36) CHARACTER SET 'utf8' NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_unicode_ci;
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
@@ -479,11 +503,12 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `mg-devotee-electronic-address`
+-- Table `devotee-electronic-address`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mg-devotee-electronic-address` (
+CREATE TABLE IF NOT EXISTS `devotee-electronic-address` (
   `devotee-id` VARCHAR(36) NOT NULL,
   `electronic-address-id` VARCHAR(36) NOT NULL,
+  `preferred-flag` TINYINT NOT NULL DEFAULT 0,
   PRIMARY KEY (`devotee-id`, `electronic-address-id`),
   INDEX `fk_devotee-electronic-address_devotee1_idx` (`devotee-id` ASC),
   INDEX `fk_devotee-electronic-address_electronic-address1_idx` (`electronic-address-id` ASC),
@@ -544,11 +569,12 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `mg-devotee-physical-address`
+-- Table `devotee-physical-address`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mg-devotee-physical-address` (
+CREATE TABLE IF NOT EXISTS `devotee-physical-address` (
   `devotee-id` VARCHAR(36) NOT NULL,
   `physical-address-id` VARCHAR(36) NOT NULL,
+  `preferred-flag` TINYINT NOT NULL DEFAULT 0,
   PRIMARY KEY (`physical-address-id`, `devotee-id`),
   INDEX `fk_devotee-address_devotee1_idx` (`devotee-id` ASC),
   INDEX `fk_devotee-address_physical-address1_idx` (`physical-address-id` ASC),
@@ -1022,8 +1048,7 @@ CREATE TABLE IF NOT EXISTS `pledge` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_unicode_ci;
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
@@ -1067,8 +1092,7 @@ CREATE TABLE IF NOT EXISTS `rolemapping` (
   PRIMARY KEY (`id`),
   INDEX `principalId` (`principalId` ASC))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_unicode_ci;
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
@@ -1092,8 +1116,7 @@ CREATE TABLE IF NOT EXISTS `temple` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_unicode_ci;
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
@@ -1124,8 +1147,7 @@ CREATE TABLE IF NOT EXISTS `temple-branch` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_unicode_ci;
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
@@ -1291,8 +1313,7 @@ CREATE TABLE IF NOT EXISTS `approval-artefact` (
   `approval-artefact-entity-name` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_unicode_ci;
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
@@ -1338,6 +1359,216 @@ CREATE TABLE IF NOT EXISTS `donation-receipt` (
   CONSTRAINT `fk_donation-receipt_mg-payment1`
     FOREIGN KEY (`mg-payment-id`)
     REFERENCES `payment` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `asrama-master`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `asrama-master` (
+  `id` VARCHAR(36) NOT NULL,
+  `asrama-name` VARCHAR(50) NOT NULL,
+  `asrama-description` VARCHAR(50) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `devotee-asrama`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `devotee-asrama` (
+  `devotee-id` VARCHAR(36) NOT NULL,
+  `asrama-master-id` VARCHAR(36) NOT NULL,
+  `entry-date` DATE NOT NULL,
+  INDEX `fk_table1_devotee3_idx` (`devotee-id` ASC),
+  INDEX `fk_table1_asrama-master1_idx` (`asrama-master-id` ASC),
+  PRIMARY KEY (`devotee-id`, `asrama-master-id`),
+  CONSTRAINT `fk_table1_devotee3`
+    FOREIGN KEY (`devotee-id`)
+    REFERENCES `devotee` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_table1_asrama-master1`
+    FOREIGN KEY (`asrama-master-id`)
+    REFERENCES `asrama-master` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `devotee-language`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `devotee-language` (
+  `devotee-id` VARCHAR(36) NOT NULL,
+  `language-id` VARCHAR(36) NOT NULL,
+  `read-ind` TINYINT NOT NULL,
+  `write-ind` TINYINT NOT NULL,
+  `speak-ind` TINYINT NOT NULL,
+  INDEX `fk_table1_language1_idx` (`language-id` ASC),
+  INDEX `fk_devotee-language_devotee1_idx` (`devotee-id` ASC),
+  PRIMARY KEY (`devotee-id`, `language-id`),
+  CONSTRAINT `fk_table1_language1`
+    FOREIGN KEY (`language-id`)
+    REFERENCES `language` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_devotee-language_devotee1`
+    FOREIGN KEY (`devotee-id`)
+    REFERENCES `devotee` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `skill-category`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `skill-category` (
+  `id` VARCHAR(36) NOT NULL,
+  `skill-category-name` VARCHAR(50) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `skill`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `skill` (
+  `id` VARCHAR(36) NOT NULL,
+  `skill-name` VARCHAR(50) NOT NULL,
+  `skill-category-id` VARCHAR(36) NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_skill_skill-category1_idx` (`skill-category-id` ASC),
+  CONSTRAINT `fk_skill_skill-category1`
+    FOREIGN KEY (`skill-category-id`)
+    REFERENCES `skill-category` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `devotee-skill`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `devotee-skill` (
+  `devotee-id` VARCHAR(36) NOT NULL,
+  `skill-id` VARCHAR(36) NOT NULL,
+  INDEX `fk_devotee-skill_devotee1_idx` (`devotee-id` ASC),
+  INDEX `fk_devotee-skill_skill1_idx` (`skill-id` ASC),
+  CONSTRAINT `fk_devotee-skill_devotee1`
+    FOREIGN KEY (`devotee-id`)
+    REFERENCES `devotee` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_devotee-skill_skill1`
+    FOREIGN KEY (`skill-id`)
+    REFERENCES `skill` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `service-area`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `service-area` (
+  `id` VARCHAR(36) NOT NULL,
+  `service-name` VARCHAR(50) NOT NULL,
+  `description` VARCHAR(100) NOT NULL COMMENT '	',
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `devotee-service-interest`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `devotee-service-interest` (
+  `devotee-id` VARCHAR(36) NOT NULL,
+  `service-area-id` VARCHAR(36) NOT NULL,
+  INDEX `fk_devotee-service-interest_devotee1_idx` (`devotee-id` ASC),
+  INDEX `fk_devotee-service-interest_service-area1_idx` (`service-area-id` ASC),
+  PRIMARY KEY (`devotee-id`, `service-area-id`),
+  CONSTRAINT `fk_devotee-service-interest_devotee1`
+    FOREIGN KEY (`devotee-id`)
+    REFERENCES `devotee` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_devotee-service-interest_service-area1`
+    FOREIGN KEY (`service-area-id`)
+    REFERENCES `service-area` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `devotee-service-availability`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `devotee-service-availability` (
+  `id` VARCHAR(36) NOT NULL,
+  `devotee-id` VARCHAR(36) NOT NULL,
+  `service-date` DATE NOT NULL,
+  `service-hours` SMALLINT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_devotee-service-availability_devotee1_idx` (`devotee-id` ASC),
+  CONSTRAINT `fk_devotee-service-availability_devotee1`
+    FOREIGN KEY (`devotee-id`)
+    REFERENCES `devotee` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `festival-master`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `festival-master` (
+  `id` VARCHAR(36) NOT NULL,
+  `festival-name` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `festival-calendar`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `festival-calendar` (
+  `id` VARCHAR(36) NOT NULL,
+  `festival-master-id` VARCHAR(36) NOT NULL,
+  `year` CHAR(4) NOT NULL,
+  `date` VARCHAR(50) NULL,
+  INDEX `fk_festival-calendar_festival-master1_idx` (`festival-master-id` ASC),
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_festival-calendar_festival-master1`
+    FOREIGN KEY (`festival-master-id`)
+    REFERENCES `festival-master` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `devotee-service`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `devotee-service` (
+  `id` VARCHAR(36) NOT NULL,
+  `festival-calendar-id` VARCHAR(36) NOT NULL,
+  `service-area-id` VARCHAR(36) NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_devotee-service_festival-calendar1_idx` (`festival-calendar-id` ASC),
+  INDEX `fk_devotee-service_service-area1_idx` (`service-area-id` ASC),
+  CONSTRAINT `fk_devotee-service_festival-calendar1`
+    FOREIGN KEY (`festival-calendar-id`)
+    REFERENCES `festival-calendar` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_devotee-service_service-area1`
+    FOREIGN KEY (`service-area-id`)
+    REFERENCES `service-area` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

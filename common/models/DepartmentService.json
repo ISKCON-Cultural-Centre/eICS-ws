@@ -1,0 +1,48 @@
+{
+	"name": "DepartmentService",
+	"properties": {
+		"departmentId": {
+			"type": "string",
+			"required": true,
+			"length": 36,
+			"precision": null,
+			"scale": null,
+			"id": 1,
+			"mysql": {
+				"columnName": "department-id",
+				"dataType": "varchar",
+				"dataLength": 36,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "N"
+			},
+			"updateOnly": false
+		},
+		"serviceId": {
+			"type": "string",
+			"required": true,
+			"length": 36,
+			"precision": null,
+			"scale": null,
+			"id": 2,
+			"mysql": {
+				"columnName": "service-id",
+				"dataType": "varchar",
+				"dataLength": 36,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "N"
+			}
+		}
+	},
+	"settings": {
+		"strict": false,
+		"forceId": false,
+		"replaceOnPUT": true,
+		"idInjection": false,
+		"mysql": {
+			"schema": "icc",
+			"table": "department-service"
+		}
+	}
+}

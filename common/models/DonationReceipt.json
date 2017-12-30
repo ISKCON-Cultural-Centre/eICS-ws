@@ -1,0 +1,77 @@
+{
+	"name": "DonationReceipt",
+	"properties": {
+		"id": {
+			"type": "string",
+			"required": true,
+			"length": 36,
+			"precision": null,
+			"scale": null,
+			"id": 1,
+			"mysql": {
+				"columnName": "id",
+				"dataType": "varchar",
+				"dataLength": 36,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "N"
+			},
+			"updateOnly": false
+		},
+		"devoteeId": {
+			"type": "string",
+			"required": true,
+			"length": 36,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "devotee-id",
+				"dataType": "varchar",
+				"dataLength": 36,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "N"
+			}
+		},
+		"donationTypeMasterId": {
+			"type": "string",
+			"required": true,
+			"length": 36,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "donation-type-master-id",
+				"dataType": "varchar",
+				"dataLength": 36,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "N"
+			}
+		},
+		"mgPaymentId": {
+			"type": "string",
+			"required": true,
+			"length": 36,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "mg-payment-id",
+				"dataType": "varchar",
+				"dataLength": 36,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "N"
+			}
+		}
+	},
+	"settings": {
+		"strict": false,
+		"forceId": false,
+		"replaceOnPUT": true,
+		"idInjection": false,
+		"mysql": {
+			"schema": "icc",
+			"table": "donation-receipt"
+		}
+	}
+}

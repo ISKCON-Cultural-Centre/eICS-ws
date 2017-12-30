@@ -1,0 +1,92 @@
+{
+	"name": "Payment",
+	"properties": {
+		"id": {
+			"type": "string",
+			"required": true,
+			"length": 36,
+			"precision": null,
+			"scale": null,
+			"id": 1,
+			"mysql": {
+				"columnName": "id",
+				"dataType": "varchar",
+				"dataLength": 36,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "N"
+			},
+			"updateOnly": false
+		},
+		"devoteeId": {
+			"type": "string",
+			"required": true,
+			"length": 36,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "devotee-id",
+				"dataType": "varchar",
+				"dataLength": 36,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "N"
+			}
+		},
+		"paymentModeMasterId": {
+			"type": "string",
+			"required": true,
+			"length": 36,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "payment-mode-master-id",
+				"dataType": "varchar",
+				"dataLength": 36,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "N"
+			}
+		},
+		"paymentDate": {
+			"type": "date",
+			"required": true,
+			"length": null,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "payment-date",
+				"dataType": "datetime",
+				"dataLength": null,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "N"
+			}
+		},
+		"paymentAmount": {
+			"type": "string",
+			"required": true,
+			"length": null,
+			"precision": 10,
+			"scale": 2,
+			"mysql": {
+				"columnName": "payment-amount",
+				"dataType": "decimal",
+				"dataLength": null,
+				"dataPrecision": 10,
+				"dataScale": 2,
+				"nullable": "N"
+			}
+		}
+	},
+	"settings": {
+		"strict": false,
+		"forceId": false,
+		"replaceOnPUT": true,
+		"idInjection": false,
+		"mysql": {
+			"schema": "icc",
+			"table": "payment"
+		}
+	}
+}

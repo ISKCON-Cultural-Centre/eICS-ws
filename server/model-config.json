@@ -1,280 +1,350 @@
 {
-  "_meta": {
-    "sources": [
-      "loopback/common/models",
-      "loopback/server/models",
-      "../common/models",
-      "./models"
-    ],
-    "mixins": [
-      "../node_modules/loopback-ds-timestamp-mixin",
-      "loopback/common/mixins",
-      "loopback/server/mixins",
-      "../common/mixins",
-      "./mixins"
-    ]
-  },
-  "User": {
-    "dataSource": "mysqld",
-    "public": false
-  },
-  "AccessToken": {
-    "dataSource": "mysqld",
-    "public": false,
-    "relations": {
-      "user": {
-        "type": "belongsTo",
-        "model": "Devotee",
-        "foreignKey": "id"
-      }
-    }
-  },
-  "ACL": {
-    "dataSource": "mysqld",
-    "public": false
-  },
-  "RoleMapping": {
-    "dataSource": "mysqld",
-    "public": false,
-    "relations": {
-      "roleId": {
-        "type": "belongsTo",
-        "model": "Service",
-        "foreignKey": "id"
-      }
-    },
-    "options": {
-      "strictObjectIDCoercion": false
-    }
-  },
-  "Role": {
-    "dataSource": "mysqld",
-    "public": false
-  },
-  "Service": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "ServiceMapping": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "Circle": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "DeekshaGuru": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "Devotee": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "DevoteeEventCalendar": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "DevoteeKarmiFamily": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "DevoteeSpiritualFamily": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "DonationTypeMaster": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "EventMaster": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "NewContact": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "OutreachMaster": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "Payment": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "PaymentModeMaster": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "Pledge": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "PledgePayment": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "RelationshipMaster": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "SpiritualLevelMaster": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "Temple": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "TempleBranch": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "ElectronicAddress": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "ElectronicAddressTypeMaster": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "PhysicalAddress": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "PhysicalAddressTypeMaster": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "ApprovalArtefact": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "ApprovalQue": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "ApprovalRule": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "Department": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "DepartmentService": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "ServiceTaskMaster": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "TaskMaster": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-
-  "MgCreditNote": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "MgDeliveryNote": {
-      "dataSource": "mysqld",
-      "public": true
-    },
-  "DevoteeElectronicAddress": {
-      "dataSource": "mysqld",
-      "public": true
-    },
-  "DevoteePhysicalAddress": {
-      "dataSource": "mysqld",
-      "public": true
-    },
-  "MgInvoice": {
-      "dataSource": "mysqld",
-      "public": true
-    },
-  "MgOrderChannel": {
-      "dataSource": "mysqld",
-      "public": true
-    },
-  "MgOrderLine": {
-      "dataSource": "mysqld",
-      "public": true
-    },
-  "MgOrderReturn": {
-      "dataSource": "mysqld",
-      "public": true
-    },
-  "MgOrderReturnLine": {
-      "dataSource": "mysqld",
-      "public": true
-    },
-  "MgOrderStatus": {
-      "dataSource": "mysqld",
-      "public": true
-    },
-  "MgProduct": {
-      "dataSource": "mysqld",
-      "public": true
-    },
-  "MgProductAttribute": {
-      "dataSource": "mysqld",
-      "public": true
-    },
-  "MgProductAttributeInstance": {
-      "dataSource": "mysqld",
-      "public": true
-    },
-  "MgProductSku": {
-      "dataSource": "mysqld",
-      "public": true
-    },
-  "MgStockCurrent": {
-      "dataSource": "mysqld",
-      "public": true
-    },
-  "MgStockInward": {
-      "dataSource": "mysqld",
-      "public": true
-    },
-  "MgStockInwardDiary": {
-      "dataSource": "mysqld",
-      "public": true
-    },
-  "MgSupplier": {
-      "dataSource": "mysqld",
-      "public": true
-    },
-  "MgSupplierElectronicAddress": {
-      "dataSource": "mysqld",
-      "public": true
-    },
-  "MgSupplierPhysicalAddress": {
-      "dataSource": "mysqld",
-      "public": true
-    },
-  "MgTaxCategory": {
-      "dataSource": "mysqld",
-      "public": true
-    },
-  "MgTaxCategoryComponent": {
-      "dataSource": "mysqld",
-      "public": true
-    },
-  "MgTaxComponent": {
-      "dataSource": "mysqld",
-      "public": true
-    },
-  "MgTaxLine": {
-      "dataSource": "mysqld",
-      "public": true
-    },
-  "MgUnitOfMeasure": {
-      "dataSource": "mysqld",
-      "public": true
-    }
+	"_meta": {
+		"sources": [
+			"loopback/common/models",
+			"loopback/server/models",
+			"../common/models",
+			"./models"
+		],
+		"mixins": [
+			"../node_modules/loopback-ds-timestamp-mixin",
+			"loopback/common/mixins",
+			"loopback/server/mixins",
+			"../common/mixins",
+			"./mixins"
+		]
+	},
+	"User": {
+		"dataSource": "mysqld",
+		"public": false
+	},
+	"AccessToken": {
+		"dataSource": "mysqld",
+		"public": false,
+		"relations": {
+			"user": {
+				"type": "belongsTo",
+				"model": "Devotee",
+				"foreignKey": "id"
+			}
+		}
+	},
+	"ACL": {
+		"dataSource": "mysqld",
+		"public": false
+	},
+	"RoleMapping": {
+		"dataSource": "mysqld",
+		"public": false,
+		"relations": {
+			"roleId": {
+				"type": "belongsTo",
+				"model": "Service",
+				"foreignKey": "id"
+			}
+		},
+		"options": {
+			"strictObjectIDCoercion": false
+		}
+	},
+	"Role": {
+		"dataSource": "mysqld",
+		"public": false
+	},
+	"Service": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"ServiceMapping": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"Circle": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"Devotee": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"DevoteeEventCalendar": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"DevoteeKarmiFamily": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"DonationTypeMaster": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"EventMaster": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"NewContact": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"OutreachMaster": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"Payment": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"PaymentModeMaster": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"Pledge": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"PledgePayment": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"RelationshipMaster": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"SpiritualLevelMaster": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"Temple": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"TempleBranch": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"ElectronicAddress": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"ElectronicAddressTypeMaster": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"PhysicalAddress": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"PhysicalAddressTypeMaster": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"ApprovalArtefact": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"ApprovalQue": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"ApprovalRule": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"Department": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"DepartmentService": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"ServiceTaskMaster": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"TaskMaster": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"MgCreditNote": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"MgDeliveryNote": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"DevoteeElectronicAddress": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"DevoteePhysicalAddress": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"MgInvoice": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"MgOrderChannel": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"MgOrderLine": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"MgOrderReturn": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"MgOrderReturnLine": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"MgOrderStatus": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"MgProduct": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"MgProductAttribute": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"MgProductAttributeInstance": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"MgProductSku": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"MgStockCurrent": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"MgStockInward": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"MgStockInwardDiary": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"MgSupplier": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"MgSupplierElectronicAddress": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"MgSupplierPhysicalAddress": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"MgTaxCategory": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"MgTaxCategoryComponent": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"MgTaxComponent": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"MgTaxLine": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"MgUnitOfMeasure": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"Accesstoken": {
+		"dataSource": "mysqld",
+		"public": false
+	},
+	"Acl": {
+		"dataSource": "mysqld",
+		"public": false
+	},
+	"AsramaMaster": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"DevoteeAsrama": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"DevoteeLanguage": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"DevoteeService": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"DevoteeServiceAvailability": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"DevoteeServiceInterest": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"DevoteeSkill": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"DevoteeSpiritualProgress": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"DonationReceipt": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"FestivalCalendar": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"FestivalMaster": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"Language": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"MgHsn": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"MgOrder": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"Rolemapping": {
+		"dataSource": "mysqld",
+		"public": false
+	},
+	"ServiceArea": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"Skill": {
+		"dataSource": "mysqld",
+		"public": true
+	},
+	"SkillCategory": {
+		"dataSource": "mysqld",
+		"public": true
+	}
 }
-

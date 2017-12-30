@@ -1,0 +1,152 @@
+{
+	"name": "DevoteeSpiritualProgress",
+	"properties": {
+		"id": {
+			"type": "string",
+			"required": true,
+			"length": 36,
+			"precision": null,
+			"scale": null,
+			"id": 1,
+			"mysql": {
+				"columnName": "id",
+				"dataType": "varchar",
+				"dataLength": 36,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "N"
+			},
+			"updateOnly": false
+		},
+		"devoteeId": {
+			"type": "string",
+			"required": false,
+			"length": 36,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "devotee-id",
+				"dataType": "varchar",
+				"dataLength": 36,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "Y"
+			}
+		},
+		"levelDate": {
+			"type": "date",
+			"required": true,
+			"length": null,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "level-date",
+				"dataType": "date",
+				"dataLength": null,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "N"
+			}
+		},
+		"createdOn": {
+			"type": "date",
+			"required": false,
+			"length": null,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "created-on",
+				"dataType": "datetime",
+				"dataLength": null,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "Y"
+			}
+		},
+		"updatedOn": {
+			"type": "date",
+			"required": false,
+			"length": null,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "updated-on",
+				"dataType": "datetime",
+				"dataLength": null,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "Y"
+			}
+		},
+		"createdBy": {
+			"type": "string",
+			"required": false,
+			"length": 36,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "created-by",
+				"dataType": "varchar",
+				"dataLength": 36,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "Y"
+			}
+		},
+		"updatedBy": {
+			"type": "string",
+			"required": false,
+			"length": 36,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "updated-by",
+				"dataType": "varchar",
+				"dataLength": 36,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "Y"
+			}
+		},
+		"spiritualLevelMasterId": {
+			"type": "string",
+			"required": true,
+			"length": 36,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "spiritual-level-master-id",
+				"dataType": "varchar",
+				"dataLength": 36,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "N"
+			}
+		},
+		"guruId": {
+			"type": "string",
+			"required": true,
+			"length": 36,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "guru-id",
+				"dataType": "varchar",
+				"dataLength": 36,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "N"
+			}
+		}
+	},
+	"settings": {
+		"strict": false,
+		"forceId": false,
+		"replaceOnPUT": true,
+		"idInjection": false,
+		"mysql": {
+			"schema": "icc",
+			"table": "devotee-spiritual-progress"
+		}
+	}
+}
