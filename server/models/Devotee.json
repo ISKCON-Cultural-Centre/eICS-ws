@@ -2,10 +2,11 @@
   "name": "Devotee",
   "options": {
     "idInjection": false,
+    "base": "User",    
     "mysql": {
       "schema": "icc",
       "table": "devotee"
-    },
+    },  
     "relations": {
       "fkDevoteeCircle1rel": {
         "model": "Circle",
@@ -19,6 +20,16 @@
       }
     }
   },
+  "mixins": {
+    "TimeStamp" : {
+      "createdAt" : "created-on",
+      "updatedAt" : "updated-on",
+      "required" : false,
+      "validateUpsert": true,
+      "silenceWarnings": false
+    },
+    "GenerateKey" : true
+  },  
   "properties": {
     "id": {
       "type": "String",

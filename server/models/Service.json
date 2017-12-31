@@ -2,6 +2,7 @@
   "name": "Service",
   "options": {
     "idInjection": false,
+    "base": "Role",  
     "mysql": {
       "schema": "icc",
       "table": "service"
