@@ -10,16 +10,16 @@ import { JSONSearchParams } from '../core/search.params';
 import { ErrorHandler } from '../core/error.service';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Rx';
-import { DevoteeKarmiFamily } from '../../models/DevoteeKarmiFamily';
+import { DevoteeSpiritualProgress } from '../../models/DevoteeSpiritualProgress';
 import { Devotee } from '../../models/Devotee';
-import { RelationshipMaster } from '../../models/RelationshipMaster';
+import { SpiritualLevelMaster } from '../../models/SpiritualLevelMaster';
 
 
 /**
- * Api services for the `DevoteeKarmiFamily` model.
+ * Api services for the `DevoteeSpiritualProgress` model.
  */
 @Injectable()
-export class DevoteeKarmiFamilyApi extends BaseLoopBackApi {
+export class DevoteeSpiritualProgressApi extends BaseLoopBackApi {
 
   constructor(
     @Inject(Http) protected http: Http,
@@ -32,7 +32,7 @@ export class DevoteeKarmiFamilyApi extends BaseLoopBackApi {
   }
 
   /**
-   * Fetches belongsTo relation fkDevoteeKarmiFamilyDevotee1rel.
+   * Fetches belongsTo relation fkDevoteeSpiritualFamilyDevotee1rel.
    *
    * @param {any} id PersistedModel id
    *
@@ -44,13 +44,13 @@ export class DevoteeKarmiFamilyApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `DevoteeKarmiFamily` object.)
+   * This usually means the response is a `DevoteeSpiritualProgress` object.)
    * </em>
    */
-  public getFkDevoteeKarmiFamilyDevotee1rel(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
+  public getFkDevoteeSpiritualFamilyDevotee1rel(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/DevoteeKarmiFamilies/:id/fkDevoteeKarmiFamilyDevotee1rel";
+    "/DevoteeSpiritualProgresses/:id/fkDevoteeSpiritualFamilyDevotee1rel";
     let _routeParams: any = {
       id: id
     };
@@ -62,7 +62,7 @@ export class DevoteeKarmiFamilyApi extends BaseLoopBackApi {
   }
 
   /**
-   * Fetches belongsTo relation fkDevoteeKarmiFamilyDevotee2rel.
+   * Fetches belongsTo relation fkDevoteeSpiritualFamilySpiritualLevelMaster1rel.
    *
    * @param {any} id PersistedModel id
    *
@@ -74,43 +74,13 @@ export class DevoteeKarmiFamilyApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `DevoteeKarmiFamily` object.)
+   * This usually means the response is a `DevoteeSpiritualProgress` object.)
    * </em>
    */
-  public getFkDevoteeKarmiFamilyDevotee2rel(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
+  public getFkDevoteeSpiritualFamilySpiritualLevelMaster1rel(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/DevoteeKarmiFamilies/:id/fkDevoteeKarmiFamilyDevotee2rel";
-    let _routeParams: any = {
-      id: id
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    if (typeof refresh !== 'undefined' && refresh !== null) _urlParams.refresh = refresh;
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Fetches belongsTo relation fkDevoteeKarmiFamilyRelationshipMaster1rel.
-   *
-   * @param {any} id PersistedModel id
-   *
-   * @param {boolean} refresh 
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `DevoteeKarmiFamily` object.)
-   * </em>
-   */
-  public getFkDevoteeKarmiFamilyRelationshipMaster1rel(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/DevoteeKarmiFamilies/:id/fkDevoteeKarmiFamilyRelationshipMaster1rel";
+    "/DevoteeSpiritualProgresses/:id/fkDevoteeSpiritualFamilySpiritualLevelMaster1rel";
     let _routeParams: any = {
       id: id
     };
@@ -134,13 +104,13 @@ export class DevoteeKarmiFamilyApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `DevoteeKarmiFamily` object.)
+   * This usually means the response is a `DevoteeSpiritualProgress` object.)
    * </em>
    */
   public patchOrCreate(data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PATCH";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/DevoteeKarmiFamilies";
+    "/DevoteeSpiritualProgresses";
     let _routeParams: any = {};
     let _postBody: any = {
       data: data
@@ -165,13 +135,13 @@ export class DevoteeKarmiFamilyApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `DevoteeKarmiFamily` object.)
+   * This usually means the response is a `DevoteeSpiritualProgress` object.)
    * </em>
    */
   public patchAttributes(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PATCH";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/DevoteeKarmiFamilies/:id";
+    "/DevoteeSpiritualProgresses/:id";
     let _routeParams: any = {
       id: id
     };
@@ -185,9 +155,9 @@ export class DevoteeKarmiFamilyApi extends BaseLoopBackApi {
 
   /**
    * The name of the model represented by this $resource,
-   * i.e. `DevoteeKarmiFamily`.
+   * i.e. `DevoteeSpiritualProgress`.
    */
   public getModelName() {
-    return "DevoteeKarmiFamily";
+    return "DevoteeSpiritualProgress";
   }
 }

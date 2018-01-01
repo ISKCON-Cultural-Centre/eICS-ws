@@ -11,6 +11,7 @@ export interface ServiceInterface {
   "updatedOn"?: Date;
   "createdBy"?: string;
   "updatedBy"?: string;
+  principals?: any[];
 }
 
 export class Service implements ServiceInterface {
@@ -23,6 +24,7 @@ export class Service implements ServiceInterface {
   "updatedOn": Date;
   "createdBy": string;
   "updatedBy": string;
+  principals: any[];
   constructor(data?: ServiceInterface) {
     Object.assign(this, data);
   }
@@ -94,6 +96,14 @@ export class Service implements ServiceInterface {
         },
       },
       relations: {
+        principals: {
+          name: 'principals',
+          type: 'any[]',
+          model: '',
+          relationType: 'hasMany',
+                  keyFrom: 'id',
+          keyTo: 'roleId'
+        },
       }
     }
   }

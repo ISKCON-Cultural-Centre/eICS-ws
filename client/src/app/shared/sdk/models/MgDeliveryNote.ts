@@ -1,4 +1,7 @@
 /* tslint:disable */
+import {
+  MgOrder
+} from '../index';
 
 declare var Object: any;
 export interface MgDeliveryNoteInterface {
@@ -6,6 +9,7 @@ export interface MgDeliveryNoteInterface {
   "deliveredDate": Date;
   "deliveryNotes": string;
   "orderId": string;
+  fkDeliveryNoteOrder1rel?: MgOrder;
 }
 
 export class MgDeliveryNote implements MgDeliveryNoteInterface {
@@ -13,6 +17,7 @@ export class MgDeliveryNote implements MgDeliveryNoteInterface {
   "deliveredDate": Date;
   "deliveryNotes": string;
   "orderId": string;
+  fkDeliveryNoteOrder1rel: MgOrder;
   constructor(data?: MgDeliveryNoteInterface) {
     Object.assign(this, data);
   }
@@ -64,6 +69,14 @@ export class MgDeliveryNote implements MgDeliveryNoteInterface {
         },
       },
       relations: {
+        fkDeliveryNoteOrder1rel: {
+          name: 'fkDeliveryNoteOrder1rel',
+          type: 'MgOrder',
+          model: 'MgOrder',
+          relationType: 'belongsTo',
+                  keyFrom: 'orderId',
+          keyTo: 'id'
+        },
       }
     }
   }

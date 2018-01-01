@@ -1,6 +1,7 @@
 /* tslint:disable */
 import {
-  MgProductSku
+  MgProductSku,
+  MgOrder
 } from '../index';
 
 declare var Object: any;
@@ -17,6 +18,7 @@ export interface MgOrderLineInterface {
   "createdBy"?: string;
   "updatedBy"?: string;
   fkBookMarathonOrderDetailBook1rel?: MgProductSku;
+  fkBookMarathonOrderDetailBookMarathonOrder1rel?: MgOrder;
 }
 
 export class MgOrderLine implements MgOrderLineInterface {
@@ -32,6 +34,7 @@ export class MgOrderLine implements MgOrderLineInterface {
   "createdBy": string;
   "updatedBy": string;
   fkBookMarathonOrderDetailBook1rel: MgProductSku;
+  fkBookMarathonOrderDetailBookMarathonOrder1rel: MgOrder;
   constructor(data?: MgOrderLineInterface) {
     Object.assign(this, data);
   }
@@ -117,6 +120,14 @@ export class MgOrderLine implements MgOrderLineInterface {
           model: 'MgProductSku',
           relationType: 'belongsTo',
                   keyFrom: 'productInstanceId',
+          keyTo: 'id'
+        },
+        fkBookMarathonOrderDetailBookMarathonOrder1rel: {
+          name: 'fkBookMarathonOrderDetailBookMarathonOrder1rel',
+          type: 'MgOrder',
+          model: 'MgOrder',
+          relationType: 'belongsTo',
+                  keyFrom: 'orderId',
           keyTo: 'id'
         },
       }

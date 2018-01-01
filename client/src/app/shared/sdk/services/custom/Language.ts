@@ -10,15 +10,14 @@ import { JSONSearchParams } from '../core/search.params';
 import { ErrorHandler } from '../core/error.service';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Rx';
-import { MgDeliveryNote } from '../../models/MgDeliveryNote';
-import { MgOrder } from '../../models/MgOrder';
+import { Language } from '../../models/Language';
 
 
 /**
- * Api services for the `MgDeliveryNote` model.
+ * Api services for the `Language` model.
  */
 @Injectable()
-export class MgDeliveryNoteApi extends BaseLoopBackApi {
+export class LanguageApi extends BaseLoopBackApi {
 
   constructor(
     @Inject(Http) protected http: Http,
@@ -28,36 +27,6 @@ export class MgDeliveryNoteApi extends BaseLoopBackApi {
     @Optional() @Inject(ErrorHandler) protected errorHandler: ErrorHandler
   ) {
     super(http,  models, auth, searchParams, errorHandler);
-  }
-
-  /**
-   * Fetches belongsTo relation fkDeliveryNoteOrder1rel.
-   *
-   * @param {any} id PersistedModel id
-   *
-   * @param {boolean} refresh 
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `MgDeliveryNote` object.)
-   * </em>
-   */
-  public getFkDeliveryNoteOrder1rel(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/MgDeliveryNotes/:id/fkDeliveryNoteOrder1rel";
-    let _routeParams: any = {
-      id: id
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    if (typeof refresh !== 'undefined' && refresh !== null) _urlParams.refresh = refresh;
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
   }
 
   /**
@@ -73,13 +42,13 @@ export class MgDeliveryNoteApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `MgDeliveryNote` object.)
+   * This usually means the response is a `Language` object.)
    * </em>
    */
   public patchOrCreate(data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PATCH";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/MgDeliveryNotes";
+    "/Languages";
     let _routeParams: any = {};
     let _postBody: any = {
       data: data
@@ -104,13 +73,13 @@ export class MgDeliveryNoteApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `MgDeliveryNote` object.)
+   * This usually means the response is a `Language` object.)
    * </em>
    */
   public patchAttributes(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PATCH";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/MgDeliveryNotes/:id";
+    "/Languages/:id";
     let _routeParams: any = {
       id: id
     };
@@ -124,9 +93,9 @@ export class MgDeliveryNoteApi extends BaseLoopBackApi {
 
   /**
    * The name of the model represented by this $resource,
-   * i.e. `MgDeliveryNote`.
+   * i.e. `Language`.
    */
   public getModelName() {
-    return "MgDeliveryNote";
+    return "Language";
   }
 }

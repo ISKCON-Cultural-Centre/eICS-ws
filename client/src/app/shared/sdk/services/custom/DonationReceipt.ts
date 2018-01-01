@@ -10,16 +10,17 @@ import { JSONSearchParams } from '../core/search.params';
 import { ErrorHandler } from '../core/error.service';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Rx';
-import { DevoteeKarmiFamily } from '../../models/DevoteeKarmiFamily';
+import { DonationReceipt } from '../../models/DonationReceipt';
 import { Devotee } from '../../models/Devotee';
-import { RelationshipMaster } from '../../models/RelationshipMaster';
+import { DonationTypeMaster } from '../../models/DonationTypeMaster';
+import { Payment } from '../../models/Payment';
 
 
 /**
- * Api services for the `DevoteeKarmiFamily` model.
+ * Api services for the `DonationReceipt` model.
  */
 @Injectable()
-export class DevoteeKarmiFamilyApi extends BaseLoopBackApi {
+export class DonationReceiptApi extends BaseLoopBackApi {
 
   constructor(
     @Inject(Http) protected http: Http,
@@ -32,7 +33,7 @@ export class DevoteeKarmiFamilyApi extends BaseLoopBackApi {
   }
 
   /**
-   * Fetches belongsTo relation fkDevoteeKarmiFamilyDevotee1rel.
+   * Fetches belongsTo relation fkDonationReceiptDevotee1rel.
    *
    * @param {any} id PersistedModel id
    *
@@ -44,13 +45,13 @@ export class DevoteeKarmiFamilyApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `DevoteeKarmiFamily` object.)
+   * This usually means the response is a `DonationReceipt` object.)
    * </em>
    */
-  public getFkDevoteeKarmiFamilyDevotee1rel(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
+  public getFkDonationReceiptDevotee1rel(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/DevoteeKarmiFamilies/:id/fkDevoteeKarmiFamilyDevotee1rel";
+    "/DonationReceipts/:id/fkDonationReceiptDevotee1rel";
     let _routeParams: any = {
       id: id
     };
@@ -62,7 +63,7 @@ export class DevoteeKarmiFamilyApi extends BaseLoopBackApi {
   }
 
   /**
-   * Fetches belongsTo relation fkDevoteeKarmiFamilyDevotee2rel.
+   * Fetches belongsTo relation fkDonationReceiptDonationTypeMaster1rel.
    *
    * @param {any} id PersistedModel id
    *
@@ -74,13 +75,13 @@ export class DevoteeKarmiFamilyApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `DevoteeKarmiFamily` object.)
+   * This usually means the response is a `DonationReceipt` object.)
    * </em>
    */
-  public getFkDevoteeKarmiFamilyDevotee2rel(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
+  public getFkDonationReceiptDonationTypeMaster1rel(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/DevoteeKarmiFamilies/:id/fkDevoteeKarmiFamilyDevotee2rel";
+    "/DonationReceipts/:id/fkDonationReceiptDonationTypeMaster1rel";
     let _routeParams: any = {
       id: id
     };
@@ -92,7 +93,7 @@ export class DevoteeKarmiFamilyApi extends BaseLoopBackApi {
   }
 
   /**
-   * Fetches belongsTo relation fkDevoteeKarmiFamilyRelationshipMaster1rel.
+   * Fetches belongsTo relation fkDonationReceiptMgPayment1rel.
    *
    * @param {any} id PersistedModel id
    *
@@ -104,13 +105,13 @@ export class DevoteeKarmiFamilyApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `DevoteeKarmiFamily` object.)
+   * This usually means the response is a `DonationReceipt` object.)
    * </em>
    */
-  public getFkDevoteeKarmiFamilyRelationshipMaster1rel(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
+  public getFkDonationReceiptMgPayment1rel(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/DevoteeKarmiFamilies/:id/fkDevoteeKarmiFamilyRelationshipMaster1rel";
+    "/DonationReceipts/:id/fkDonationReceiptMgPayment1rel";
     let _routeParams: any = {
       id: id
     };
@@ -134,13 +135,13 @@ export class DevoteeKarmiFamilyApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `DevoteeKarmiFamily` object.)
+   * This usually means the response is a `DonationReceipt` object.)
    * </em>
    */
   public patchOrCreate(data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PATCH";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/DevoteeKarmiFamilies";
+    "/DonationReceipts";
     let _routeParams: any = {};
     let _postBody: any = {
       data: data
@@ -165,13 +166,13 @@ export class DevoteeKarmiFamilyApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `DevoteeKarmiFamily` object.)
+   * This usually means the response is a `DonationReceipt` object.)
    * </em>
    */
   public patchAttributes(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PATCH";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/DevoteeKarmiFamilies/:id";
+    "/DonationReceipts/:id";
     let _routeParams: any = {
       id: id
     };
@@ -185,9 +186,9 @@ export class DevoteeKarmiFamilyApi extends BaseLoopBackApi {
 
   /**
    * The name of the model represented by this $resource,
-   * i.e. `DevoteeKarmiFamily`.
+   * i.e. `DonationReceipt`.
    */
   public getModelName() {
-    return "DevoteeKarmiFamily";
+    return "DonationReceipt";
   }
 }

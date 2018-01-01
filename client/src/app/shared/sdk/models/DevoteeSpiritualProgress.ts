@@ -1,49 +1,54 @@
 /* tslint:disable */
 import {
-  Devotee
+  Devotee,
+  SpiritualLevelMaster
 } from '../index';
 
 declare var Object: any;
-export interface DevoteeSpiritualFamilyInterface {
+export interface DevoteeSpiritualProgressInterface {
   "id": string;
   "devoteeId"?: string;
-  "guidingDevoteeId"?: string;
+  "levelDate": Date;
   "createdOn"?: Date;
   "updatedOn"?: Date;
   "createdBy"?: string;
   "updatedBy"?: string;
+  "spiritualLevelMasterId": string;
+  "guruId": string;
   fkDevoteeSpiritualFamilyDevotee1rel?: Devotee;
-  fkDevoteeSpiritualFamilyDevotee2rel?: Devotee;
+  fkDevoteeSpiritualFamilySpiritualLevelMaster1rel?: SpiritualLevelMaster;
 }
 
-export class DevoteeSpiritualFamily implements DevoteeSpiritualFamilyInterface {
+export class DevoteeSpiritualProgress implements DevoteeSpiritualProgressInterface {
   "id": string;
   "devoteeId": string;
-  "guidingDevoteeId": string;
+  "levelDate": Date;
   "createdOn": Date;
   "updatedOn": Date;
   "createdBy": string;
   "updatedBy": string;
+  "spiritualLevelMasterId": string;
+  "guruId": string;
   fkDevoteeSpiritualFamilyDevotee1rel: Devotee;
-  fkDevoteeSpiritualFamilyDevotee2rel: Devotee;
-  constructor(data?: DevoteeSpiritualFamilyInterface) {
+  fkDevoteeSpiritualFamilySpiritualLevelMaster1rel: SpiritualLevelMaster;
+  constructor(data?: DevoteeSpiritualProgressInterface) {
     Object.assign(this, data);
   }
   /**
    * The name of the model represented by this $resource,
-   * i.e. `DevoteeSpiritualFamily`.
+   * i.e. `DevoteeSpiritualProgress`.
    */
   public static getModelName() {
-    return "DevoteeSpiritualFamily";
+    return "DevoteeSpiritualProgress";
   }
   /**
   * @method factory
   * @author Jonathan Casarrubias
   * @license MIT
-  * This method creates an instance of DevoteeSpiritualFamily for dynamic purposes.
+  * This method creates an instance of DevoteeSpiritualProgress for dynamic purposes.
   **/
-  public static factory(data: DevoteeSpiritualFamilyInterface): DevoteeSpiritualFamily{
-    return new DevoteeSpiritualFamily(data);
+  public static factory(data: DevoteeSpiritualProgressInterface): DevoteeSpiritualProgress{
+    return new DevoteeSpiritualProgress(data);
   }
   /**
   * @method getModelDefinition
@@ -54,9 +59,9 @@ export class DevoteeSpiritualFamily implements DevoteeSpiritualFamilyInterface {
   **/
   public static getModelDefinition() {
     return {
-      name: 'DevoteeSpiritualFamily',
-      plural: 'DevoteeSpiritualFamilies',
-      path: 'DevoteeSpiritualFamilies',
+      name: 'DevoteeSpiritualProgress',
+      plural: 'DevoteeSpiritualProgresses',
+      path: 'DevoteeSpiritualProgresses',
       idName: 'id',
       properties: {
         "id": {
@@ -67,9 +72,9 @@ export class DevoteeSpiritualFamily implements DevoteeSpiritualFamilyInterface {
           name: 'devoteeId',
           type: 'string'
         },
-        "guidingDevoteeId": {
-          name: 'guidingDevoteeId',
-          type: 'string'
+        "levelDate": {
+          name: 'levelDate',
+          type: 'Date'
         },
         "createdOn": {
           name: 'createdOn',
@@ -87,6 +92,14 @@ export class DevoteeSpiritualFamily implements DevoteeSpiritualFamilyInterface {
           name: 'updatedBy',
           type: 'string'
         },
+        "spiritualLevelMasterId": {
+          name: 'spiritualLevelMasterId',
+          type: 'string'
+        },
+        "guruId": {
+          name: 'guruId',
+          type: 'string'
+        },
       },
       relations: {
         fkDevoteeSpiritualFamilyDevotee1rel: {
@@ -97,12 +110,12 @@ export class DevoteeSpiritualFamily implements DevoteeSpiritualFamilyInterface {
                   keyFrom: 'devoteeId',
           keyTo: 'id'
         },
-        fkDevoteeSpiritualFamilyDevotee2rel: {
-          name: 'fkDevoteeSpiritualFamilyDevotee2rel',
-          type: 'Devotee',
-          model: 'Devotee',
+        fkDevoteeSpiritualFamilySpiritualLevelMaster1rel: {
+          name: 'fkDevoteeSpiritualFamilySpiritualLevelMaster1rel',
+          type: 'SpiritualLevelMaster',
+          model: 'SpiritualLevelMaster',
           relationType: 'belongsTo',
-                  keyFrom: 'guidingDevoteeId',
+                  keyFrom: 'spiritualLevelMasterId',
           keyTo: 'id'
         },
       }

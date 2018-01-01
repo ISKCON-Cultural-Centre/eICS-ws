@@ -3,11 +3,9 @@ import { Injectable } from '@angular/core';
 import { Service } from '../../models/Service';
 import { ServiceMapping } from '../../models/ServiceMapping';
 import { Circle } from '../../models/Circle';
-import { DeekshaGuru } from '../../models/DeekshaGuru';
 import { Devotee } from '../../models/Devotee';
 import { DevoteeEventCalendar } from '../../models/DevoteeEventCalendar';
 import { DevoteeKarmiFamily } from '../../models/DevoteeKarmiFamily';
-import { DevoteeSpiritualFamily } from '../../models/DevoteeSpiritualFamily';
 import { DonationTypeMaster } from '../../models/DonationTypeMaster';
 import { EventMaster } from '../../models/EventMaster';
 import { NewContact } from '../../models/NewContact';
@@ -56,6 +54,23 @@ import { MgTaxCategoryComponent } from '../../models/MgTaxCategoryComponent';
 import { MgTaxComponent } from '../../models/MgTaxComponent';
 import { MgTaxLine } from '../../models/MgTaxLine';
 import { MgUnitOfMeasure } from '../../models/MgUnitOfMeasure';
+import { AsramaMaster } from '../../models/AsramaMaster';
+import { DevoteeAsrama } from '../../models/DevoteeAsrama';
+import { DevoteeLanguage } from '../../models/DevoteeLanguage';
+import { DevoteeService } from '../../models/DevoteeService';
+import { DevoteeServiceAvailability } from '../../models/DevoteeServiceAvailability';
+import { DevoteeServiceInterest } from '../../models/DevoteeServiceInterest';
+import { DevoteeSkill } from '../../models/DevoteeSkill';
+import { DevoteeSpiritualProgress } from '../../models/DevoteeSpiritualProgress';
+import { DonationReceipt } from '../../models/DonationReceipt';
+import { FestivalCalendar } from '../../models/FestivalCalendar';
+import { FestivalMaster } from '../../models/FestivalMaster';
+import { Language } from '../../models/Language';
+import { MgHsn } from '../../models/MgHsn';
+import { MgOrder } from '../../models/MgOrder';
+import { ServiceArea } from '../../models/ServiceArea';
+import { Skill } from '../../models/Skill';
+import { SkillCategory } from '../../models/SkillCategory';
 
 export interface Models { [name: string]: any }
 
@@ -66,11 +81,9 @@ export class SDKModels {
     Service: Service,
     ServiceMapping: ServiceMapping,
     Circle: Circle,
-    DeekshaGuru: DeekshaGuru,
     Devotee: Devotee,
     DevoteeEventCalendar: DevoteeEventCalendar,
     DevoteeKarmiFamily: DevoteeKarmiFamily,
-    DevoteeSpiritualFamily: DevoteeSpiritualFamily,
     DonationTypeMaster: DonationTypeMaster,
     EventMaster: EventMaster,
     NewContact: NewContact,
@@ -119,6 +132,23 @@ export class SDKModels {
     MgTaxComponent: MgTaxComponent,
     MgTaxLine: MgTaxLine,
     MgUnitOfMeasure: MgUnitOfMeasure,
+    AsramaMaster: AsramaMaster,
+    DevoteeAsrama: DevoteeAsrama,
+    DevoteeLanguage: DevoteeLanguage,
+    DevoteeService: DevoteeService,
+    DevoteeServiceAvailability: DevoteeServiceAvailability,
+    DevoteeServiceInterest: DevoteeServiceInterest,
+    DevoteeSkill: DevoteeSkill,
+    DevoteeSpiritualProgress: DevoteeSpiritualProgress,
+    DonationReceipt: DonationReceipt,
+    FestivalCalendar: FestivalCalendar,
+    FestivalMaster: FestivalMaster,
+    Language: Language,
+    MgHsn: MgHsn,
+    MgOrder: MgOrder,
+    ServiceArea: ServiceArea,
+    Skill: Skill,
+    SkillCategory: SkillCategory,
     
   };
 

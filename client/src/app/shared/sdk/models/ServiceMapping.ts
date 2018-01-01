@@ -9,6 +9,9 @@ export interface ServiceMappingInterface {
   "principalType"?: string;
   "principalId"?: string;
   "roleId": string;
+  "principaltype"?: string;
+  "principalid"?: string;
+  "roleid"?: number;
   fkServiceMappingService1rel?: Service;
 }
 
@@ -17,6 +20,9 @@ export class ServiceMapping implements ServiceMappingInterface {
   "principalType": string;
   "principalId": string;
   "roleId": string;
+  "principaltype": string;
+  "principalid": string;
+  "roleid": number;
   fkServiceMappingService1rel: Service;
   constructor(data?: ServiceMappingInterface) {
     Object.assign(this, data);
@@ -66,6 +72,18 @@ export class ServiceMapping implements ServiceMappingInterface {
         "roleId": {
           name: 'roleId',
           type: 'string'
+        },
+        "principaltype": {
+          name: 'principaltype',
+          type: 'string'
+        },
+        "principalid": {
+          name: 'principalid',
+          type: 'string'
+        },
+        "roleid": {
+          name: 'roleid',
+          type: 'number'
         },
       },
       relations: {

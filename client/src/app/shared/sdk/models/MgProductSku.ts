@@ -1,7 +1,8 @@
 /* tslint:disable */
 import {
   MgProductAttributeInstance,
-  MgProduct
+  MgProduct,
+  MgHsn
 } from '../index';
 
 declare var Object: any;
@@ -25,6 +26,7 @@ export interface MgProductSkuInterface {
   "hsnCode": string;
   fkProductInstanceProductAttributeInstance1rel?: MgProductAttributeInstance;
   fkProductSkuProduct1rel?: MgProduct;
+  fkProductSkuHsn1rel?: MgHsn;
 }
 
 export class MgProductSku implements MgProductSkuInterface {
@@ -47,6 +49,7 @@ export class MgProductSku implements MgProductSkuInterface {
   "hsnCode": string;
   fkProductInstanceProductAttributeInstance1rel: MgProductAttributeInstance;
   fkProductSkuProduct1rel: MgProduct;
+  fkProductSkuHsn1rel: MgHsn;
   constructor(data?: MgProductSkuInterface) {
     Object.assign(this, data);
   }
@@ -165,6 +168,14 @@ export class MgProductSku implements MgProductSkuInterface {
           relationType: 'belongsTo',
                   keyFrom: 'productId',
           keyTo: 'id'
+        },
+        fkProductSkuHsn1rel: {
+          name: 'fkProductSkuHsn1rel',
+          type: 'MgHsn',
+          model: 'MgHsn',
+          relationType: 'belongsTo',
+                  keyFrom: 'hsnCode',
+          keyTo: 'hsnCode'
         },
       }
     }

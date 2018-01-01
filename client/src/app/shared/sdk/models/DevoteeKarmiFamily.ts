@@ -6,27 +6,29 @@ import {
 
 declare var Object: any;
 export interface DevoteeKarmiFamilyInterface {
-  "id": string;
   "familyName"?: string;
-  "relationshipId"?: string;
-  "devoteeId"?: string;
+  "devoteeId": string;
+  "relatedDevoteeId": string;
+  "relationshipId": string;
   "createdOn"?: Date;
   "updatedOn"?: Date;
   "createdBy"?: string;
   "updatedBy"?: string;
+  fkDevoteeKarmiFamilyDevotee1rel?: Devotee;
   fkDevoteeKarmiFamilyDevotee2rel?: Devotee;
   fkDevoteeKarmiFamilyRelationshipMaster1rel?: RelationshipMaster;
 }
 
 export class DevoteeKarmiFamily implements DevoteeKarmiFamilyInterface {
-  "id": string;
   "familyName": string;
-  "relationshipId": string;
   "devoteeId": string;
+  "relatedDevoteeId": string;
+  "relationshipId": string;
   "createdOn": Date;
   "updatedOn": Date;
   "createdBy": string;
   "updatedBy": string;
+  fkDevoteeKarmiFamilyDevotee1rel: Devotee;
   fkDevoteeKarmiFamilyDevotee2rel: Devotee;
   fkDevoteeKarmiFamilyRelationshipMaster1rel: RelationshipMaster;
   constructor(data?: DevoteeKarmiFamilyInterface) {
@@ -60,22 +62,22 @@ export class DevoteeKarmiFamily implements DevoteeKarmiFamilyInterface {
       name: 'DevoteeKarmiFamily',
       plural: 'DevoteeKarmiFamilies',
       path: 'DevoteeKarmiFamilies',
-      idName: 'id',
+      idName: 'devoteeId',
       properties: {
-        "id": {
-          name: 'id',
-          type: 'string'
-        },
         "familyName": {
           name: 'familyName',
           type: 'string'
         },
-        "relationshipId": {
-          name: 'relationshipId',
-          type: 'string'
-        },
         "devoteeId": {
           name: 'devoteeId',
+          type: 'string'
+        },
+        "relatedDevoteeId": {
+          name: 'relatedDevoteeId',
+          type: 'string'
+        },
+        "relationshipId": {
+          name: 'relationshipId',
           type: 'string'
         },
         "createdOn": {
@@ -96,6 +98,14 @@ export class DevoteeKarmiFamily implements DevoteeKarmiFamilyInterface {
         },
       },
       relations: {
+        fkDevoteeKarmiFamilyDevotee1rel: {
+          name: 'fkDevoteeKarmiFamilyDevotee1rel',
+          type: 'Devotee',
+          model: 'Devotee',
+          relationType: 'belongsTo',
+                  keyFrom: 'relatedDevoteeId',
+          keyTo: 'id'
+        },
         fkDevoteeKarmiFamilyDevotee2rel: {
           name: 'fkDevoteeKarmiFamilyDevotee2rel',
           type: 'Devotee',

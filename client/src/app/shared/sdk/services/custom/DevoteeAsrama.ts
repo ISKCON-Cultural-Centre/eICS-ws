@@ -10,14 +10,16 @@ import { JSONSearchParams } from '../core/search.params';
 import { ErrorHandler } from '../core/error.service';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Rx';
-import { DeekshaGuru } from '../../models/DeekshaGuru';
+import { DevoteeAsrama } from '../../models/DevoteeAsrama';
+import { AsramaMaster } from '../../models/AsramaMaster';
+import { Devotee } from '../../models/Devotee';
 
 
 /**
- * Api services for the `DeekshaGuru` model.
+ * Api services for the `DevoteeAsrama` model.
  */
 @Injectable()
-export class DeekshaGuruApi extends BaseLoopBackApi {
+export class DevoteeAsramaApi extends BaseLoopBackApi {
 
   constructor(
     @Inject(Http) protected http: Http,
@@ -27,6 +29,66 @@ export class DeekshaGuruApi extends BaseLoopBackApi {
     @Optional() @Inject(ErrorHandler) protected errorHandler: ErrorHandler
   ) {
     super(http,  models, auth, searchParams, errorHandler);
+  }
+
+  /**
+   * Fetches belongsTo relation fkTable1AsramaMaster1rel.
+   *
+   * @param {any} id PersistedModel id
+   *
+   * @param {boolean} refresh 
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `DevoteeAsrama` object.)
+   * </em>
+   */
+  public getFkTable1AsramaMaster1rel(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/DevoteeAsramas/:id/fkTable1AsramaMaster1rel";
+    let _routeParams: any = {
+      id: id
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof refresh !== 'undefined' && refresh !== null) _urlParams.refresh = refresh;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Fetches belongsTo relation fkTable1Devotee3rel.
+   *
+   * @param {any} id PersistedModel id
+   *
+   * @param {boolean} refresh 
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `DevoteeAsrama` object.)
+   * </em>
+   */
+  public getFkTable1Devotee3rel(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/DevoteeAsramas/:id/fkTable1Devotee3rel";
+    let _routeParams: any = {
+      id: id
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof refresh !== 'undefined' && refresh !== null) _urlParams.refresh = refresh;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
   }
 
   /**
@@ -42,13 +104,13 @@ export class DeekshaGuruApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `DeekshaGuru` object.)
+   * This usually means the response is a `DevoteeAsrama` object.)
    * </em>
    */
   public patchOrCreate(data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PATCH";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/DeekshaGurus";
+    "/DevoteeAsramas";
     let _routeParams: any = {};
     let _postBody: any = {
       data: data
@@ -73,13 +135,13 @@ export class DeekshaGuruApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `DeekshaGuru` object.)
+   * This usually means the response is a `DevoteeAsrama` object.)
    * </em>
    */
   public patchAttributes(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PATCH";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/DeekshaGurus/:id";
+    "/DevoteeAsramas/:id";
     let _routeParams: any = {
       id: id
     };
@@ -93,9 +155,9 @@ export class DeekshaGuruApi extends BaseLoopBackApi {
 
   /**
    * The name of the model represented by this $resource,
-   * i.e. `DeekshaGuru`.
+   * i.e. `DevoteeAsrama`.
    */
   public getModelName() {
-    return "DeekshaGuru";
+    return "DevoteeAsrama";
   }
 }

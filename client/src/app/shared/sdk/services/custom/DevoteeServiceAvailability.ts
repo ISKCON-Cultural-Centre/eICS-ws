@@ -10,15 +10,15 @@ import { JSONSearchParams } from '../core/search.params';
 import { ErrorHandler } from '../core/error.service';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Rx';
-import { DevoteeSpiritualFamily } from '../../models/DevoteeSpiritualFamily';
+import { DevoteeServiceAvailability } from '../../models/DevoteeServiceAvailability';
 import { Devotee } from '../../models/Devotee';
 
 
 /**
- * Api services for the `DevoteeSpiritualFamily` model.
+ * Api services for the `DevoteeServiceAvailability` model.
  */
 @Injectable()
-export class DevoteeSpiritualFamilyApi extends BaseLoopBackApi {
+export class DevoteeServiceAvailabilityApi extends BaseLoopBackApi {
 
   constructor(
     @Inject(Http) protected http: Http,
@@ -31,7 +31,7 @@ export class DevoteeSpiritualFamilyApi extends BaseLoopBackApi {
   }
 
   /**
-   * Fetches belongsTo relation fkDevoteeSpiritualFamilyDevotee1rel.
+   * Fetches belongsTo relation fkDevoteeServiceAvailabilityDevotee1rel.
    *
    * @param {any} id PersistedModel id
    *
@@ -43,43 +43,13 @@ export class DevoteeSpiritualFamilyApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `DevoteeSpiritualFamily` object.)
+   * This usually means the response is a `DevoteeServiceAvailability` object.)
    * </em>
    */
-  public getFkDevoteeSpiritualFamilyDevotee1rel(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
+  public getFkDevoteeServiceAvailabilityDevotee1rel(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/DevoteeSpiritualFamilies/:id/fkDevoteeSpiritualFamilyDevotee1rel";
-    let _routeParams: any = {
-      id: id
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    if (typeof refresh !== 'undefined' && refresh !== null) _urlParams.refresh = refresh;
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Fetches belongsTo relation fkDevoteeSpiritualFamilyDevotee2rel.
-   *
-   * @param {any} id PersistedModel id
-   *
-   * @param {boolean} refresh 
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `DevoteeSpiritualFamily` object.)
-   * </em>
-   */
-  public getFkDevoteeSpiritualFamilyDevotee2rel(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/DevoteeSpiritualFamilies/:id/fkDevoteeSpiritualFamilyDevotee2rel";
+    "/DevoteeServiceAvailabilities/:id/fkDevoteeServiceAvailabilityDevotee1rel";
     let _routeParams: any = {
       id: id
     };
@@ -103,13 +73,13 @@ export class DevoteeSpiritualFamilyApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `DevoteeSpiritualFamily` object.)
+   * This usually means the response is a `DevoteeServiceAvailability` object.)
    * </em>
    */
   public patchOrCreate(data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PATCH";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/DevoteeSpiritualFamilies";
+    "/DevoteeServiceAvailabilities";
     let _routeParams: any = {};
     let _postBody: any = {
       data: data
@@ -134,13 +104,13 @@ export class DevoteeSpiritualFamilyApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `DevoteeSpiritualFamily` object.)
+   * This usually means the response is a `DevoteeServiceAvailability` object.)
    * </em>
    */
   public patchAttributes(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PATCH";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/DevoteeSpiritualFamilies/:id";
+    "/DevoteeServiceAvailabilities/:id";
     let _routeParams: any = {
       id: id
     };
@@ -154,9 +124,9 @@ export class DevoteeSpiritualFamilyApi extends BaseLoopBackApi {
 
   /**
    * The name of the model represented by this $resource,
-   * i.e. `DevoteeSpiritualFamily`.
+   * i.e. `DevoteeServiceAvailability`.
    */
   public getModelName() {
-    return "DevoteeSpiritualFamily";
+    return "DevoteeServiceAvailability";
   }
 }

@@ -48,11 +48,9 @@ import { StorageBrowser } from './storage/storage.browser';
 import { ServiceApi } from './services/custom/Service';
 import { ServiceMappingApi } from './services/custom/ServiceMapping';
 import { CircleApi } from './services/custom/Circle';
-import { DeekshaGuruApi } from './services/custom/DeekshaGuru';
 import { DevoteeApi } from './services/custom/Devotee';
 import { DevoteeEventCalendarApi } from './services/custom/DevoteeEventCalendar';
 import { DevoteeKarmiFamilyApi } from './services/custom/DevoteeKarmiFamily';
-import { DevoteeSpiritualFamilyApi } from './services/custom/DevoteeSpiritualFamily';
 import { DonationTypeMasterApi } from './services/custom/DonationTypeMaster';
 import { EventMasterApi } from './services/custom/EventMaster';
 import { NewContactApi } from './services/custom/NewContact';
@@ -101,6 +99,23 @@ import { MgTaxCategoryComponentApi } from './services/custom/MgTaxCategoryCompon
 import { MgTaxComponentApi } from './services/custom/MgTaxComponent';
 import { MgTaxLineApi } from './services/custom/MgTaxLine';
 import { MgUnitOfMeasureApi } from './services/custom/MgUnitOfMeasure';
+import { AsramaMasterApi } from './services/custom/AsramaMaster';
+import { DevoteeAsramaApi } from './services/custom/DevoteeAsrama';
+import { DevoteeLanguageApi } from './services/custom/DevoteeLanguage';
+import { DevoteeServiceApi } from './services/custom/DevoteeService';
+import { DevoteeServiceAvailabilityApi } from './services/custom/DevoteeServiceAvailability';
+import { DevoteeServiceInterestApi } from './services/custom/DevoteeServiceInterest';
+import { DevoteeSkillApi } from './services/custom/DevoteeSkill';
+import { DevoteeSpiritualProgressApi } from './services/custom/DevoteeSpiritualProgress';
+import { DonationReceiptApi } from './services/custom/DonationReceipt';
+import { FestivalCalendarApi } from './services/custom/FestivalCalendar';
+import { FestivalMasterApi } from './services/custom/FestivalMaster';
+import { LanguageApi } from './services/custom/Language';
+import { MgHsnApi } from './services/custom/MgHsn';
+import { MgOrderApi } from './services/custom/MgOrder';
+import { ServiceAreaApi } from './services/custom/ServiceArea';
+import { SkillApi } from './services/custom/Skill';
+import { SkillCategoryApi } from './services/custom/SkillCategory';
 /**
 * @module SDKBrowserModule
 * @description
@@ -133,11 +148,9 @@ export class SDKBrowserModule {
         ServiceApi,
         ServiceMappingApi,
         CircleApi,
-        DeekshaGuruApi,
         DevoteeApi,
         DevoteeEventCalendarApi,
         DevoteeKarmiFamilyApi,
-        DevoteeSpiritualFamilyApi,
         DonationTypeMasterApi,
         EventMasterApi,
         NewContactApi,
@@ -186,6 +199,23 @@ export class SDKBrowserModule {
         MgTaxComponentApi,
         MgTaxLineApi,
         MgUnitOfMeasureApi,
+        AsramaMasterApi,
+        DevoteeAsramaApi,
+        DevoteeLanguageApi,
+        DevoteeServiceApi,
+        DevoteeServiceAvailabilityApi,
+        DevoteeServiceInterestApi,
+        DevoteeSkillApi,
+        DevoteeSpiritualProgressApi,
+        DonationReceiptApi,
+        FestivalCalendarApi,
+        FestivalMasterApi,
+        LanguageApi,
+        MgHsnApi,
+        MgOrderApi,
+        ServiceAreaApi,
+        SkillApi,
+        SkillCategoryApi,
         internalStorageProvider,
         { provide: SDKStorage, useClass: StorageBrowser }
       ]

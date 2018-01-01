@@ -1,6 +1,7 @@
 /* tslint:disable */
 import {
-  Payment
+  Payment,
+  MgOrder
 } from '../index';
 
 declare var Object: any;
@@ -10,6 +11,7 @@ export interface MgCreditNoteInterface {
   "dueAmount": string;
   "paymentId"?: string;
   fkCreditNotePayment1rel?: Payment;
+  fkCreditNoteOrder1rel?: MgOrder;
 }
 
 export class MgCreditNote implements MgCreditNoteInterface {
@@ -18,6 +20,7 @@ export class MgCreditNote implements MgCreditNoteInterface {
   "dueAmount": string;
   "paymentId": string;
   fkCreditNotePayment1rel: Payment;
+  fkCreditNoteOrder1rel: MgOrder;
   constructor(data?: MgCreditNoteInterface) {
     Object.assign(this, data);
   }
@@ -75,6 +78,14 @@ export class MgCreditNote implements MgCreditNoteInterface {
           model: 'Payment',
           relationType: 'belongsTo',
                   keyFrom: 'paymentId',
+          keyTo: 'id'
+        },
+        fkCreditNoteOrder1rel: {
+          name: 'fkCreditNoteOrder1rel',
+          type: 'MgOrder',
+          model: 'MgOrder',
+          relationType: 'belongsTo',
+                  keyFrom: 'orderId',
           keyTo: 'id'
         },
       }

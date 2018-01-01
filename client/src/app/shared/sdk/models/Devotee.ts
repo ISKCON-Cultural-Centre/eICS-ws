@@ -1,7 +1,7 @@
 /* tslint:disable */
 import {
   Circle,
-  SpiritualLevelMaster
+  Language
 } from '../index';
 
 declare var Object: any;
@@ -12,11 +12,9 @@ export interface DevoteeInterface {
   "spiritualName"?: string;
   "gender"?: boolean;
   "shikshaLevel"?: string;
-  "spiritualLevelMasterId"?: string;
   "creditLimit": string;
   "realm"?: string;
   "username"?: string;
-  "password"?: string;
   "email"?: string;
   "emailverified"?: number;
   "verificationtoken"?: string;
@@ -24,8 +22,21 @@ export interface DevoteeInterface {
   "updatedOn"?: Date;
   "createdBy"?: string;
   "updatedBy"?: string;
+  "accessId"?: string;
+  "gothra"?: string;
+  "nakshatra"?: string;
+  "governmentUniqueId"?: string;
+  "incomeTaxId"?: string;
+  "lpmId"?: string;
+  "kcAssociationDate"?: Date;
+  "motherTongueLanguageId": string;
+  "emailVerified"?: boolean;
+  "created-on"?: Date;
+  "updated-on"?: Date;
+  "password"?: string;
+  accessTokens?: any[];
   fkDevoteeCircle1rel?: Circle;
-  fkDevoteeSpiritualLevelMaster1rel?: SpiritualLevelMaster;
+  fkDevoteeLanguage1rel?: Language;
 }
 
 export class Devotee implements DevoteeInterface {
@@ -35,11 +46,9 @@ export class Devotee implements DevoteeInterface {
   "spiritualName": string;
   "gender": boolean;
   "shikshaLevel": string;
-  "spiritualLevelMasterId": string;
   "creditLimit": string;
   "realm": string;
   "username": string;
-  "password": string;
   "email": string;
   "emailverified": number;
   "verificationtoken": string;
@@ -47,8 +56,21 @@ export class Devotee implements DevoteeInterface {
   "updatedOn": Date;
   "createdBy": string;
   "updatedBy": string;
+  "accessId": string;
+  "gothra": string;
+  "nakshatra": string;
+  "governmentUniqueId": string;
+  "incomeTaxId": string;
+  "lpmId": string;
+  "kcAssociationDate": Date;
+  "motherTongueLanguageId": string;
+  "emailVerified": boolean;
+  "created-on": Date;
+  "updated-on": Date;
+  "password": string;
+  accessTokens: any[];
   fkDevoteeCircle1rel: Circle;
-  fkDevoteeSpiritualLevelMaster1rel: SpiritualLevelMaster;
+  fkDevoteeLanguage1rel: Language;
   constructor(data?: DevoteeInterface) {
     Object.assign(this, data);
   }
@@ -106,10 +128,6 @@ export class Devotee implements DevoteeInterface {
           name: 'shikshaLevel',
           type: 'string'
         },
-        "spiritualLevelMasterId": {
-          name: 'spiritualLevelMasterId',
-          type: 'string'
-        },
         "creditLimit": {
           name: 'creditLimit',
           type: 'string'
@@ -120,10 +138,6 @@ export class Devotee implements DevoteeInterface {
         },
         "username": {
           name: 'username',
-          type: 'string'
-        },
-        "password": {
-          name: 'password',
           type: 'string'
         },
         "email": {
@@ -154,8 +168,64 @@ export class Devotee implements DevoteeInterface {
           name: 'updatedBy',
           type: 'string'
         },
+        "accessId": {
+          name: 'accessId',
+          type: 'string'
+        },
+        "gothra": {
+          name: 'gothra',
+          type: 'string'
+        },
+        "nakshatra": {
+          name: 'nakshatra',
+          type: 'string'
+        },
+        "governmentUniqueId": {
+          name: 'governmentUniqueId',
+          type: 'string'
+        },
+        "incomeTaxId": {
+          name: 'incomeTaxId',
+          type: 'string'
+        },
+        "lpmId": {
+          name: 'lpmId',
+          type: 'string'
+        },
+        "kcAssociationDate": {
+          name: 'kcAssociationDate',
+          type: 'Date'
+        },
+        "motherTongueLanguageId": {
+          name: 'motherTongueLanguageId',
+          type: 'string'
+        },
+        "emailVerified": {
+          name: 'emailVerified',
+          type: 'boolean'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
+        },
+        "password": {
+          name: 'password',
+          type: 'string'
+        },
       },
       relations: {
+        accessTokens: {
+          name: 'accessTokens',
+          type: 'any[]',
+          model: '',
+          relationType: 'hasMany',
+                  keyFrom: 'id',
+          keyTo: 'userId'
+        },
         fkDevoteeCircle1rel: {
           name: 'fkDevoteeCircle1rel',
           type: 'Circle',
@@ -164,12 +234,12 @@ export class Devotee implements DevoteeInterface {
                   keyFrom: 'circleId',
           keyTo: 'id'
         },
-        fkDevoteeSpiritualLevelMaster1rel: {
-          name: 'fkDevoteeSpiritualLevelMaster1rel',
-          type: 'SpiritualLevelMaster',
-          model: 'SpiritualLevelMaster',
+        fkDevoteeLanguage1rel: {
+          name: 'fkDevoteeLanguage1rel',
+          type: 'Language',
+          model: 'Language',
           relationType: 'belongsTo',
-                  keyFrom: 'spiritualLevelMasterId',
+                  keyFrom: 'motherTongueLanguageId',
           keyTo: 'id'
         },
       }
