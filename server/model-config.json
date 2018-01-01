@@ -61,11 +61,31 @@
 	},
 	"Circle": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}	
 	},
 	"Devotee": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"DevoteeEventCalendar": {
 		"dataSource": "mysqld",
@@ -77,75 +97,255 @@
 	},
 	"DonationTypeMaster": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"EventMaster": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"NewContact": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"OutreachMaster": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"Payment": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"PaymentModeMaster": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"Pledge": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"PledgePayment": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"RelationshipMaster": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"SpiritualLevelMaster": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"Temple": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"TempleBranch": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"ElectronicAddress": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"ElectronicAddressTypeMaster": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"PhysicalAddress": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"PhysicalAddressTypeMaster": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"ApprovalArtefact": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"ApprovalQue": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"ApprovalRule": {
 		"dataSource": "mysqld",
@@ -153,7 +353,17 @@
 	},
 	"Department": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"DepartmentService": {
 		"dataSource": "mysqld",
@@ -165,15 +375,45 @@
 	},
 	"TaskMaster": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"MgCreditNote": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"MgDeliveryNote": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"DevoteeElectronicAddress": {
 		"dataSource": "mysqld",
@@ -189,7 +429,17 @@
 	},
 	"MgOrderChannel": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"MgOrderLine": {
 		"dataSource": "mysqld",
@@ -197,7 +447,17 @@
 	},
 	"MgOrderReturn": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"MgOrderReturnLine": {
 		"dataSource": "mysqld",
@@ -209,7 +469,17 @@
 	},
 	"MgProduct": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"MgProductAttribute": {
 		"dataSource": "mysqld",
@@ -221,7 +491,17 @@
 	},
 	"MgProductSku": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"MgStockCurrent": {
 		"dataSource": "mysqld",
@@ -237,7 +517,17 @@
 	},
 	"MgSupplier": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"MgSupplierElectronicAddress": {
 		"dataSource": "mysqld",
@@ -249,7 +539,17 @@
 	},
 	"MgTaxCategory": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"MgTaxCategoryComponent": {
 		"dataSource": "mysqld",
@@ -257,7 +557,17 @@
 	},
 	"MgTaxComponent": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"MgTaxLine": {
 		"dataSource": "mysqld",
@@ -265,7 +575,17 @@
 	},
 	"MgUnitOfMeasure": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"Accesstoken": {
 		"dataSource": "mysqld",
@@ -277,15 +597,49 @@
 	},
 	"AsramaMaster": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"DevoteeAsrama": {
 		"dataSource": "mysqld",
 		"public": true
 	},
+	"Guru": {
+		"dataSource": "mysqld",
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
+	},	
 	"DevoteeLanguage": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"DevoteeService": {
 		"dataSource": "mysqld",
@@ -313,15 +667,45 @@
 	},
 	"FestivalCalendar": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"FestivalMaster": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"Language": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"MgHsn": {
 		"dataSource": "mysqld",
@@ -329,7 +713,17 @@
 	},
 	"MgOrder": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"Rolemapping": {
 		"dataSource": "mysqld",
@@ -341,10 +735,30 @@
 	},
 	"Skill": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	},
 	"SkillCategory": {
 		"dataSource": "mysqld",
-		"public": true
+		"public": true,
+		"mixins": {
+			"TimeStamp" : {
+			"createdAt" : "created-on",
+			"updatedAt" : "updated-on",
+			"required" : false,
+			"validateUpsert": true,
+			"silenceWarnings": false
+			},
+			"GenerateKey" : true
+		}
 	}
 }

@@ -18,17 +18,7 @@
         "foreignKey": "templeId"
       }
     }
-  },
-    "mixins": {
-    "TimeStamp" : {
-      "createdAt" : "created-on",
-      "updatedAt" : "updated-on",
-      "required" : false,
-      "validateUpsert": true,
-      "silenceWarnings": false
-    },
-    "GenerateKey" : true
-  },  
+  }, 
   "properties": {
     "id": {
       "type": "String",
