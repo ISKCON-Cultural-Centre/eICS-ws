@@ -24,7 +24,7 @@
     },
     "GenerateKey" : true
   }, 
-
+  "properties": {
     "name": {
       "type": "String",
       "required": false,
