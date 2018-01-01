@@ -52,6 +52,10 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `language` (
   `id` VARCHAR(36) NOT NULL,
   `language` VARCHAR(50) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -353,6 +357,10 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `mg-order-channel` (
   `id` VARCHAR(36) NOT NULL,
   `name` VARCHAR(50) NULL DEFAULT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
@@ -428,6 +436,10 @@ CREATE TABLE IF NOT EXISTS `payment-mode-master` (
   `id` VARCHAR(36) NOT NULL,
   `mode-name` VARCHAR(50) NOT NULL,
   `description` VARCHAR(100) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -442,6 +454,10 @@ CREATE TABLE IF NOT EXISTS `payment` (
   `payment-mode-master-id` VARCHAR(36) NOT NULL,
   `payment-date` DATETIME NOT NULL,
   `payment-amount` DECIMAL(10,2) NOT NULL DEFAULT '0.00',
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_order-payment_devotee1_idx` (`devotee-id` ASC),
   INDEX `fk_devotee-payment_payment-mode-master1_idx` (`payment-mode-master-id` ASC),
@@ -466,6 +482,10 @@ CREATE TABLE IF NOT EXISTS `mg-credit-note` (
   `order-id` VARCHAR(16) NOT NULL,
   `due-amount` DECIMAL(10,2) NOT NULL,
   `payment-id` VARCHAR(36) NULL DEFAULT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_credit-note_order1_idx` (`order-id` ASC),
   INDEX `fk_credit-note_payment1_idx` (`payment-id` ASC),
@@ -491,6 +511,10 @@ CREATE TABLE IF NOT EXISTS `mg-delivery-note` (
   `delivered-date` DATETIME NOT NULL,
   `delivery-notes` VARCHAR(255) NOT NULL,
   `order-id` VARCHAR(16) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_delivery-note_order1_idx` (`order-id` ASC),
   CONSTRAINT `fk_delivery-note_order1`
@@ -509,6 +533,10 @@ CREATE TABLE IF NOT EXISTS `devotee-electronic-address` (
   `devotee-id` VARCHAR(36) NOT NULL,
   `electronic-address-id` VARCHAR(36) NOT NULL,
   `preferred-flag` TINYINT NOT NULL DEFAULT 0,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`devotee-id`, `electronic-address-id`),
   INDEX `fk_devotee-electronic-address_devotee1_idx` (`devotee-id` ASC),
   INDEX `fk_devotee-electronic-address_electronic-address1_idx` (`electronic-address-id` ASC),
@@ -575,6 +603,10 @@ CREATE TABLE IF NOT EXISTS `devotee-physical-address` (
   `devotee-id` VARCHAR(36) NOT NULL,
   `physical-address-id` VARCHAR(36) NOT NULL,
   `preferred-flag` TINYINT NOT NULL DEFAULT 0,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`physical-address-id`, `devotee-id`),
   INDEX `fk_devotee-address_devotee1_idx` (`devotee-id` ASC),
   INDEX `fk_devotee-address_physical-address1_idx` (`physical-address-id` ASC),
@@ -599,6 +631,10 @@ CREATE TABLE IF NOT EXISTS `mg-tax-category` (
   `id` VARCHAR(36) NOT NULL,
   `tax-category-name` VARCHAR(50) NOT NULL,
   `tax-percent` DECIMAL(6,2) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -610,6 +646,10 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `mg-hsn` (
   `hsn-code` VARCHAR(50) NOT NULL,
   `tax-category-id` VARCHAR(36) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`hsn-code`),
   INDEX `fk_hsn-tax-category_tax-category1_idx` (`tax-category-id` ASC),
   CONSTRAINT `fk_hsn-tax-category_tax-category1`
@@ -630,6 +670,10 @@ CREATE TABLE IF NOT EXISTS `mg-invoice` (
   `payment-id` VARCHAR(36) NULL DEFAULT NULL,
   `credit-note-id` VARCHAR(36) NULL DEFAULT NULL,
   `invoice-amount` DECIMAL(15,2) NOT NULL COMMENT '				',
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`invoice-number`),
   INDEX `fk_invoice_order1_idx` (`order-id` ASC),
   INDEX `fk_invoice_payment1_idx` (`payment-id` ASC),
@@ -653,6 +697,10 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `mg-product-attribute` (
   `id` VARCHAR(36) NOT NULL,
   `name` VARCHAR(50) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -665,6 +713,10 @@ CREATE TABLE IF NOT EXISTS `mg-product-attribute-instance` (
   `id` VARCHAR(36) NOT NULL,
   `product-attribute-instance-value` VARCHAR(100) NOT NULL,
   `product-attribute-id` VARCHAR(36) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_product-attribute-instance_product-attribute1_idx` (`product-attribute-id` ASC),
   CONSTRAINT `fk_product-attribute-instance_product-attribute1`
@@ -682,6 +734,10 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `mg-unit-of-measure` (
   `id` VARCHAR(36) NOT NULL,
   `uom-name` VARCHAR(50) NULL DEFAULT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -694,6 +750,10 @@ CREATE TABLE IF NOT EXISTS `mg-product` (
   `id` VARCHAR(36) NOT NULL,
   `name` VARCHAR(100) NULL DEFAULT NULL,
   `unit-of-measure-id` VARCHAR(36) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_product_unit-of-measure1_idx` (`unit-of-measure-id` ASC),
   CONSTRAINT `fk_product_unit-of-measure1`
@@ -840,6 +900,10 @@ CREATE TABLE IF NOT EXISTS `mg-stock-current` (
   `id` VARCHAR(36) NOT NULL,
   `product-sku-id` VARCHAR(36) NOT NULL,
   `quantity` INT(11) NOT NULL DEFAULT '0',
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_product-stock-current_product-sku1_idx` (`product-sku-id` ASC),
   CONSTRAINT `fk_product-stock-current_product-sku1`
@@ -859,6 +923,10 @@ CREATE TABLE IF NOT EXISTS `mg-stock-inward` (
   `supplier-invoice-number` VARCHAR(50) NOT NULL,
   `invoice-date` DATE NOT NULL,
   `supplier-id` VARCHAR(36) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -871,7 +939,10 @@ CREATE TABLE IF NOT EXISTS `mg-stock-inward-diary` (
   `stock-inward-id` VARCHAR(36) NOT NULL,
   `line-number` SMALLINT(6) NOT NULL,
   `product-sku-id` VARCHAR(36) NOT NULL,
-  `col` INT(11) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`line-number`, `stock-inward-id`),
   INDEX `fk_stock-inward-diary_product-sku1_idx` (`product-sku-id` ASC),
   INDEX `fk_stock-inward-diary_stock-inward1_idx` (`stock-inward-id` ASC),
@@ -897,6 +968,10 @@ CREATE TABLE IF NOT EXISTS `mg-supplier` (
   `supplier-name` VARCHAR(255) NOT NULL,
   `tax-identification-number` VARCHAR(20) NOT NULL,
   `gstn-number` VARCHAR(50) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -908,6 +983,10 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `mg-supplier-electronic-address` (
   `electronic-address-id` VARCHAR(36) NOT NULL,
   `supplier-id` VARCHAR(36) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`supplier-id`, `electronic-address-id`),
   INDEX `fk_supplier-electronic-address_electronic-address1_idx` (`electronic-address-id` ASC),
   INDEX `fk_supplier-electronic-address_supplier1_idx` (`supplier-id` ASC),
@@ -931,6 +1010,10 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `mg-supplier-physical-address` (
   `physical-address-id` VARCHAR(36) NOT NULL,
   `supplier-id` VARCHAR(36) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`physical-address-id`, `supplier-id`),
   INDEX `fk_supplier-address_physical-address1_idx` (`physical-address-id` ASC),
   INDEX `fk_supplier-physical-address_supplier1_idx` (`supplier-id` ASC),
@@ -954,6 +1037,10 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `mg-tax-component` (
   `id` VARCHAR(36) NOT NULL,
   `tax-component-name` VARCHAR(50) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -966,6 +1053,10 @@ CREATE TABLE IF NOT EXISTS `mg-tax-category-component` (
   `tax-category-id` VARCHAR(36) NOT NULL,
   `tax-component-id` VARCHAR(36) NOT NULL,
   `tax-percent` DECIMAL(6,2) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`tax-category-id`, `tax-component-id`),
   INDEX `fk_tax-category-component_tax-category1_idx` (`tax-category-id` ASC),
   INDEX `fk_tax-category-component_tax-component1_idx` (`tax-component-id` ASC),
@@ -988,7 +1079,11 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mg-tax-line` (
   `id` VARCHAR(36) NOT NULL,
-  `invoice-invoice-number` INT(11) NOT NULL)
+  `invoice-invoice-number` INT(11) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
@@ -1089,6 +1184,10 @@ CREATE TABLE IF NOT EXISTS `rolemapping` (
   `principalType` VARCHAR(512) CHARACTER SET 'utf8' NULL DEFAULT NULL,
   `principalId` VARCHAR(255) CHARACTER SET 'utf8' NULL DEFAULT NULL,
   `roleId` INT(11) NULL DEFAULT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX `principalId` (`principalId` ASC))
 ENGINE = InnoDB
@@ -1190,6 +1289,10 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `service-task-master` (
   `task-master-id` VARCHAR(36) NOT NULL,
   `service-id` VARCHAR(36) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   INDEX `fk_role-task-master_task-master1_idx` (`task-master-id` ASC),
   PRIMARY KEY (`task-master-id`, `service-id`),
   INDEX `fk_service-task-master_service1_idx` (`service-id` ASC),
@@ -1241,6 +1344,10 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `department-service` (
   `department-id` VARCHAR(36) NOT NULL,
   `service-id` VARCHAR(36) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   INDEX `fk_department-role_department1_idx` (`department-id` ASC),
   PRIMARY KEY (`department-id`, `service-id`),
   INDEX `fk_department-role_service1_idx` (`service-id` ASC),
@@ -1266,6 +1373,10 @@ CREATE TABLE IF NOT EXISTS `approval-rule` (
   `sequence-no` SMALLINT NOT NULL,
   `role-id` INT(11) NOT NULL,
   `last-approval-sequence-ind` TINYINT NOT NULL DEFAULT 0,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -1284,6 +1395,10 @@ CREATE TABLE IF NOT EXISTS `approval-que` (
   `approval-ind` TINYINT NULL DEFAULT 0,
   `activated-ind` TINYINT NOT NULL DEFAULT 0,
   `approver-remarks` VARCHAR(100) NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_approval-que_devotee1_idx` (`approver-id` ASC),
   INDEX `fk_approval-que_devotee3_idx` (`requesting-devotee-id` ASC),
@@ -1311,6 +1426,10 @@ CREATE TABLE IF NOT EXISTS `approval-artefact` (
   `approval-after-action-message` VARCHAR(50) NOT NULL,
   `rejection-after-action-message` VARCHAR(50) NOT NULL,
   `approval-artefact-entity-name` VARCHAR(255) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -1324,6 +1443,10 @@ CREATE TABLE IF NOT EXISTS `service-mapping` (
   `principal-type` VARCHAR(512) CHARACTER SET 'utf8' NULL DEFAULT NULL,
   `principal-id` VARCHAR(255) CHARACTER SET 'utf8' NULL DEFAULT NULL,
   `role-id` VARCHAR(36) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_service-mapping_service1_idx` (`role-id` ASC),
   CONSTRAINT `fk_service-mapping_service1`
@@ -1342,6 +1465,10 @@ CREATE TABLE IF NOT EXISTS `donation-receipt` (
   `devotee-id` VARCHAR(36) NOT NULL,
   `donation-type-master-id` VARCHAR(36) CHARACTER SET 'utf8' NOT NULL,
   `mg-payment-id` VARCHAR(36) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_donation-receipt_devotee1_idx` (`devotee-id` ASC),
   INDEX `fk_donation-receipt_donation-type-master1_idx` (`donation-type-master-id` ASC),
@@ -1371,6 +1498,10 @@ CREATE TABLE IF NOT EXISTS `asrama-master` (
   `id` VARCHAR(36) NOT NULL,
   `asrama-name` VARCHAR(50) NOT NULL,
   `asrama-description` VARCHAR(50) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -1382,6 +1513,10 @@ CREATE TABLE IF NOT EXISTS `devotee-asrama` (
   `devotee-id` VARCHAR(36) NOT NULL,
   `asrama-master-id` VARCHAR(36) NOT NULL,
   `entry-date` DATE NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   INDEX `fk_table1_devotee3_idx` (`devotee-id` ASC),
   INDEX `fk_table1_asrama-master1_idx` (`asrama-master-id` ASC),
   PRIMARY KEY (`devotee-id`, `asrama-master-id`),
@@ -1408,6 +1543,10 @@ CREATE TABLE IF NOT EXISTS `devotee-language` (
   `read-ind` TINYINT NOT NULL,
   `write-ind` TINYINT NOT NULL,
   `speak-ind` TINYINT NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   INDEX `fk_table1_language1_idx` (`language-id` ASC),
   INDEX `fk_devotee-language_devotee1_idx` (`devotee-id` ASC),
   PRIMARY KEY (`devotee-id`, `language-id`),
@@ -1430,6 +1569,10 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `skill-category` (
   `id` VARCHAR(36) NOT NULL,
   `skill-category-name` VARCHAR(50) NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -1441,6 +1584,10 @@ CREATE TABLE IF NOT EXISTS `skill` (
   `id` VARCHAR(36) NOT NULL,
   `skill-name` VARCHAR(50) NOT NULL,
   `skill-category-id` VARCHAR(36) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_skill_skill-category1_idx` (`skill-category-id` ASC),
   CONSTRAINT `fk_skill_skill-category1`
@@ -1457,6 +1604,10 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `devotee-skill` (
   `devotee-id` VARCHAR(36) NOT NULL,
   `skill-id` VARCHAR(36) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   INDEX `fk_devotee-skill_devotee1_idx` (`devotee-id` ASC),
   INDEX `fk_devotee-skill_skill1_idx` (`skill-id` ASC),
   CONSTRAINT `fk_devotee-skill_devotee1`
@@ -1479,6 +1630,10 @@ CREATE TABLE IF NOT EXISTS `service-area` (
   `id` VARCHAR(36) NOT NULL,
   `service-name` VARCHAR(50) NOT NULL,
   `description` VARCHAR(100) NOT NULL COMMENT '	',
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -1489,6 +1644,10 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `devotee-service-interest` (
   `devotee-id` VARCHAR(36) NOT NULL,
   `service-area-id` VARCHAR(36) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   INDEX `fk_devotee-service-interest_devotee1_idx` (`devotee-id` ASC),
   INDEX `fk_devotee-service-interest_service-area1_idx` (`service-area-id` ASC),
   PRIMARY KEY (`devotee-id`, `service-area-id`),
@@ -1513,6 +1672,10 @@ CREATE TABLE IF NOT EXISTS `devotee-service-availability` (
   `devotee-id` VARCHAR(36) NOT NULL,
   `service-date` DATE NOT NULL,
   `service-hours` SMALLINT NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_devotee-service-availability_devotee1_idx` (`devotee-id` ASC),
   CONSTRAINT `fk_devotee-service-availability_devotee1`
@@ -1529,6 +1692,10 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `festival-master` (
   `id` VARCHAR(36) NOT NULL,
   `festival-name` VARCHAR(100) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -1541,6 +1708,10 @@ CREATE TABLE IF NOT EXISTS `festival-calendar` (
   `festival-master-id` VARCHAR(36) NOT NULL,
   `year` CHAR(4) NOT NULL,
   `date` VARCHAR(50) NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   INDEX `fk_festival-calendar_festival-master1_idx` (`festival-master-id` ASC),
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_festival-calendar_festival-master1`
@@ -1558,6 +1729,10 @@ CREATE TABLE IF NOT EXISTS `devotee-service` (
   `id` VARCHAR(36) NOT NULL,
   `festival-calendar-id` VARCHAR(36) NOT NULL,
   `service-area-id` VARCHAR(36) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_devotee-service_festival-calendar1_idx` (`festival-calendar-id` ASC),
   INDEX `fk_devotee-service_service-area1_idx` (`service-area-id` ASC),
