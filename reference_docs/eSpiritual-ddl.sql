@@ -1224,7 +1224,7 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `temple-branch` (
   `id` VARCHAR(36) CHARACTER SET 'utf8' NOT NULL,
   `name` VARCHAR(100) CHARACTER SET 'utf8' NULL,
-  `temple-id` VARCHAR(16) CHARACTER SET 'utf8' NULL,
+  `temple-id` VARCHAR(36) CHARACTER SET 'utf8' NULL,
   `physical-address-id` VARCHAR(36) CHARACTER SET 'utf8' NULL,
   `contact-number` VARCHAR(20) CHARACTER SET 'utf8' NULL,
   `contact-name` VARCHAR(50) CHARACTER SET 'utf8' NULL,
