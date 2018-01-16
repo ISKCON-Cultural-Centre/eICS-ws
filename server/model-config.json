@@ -12,8 +12,16 @@
 			"loopback/server/mixins",
 			"../common/mixins",
 			"./mixins"
-		]
-	},
+		],
+		"remoting": {
+			"context": false,
+			"sharedMethods": {
+			  "*": false,
+			  "login": true,
+			  "logout": true
+			}
+		  }		
+	},	
 	"User": {
 		"dataSource": "mysqld",
 		"public": false
