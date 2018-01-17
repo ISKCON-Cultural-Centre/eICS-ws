@@ -28,7 +28,11 @@
       "validateUpsert": true,
       "silenceWarnings": false
     },
-    "GenerateKey" : true
+    "GenerateKey" : true,
+    "SetupRemoteMethods": {
+      "disableAllExcept": ["create", "prototype.updateAttributes"],
+      "addFromFile": "./common/models/mymodel-remotes.js"
+    }    
   },  
   "properties": {
     "id": {

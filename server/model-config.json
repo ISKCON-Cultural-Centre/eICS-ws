@@ -8,6 +8,7 @@
 		],
 		"mixins": [
 			"../node_modules/loopback-ds-timestamp-mixin",
+			"../node_modules/loopback-setup-remote-methods-mixin",			
 			"loopback/common/mixins",
 			"loopback/server/mixins",
 			"../common/mixins",
