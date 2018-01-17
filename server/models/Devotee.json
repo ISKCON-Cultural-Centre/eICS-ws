@@ -30,8 +30,7 @@
     },
     "GenerateKey" : true,
     "SetupRemoteMethods": {
-      "disableAllExcept": ["create", "prototype.updateAttributes"],
-      "addFromFile": "./common/models/mymodel-remotes.js"
+      "disableAllExcept": ["create", "prototype.updateAttributes"]
     }    
   },  
   "properties": {
