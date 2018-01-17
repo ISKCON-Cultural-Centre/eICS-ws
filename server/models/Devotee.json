@@ -30,7 +30,7 @@
     },
     "GenerateKey" : true,
     "SetupRemoteMethods": {
-      "disableAllExcept": ["create", "prototype.updateAttributes"]
+      "disableAllExcept": ["create", "login", "logout", "prototype.updateAttributes"]
     }    
   },  
   "properties": {
