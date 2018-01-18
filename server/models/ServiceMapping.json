@@ -11,7 +11,7 @@
       "fkServiceMappingService1rel": {
         "model": "Service",
         "type": "belongsTo",
-        "foreignKey": "roleId"
+        "foreignKey": "roleid"
       }
     }
   },
