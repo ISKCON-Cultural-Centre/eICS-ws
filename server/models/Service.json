@@ -19,7 +19,6 @@
       "GenerateKey" : true
     }
   },
-
   "properties": {
     "id": {
       "type": "String",
