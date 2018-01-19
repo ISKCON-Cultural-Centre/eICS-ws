@@ -401,8 +401,8 @@
     {
       "accessType": "*",
       "principalType": "ROLE",
-      "principalId": "$owner",
-      "permission": "DENY"
+      "principalId": "admin",
+      "permission": "ALLOW"
     }
   ],
   "methods": {}
