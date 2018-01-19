@@ -43,7 +43,7 @@
         "nullable": "N"
       }
     },
-    "principalType": {
+    "principaltype": {
       "type": "String",
       "required": false,
       "length": 512,
@@ -58,7 +58,7 @@
         "nullable": "Y"
       }
     },
-    "principalId": {
+    "principalid": {
       "type": "String",
       "required": false,
       "length": 255,
@@ -73,7 +73,7 @@
         "nullable": "Y"
       }
     },
-    "roleId": {
+    "roleid": {
       "type": "String",
       "required": true,
       "length": 36,
