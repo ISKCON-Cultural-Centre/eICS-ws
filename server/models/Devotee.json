@@ -34,7 +34,8 @@
         "create",
         "login",
         "logout",
-        "prototype.updateAttributes"
+        "prototype.updateAttributes",
+        "find"
       ]
     }
   },
