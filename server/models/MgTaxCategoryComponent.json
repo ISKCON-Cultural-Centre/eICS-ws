@@ -22,11 +22,11 @@
   "properties": {
     "taxCategoryId": {
       "type": "String",
+      "id": 1,
       "required": true,
       "length": 36,
       "precision": null,
       "scale": null,
-      "id": 1,
       "mysql": {
         "columnName": "tax-category-id",
         "dataType": "varchar",
@@ -38,11 +38,11 @@
     },
     "taxComponentId": {
       "type": "String",
+      "id": 2,
       "required": true,
       "length": 36,
       "precision": null,
       "scale": null,
-      "id": 2,
       "mysql": {
         "columnName": "tax-component-id",
         "dataType": "varchar",
@@ -67,5 +67,9 @@
         "nullable": "N"
       }
     }
-  }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
 }

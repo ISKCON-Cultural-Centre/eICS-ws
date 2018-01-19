@@ -14,24 +14,24 @@
       }
     }
   },
-    "mixins": {
-    "TimeStamp" : {
-      "createdAt" : "created-on",
-      "updatedAt" : "updated-on",
-      "required" : false,
+  "mixins": {
+    "TimeStamp": {
+      "createdAt": "created-on",
+      "updatedAt": "updated-on",
+      "required": false,
       "validateUpsert": true,
       "silenceWarnings": false
     },
-    "GenerateKey" : true
-  },  
+    "GenerateKey": true
+  },
   "properties": {
     "id": {
       "type": "String",
+      "id": 1,
       "required": false,
       "length": 36,
       "precision": null,
       "scale": null,
-      "id": 1,
       "mysql": {
         "columnName": "id",
         "dataType": "varchar",
@@ -131,5 +131,9 @@
         "nullable": "Y"
       }
     }
-  }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
 }

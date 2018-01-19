@@ -8,16 +8,16 @@
     },
     "relations": {}
   },
-    "mixins": {
-    "TimeStamp" : {
-      "createdAt" : "created-on",
-      "updatedAt" : "updated-on",
-      "required" : false,
+  "mixins": {
+    "TimeStamp": {
+      "createdAt": "created-on",
+      "updatedAt": "updated-on",
+      "required": false,
       "validateUpsert": true,
       "silenceWarnings": false
     },
-    "GenerateKey" : true
-  },  
+    "GenerateKey": true
+  },
   "properties": {
     "id": {
       "type": "String",
@@ -49,5 +49,9 @@
         "nullable": "N"
       }
     }
-  }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
 }

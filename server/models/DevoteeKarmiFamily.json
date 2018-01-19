@@ -42,11 +42,11 @@
     },
     "devoteeId": {
       "type": "String",
+      "id": 1,
       "required": true,
       "length": 36,
       "precision": null,
       "scale": null,
-      "id": 1,
       "mysql": {
         "columnName": "devotee-id",
         "dataType": "varchar",
@@ -58,11 +58,11 @@
     },
     "relatedDevoteeId": {
       "type": "String",
+      "id": 2,
       "required": true,
       "length": 36,
       "precision": null,
       "scale": null,
-      "id": 2,
       "mysql": {
         "columnName": "related-devotee-id",
         "dataType": "varchar",
@@ -74,11 +74,11 @@
     },
     "relationshipId": {
       "type": "String",
+      "id": 3,
       "required": true,
       "length": 36,
       "precision": null,
       "scale": null,
-      "id": 3,
       "mysql": {
         "columnName": "relationship-id",
         "dataType": "varchar",
@@ -148,5 +148,9 @@
         "nullable": "Y"
       }
     }
-  }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
 }

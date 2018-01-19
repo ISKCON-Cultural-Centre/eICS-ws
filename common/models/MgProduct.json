@@ -1,62 +1,66 @@
 {
-	"name": "MgProduct",
-	"properties": {
-		"id": {
-			"type": "string",
-			"required": true,
-			"length": 36,
-			"precision": null,
-			"scale": null,
-			"id": 1,
-			"mysql": {
-				"columnName": "id",
-				"dataType": "varchar",
-				"dataLength": 36,
-				"dataPrecision": null,
-				"dataScale": null,
-				"nullable": "N"
-			},
-			"updateOnly": false
-		},
-		"name": {
-			"type": "string",
-			"required": false,
-			"length": 100,
-			"precision": null,
-			"scale": null,
-			"mysql": {
-				"columnName": "name",
-				"dataType": "varchar",
-				"dataLength": 100,
-				"dataPrecision": null,
-				"dataScale": null,
-				"nullable": "Y"
-			}
-		},
-		"unitOfMeasureId": {
-			"type": "string",
-			"required": true,
-			"length": 36,
-			"precision": null,
-			"scale": null,
-			"mysql": {
-				"columnName": "unit-of-measure-id",
-				"dataType": "varchar",
-				"dataLength": 36,
-				"dataPrecision": null,
-				"dataScale": null,
-				"nullable": "N"
-			}
-		}
-	},
-	"settings": {
-		"strict": false,
-		"forceId": false,
-		"replaceOnPUT": true,
-		"idInjection": false,
-		"mysql": {
-			"schema": "icc",
-			"table": "mg-product"
-		}
-	}
+  "name": "MgProduct",
+  "settings": {
+    "strict": false,
+    "forceId": false,
+    "replaceOnPUT": true,
+    "idInjection": false,
+    "mysql": {
+      "schema": "icc",
+      "table": "mg-product"
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": 1,
+      "required": true,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "id",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      },
+      "updateOnly": false
+    },
+    "name": {
+      "type": "string",
+      "required": false,
+      "length": 100,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "name",
+        "dataType": "varchar",
+        "dataLength": 100,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "unitOfMeasureId": {
+      "type": "string",
+      "required": true,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "unit-of-measure-id",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
 }

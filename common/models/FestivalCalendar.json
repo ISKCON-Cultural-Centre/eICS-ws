@@ -1,77 +1,81 @@
 {
-	"name": "FestivalCalendar",
-	"properties": {
-		"id": {
-			"type": "string",
-			"required": true,
-			"length": 36,
-			"precision": null,
-			"scale": null,
-			"id": 1,
-			"mysql": {
-				"columnName": "id",
-				"dataType": "varchar",
-				"dataLength": 36,
-				"dataPrecision": null,
-				"dataScale": null,
-				"nullable": "N"
-			},
-			"updateOnly": false
-		},
-		"festivalMasterId": {
-			"type": "string",
-			"required": true,
-			"length": 36,
-			"precision": null,
-			"scale": null,
-			"mysql": {
-				"columnName": "festival-master-id",
-				"dataType": "varchar",
-				"dataLength": 36,
-				"dataPrecision": null,
-				"dataScale": null,
-				"nullable": "N"
-			}
-		},
-		"year": {
-			"type": "string",
-			"required": true,
-			"length": 4,
-			"precision": null,
-			"scale": null,
-			"mysql": {
-				"columnName": "year",
-				"dataType": "char",
-				"dataLength": 4,
-				"dataPrecision": null,
-				"dataScale": null,
-				"nullable": "N"
-			}
-		},
-		"date": {
-			"type": "string",
-			"required": false,
-			"length": 50,
-			"precision": null,
-			"scale": null,
-			"mysql": {
-				"columnName": "date",
-				"dataType": "varchar",
-				"dataLength": 50,
-				"dataPrecision": null,
-				"dataScale": null,
-				"nullable": "Y"
-			}
-		}
-	},
-	"settings": {
-		"strict": false,
-		"forceId": false,
-		"replaceOnPUT": true,
-		"idInjection": false,
-		"mysql": {
-			"schema": "icc",
-			"table": "festival-calendar"
-		}
-	}
+  "name": "FestivalCalendar",
+  "settings": {
+    "strict": false,
+    "forceId": false,
+    "replaceOnPUT": true,
+    "idInjection": false,
+    "mysql": {
+      "schema": "icc",
+      "table": "festival-calendar"
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": 1,
+      "required": true,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "id",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      },
+      "updateOnly": false
+    },
+    "festivalMasterId": {
+      "type": "string",
+      "required": true,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "festival-master-id",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "year": {
+      "type": "string",
+      "required": true,
+      "length": 4,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "year",
+        "dataType": "char",
+        "dataLength": 4,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "date": {
+      "type": "string",
+      "required": false,
+      "length": 50,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "date",
+        "dataType": "varchar",
+        "dataLength": 50,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
 }

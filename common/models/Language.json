@@ -1,47 +1,51 @@
 {
-	"name": "Language",
-	"properties": {
-		"id": {
-			"type": "string",
-			"required": true,
-			"length": 36,
-			"precision": null,
-			"scale": null,
-			"id": 1,
-			"mysql": {
-				"columnName": "id",
-				"dataType": "varchar",
-				"dataLength": 36,
-				"dataPrecision": null,
-				"dataScale": null,
-				"nullable": "N"
-			},
-			"updateOnly": false
-		},
-		"language": {
-			"type": "string",
-			"required": true,
-			"length": 50,
-			"precision": null,
-			"scale": null,
-			"mysql": {
-				"columnName": "language",
-				"dataType": "varchar",
-				"dataLength": 50,
-				"dataPrecision": null,
-				"dataScale": null,
-				"nullable": "N"
-			}
-		}
-	},
-	"settings": {
-		"strict": false,
-		"forceId": false,
-		"replaceOnPUT": true,
-		"idInjection": false,
-		"mysql": {
-			"schema": "icc",
-			"table": "language"
-		}
-	}
+  "name": "Language",
+  "settings": {
+    "strict": false,
+    "forceId": false,
+    "replaceOnPUT": true,
+    "idInjection": false,
+    "mysql": {
+      "schema": "icc",
+      "table": "language"
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": 1,
+      "required": true,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "id",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      },
+      "updateOnly": false
+    },
+    "language": {
+      "type": "string",
+      "required": true,
+      "length": 50,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "language",
+        "dataType": "varchar",
+        "dataLength": 50,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
 }

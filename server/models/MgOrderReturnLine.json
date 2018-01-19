@@ -22,11 +22,11 @@
   "properties": {
     "orderReturnId": {
       "type": "String",
+      "id": 1,
       "required": true,
       "length": 36,
       "precision": null,
       "scale": null,
-      "id": 1,
       "mysql": {
         "columnName": "order-return-id",
         "dataType": "varchar",
@@ -38,11 +38,11 @@
     },
     "productInstanceId": {
       "type": "String",
+      "id": 2,
       "required": true,
       "length": 36,
       "precision": null,
       "scale": null,
-      "id": 2,
       "mysql": {
         "columnName": "product-instance-id",
         "dataType": "varchar",
@@ -127,5 +127,9 @@
         "nullable": "Y"
       }
     }
-  }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
 }
