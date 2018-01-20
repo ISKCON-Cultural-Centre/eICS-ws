@@ -422,6 +422,12 @@
       "principalId": "admin",
       "permission": "ALLOW",
       "property": "find"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "ALLOW"
     }
   ],
   "methods": {}
