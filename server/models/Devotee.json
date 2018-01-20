@@ -379,7 +379,15 @@
       "accessType": "*",
       "principalType": "ROLE",
       "principalId": "admin",
-      "permission": "ALLOW"
+      "permission": "ALLOW",
+      "property": "*"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "find"
     }
   ],
   "methods": {}
