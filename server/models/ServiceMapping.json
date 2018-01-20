@@ -6,7 +6,7 @@
     "mysql": {
       "schema": "icc",
       "table": "service-mapping"
-    },
+    },   
     "relations": {
       "fkServiceMappingService1rel": {
         "model": "Service",

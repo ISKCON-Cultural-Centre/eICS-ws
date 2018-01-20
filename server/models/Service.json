@@ -7,7 +7,13 @@
       "schema": "icc",
       "table": "service"
     },
-    "relations": {},
+    "relations": {
+      "principals": {
+        "type": "hasMany",
+        "model": "ServiceMapping",
+        "foreignKey": "roleId"
+      }
+    },
     "mixins": {
       "TimeStamp": {
         "createdAt": "created-on",

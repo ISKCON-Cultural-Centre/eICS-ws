@@ -17,6 +17,14 @@
         "model": "Language",
         "type": "belongsTo",
         "foreignKey": "motherTongueLanguageId"
+      },
+      "accessTokens": {
+        "type": "hasMany",
+        "model": "AccessToken",
+        "foreignKey": "userId",
+        "options": {
+          "disableInclude": true
+        }
       }
     }
   },
