@@ -377,8 +377,8 @@
   "acls": [
     {
       "accessType": "*",
-      "principalType": "ServiceMapping.ROLE",
-      "principalId": "$authenticated",
+      "principalType": "ROLE",
+      "principalId": "admin",
       "permission": "ALLOW"
     }
   ],
