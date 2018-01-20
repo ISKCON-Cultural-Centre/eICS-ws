@@ -1,18 +1,33 @@
 {
   "name": "ServiceMapping",
-  "settings": {
-    "strict": false,
-    "forceId": false,
-    "replaceOnPUT": true,
+  "options": {
     "idInjection": false,
+    "base": "RoleMapping",
     "mysql": {
       "schema": "icc",
       "table": "service-mapping"
+    },
+    "relations": {
+      "fkServiceMappingService1rel": {
+        "model": "Service",
+        "type": "belongsTo",
+        "foreignKey": "roleid"
+      }    
     }
+  },
+  "mixins": {
+    "TimeStamp": {
+      "createdAt": "created-on",
+      "updatedAt": "updated-on",
+      "required": false,
+      "validateUpsert": true,
+      "silenceWarnings": false
+    },
+    "GenerateKey": true
   },
   "properties": {
     "id": {
-      "type": "string",
+      "type": "String",
       "id": 1,
       "required": true,
       "length": 36,
@@ -25,11 +40,10 @@
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "N"
-      },
-      "updateOnly": false
+      }
     },
-    "principalType": {
-      "type": "string",
+    "principaltype": {
+      "type": "String",
       "required": false,
       "length": 512,
       "precision": null,
@@ -43,8 +57,8 @@
         "nullable": "Y"
       }
     },
-    "principalId": {
-      "type": "string",
+    "principalid": {
+      "type": "String",
       "required": false,
       "length": 255,
       "precision": null,
@@ -58,8 +72,8 @@
         "nullable": "Y"
       }
     },
-    "roleId": {
-      "type": "string",
+    "roleid": {
+      "type": "String",
       "required": true,
       "length": 36,
       "precision": null,
@@ -85,4 +99,9 @@
     }
   ],
   "methods": {}
-}
+},
+"fkServiceMappingService2rel": {
+  "model": "Devotee",
+  "type": "belongsTo",
+  "foreignKey": "roleid"
+}  

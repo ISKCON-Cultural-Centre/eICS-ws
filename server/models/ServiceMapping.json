@@ -12,7 +12,7 @@
         "model": "Service",
         "type": "belongsTo",
         "foreignKey": "roleid"
-      }
+      }    
     }
   },
   "mixins": {
@@ -99,4 +99,9 @@
     }
   ],
   "methods": {}
-}
+},
+"fkServiceMappingService2rel": {
+  "model": "Devotee",
+  "type": "belongsTo",
+  "foreignKey": "roleid"
+}  
