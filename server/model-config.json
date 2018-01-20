@@ -19,10 +19,6 @@
       }
     }
   },
-  "User": {
-    "dataSource": "mysqld",
-    "public": false
-  },
   "AccessToken": {
     "dataSource": "mysqld",
     "public": false,
@@ -321,10 +317,6 @@
   "MgOrder": {
     "dataSource": "mysqld",
     "public": true
-  },
-  "Rolemapping": {
-    "dataSource": "mysqld",
-    "public": false
   },
   "ServiceArea": {
     "dataSource": "mysqld",
