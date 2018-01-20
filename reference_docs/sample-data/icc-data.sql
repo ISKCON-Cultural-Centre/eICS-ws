@@ -41,5 +41,10 @@ INSERT INTO `spiritual-level-master` VALUES ('394296e2-4db2-48f0-8c76-c5b1788583
 delete from `temple`;
 INSERT INTO `temple` VALUES ('4ee2d7f5-9f3b-4add-986a-7f1d5658509a','ISKCON Cultural Centre','string','SundarRupa Shyam Dasa','2018-01-01 15:28:20','2018-01-02 03:41:57','string','string',NULL);
 
+delete from service;
+INSERT INTO `service` (`id`,`name`,`description`,`created`,`modified`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('f5425e4c-d715-4ba2-b3f0-cee4932c6581','admin','IT Administrator',NULL,NULL,'2018-01-17 10:21:47','2018-01-17 10:21:47',NULL,NULL);
+
+delete from `service-mapping`;
+INSERT INTO `service-mapping` (`id`,`principal-type`,`principal-id`,`role-id`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('21f377ba-2a38-4996-a191-88f782cfc401','USER','3db35f39-8f62-4178-8993-fca4959536d7','f5425e4c-d715-4ba2-b3f0-cee4932c6581','2018-01-19 03:01:05','2018-01-19 03:04:27',NULL,NULL);
 
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
