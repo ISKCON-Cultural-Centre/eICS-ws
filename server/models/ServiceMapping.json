@@ -11,7 +11,7 @@
       "fkServiceMappingService1rel": {
         "model": "Service",
         "type": "belongsTo",
-        "foreignKey": "roleid"
+        "foreignKey": "roleId"
       }
     }
   },
@@ -42,7 +42,7 @@
         "nullable": "N"
       }
     },
-    "principaltype": {
+    "principalType": {
       "type": "String",
       "required": false,
       "length": 512,
@@ -57,7 +57,7 @@
         "nullable": "Y"
       }
     },
-    "principalid": {
+    "principalId": {
       "type": "String",
       "required": false,
       "length": 255,
@@ -72,7 +72,7 @@
         "nullable": "Y"
       }
     },
-    "roleid": {
+    "roleId": {
       "type": "String",
       "required": true,
       "length": 36,
