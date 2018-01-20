@@ -99,9 +99,4 @@
     }
   ],
   "methods": {}
-},
-"fkServiceMappingService2rel": {
-  "model": "Devotee",
-  "type": "belongsTo",
-  "foreignKey": "roleid"
-}  
+}
