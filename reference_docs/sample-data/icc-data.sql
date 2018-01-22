@@ -45,7 +45,14 @@ INSERT INTO `temple` VALUES ('4ee2d7f5-9f3b-4add-986a-7f1d5658509a','ISKCON Cult
 delete from `service-role`;
 INSERT INTO `service-role` (`id`,`name`,`description`,`created`,`modified`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('f5425e4c-d715-4ba2-b3f0-cee4932c6581','admin','IT Administrator',NULL,NULL,'2018-01-17 10:21:47','2018-01-17 10:21:47',NULL,NULL);
 
-delete from `service-role-mapping`;
+`service-role-mapping`;
 INSERT INTO `service-role-mapping` (`id`,`principal-type`,`principal-id`,`role-id`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('21f377ba-2a38-4996-a191-88f782cfc401','USER','3db35f39-8f62-4178-8993-fca4959536d7','f5425e4c-d715-4ba2-b3f0-cee4932c6581','2018-01-19 03:01:05','2018-01-19 03:04:27',NULL,NULL);
+
+delete from `department`;
+INSERT INTO `department` (`id`,`temple-id`,`department-name`,`department-leader-devotee-id`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('86157f6d-36af-452a-88af-baa360aee2c1','4ee2d7f5-9f3b-4add-986a-7f1d5658509a','IT','3db35f39-8f62-4178-8993-fca4959536d7','2018-01-22 10:53:08','2018-01-22 10:53:08',NULL,NULL);
+git
+INSERT INTO  (`department-id`,`role-id`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('86157f6d-36af-452a-88af-baa360aee2c1','480812ee-ac47-4062-8413-f349e3407efb','2018-01-22 11:02:03','2018-01-22 11:04:01',NULL,NULL);
+INSERT INTO `department-role` (`department-id`,`role-id`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('86157f6d-36af-452a-88af-baa360aee2c1','744133eb-d4e4-443c-bd8c-de2a3481c6c0','2018-01-22 11:02:03','2018-01-22 11:03:16',NULL,NULL);
+
 
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

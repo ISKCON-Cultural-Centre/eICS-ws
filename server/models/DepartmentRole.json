@@ -19,6 +19,15 @@
       }
     }
   },
+  "mixins": {
+    "TimeStamp": {
+      "createdAt": "created-on",
+      "updatedAt": "updated-on",
+      "required": false,
+      "validateUpsert": true,
+      "silenceWarnings": false
+    }
+  },  
   "properties": {
     "departmentId": {
       "type": "String",
