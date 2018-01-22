@@ -1,15 +1,15 @@
 {
-  "name": "ServiceMapping",
+  "name": "ServiceRoleMapping",
   "options": {
     "idInjection": false,
     "base": "RoleMapping",
     "mysql": {
       "schema": "icc",
-      "table": "service-mapping"
+      "table": "service-role-mapping"
     },   
     "relations": {
       "fkServiceMappingService1rel": {
-        "model": "Service",
+        "model": "ServiceRole",
         "type": "belongsTo",
         "foreignKey": "roleId"
       }

@@ -1,18 +1,18 @@
 {
-  "name": "ServiceTaskMaster",
+  "name": "DepartmentRole",
   "options": {
     "idInjection": false,
     "mysql": {
       "schema": "icc",
-      "table": "service-task-master"
+      "table": "department-role"
     },
     "relations": {
-      "fkRoleTaskMasterTaskMaster1rel": {
-        "model": "TaskMaster",
+      "fkDepartmentRoleDepartment1rel": {
+        "model": "Department",
         "type": "belongsTo",
-        "foreignKey": "taskMasterId"
+        "foreignKey": "departmentId"
       },
-      "fkServiceTaskMasterService1rel": {
+      "fkDepartmentRoleService1rel": {
         "model": "Service",
         "type": "belongsTo",
         "foreignKey": "serviceId"
@@ -20,7 +20,7 @@
     }
   },
   "properties": {
-    "taskMasterId": {
+    "departmentId": {
       "type": "String",
       "id": 1,
       "required": true,
@@ -28,7 +28,7 @@
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "task-master-id",
+        "columnName": "department-id",
         "dataType": "varchar",
         "dataLength": 36,
         "dataPrecision": null,
@@ -36,7 +36,7 @@
         "nullable": "N"
       }
     },
-    "serviceId": {
+    "roleId": {
       "type": "String",
       "id": 2,
       "required": true,
@@ -44,7 +44,7 @@
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "service-id",
+        "columnName": "role-id",
         "dataType": "varchar",
         "dataLength": 36,
         "dataPrecision": null,

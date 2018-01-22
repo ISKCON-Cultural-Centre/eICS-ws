@@ -34,15 +34,11 @@
     "dataSource": "mysqld",
     "public": false
   },
-  "Role": {
-    "dataSource": "mysqld",
-    "public": false
-  },
-  "Service": {
+  "ServiceRole": {
     "dataSource": "mysqld",
     "public": true
   },
-  "ServiceMapping": {
+  "ServiceRoleMapping": {
     "dataSource": "mysqld",
     "public": true
   },
@@ -142,11 +138,11 @@
     "dataSource": "mysqld",
     "public": true
   },
-  "DepartmentService": {
+  "DepartmentRole": {
     "dataSource": "mysqld",
     "public": true
   },
-  "ServiceTaskMaster": {
+  "RoleTaskMaster": {
     "dataSource": "mysqld",
     "public": true
   },
