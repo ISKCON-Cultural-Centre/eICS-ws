@@ -6,7 +6,7 @@ import {
 
 declare var Object: any;
 export interface DepartmentInterface {
-  "id": string;
+  "id"?: string;
   "templeId": string;
   "departmentName": string;
   "departmentLeaderDevoteeId": string;
@@ -14,6 +14,8 @@ export interface DepartmentInterface {
   "updatedOn"?: Date;
   "createdBy"?: string;
   "updatedBy"?: string;
+  "created-on"?: Date;
+  "updated-on"?: Date;
   fkDepartmentDevotee1rel?: Devotee;
   fkDepartmentTemple1rel?: Temple;
 }
@@ -27,6 +29,8 @@ export class Department implements DepartmentInterface {
   "updatedOn": Date;
   "createdBy": string;
   "updatedBy": string;
+  "created-on": Date;
+  "updated-on": Date;
   fkDepartmentDevotee1rel: Devotee;
   fkDepartmentTemple1rel: Temple;
   constructor(data?: DepartmentInterface) {
@@ -93,6 +97,14 @@ export class Department implements DepartmentInterface {
         "updatedBy": {
           name: 'updatedBy',
           type: 'string'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {

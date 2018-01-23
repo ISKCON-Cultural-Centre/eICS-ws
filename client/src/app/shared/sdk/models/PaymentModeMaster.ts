@@ -2,15 +2,19 @@
 
 declare var Object: any;
 export interface PaymentModeMasterInterface {
-  "id": string;
+  "id"?: string;
   "modeName": string;
   "description": string;
+  "created-on"?: Date;
+  "updated-on"?: Date;
 }
 
 export class PaymentModeMaster implements PaymentModeMasterInterface {
   "id": string;
   "modeName": string;
   "description": string;
+  "created-on": Date;
+  "updated-on": Date;
   constructor(data?: PaymentModeMasterInterface) {
     Object.assign(this, data);
   }
@@ -55,6 +59,14 @@ export class PaymentModeMaster implements PaymentModeMasterInterface {
         "description": {
           name: 'description',
           type: 'string'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {

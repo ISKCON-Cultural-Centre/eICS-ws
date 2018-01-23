@@ -6,7 +6,7 @@ import {
 
 declare var Object: any;
 export interface PledgePaymentInterface {
-  "id": string;
+  "id"?: string;
   "instalmentNumber": number;
   "pledgeDate"?: Date;
   "pledgeId"?: string;
@@ -15,6 +15,8 @@ export interface PledgePaymentInterface {
   "createdBy"?: string;
   "updatedBy"?: string;
   "mgPaymentId": string;
+  "created-on"?: Date;
+  "updated-on"?: Date;
   fkPledgePaymentMgPayment1rel?: Payment;
   fkPledgePaymentPledge1rel?: Pledge;
 }
@@ -29,6 +31,8 @@ export class PledgePayment implements PledgePaymentInterface {
   "createdBy": string;
   "updatedBy": string;
   "mgPaymentId": string;
+  "created-on": Date;
+  "updated-on": Date;
   fkPledgePaymentMgPayment1rel: Payment;
   fkPledgePaymentPledge1rel: Pledge;
   constructor(data?: PledgePaymentInterface) {
@@ -99,6 +103,14 @@ export class PledgePayment implements PledgePaymentInterface {
         "mgPaymentId": {
           name: 'mgPaymentId',
           type: 'string'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {

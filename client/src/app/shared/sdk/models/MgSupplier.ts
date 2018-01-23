@@ -2,10 +2,12 @@
 
 declare var Object: any;
 export interface MgSupplierInterface {
-  "id": string;
+  "id"?: string;
   "supplierName": string;
   "taxIdentificationNumber": string;
   "gstnNumber": string;
+  "created-on"?: Date;
+  "updated-on"?: Date;
 }
 
 export class MgSupplier implements MgSupplierInterface {
@@ -13,6 +15,8 @@ export class MgSupplier implements MgSupplierInterface {
   "supplierName": string;
   "taxIdentificationNumber": string;
   "gstnNumber": string;
+  "created-on": Date;
+  "updated-on": Date;
   constructor(data?: MgSupplierInterface) {
     Object.assign(this, data);
   }
@@ -61,6 +65,14 @@ export class MgSupplier implements MgSupplierInterface {
         "gstnNumber": {
           name: 'gstnNumber',
           type: 'string'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {

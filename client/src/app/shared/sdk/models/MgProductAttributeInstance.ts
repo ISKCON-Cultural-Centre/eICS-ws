@@ -5,9 +5,11 @@ import {
 
 declare var Object: any;
 export interface MgProductAttributeInstanceInterface {
-  "id": string;
+  "id"?: string;
   "productAttributeInstanceValue": string;
   "productAttributeId": string;
+  "created-on"?: Date;
+  "updated-on"?: Date;
   fkProductAttributeInstanceProductAttribute1rel?: MgProductAttribute;
 }
 
@@ -15,6 +17,8 @@ export class MgProductAttributeInstance implements MgProductAttributeInstanceInt
   "id": string;
   "productAttributeInstanceValue": string;
   "productAttributeId": string;
+  "created-on": Date;
+  "updated-on": Date;
   fkProductAttributeInstanceProductAttribute1rel: MgProductAttribute;
   constructor(data?: MgProductAttributeInstanceInterface) {
     Object.assign(this, data);
@@ -60,6 +64,14 @@ export class MgProductAttributeInstance implements MgProductAttributeInstanceInt
         "productAttributeId": {
           name: 'productAttributeId',
           type: 'string'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {

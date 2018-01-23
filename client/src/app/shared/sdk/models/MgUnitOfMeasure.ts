@@ -2,13 +2,17 @@
 
 declare var Object: any;
 export interface MgUnitOfMeasureInterface {
-  "id": string;
+  "id"?: string;
   "uomName"?: string;
+  "created-on"?: Date;
+  "updated-on"?: Date;
 }
 
 export class MgUnitOfMeasure implements MgUnitOfMeasureInterface {
   "id": string;
   "uomName": string;
+  "created-on": Date;
+  "updated-on": Date;
   constructor(data?: MgUnitOfMeasureInterface) {
     Object.assign(this, data);
   }
@@ -49,6 +53,14 @@ export class MgUnitOfMeasure implements MgUnitOfMeasureInterface {
         "uomName": {
           name: 'uomName',
           type: 'string'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {

@@ -6,9 +6,11 @@ import {
 
 declare var Object: any;
 export interface DevoteeServiceInterface {
-  "id": string;
+  "id"?: string;
   "festivalCalendarId": string;
   "serviceAreaId": string;
+  "created-on"?: Date;
+  "updated-on"?: Date;
   fkDevoteeServiceFestivalCalendar1rel?: FestivalCalendar;
   fkDevoteeServiceServiceArea1rel?: ServiceArea;
 }
@@ -17,6 +19,8 @@ export class DevoteeService implements DevoteeServiceInterface {
   "id": string;
   "festivalCalendarId": string;
   "serviceAreaId": string;
+  "created-on": Date;
+  "updated-on": Date;
   fkDevoteeServiceFestivalCalendar1rel: FestivalCalendar;
   fkDevoteeServiceServiceArea1rel: ServiceArea;
   constructor(data?: DevoteeServiceInterface) {
@@ -63,6 +67,14 @@ export class DevoteeService implements DevoteeServiceInterface {
         "serviceAreaId": {
           name: 'serviceAreaId',
           type: 'string'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {

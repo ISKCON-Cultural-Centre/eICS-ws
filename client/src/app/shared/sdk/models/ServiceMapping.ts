@@ -9,9 +9,9 @@ export interface ServiceMappingInterface {
   "principalType"?: string;
   "principalId"?: string;
   "roleId": string;
-  "principaltype"?: string;
-  "principalid"?: string;
-  "roleid"?: number;
+  "created-on"?: Date;
+  "updated-on"?: Date;
+  role?: any;
   fkServiceMappingService1rel?: Service;
 }
 
@@ -20,9 +20,9 @@ export class ServiceMapping implements ServiceMappingInterface {
   "principalType": string;
   "principalId": string;
   "roleId": string;
-  "principaltype": string;
-  "principalid": string;
-  "roleid": number;
+  "created-on": Date;
+  "updated-on": Date;
+  role: any;
   fkServiceMappingService1rel: Service;
   constructor(data?: ServiceMappingInterface) {
     Object.assign(this, data);
@@ -73,20 +73,24 @@ export class ServiceMapping implements ServiceMappingInterface {
           name: 'roleId',
           type: 'string'
         },
-        "principaltype": {
-          name: 'principaltype',
-          type: 'string'
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
         },
-        "principalid": {
-          name: 'principalid',
-          type: 'string'
-        },
-        "roleid": {
-          name: 'roleid',
-          type: 'number'
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {
+        role: {
+          name: 'role',
+          type: 'any',
+          model: '',
+          relationType: 'belongsTo',
+                  keyFrom: 'roleId',
+          keyTo: 'id'
+        },
         fkServiceMappingService1rel: {
           name: 'fkServiceMappingService1rel',
           type: 'Service',

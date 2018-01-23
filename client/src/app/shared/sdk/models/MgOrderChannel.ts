@@ -2,13 +2,17 @@
 
 declare var Object: any;
 export interface MgOrderChannelInterface {
-  "id": string;
+  "id"?: string;
   "name"?: string;
+  "created-on"?: Date;
+  "updated-on"?: Date;
 }
 
 export class MgOrderChannel implements MgOrderChannelInterface {
   "id": string;
   "name": string;
+  "created-on": Date;
+  "updated-on": Date;
   constructor(data?: MgOrderChannelInterface) {
     Object.assign(this, data);
   }
@@ -49,6 +53,14 @@ export class MgOrderChannel implements MgOrderChannelInterface {
         "name": {
           name: 'name',
           type: 'string'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {

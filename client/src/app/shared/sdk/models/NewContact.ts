@@ -6,7 +6,7 @@ import {
 
 declare var Object: any;
 export interface NewContactInterface {
-  "id": string;
+  "id"?: string;
   "name"?: string;
   "physicalAddressId"?: string;
   "electronicAddressId"?: string;
@@ -16,6 +16,8 @@ export interface NewContactInterface {
   "updatedOn"?: Date;
   "createdBy"?: string;
   "updatedBy"?: string;
+  "created-on"?: Date;
+  "updated-on"?: Date;
   fkTable1ElectronicAddress1rel?: ElectronicAddress;
   fkTable1PhysicalAddress1rel?: PhysicalAddress;
 }
@@ -31,6 +33,8 @@ export class NewContact implements NewContactInterface {
   "updatedOn": Date;
   "createdBy": string;
   "updatedBy": string;
+  "created-on": Date;
+  "updated-on": Date;
   fkTable1ElectronicAddress1rel: ElectronicAddress;
   fkTable1PhysicalAddress1rel: PhysicalAddress;
   constructor(data?: NewContactInterface) {
@@ -105,6 +109,14 @@ export class NewContact implements NewContactInterface {
         "updatedBy": {
           name: 'updatedBy',
           type: 'string'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {

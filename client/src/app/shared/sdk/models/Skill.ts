@@ -5,9 +5,11 @@ import {
 
 declare var Object: any;
 export interface SkillInterface {
-  "id": string;
+  "id"?: string;
   "skillName": string;
   "skillCategoryId": string;
+  "created-on"?: Date;
+  "updated-on"?: Date;
   fkSkillSkillCategory1rel?: SkillCategory;
 }
 
@@ -15,6 +17,8 @@ export class Skill implements SkillInterface {
   "id": string;
   "skillName": string;
   "skillCategoryId": string;
+  "created-on": Date;
+  "updated-on": Date;
   fkSkillSkillCategory1rel: SkillCategory;
   constructor(data?: SkillInterface) {
     Object.assign(this, data);
@@ -60,6 +64,14 @@ export class Skill implements SkillInterface {
         "skillCategoryId": {
           name: 'skillCategoryId',
           type: 'string'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {

@@ -2,15 +2,19 @@
 
 declare var Object: any;
 export interface MgTaxCategoryInterface {
-  "id": string;
+  "id"?: string;
   "taxCategoryName": string;
   "taxPercent": string;
+  "created-on"?: Date;
+  "updated-on"?: Date;
 }
 
 export class MgTaxCategory implements MgTaxCategoryInterface {
   "id": string;
   "taxCategoryName": string;
   "taxPercent": string;
+  "created-on": Date;
+  "updated-on": Date;
   constructor(data?: MgTaxCategoryInterface) {
     Object.assign(this, data);
   }
@@ -55,6 +59,14 @@ export class MgTaxCategory implements MgTaxCategoryInterface {
         "taxPercent": {
           name: 'taxPercent',
           type: 'string'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {

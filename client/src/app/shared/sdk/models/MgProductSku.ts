@@ -7,7 +7,7 @@ import {
 
 declare var Object: any;
 export interface MgProductSkuInterface {
-  "id": string;
+  "id"?: string;
   "barCode": string;
   "barCodeType"?: string;
   "title": string;
@@ -24,6 +24,8 @@ export interface MgProductSkuInterface {
   "productId": string;
   "sellPrice": number;
   "hsnCode": string;
+  "created-on"?: Date;
+  "updated-on"?: Date;
   fkProductInstanceProductAttributeInstance1rel?: MgProductAttributeInstance;
   fkProductSkuProduct1rel?: MgProduct;
   fkProductSkuHsn1rel?: MgHsn;
@@ -47,6 +49,8 @@ export class MgProductSku implements MgProductSkuInterface {
   "productId": string;
   "sellPrice": number;
   "hsnCode": string;
+  "created-on": Date;
+  "updated-on": Date;
   fkProductInstanceProductAttributeInstance1rel: MgProductAttributeInstance;
   fkProductSkuProduct1rel: MgProduct;
   fkProductSkuHsn1rel: MgHsn;
@@ -150,6 +154,14 @@ export class MgProductSku implements MgProductSkuInterface {
         "hsnCode": {
           name: 'hsnCode',
           type: 'string'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {

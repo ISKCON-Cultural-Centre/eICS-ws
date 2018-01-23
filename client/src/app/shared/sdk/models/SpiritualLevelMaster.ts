@@ -2,23 +2,19 @@
 
 declare var Object: any;
 export interface SpiritualLevelMasterInterface {
-  "id": string;
+  "id"?: string;
   "level"?: string;
   "description"?: string;
-  "createdOn"?: Date;
-  "updatedOn"?: Date;
-  "createdBy"?: string;
-  "updatedBy"?: string;
+  "created-on"?: Date;
+  "updated-on"?: Date;
 }
 
 export class SpiritualLevelMaster implements SpiritualLevelMasterInterface {
   "id": string;
   "level": string;
   "description": string;
-  "createdOn": Date;
-  "updatedOn": Date;
-  "createdBy": string;
-  "updatedBy": string;
+  "created-on": Date;
+  "updated-on": Date;
   constructor(data?: SpiritualLevelMasterInterface) {
     Object.assign(this, data);
   }
@@ -64,21 +60,13 @@ export class SpiritualLevelMaster implements SpiritualLevelMasterInterface {
           name: 'description',
           type: 'string'
         },
-        "createdOn": {
-          name: 'createdOn',
+        "created-on": {
+          name: 'created-on',
           type: 'Date'
         },
-        "updatedOn": {
-          name: 'updatedOn',
+        "updated-on": {
+          name: 'updated-on',
           type: 'Date'
-        },
-        "createdBy": {
-          name: 'createdBy',
-          type: 'string'
-        },
-        "updatedBy": {
-          name: 'updatedBy',
-          type: 'string'
         },
       },
       relations: {

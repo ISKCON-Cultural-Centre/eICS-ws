@@ -2,13 +2,17 @@
 
 declare var Object: any;
 export interface FestivalMasterInterface {
-  "id": string;
+  "id"?: string;
   "festivalName": string;
+  "created-on"?: Date;
+  "updated-on"?: Date;
 }
 
 export class FestivalMaster implements FestivalMasterInterface {
   "id": string;
   "festivalName": string;
+  "created-on": Date;
+  "updated-on": Date;
   constructor(data?: FestivalMasterInterface) {
     Object.assign(this, data);
   }
@@ -49,6 +53,14 @@ export class FestivalMaster implements FestivalMasterInterface {
         "festivalName": {
           name: 'festivalName',
           type: 'string'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {

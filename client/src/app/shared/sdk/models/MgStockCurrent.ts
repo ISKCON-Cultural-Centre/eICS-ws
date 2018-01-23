@@ -5,9 +5,11 @@ import {
 
 declare var Object: any;
 export interface MgStockCurrentInterface {
-  "id": string;
+  "id"?: string;
   "productSkuId": string;
   "quantity": number;
+  "created-on"?: Date;
+  "updated-on"?: Date;
   fkProductStockCurrentProductSku1rel?: MgProductSku;
 }
 
@@ -15,6 +17,8 @@ export class MgStockCurrent implements MgStockCurrentInterface {
   "id": string;
   "productSkuId": string;
   "quantity": number;
+  "created-on": Date;
+  "updated-on": Date;
   fkProductStockCurrentProductSku1rel: MgProductSku;
   constructor(data?: MgStockCurrentInterface) {
     Object.assign(this, data);
@@ -60,6 +64,14 @@ export class MgStockCurrent implements MgStockCurrentInterface {
         "quantity": {
           name: 'quantity',
           type: 'number'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {

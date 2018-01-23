@@ -2,10 +2,12 @@
 
 declare var Object: any;
 export interface MgStockInwardInterface {
-  "id": string;
+  "id"?: string;
   "supplierInvoiceNumber": string;
   "invoiceDate": Date;
   "supplierId": string;
+  "created-on"?: Date;
+  "updated-on"?: Date;
 }
 
 export class MgStockInward implements MgStockInwardInterface {
@@ -13,6 +15,8 @@ export class MgStockInward implements MgStockInwardInterface {
   "supplierInvoiceNumber": string;
   "invoiceDate": Date;
   "supplierId": string;
+  "created-on": Date;
+  "updated-on": Date;
   constructor(data?: MgStockInwardInterface) {
     Object.assign(this, data);
   }
@@ -61,6 +65,14 @@ export class MgStockInward implements MgStockInwardInterface {
         "supplierId": {
           name: 'supplierId',
           type: 'string'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {

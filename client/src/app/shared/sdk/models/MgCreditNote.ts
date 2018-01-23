@@ -6,10 +6,12 @@ import {
 
 declare var Object: any;
 export interface MgCreditNoteInterface {
-  "id": string;
+  "id"?: string;
   "orderId": string;
   "dueAmount": string;
   "paymentId"?: string;
+  "created-on"?: Date;
+  "updated-on"?: Date;
   fkCreditNotePayment1rel?: Payment;
   fkCreditNoteOrder1rel?: MgOrder;
 }
@@ -19,6 +21,8 @@ export class MgCreditNote implements MgCreditNoteInterface {
   "orderId": string;
   "dueAmount": string;
   "paymentId": string;
+  "created-on": Date;
+  "updated-on": Date;
   fkCreditNotePayment1rel: Payment;
   fkCreditNoteOrder1rel: MgOrder;
   constructor(data?: MgCreditNoteInterface) {
@@ -69,6 +73,14 @@ export class MgCreditNote implements MgCreditNoteInterface {
         "paymentId": {
           name: 'paymentId',
           type: 'string'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {

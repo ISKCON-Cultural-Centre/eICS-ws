@@ -5,7 +5,7 @@ import {
 
 declare var Object: any;
 export interface PledgeInterface {
-  "id": string;
+  "id"?: string;
   "startDate": Date;
   "endDate"?: string;
   "pledgeAmount": string;
@@ -16,6 +16,8 @@ export interface PledgeInterface {
   "updatedOn"?: Date;
   "createdBy"?: string;
   "updatedBy"?: string;
+  "created-on"?: Date;
+  "updated-on"?: Date;
   fkPledgeDevotee2rel?: Devotee;
 }
 
@@ -31,6 +33,8 @@ export class Pledge implements PledgeInterface {
   "updatedOn": Date;
   "createdBy": string;
   "updatedBy": string;
+  "created-on": Date;
+  "updated-on": Date;
   fkPledgeDevotee2rel: Devotee;
   constructor(data?: PledgeInterface) {
     Object.assign(this, data);
@@ -108,6 +112,14 @@ export class Pledge implements PledgeInterface {
         "updatedBy": {
           name: 'updatedBy',
           type: 'string'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {

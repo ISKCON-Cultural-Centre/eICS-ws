@@ -2,13 +2,17 @@
 
 declare var Object: any;
 export interface LanguageInterface {
-  "id": string;
+  "id"?: string;
   "language": string;
+  "created-on"?: Date;
+  "updated-on"?: Date;
 }
 
 export class Language implements LanguageInterface {
   "id": string;
   "language": string;
+  "created-on": Date;
+  "updated-on": Date;
   constructor(data?: LanguageInterface) {
     Object.assign(this, data);
   }
@@ -49,6 +53,14 @@ export class Language implements LanguageInterface {
         "language": {
           name: 'language',
           type: 'string'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {

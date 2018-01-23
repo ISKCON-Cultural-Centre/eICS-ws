@@ -7,10 +7,12 @@ import {
 
 declare var Object: any;
 export interface DonationReceiptInterface {
-  "id": string;
+  "id"?: string;
   "devoteeId": string;
   "donationTypeMasterId": string;
   "mgPaymentId": string;
+  "created-on"?: Date;
+  "updated-on"?: Date;
   fkDonationReceiptDevotee1rel?: Devotee;
   fkDonationReceiptDonationTypeMaster1rel?: DonationTypeMaster;
   fkDonationReceiptMgPayment1rel?: Payment;
@@ -21,6 +23,8 @@ export class DonationReceipt implements DonationReceiptInterface {
   "devoteeId": string;
   "donationTypeMasterId": string;
   "mgPaymentId": string;
+  "created-on": Date;
+  "updated-on": Date;
   fkDonationReceiptDevotee1rel: Devotee;
   fkDonationReceiptDonationTypeMaster1rel: DonationTypeMaster;
   fkDonationReceiptMgPayment1rel: Payment;
@@ -72,6 +76,14 @@ export class DonationReceipt implements DonationReceiptInterface {
         "mgPaymentId": {
           name: 'mgPaymentId',
           type: 'string'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {

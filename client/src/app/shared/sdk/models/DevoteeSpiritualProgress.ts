@@ -6,7 +6,7 @@ import {
 
 declare var Object: any;
 export interface DevoteeSpiritualProgressInterface {
-  "id": string;
+  "id"?: string;
   "devoteeId"?: string;
   "levelDate": Date;
   "createdOn"?: Date;
@@ -15,6 +15,8 @@ export interface DevoteeSpiritualProgressInterface {
   "updatedBy"?: string;
   "spiritualLevelMasterId": string;
   "guruId": string;
+  "created-on"?: Date;
+  "updated-on"?: Date;
   fkDevoteeSpiritualFamilyDevotee1rel?: Devotee;
   fkDevoteeSpiritualFamilySpiritualLevelMaster1rel?: SpiritualLevelMaster;
 }
@@ -29,6 +31,8 @@ export class DevoteeSpiritualProgress implements DevoteeSpiritualProgressInterfa
   "updatedBy": string;
   "spiritualLevelMasterId": string;
   "guruId": string;
+  "created-on": Date;
+  "updated-on": Date;
   fkDevoteeSpiritualFamilyDevotee1rel: Devotee;
   fkDevoteeSpiritualFamilySpiritualLevelMaster1rel: SpiritualLevelMaster;
   constructor(data?: DevoteeSpiritualProgressInterface) {
@@ -99,6 +103,14 @@ export class DevoteeSpiritualProgress implements DevoteeSpiritualProgressInterfa
         "guruId": {
           name: 'guruId',
           type: 'string'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {

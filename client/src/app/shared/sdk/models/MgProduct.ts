@@ -5,9 +5,11 @@ import {
 
 declare var Object: any;
 export interface MgProductInterface {
-  "id": string;
+  "id"?: string;
   "name"?: string;
   "unitOfMeasureId": string;
+  "created-on"?: Date;
+  "updated-on"?: Date;
   fkProductUnitOfMeasure1rel?: MgUnitOfMeasure;
 }
 
@@ -15,6 +17,8 @@ export class MgProduct implements MgProductInterface {
   "id": string;
   "name": string;
   "unitOfMeasureId": string;
+  "created-on": Date;
+  "updated-on": Date;
   fkProductUnitOfMeasure1rel: MgUnitOfMeasure;
   constructor(data?: MgProductInterface) {
     Object.assign(this, data);
@@ -60,6 +64,14 @@ export class MgProduct implements MgProductInterface {
         "unitOfMeasureId": {
           name: 'unitOfMeasureId',
           type: 'string'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {

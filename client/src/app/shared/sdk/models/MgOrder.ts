@@ -7,7 +7,7 @@ import {
 
 declare var Object: any;
 export interface MgOrderInterface {
-  "id": string;
+  "id"?: string;
   "orderDateTime": Date;
   "requestNo": number;
   "orderNo": number;
@@ -19,6 +19,8 @@ export interface MgOrderInterface {
   "devoteeId": string;
   "servingDevoteeId"?: string;
   "orderChannelId": string;
+  "created-on"?: Date;
+  "updated-on"?: Date;
   fkOrderDevotee1rel?: Devotee;
   fkOrderOrderChannel1rel?: MgOrderChannel;
   fkTable1BookRequestStatus1rel?: MgOrderStatus;
@@ -38,6 +40,8 @@ export class MgOrder implements MgOrderInterface {
   "devoteeId": string;
   "servingDevoteeId": string;
   "orderChannelId": string;
+  "created-on": Date;
+  "updated-on": Date;
   fkOrderDevotee1rel: Devotee;
   fkOrderOrderChannel1rel: MgOrderChannel;
   fkTable1BookRequestStatus1rel: MgOrderStatus;
@@ -122,6 +126,14 @@ export class MgOrder implements MgOrderInterface {
         "orderChannelId": {
           name: 'orderChannelId',
           type: 'string'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {

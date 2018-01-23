@@ -1,4 +1,7 @@
 /* tslint:disable */
+import {
+  ServiceMapping
+} from '../index';
 
 declare var Object: any;
 export interface ServiceInterface {
@@ -7,11 +10,9 @@ export interface ServiceInterface {
   "description"?: string;
   "created"?: Date;
   "modified"?: Date;
-  "createdOn"?: Date;
-  "updatedOn"?: Date;
-  "createdBy"?: string;
-  "updatedBy"?: string;
-  principals?: any[];
+  "created-on"?: Date;
+  "updated-on"?: Date;
+  principals?: ServiceMapping[];
 }
 
 export class Service implements ServiceInterface {
@@ -20,11 +21,9 @@ export class Service implements ServiceInterface {
   "description": string;
   "created": Date;
   "modified": Date;
-  "createdOn": Date;
-  "updatedOn": Date;
-  "createdBy": string;
-  "updatedBy": string;
-  principals: any[];
+  "created-on": Date;
+  "updated-on": Date;
+  principals: ServiceMapping[];
   constructor(data?: ServiceInterface) {
     Object.assign(this, data);
   }
@@ -78,28 +77,20 @@ export class Service implements ServiceInterface {
           name: 'modified',
           type: 'Date'
         },
-        "createdOn": {
-          name: 'createdOn',
+        "created-on": {
+          name: 'created-on',
           type: 'Date'
         },
-        "updatedOn": {
-          name: 'updatedOn',
+        "updated-on": {
+          name: 'updated-on',
           type: 'Date'
-        },
-        "createdBy": {
-          name: 'createdBy',
-          type: 'string'
-        },
-        "updatedBy": {
-          name: 'updatedBy',
-          type: 'string'
         },
       },
       relations: {
         principals: {
           name: 'principals',
-          type: 'any[]',
-          model: '',
+          type: 'ServiceMapping[]',
+          model: 'ServiceMapping',
           relationType: 'hasMany',
                   keyFrom: 'id',
           keyTo: 'roleId'

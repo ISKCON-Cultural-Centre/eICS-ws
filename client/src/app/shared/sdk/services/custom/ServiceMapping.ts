@@ -16,6 +16,10 @@ import { Service } from '../../models/Service';
 
 /**
  * Api services for the `ServiceMapping` model.
+ *
+ * **Details**
+ *
+ * Map principals to roles
  */
 @Injectable()
 export class ServiceMappingApi extends BaseLoopBackApi {
@@ -31,9 +35,39 @@ export class ServiceMappingApi extends BaseLoopBackApi {
   }
 
   /**
+   * Fetches belongsTo relation role.
+   *
+   * @param {any} id RoleMapping id
+   *
+   * @param {boolean} refresh 
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `ServiceMapping` object.)
+   * </em>
+   */
+  public getRole(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/ServiceMappings/:id/role";
+    let _routeParams: any = {
+      id: id
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof refresh !== 'undefined' && refresh !== null) _urlParams.refresh = refresh;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
    * Fetches belongsTo relation fkServiceMappingService1rel.
    *
-   * @param {any} id Rolemapping id
+   * @param {any} id RoleMapping id
    *
    * @param {boolean} refresh 
    *
@@ -92,7 +126,7 @@ export class ServiceMappingApi extends BaseLoopBackApi {
   /**
    * Patch attributes for a model instance and persist it into the data source.
    *
-   * @param {any} id Rolemapping id
+   * @param {any} id RoleMapping id
    *
    * @param {object} data Request data.
    *

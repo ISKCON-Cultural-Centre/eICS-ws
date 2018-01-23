@@ -5,13 +5,15 @@ import {
 
 declare var Object: any;
 export interface ElectronicAddressInterface {
-  "id": string;
+  "id"?: string;
   "electronicAddressTypeMasterId"?: string;
   "electronicAddress"?: string;
   "createdOn"?: Date;
   "updatedOn"?: Date;
   "createdBy"?: string;
   "updatedBy"?: string;
+  "created-on"?: Date;
+  "updated-on"?: Date;
   fkElectronicAddressElectronicAddressTypeMaster1rel?: ElectronicAddressTypeMaster;
 }
 
@@ -23,6 +25,8 @@ export class ElectronicAddress implements ElectronicAddressInterface {
   "updatedOn": Date;
   "createdBy": string;
   "updatedBy": string;
+  "created-on": Date;
+  "updated-on": Date;
   fkElectronicAddressElectronicAddressTypeMaster1rel: ElectronicAddressTypeMaster;
   constructor(data?: ElectronicAddressInterface) {
     Object.assign(this, data);
@@ -84,6 +88,14 @@ export class ElectronicAddress implements ElectronicAddressInterface {
         "updatedBy": {
           name: 'updatedBy',
           type: 'string'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {

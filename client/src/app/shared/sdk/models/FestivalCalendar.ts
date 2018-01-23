@@ -5,10 +5,12 @@ import {
 
 declare var Object: any;
 export interface FestivalCalendarInterface {
-  "id": string;
+  "id"?: string;
   "festivalMasterId": string;
   "year": string;
   "date"?: string;
+  "created-on"?: Date;
+  "updated-on"?: Date;
   fkFestivalCalendarFestivalMaster1rel?: FestivalMaster;
 }
 
@@ -17,6 +19,8 @@ export class FestivalCalendar implements FestivalCalendarInterface {
   "festivalMasterId": string;
   "year": string;
   "date": string;
+  "created-on": Date;
+  "updated-on": Date;
   fkFestivalCalendarFestivalMaster1rel: FestivalMaster;
   constructor(data?: FestivalCalendarInterface) {
     Object.assign(this, data);
@@ -66,6 +70,14 @@ export class FestivalCalendar implements FestivalCalendarInterface {
         "date": {
           name: 'date',
           type: 'string'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {

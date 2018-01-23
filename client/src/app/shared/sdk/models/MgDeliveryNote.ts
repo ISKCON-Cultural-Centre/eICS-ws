@@ -5,10 +5,12 @@ import {
 
 declare var Object: any;
 export interface MgDeliveryNoteInterface {
-  "id": string;
+  "id"?: string;
   "deliveredDate": Date;
   "deliveryNotes": string;
   "orderId": string;
+  "created-on"?: Date;
+  "updated-on"?: Date;
   fkDeliveryNoteOrder1rel?: MgOrder;
 }
 
@@ -17,6 +19,8 @@ export class MgDeliveryNote implements MgDeliveryNoteInterface {
   "deliveredDate": Date;
   "deliveryNotes": string;
   "orderId": string;
+  "created-on": Date;
+  "updated-on": Date;
   fkDeliveryNoteOrder1rel: MgOrder;
   constructor(data?: MgDeliveryNoteInterface) {
     Object.assign(this, data);
@@ -66,6 +70,14 @@ export class MgDeliveryNote implements MgDeliveryNoteInterface {
         "orderId": {
           name: 'orderId',
           type: 'string'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {

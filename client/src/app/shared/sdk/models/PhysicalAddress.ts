@@ -5,7 +5,7 @@ import {
 
 declare var Object: any;
 export interface PhysicalAddressInterface {
-  "id": string;
+  "id"?: string;
   "addressTypeMasterId"?: string;
   "addressLine1"?: string;
   "addressLine2"?: string;
@@ -17,6 +17,8 @@ export interface PhysicalAddressInterface {
   "updatedOn"?: Date;
   "createdBy"?: string;
   "updatedBy"?: string;
+  "created-on"?: Date;
+  "updated-on"?: Date;
   fkPhysicalAddressAddressTypeMaster1rel?: PhysicalAddressTypeMaster;
 }
 
@@ -33,6 +35,8 @@ export class PhysicalAddress implements PhysicalAddressInterface {
   "updatedOn": Date;
   "createdBy": string;
   "updatedBy": string;
+  "created-on": Date;
+  "updated-on": Date;
   fkPhysicalAddressAddressTypeMaster1rel: PhysicalAddressTypeMaster;
   constructor(data?: PhysicalAddressInterface) {
     Object.assign(this, data);
@@ -114,6 +118,14 @@ export class PhysicalAddress implements PhysicalAddressInterface {
         "updatedBy": {
           name: 'updatedBy',
           type: 'string'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {

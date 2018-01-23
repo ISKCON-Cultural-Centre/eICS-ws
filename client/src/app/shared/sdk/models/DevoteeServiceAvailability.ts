@@ -5,10 +5,12 @@ import {
 
 declare var Object: any;
 export interface DevoteeServiceAvailabilityInterface {
-  "id": string;
+  "id"?: string;
   "devoteeId": string;
   "serviceDate": Date;
   "serviceHours": number;
+  "created-on"?: Date;
+  "updated-on"?: Date;
   fkDevoteeServiceAvailabilityDevotee1rel?: Devotee;
 }
 
@@ -17,6 +19,8 @@ export class DevoteeServiceAvailability implements DevoteeServiceAvailabilityInt
   "devoteeId": string;
   "serviceDate": Date;
   "serviceHours": number;
+  "created-on": Date;
+  "updated-on": Date;
   fkDevoteeServiceAvailabilityDevotee1rel: Devotee;
   constructor(data?: DevoteeServiceAvailabilityInterface) {
     Object.assign(this, data);
@@ -66,6 +70,14 @@ export class DevoteeServiceAvailability implements DevoteeServiceAvailabilityInt
         "serviceHours": {
           name: 'serviceHours',
           type: 'number'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {

@@ -6,11 +6,13 @@ import {
 
 declare var Object: any;
 export interface PaymentInterface {
-  "id": string;
+  "id"?: string;
   "devoteeId": string;
   "paymentModeMasterId": string;
   "paymentDate": Date;
   "paymentAmount": string;
+  "created-on"?: Date;
+  "updated-on"?: Date;
   fkOrderPaymentDevotee1rel?: Devotee;
   fkDevoteePaymentPaymentModeMaster1rel?: PaymentModeMaster;
 }
@@ -21,6 +23,8 @@ export class Payment implements PaymentInterface {
   "paymentModeMasterId": string;
   "paymentDate": Date;
   "paymentAmount": string;
+  "created-on": Date;
+  "updated-on": Date;
   fkOrderPaymentDevotee1rel: Devotee;
   fkDevoteePaymentPaymentModeMaster1rel: PaymentModeMaster;
   constructor(data?: PaymentInterface) {
@@ -75,6 +79,14 @@ export class Payment implements PaymentInterface {
         "paymentAmount": {
           name: 'paymentAmount',
           type: 'string'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {

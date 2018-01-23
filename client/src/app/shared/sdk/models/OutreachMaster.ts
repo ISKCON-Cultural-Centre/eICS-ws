@@ -2,12 +2,14 @@
 
 declare var Object: any;
 export interface OutreachMasterInterface {
-  "id": string;
+  "id"?: string;
   "description"?: string;
   "createdOn"?: Date;
   "updatedOn"?: Date;
   "createdBy"?: string;
   "updatedBy"?: string;
+  "created-on"?: Date;
+  "updated-on"?: Date;
 }
 
 export class OutreachMaster implements OutreachMasterInterface {
@@ -17,6 +19,8 @@ export class OutreachMaster implements OutreachMasterInterface {
   "updatedOn": Date;
   "createdBy": string;
   "updatedBy": string;
+  "created-on": Date;
+  "updated-on": Date;
   constructor(data?: OutreachMasterInterface) {
     Object.assign(this, data);
   }
@@ -73,6 +77,14 @@ export class OutreachMaster implements OutreachMasterInterface {
         "updatedBy": {
           name: 'updatedBy',
           type: 'string'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {

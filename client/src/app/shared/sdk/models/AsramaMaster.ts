@@ -2,15 +2,19 @@
 
 declare var Object: any;
 export interface AsramaMasterInterface {
-  "id": string;
+  "id"?: string;
   "asramaName": string;
   "asramaDescription": string;
+  "created-on"?: Date;
+  "updated-on"?: Date;
 }
 
 export class AsramaMaster implements AsramaMasterInterface {
   "id": string;
   "asramaName": string;
   "asramaDescription": string;
+  "created-on": Date;
+  "updated-on": Date;
   constructor(data?: AsramaMasterInterface) {
     Object.assign(this, data);
   }
@@ -55,6 +59,14 @@ export class AsramaMaster implements AsramaMasterInterface {
         "asramaDescription": {
           name: 'asramaDescription',
           type: 'string'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {

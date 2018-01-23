@@ -5,13 +5,15 @@ import {
 
 declare var Object: any;
 export interface MgOrderReturnInterface {
-  "id": string;
+  "id"?: string;
   "date": Date;
   "createdOn"?: Date;
   "updatedOn"?: Date;
   "createdBy"?: string;
   "updatedBy"?: string;
   "devoteeId": string;
+  "created-on"?: Date;
+  "updated-on"?: Date;
   fkTable1Devotee1rel?: Devotee;
 }
 
@@ -23,6 +25,8 @@ export class MgOrderReturn implements MgOrderReturnInterface {
   "createdBy": string;
   "updatedBy": string;
   "devoteeId": string;
+  "created-on": Date;
+  "updated-on": Date;
   fkTable1Devotee1rel: Devotee;
   constructor(data?: MgOrderReturnInterface) {
     Object.assign(this, data);
@@ -84,6 +88,14 @@ export class MgOrderReturn implements MgOrderReturnInterface {
         "devoteeId": {
           name: 'devoteeId',
           type: 'string'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {

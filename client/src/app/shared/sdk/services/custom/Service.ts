@@ -11,6 +11,7 @@ import { ErrorHandler } from '../core/error.service';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Rx';
 import { Service } from '../../models/Service';
+import { ServiceMapping } from '../../models/ServiceMapping';
 
 
 /**

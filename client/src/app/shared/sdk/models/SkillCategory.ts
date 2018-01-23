@@ -2,13 +2,17 @@
 
 declare var Object: any;
 export interface SkillCategoryInterface {
-  "id": string;
+  "id"?: string;
   "skillCategoryName"?: string;
+  "created-on"?: Date;
+  "updated-on"?: Date;
 }
 
 export class SkillCategory implements SkillCategoryInterface {
   "id": string;
   "skillCategoryName": string;
+  "created-on": Date;
+  "updated-on": Date;
   constructor(data?: SkillCategoryInterface) {
     Object.assign(this, data);
   }
@@ -49,6 +53,14 @@ export class SkillCategory implements SkillCategoryInterface {
         "skillCategoryName": {
           name: 'skillCategoryName',
           type: 'string'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {

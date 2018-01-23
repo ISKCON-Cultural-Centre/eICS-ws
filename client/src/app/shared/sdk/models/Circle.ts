@@ -5,13 +5,13 @@ import {
 
 declare var Object: any;
 export interface CircleInterface {
-  "id": string;
+  "id"?: string;
   "name"?: string;
   "leaderDevoteeId"?: string;
-  "createdOn"?: Date;
-  "updatedOn"?: Date;
   "createdBy"?: string;
   "updatedBy"?: string;
+  "created-on"?: Date;
+  "updated-on"?: Date;
   fkCircleDevotee1rel?: Devotee;
 }
 
@@ -19,10 +19,10 @@ export class Circle implements CircleInterface {
   "id": string;
   "name": string;
   "leaderDevoteeId": string;
-  "createdOn": Date;
-  "updatedOn": Date;
   "createdBy": string;
   "updatedBy": string;
+  "created-on": Date;
+  "updated-on": Date;
   fkCircleDevotee1rel: Devotee;
   constructor(data?: CircleInterface) {
     Object.assign(this, data);
@@ -69,14 +69,6 @@ export class Circle implements CircleInterface {
           name: 'leaderDevoteeId',
           type: 'string'
         },
-        "createdOn": {
-          name: 'createdOn',
-          type: 'Date'
-        },
-        "updatedOn": {
-          name: 'updatedOn',
-          type: 'Date'
-        },
         "createdBy": {
           name: 'createdBy',
           type: 'string'
@@ -84,6 +76,14 @@ export class Circle implements CircleInterface {
         "updatedBy": {
           name: 'updatedBy',
           type: 'string'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {

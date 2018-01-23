@@ -6,7 +6,7 @@ import {
 
 declare var Object: any;
 export interface DevoteeInterface {
-  "id": string;
+  "id"?: string;
   "legalName"?: string;
   "circleId"?: string;
   "spiritualName"?: string;
@@ -16,10 +16,7 @@ export interface DevoteeInterface {
   "realm"?: string;
   "username"?: string;
   "email"?: string;
-  "emailverified"?: number;
   "verificationtoken"?: string;
-  "createdOn"?: Date;
-  "updatedOn"?: Date;
   "createdBy"?: string;
   "updatedBy"?: string;
   "accessId"?: string;
@@ -50,10 +47,7 @@ export class Devotee implements DevoteeInterface {
   "realm": string;
   "username": string;
   "email": string;
-  "emailverified": number;
   "verificationtoken": string;
-  "createdOn": Date;
-  "updatedOn": Date;
   "createdBy": string;
   "updatedBy": string;
   "accessId": string;
@@ -144,21 +138,9 @@ export class Devotee implements DevoteeInterface {
           name: 'email',
           type: 'string'
         },
-        "emailverified": {
-          name: 'emailverified',
-          type: 'number'
-        },
         "verificationtoken": {
           name: 'verificationtoken',
           type: 'string'
-        },
-        "createdOn": {
-          name: 'createdOn',
-          type: 'Date'
-        },
-        "updatedOn": {
-          name: 'updatedOn',
-          type: 'Date'
         },
         "createdBy": {
           name: 'createdBy',

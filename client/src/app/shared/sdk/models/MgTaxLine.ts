@@ -2,13 +2,17 @@
 
 declare var Object: any;
 export interface MgTaxLineInterface {
-  "id": string;
+  "id"?: string;
   "invoiceInvoiceNumber": number;
+  "created-on"?: Date;
+  "updated-on"?: Date;
 }
 
 export class MgTaxLine implements MgTaxLineInterface {
   "id": string;
   "invoiceInvoiceNumber": number;
+  "created-on": Date;
+  "updated-on": Date;
   constructor(data?: MgTaxLineInterface) {
     Object.assign(this, data);
   }
@@ -49,6 +53,14 @@ export class MgTaxLine implements MgTaxLineInterface {
         "invoiceInvoiceNumber": {
           name: 'invoiceInvoiceNumber',
           type: 'number'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {

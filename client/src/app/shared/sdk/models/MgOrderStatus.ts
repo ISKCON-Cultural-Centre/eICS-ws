@@ -2,7 +2,7 @@
 
 declare var Object: any;
 export interface MgOrderStatusInterface {
-  "id": string;
+  "id"?: string;
   "orderStatus": string;
   "orderStatusDescription": string;
   "crudAllowed": string;
@@ -10,6 +10,8 @@ export interface MgOrderStatusInterface {
   "updatedOn"?: Date;
   "createdBy"?: string;
   "updatedBy"?: string;
+  "created-on"?: Date;
+  "updated-on"?: Date;
 }
 
 export class MgOrderStatus implements MgOrderStatusInterface {
@@ -21,6 +23,8 @@ export class MgOrderStatus implements MgOrderStatusInterface {
   "updatedOn": Date;
   "createdBy": string;
   "updatedBy": string;
+  "created-on": Date;
+  "updated-on": Date;
   constructor(data?: MgOrderStatusInterface) {
     Object.assign(this, data);
   }
@@ -85,6 +89,14 @@ export class MgOrderStatus implements MgOrderStatusInterface {
         "updatedBy": {
           name: 'updatedBy',
           type: 'string'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {
