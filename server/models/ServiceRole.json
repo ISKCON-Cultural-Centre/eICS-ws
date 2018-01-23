@@ -1,16 +1,16 @@
 {
-  "name": "Service",
+  "name": "ServiceRole",
   "options": {
     "idInjection": false,
     "base": "Role",
     "mysql": {
       "schema": "icc",
-      "table": "service"
+      "table": "service-role"
     },
     "relations": {
       "principals": {
         "type": "hasMany",
-        "model": "ServiceMapping",
+        "model": "ServiceRoleMapping",
         "foreignKey": "roleId"
       }
     },

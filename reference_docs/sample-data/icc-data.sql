@@ -12,7 +12,8 @@ delete from `asrama-master` ;
 INSERT INTO `asrama-master` VALUES ('56b94564-9237-402c-8fe7-7b5d95456749','Vanaprastha','Vanaprastha','2018-01-01 15:27:58','2018-01-01 15:38:26',NULL,NULL),('e608b870-cf32-4a14-8680-9e6046d07ce4','Brahmachari','Brahmachari','2018-01-01 15:27:58','2018-01-01 15:37:53',NULL,NULL),('eff83f8d-2ab3-4901-9fdc-c94372731694','Grihastha','Grihastha','2018-01-01 15:27:58','2018-01-01 15:38:07',NULL,NULL),('f94f80d1-c866-4a9d-9958-21f60962dc87','Sanyasi','Sanyasi','2018-01-01 15:27:58','2018-01-01 15:38:37',NULL,NULL);
 
 delete from devotee;
-INSERT INTO `devotee` VALUES ('3db35f39-8f62-4178-8993-fca4959536d7','Rajendra K','f36e9c73-d8f4-4bfd-901d-2d2ac7b8a5e5','Rasaraj Shyamsundar Dasa','1','d2d9ce87-8f1c-4848-a816-443fd92dbc8c',3000.00,'','hairajendra@gmail.com',NULL,'hairajendra@gmail.com',0,'','2018-01-01 15:12:38','2018-01-01 15:22:21','string','string','string','string','string','string','string','string','2018-01-01','e35a1dd6-b497-4c9a-aadf-ccb97af97711');
+INSERT INTO `devotee` (`id`,`legal-name`,`circle-id`,`spiritual-name`,`gender`,`shiksha-level`,`credit-limit`,`realm`,`username`,`password`,`email`,`emailVerified`,`verificationToken`,`created-on`,`updated-on`,`created-by`,`updated-by`,`access-id`,`gothra`,`nakshatra`,`government-unique-id`,`income-tax-id`,`lpm-id`,`kc-association-date`,`mother-tongue-language-id`) VALUES ('3db35f39-8f62-4178-8993-fca4959536d7','Rajendra K','f36e9c73-d8f4-4bfd-901d-2d2ac7b8a5e5','Rasaraj Shyamsundar Dasa','1','d2d9ce87-8f1c-4848-a816-443fd92dbc8c',3000.00,'','hairajendra@gmail.com','$2a$10$zFrX6zpTaxdZfn/HfQps3.951gSH83GczrbKJinm7IVDglKwaWvL.','hairajendra@gmail.com',0,'','2018-01-01 15:12:38','2018-01-16 09:51:51','string','string','string','string','string','string','string','string','2018-01-01','e35a1dd6-b497-4c9a-aadf-ccb97af97711');
+INSERT INTO `devotee` (`id`,`legal-name`,`circle-id`,`spiritual-name`,`gender`,`shiksha-level`,`credit-limit`,`realm`,`username`,`password`,`email`,`emailVerified`,`verificationToken`,`created-on`,`updated-on`,`created-by`,`updated-by`,`access-id`,`gothra`,`nakshatra`,`government-unique-id`,`income-tax-id`,`lpm-id`,`kc-association-date`,`mother-tongue-language-id`) VALUES ('66424f76-ce14-4cf0-94da-7c23076695f0',NULL,NULL,NULL,NULL,NULL,3000.00,NULL,'it@iskconculturalcentre.com','$2a$10$oj6xqPh5/F05EWob9sqD4.0TtJnozMEQOqFP1loKxvPWIYYpmzmP.',NULL,NULL,NULL,'2018-01-20 04:56:57','2018-01-20 04:56:57',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'e35a1dd6-b497-4c9a-aadf-ccb97af97711');
 
 delete from `donation-type-master`;
 INSERT INTO `donation-type-master` VALUES ('04efbd28-3a50-45bd-ad8f-c4824506c434','Anna Dhaan Dhaan','2018-01-01 15:28:05','2018-01-02 03:04:43','string','string'),('5a044cc5-b21a-4175-bdd2-119484d126e1','Nithya Seva','2018-01-01 15:28:05','2018-01-02 03:02:53','string','string'),('a1da6211-8046-46d8-a106-05a3b595858c','Shaastra Dhaan','2018-01-01 15:28:05','2018-01-02 03:04:34','string','string'),('ba0b76d1-b4cc-4a2f-ae45-76a2f3e1cd9d','Adhoc','2018-01-01 15:28:05','2018-01-02 03:05:21','string','string'),('dee23c71-a461-4530-8845-4b22793da10d','Festival','2018-01-01 15:28:05','2018-01-02 03:03:47','string','string');
@@ -41,10 +42,17 @@ INSERT INTO `spiritual-level-master` VALUES ('394296e2-4db2-48f0-8c76-c5b1788583
 delete from `temple`;
 INSERT INTO `temple` VALUES ('4ee2d7f5-9f3b-4add-986a-7f1d5658509a','ISKCON Cultural Centre','string','SundarRupa Shyam Dasa','2018-01-01 15:28:20','2018-01-02 03:41:57','string','string',NULL);
 
-delete from service;
-INSERT INTO `service` (`id`,`name`,`description`,`created`,`modified`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('f5425e4c-d715-4ba2-b3f0-cee4932c6581','admin','IT Administrator',NULL,NULL,'2018-01-17 10:21:47','2018-01-17 10:21:47',NULL,NULL);
+delete from `service-role`;
+INSERT INTO `service-role` (`id`,`name`,`description`,`created`,`modified`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('f5425e4c-d715-4ba2-b3f0-cee4932c6581','admin','IT Administrator',NULL,NULL,'2018-01-17 10:21:47','2018-01-17 10:21:47',NULL,NULL);
 
-delete from `service-mapping`;
-INSERT INTO `service-mapping` (`id`,`principal-type`,`principal-id`,`role-id`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('21f377ba-2a38-4996-a191-88f782cfc401','USER','3db35f39-8f62-4178-8993-fca4959536d7','f5425e4c-d715-4ba2-b3f0-cee4932c6581','2018-01-19 03:01:05','2018-01-19 03:04:27',NULL,NULL);
+`service-role-mapping`;
+INSERT INTO `service-role-mapping` (`id`,`principal-type`,`principal-id`,`role-id`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('21f377ba-2a38-4996-a191-88f782cfc401','USER','3db35f39-8f62-4178-8993-fca4959536d7','f5425e4c-d715-4ba2-b3f0-cee4932c6581','2018-01-19 03:01:05','2018-01-19 03:04:27',NULL,NULL);
+
+delete from `department`;
+INSERT INTO `department` (`id`,`temple-id`,`department-name`,`department-leader-devotee-id`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('86157f6d-36af-452a-88af-baa360aee2c1','4ee2d7f5-9f3b-4add-986a-7f1d5658509a','IT','3db35f39-8f62-4178-8993-fca4959536d7','2018-01-22 10:53:08','2018-01-22 10:53:08',NULL,NULL);
+git
+INSERT INTO  (`department-id`,`role-id`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('86157f6d-36af-452a-88af-baa360aee2c1','480812ee-ac47-4062-8413-f349e3407efb','2018-01-22 11:02:03','2018-01-22 11:04:01',NULL,NULL);
+INSERT INTO `department-role` (`department-id`,`role-id`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('86157f6d-36af-452a-88af-baa360aee2c1','744133eb-d4e4-443c-bd8c-de2a3481c6c0','2018-01-22 11:02:03','2018-01-22 11:03:16',NULL,NULL);
+
 
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
