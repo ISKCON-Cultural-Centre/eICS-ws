@@ -1,12 +1,18 @@
 {
-  "name": "MgOrderChannel",
+  "name": "ServiceRoleMapping",
   "options": {
     "idInjection": false,
     "mysql": {
       "schema": "icc",
-      "table": "mg-order-channel"
+      "table": "service-role-mapping"
     },
-    "relations": {}
+    "relations": {
+      "fkServiceMappingService1rel": {
+        "model": "ServiceRole",
+        "type": "belongsTo",
+        "foreignKey": "roleId"
+      }
+    }
   },
   "properties": {
     "id": {
@@ -25,19 +31,49 @@
         "nullable": "N"
       }
     },
-    "name": {
+    "principalType": {
       "type": "String",
       "required": false,
-      "length": 50,
+      "length": 512,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "name",
+        "columnName": "principal-type",
         "dataType": "varchar",
-        "dataLength": 50,
+        "dataLength": 512,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
+      }
+    },
+    "principalId": {
+      "type": "String",
+      "required": false,
+      "length": 255,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "principal-id",
+        "dataType": "varchar",
+        "dataLength": 255,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "roleId": {
+      "type": "String",
+      "required": true,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "role-id",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
       }
     },
     "createdOn": {

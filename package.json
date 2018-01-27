@@ -9,8 +9,8 @@
     "lint": "eslint .",
     "start": "node .",
     "posttest": "npm run lint && nsp check",
-    "remove-sdk": "rm -rf client/src/app/shared/sdk",
-    "generate": "npm run remove-sdk;./node_modules/.bin/lb-sdk server/server client/src/app/shared/sdk  -d ng2web -i disabled"
+    "generate": "./node_modules/.bin/lb-sdk server/server client/src/app/shared/sdk  -d ng2web -i disabled",
+    "remove-sdk": "rm -rf client/src/app/shared/sdk"
   },
   "dependencies": {
     "compression": "^1.0.3",
