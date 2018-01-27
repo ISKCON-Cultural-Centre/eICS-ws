@@ -10,6 +10,8 @@ export interface DepartmentInterface {
   "templeId": string;
   "departmentName": string;
   "departmentLeaderDevoteeId": string;
+  "icon"?: string;
+  "route"?: string;
   "created-on"?: Date;
   "updated-on"?: Date;
   fkDepartmentDevotee1rel?: Devotee;
@@ -21,6 +23,8 @@ export class Department implements DepartmentInterface {
   "templeId": string;
   "departmentName": string;
   "departmentLeaderDevoteeId": string;
+  "icon": string;
+  "route": string;
   "created-on": Date;
   "updated-on": Date;
   fkDepartmentDevotee1rel: Devotee;
@@ -72,6 +76,14 @@ export class Department implements DepartmentInterface {
         },
         "departmentLeaderDevoteeId": {
           name: 'departmentLeaderDevoteeId',
+          type: 'string'
+        },
+        "icon": {
+          name: 'icon',
+          type: 'string'
+        },
+        "route": {
+          name: 'route',
           type: 'string'
         },
         "created-on": {

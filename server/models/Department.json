@@ -90,8 +90,7 @@
         "dataScale": null,
         "nullable": "N"
       }
-    }
-  },
+    },
     "icon": {
       "type": "String",
       "required": false,
@@ -121,7 +120,8 @@
         "dataScale": null,
         "nullable": "Y"
       }
-    },
+    }
+  },    
   "validations": [],
   "relations": {},
   "acls": [
