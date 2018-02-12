@@ -1,3 +1,3 @@
-module.exports = function(Service) {
+module.exports = function(ServiceRole) {
 	
 };
