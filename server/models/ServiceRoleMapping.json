@@ -8,11 +8,16 @@
       "table": "service-role-mapping"
     },   
     "relations": {
-      "fkServiceMappingService1rel": {
+      "ServiceRole": {
         "model": "ServiceRole",
         "type": "belongsTo",
         "foreignKey": "roleId"
-      }
+      },
+      "fkServiceMappingDevoteerel": {
+        "model": "Devotee",
+        "type": "belongsTo",
+        "foreignKey": "principalId"
+      }      
     }
   },
   "mixins": {

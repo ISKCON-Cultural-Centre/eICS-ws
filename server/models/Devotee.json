@@ -25,6 +25,11 @@
         "options": {
           "disableInclude": true
         }
+      },
+      "roleMappings": {
+        "type": "hasMany",
+        "model": "ServiceRoleMapping",
+        "foreignKey": "principalId"
       }
     }
   },
@@ -36,16 +41,7 @@
       "validateUpsert": true,
       "silenceWarnings": false
     },
-    "GenerateKey": true,
-    "SetupRemoteMethods": {
-      "disableAllExcept": [
-        "create",
-        "login",
-        "logout",
-        "prototype.updateAttributes",
-        "find"
-      ]
-    }
+    "GenerateKey": true
   },
   "properties": {
     "id": {
@@ -388,6 +384,13 @@
       "principalType": "ROLE",
       "principalId": "admin",
       "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "getRoles"
     }
   ],
   "methods": {}
