@@ -19,6 +19,10 @@ module.exports = function(Devotee) {
    * @promise
    */
 	Devotee.getRoles = function (options, cb) {
+
+		const token = options && options.accessToken;
+		const userId = token.userId;
+
 		cb = cb || utils.createPromiseCallback();
 
 		Devotee.getApp(function (err, app) {
@@ -28,11 +32,14 @@ module.exports = function(Devotee) {
 		}			
 		var RoleMapping = app.models.ServiceRoleMapping;
 		var Role = app.models.ServiceRole;
-		RoleMapping.find({ where : { principalId: options.userId }}, function (err, roleMappings) {
+
+		RoleMapping.find({ where : { principalId: userId }}, function (err, roleMappings) {
+		
 			if (err) {
 				fn(err);
 				return fn.promise;
 			}		
+
 		var roleIds = _.uniq(roleMappings
 			.map(function (roleMapping) {
 			return roleMapping.roleId;
@@ -74,24 +81,25 @@ module.exports = function(Devotee) {
 
 		Devotee.getApp(function (err, app) {
 		if (err) {
-			fn(err);
-			return fn.promise;
+			cb(err);
+			return cb.promise;
 		}			
 		var DepartmentRole = app.models.DepartmentRole;
 		var Department = app.models.Department;
 		Devotee.getRoles(options, function(err, authorizedRoles){
 			if (err) {
-				fn(err);
-				return fn.promise;
-			}				
+				cb(err);
+				return cb.promise;
+			}
+
 			var conditions = authorizedRoles.roles.map(function (roleId) {
 				return { roleId: roleId.id };
 			});
 
 		DepartmentRole.find({ where : { or: conditions }}, function (err, departmentRoles) {
 			if (err) {
-				fn(err);
-				return fn.promise;
+				cb(err);
+				return cb.promise;
 			}		
 		
 		var departmentIds = _.uniq(departmentRoles
@@ -104,8 +112,8 @@ module.exports = function(Devotee) {
 
 		Department.find({ where: { or: conditions}}, function (err, departments) {
 			if (err) {
-				fn(err);
-				return fn.promise;
+				cb(err);
+				return cb.promise;
 			}	
 			cb(null, {departments});
 		});
@@ -117,15 +125,40 @@ module.exports = function(Devotee) {
 	
 
 
-	Devotee.remoteMethod('getDepartments', {
+	Devotee.remoteMethod(
+		'getDepartments',
+		{
+			description: 'Get the list of Authorized Departments assigned to a Devotee',
+			accepts: [
+				{arg: 'options', type: 'object', http: 'optionsFromRequest'}
+			],
+			http: {verb: 'GET', path: '/getDepartments'},
+			returns: { arg: 'departments', type: 'String', root: true}						
+		}
+	);
+
+
+	Devotee.remoteMethod(
+		'getRoles',
+		{
+			description: 'Get the list of Authorized Roles assigned to a Devotee',
+			accepts: [
+				{arg: 'options', type: 'object', http: 'optionsFromRequest'}
+			],
+			http: {verb: 'GET', path: '/getRoles'},
+			returns: { arg: 'roles', type: 'String', root: true}
+		}
+	);	
+
+/* 	Devotee.remoteMethod('getDepartments', {
 		description: 'Get the list of Authorized Departments assigned to a Devotee',
 		http: { path: '/getDepartments', verb: 'get' },
 		returns: { arg: 'departments', type: 'String', root: true}
 		});		
-
-	Devotee.remoteMethod('getRoles', {
+ */
+/* 	Devotee.remoteMethod('getRoles', {
 		description: 'Get the list of Authorized Roles assigned to a Devotee',		
 		http: { path: '/getRoles', verb: 'get' },
-		returns: { arg: 'roles', type: 'String', root: true}
-		});
+ 		returns: { arg: 'roles', type: 'String', root: true}
+		}); */
 }

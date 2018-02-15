@@ -791,6 +791,8 @@ export class DevoteeApi extends BaseLoopBackApi {
   /**
    * Get the list of Authorized Departments assigned to a Devotee
    *
+   * @param {object} options 
+   *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
    *   from the server.
@@ -813,6 +815,8 @@ export class DevoteeApi extends BaseLoopBackApi {
 
   /**
    * Get the list of Authorized Roles assigned to a Devotee
+   *
+   * @param {object} options 
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
