@@ -1,107 +1,131 @@
 var _ = require('underscore');
 var utils = require('./utils');
 
-	module.exports = function(Devotee) {
+module.exports = function(Devotee) {
 
+  /**
+   * Get the list of Roles assigned to a Devotee.
+   *
+   * ```js
+   * Devotee.getRoles(options, function (err, roles) {
+   *      console.log(token.id);
+   *    });
+   * ```
+   *
+   * @param {Object} options (context information to be included in all custom remote methods)
+   * @callback {Function} cb Callback function
+   * @param {Error} err Error object
+   * @param {authorizedRoles} list of roles successful
+   * @promise
+   */
+	Devotee.getRoles = function (options, cb) {
+		cb = cb || utils.createPromiseCallback();
 
-		Devotee.getRoles = function (options, cb) {
-
-			cb = cb || utils.createPromiseCallback();
-
-			Devotee.getApp(function (err, app) {
+		Devotee.getApp(function (err, app) {
+		if (err) {
+			fn(err);
+			return fn.promise;
+		}			
+		var RoleMapping = app.models.ServiceRoleMapping;
+		var Role = app.models.ServiceRole;
+		RoleMapping.find({ where : { principalId: options.userId }}, function (err, roleMappings) {
 			if (err) {
 				fn(err);
 				return fn.promise;
-			}			
-		  var RoleMapping = app.models.ServiceRoleMapping;
-			var Role = app.models.ServiceRole;
-		  RoleMapping.find({ where : { principalId: options.userId }}, function (err, roleMappings) {
-				if (err) {
-					fn(err);
-					return fn.promise;
-				}		
-			var roleIds = _.uniq(roleMappings
-			  .map(function (roleMapping) {
-				return roleMapping.roleId;
-			  }));
-			var conditions = roleIds.map(function (roleId) {
-			  return { id: roleId };
-			});
- 			Role.find({ where: { or: conditions}}, function (err, roles) {
-				if (err) {
-					fn(err);
-					return fn.promise;
-				}	
-			  var authorizedRoles = roles.map(function(role) {
-				return { roleId: role.id, roleName: role.name};
-			  });
-				cb(null, {roles});
-			});
-		  });
+			}		
+		var roleIds = _.uniq(roleMappings
+			.map(function (roleMapping) {
+			return roleMapping.roleId;
+			}));
+		var conditions = roleIds.map(function (roleId) {
+			return { id: roleId };
 		});
-		return cb.promise;
-		};
-		
-
-		Devotee.getDepartments = function (options, cb) {
-
-			cb = cb || utils.createPromiseCallback();
-
-			Devotee.getApp(function (err, app) {
+		Role.find({ where: { or: conditions}}, function (err, roles) {
 			if (err) {
 				fn(err);
 				return fn.promise;
-			}			
-		  var DepartmentRole = app.models.DepartmentRole;
-			var Department = app.models.Department;
-			Devotee.getRoles(options, function(err, authorizedRoles){
-				if (err) {
-					fn(err);
-					return fn.promise;
-				}				
-				var conditions = authorizedRoles.roles.map(function (roleId) {
-					return { roleId: roleId.id };
-				});
-
-		  DepartmentRole.find({ where : { or: conditions }}, function (err, departmentRoles) {
-				if (err) {
-					fn(err);
-					return fn.promise;
-				}		
-			
-			var departmentIds = _.uniq(departmentRoles
-			  .map(function (departmentRole) {
-				return departmentRole.departmentId;
-			  }));
-			var conditions = departmentIds.map(function (departmentId) {
-			  return { id: departmentId };
-			});
-
-			Department.find({ where: { or: conditions}}, function (err, departments) {
-				if (err) {
-					fn(err);
-					return fn.promise;
-				}	
-			  var authorizedDepartments = departments.map(function(department) {
-				return { departmentId: department.id, departmentName: department.name};
-			  });
-				cb(null, {departments});
-			});
-			});
+			}	
+			cb(null, {roles});
 		});
 		});
-		return cb.promise;
-		};
+	});
+	return cb.promise;
+	};
+	
+
+  /**
+   * Get the list of Deparments assigned to a Devotee.
+   *
+   * ```js
+   * Devotee.getDepartments(options, function (err, roles) {
+   *      console.log(token.id);
+   *    });
+   * ```
+   *
+   * @param {Object} options (context information to be included in all custom remote methods)
+   * @callback {Function} cb Callback function
+   * @param {Error} err Error object
+   * @param {authorizedDepartments} list of roles successful
+   * @promise
+   */	
+	Devotee.getDepartments = function (options, cb) {
+
+		cb = cb || utils.createPromiseCallback();
+
+		Devotee.getApp(function (err, app) {
+		if (err) {
+			fn(err);
+			return fn.promise;
+		}			
+		var DepartmentRole = app.models.DepartmentRole;
+		var Department = app.models.Department;
+		Devotee.getRoles(options, function(err, authorizedRoles){
+			if (err) {
+				fn(err);
+				return fn.promise;
+			}				
+			var conditions = authorizedRoles.roles.map(function (roleId) {
+				return { roleId: roleId.id };
+			});
+
+		DepartmentRole.find({ where : { or: conditions }}, function (err, departmentRoles) {
+			if (err) {
+				fn(err);
+				return fn.promise;
+			}		
 		
+		var departmentIds = _.uniq(departmentRoles
+			.map(function (departmentRole) {
+			return departmentRole.departmentId;
+			}));
+		var conditions = departmentIds.map(function (departmentId) {
+			return { id: departmentId };
+		});
+
+		Department.find({ where: { or: conditions}}, function (err, departments) {
+			if (err) {
+				fn(err);
+				return fn.promise;
+			}	
+			cb(null, {departments});
+		});
+		});
+	});
+	});
+	return cb.promise;
+	};
+	
 
 
-	  Devotee.remoteMethod('getDepartments', {
-			http: { path: '/getDepartments', verb: 'get' },
-			returns: { arg: 'departments', type: 'Object', root: true}
-			});		
+	Devotee.remoteMethod('getDepartments', {
+		description: 'Get the list of Authorized Departments assigned to a Devotee',
+		http: { path: '/getDepartments', verb: 'get' },
+		returns: { arg: 'departments', type: 'String', root: true}
+		});		
 
-	  Devotee.remoteMethod('getRoles', {
+	Devotee.remoteMethod('getRoles', {
+		description: 'Get the list of Authorized Roles assigned to a Devotee',		
 		http: { path: '/getRoles', verb: 'get' },
 		returns: { arg: 'roles', type: 'String', root: true}
-	  });
-	}
+		});
+}
