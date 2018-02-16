@@ -27,18 +27,19 @@ module.exports = function(Devotee) {
 
 		Devotee.getApp(function (err, app) {
 		if (err) {
-			fn(err);
-			return fn.promise;
+			cb(err);
+			return cb.promise;
 		}			
 		var RoleMapping = app.models.ServiceRoleMapping;
 		var Role = app.models.ServiceRole;
 
 		RoleMapping.find({ where : { principalId: userId }}, function (err, roleMappings) {
-		
 			if (err) {
-				fn(err);
-				return fn.promise;
+				cb(err);
+				return cb.promise;
 			}		
+		console.log(roleMappings.length);
+	   // if (!roleMappings.length) { return cb(null, { "roles": [] }); }
 
 		var roleIds = _.uniq(roleMappings
 			.map(function (roleMapping) {

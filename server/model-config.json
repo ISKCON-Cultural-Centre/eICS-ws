@@ -72,7 +72,7 @@
   },
   "OutreachMaster": {
     "dataSource": "mysqld",
-    "public": false
+    "public": true
   },
   "Payment": {
     "dataSource": "mysqld",
@@ -80,7 +80,7 @@
   },
   "PaymentModeMaster": {
     "dataSource": "mysqld",
-    "public": false
+    "public": true
   },
   "Pledge": {
     "dataSource": "mysqld",
@@ -92,11 +92,11 @@
   },
   "RelationshipMaster": {
     "dataSource": "mysqld",
-    "public": false
+    "public": true
   },
   "SpiritualLevelMaster": {
     "dataSource": "mysqld",
-    "public": false
+    "public": true
   },
   "Temple": {
     "dataSource": "mysqld",
@@ -112,7 +112,7 @@
   },
   "ElectronicAddressTypeMaster": {
     "dataSource": "mysqld",
-    "public": false
+    "public": true
   },
   "PhysicalAddress": {
     "dataSource": "mysqld",
@@ -120,7 +120,7 @@
   },
   "PhysicalAddressTypeMaster": {
     "dataSource": "mysqld",
-    "public": false
+    "public": true
   },
   "ApprovalArtefact": {
     "dataSource": "mysqld",
@@ -148,7 +148,7 @@
   },
   "TaskMaster": {
     "dataSource": "mysqld",
-    "public": false
+    "public": true
   },
   "MgCreditNote": {
     "dataSource": "mysqld",

@@ -155,5 +155,55 @@ INSERT INTO `icc`.`lookup-table-master` (`table-name`, `table-display-name`) VAL
 INSERT INTO `icc`.`lookup-table-master` (`table-name`, `table-display-name`) VALUES ('Language', 'Language');
 INSERT INTO `icc`.`lookup-table-master` (`table-name`, `table-display-name`) VALUES ('Skill', 'Skill');
 
+delete from `lookup-table-master`;
+INSERT INTO `lookup-table-master` (`table-name`,`table-display-name`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('AsramaMaster','AsramaMaster',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-master` (`table-name`,`table-display-name`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('ElectronicAddressTypeMaster','ElectronicAddressTypeMaster',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-master` (`table-name`,`table-display-name`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('EventMaster','EventMaster',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-master` (`table-name`,`table-display-name`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('FestivalMaster','FestivalMaster',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-master` (`table-name`,`table-display-name`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('Language','Language',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-master` (`table-name`,`table-display-name`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('OutreachMaster','OutreachMaster',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-master` (`table-name`,`table-display-name`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('PaymentModeMaster','PaymentModeMaster',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-master` (`table-name`,`table-display-name`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('PhysicalAddressTypeMaster','PhysicalAddressTypeMaster',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-master` (`table-name`,`table-display-name`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('RelationshipMaster','RelationshipMaster',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-master` (`table-name`,`table-display-name`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('Skill','Skill',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-master` (`table-name`,`table-display-name`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('SkillCategory','SkillCategory',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-master` (`table-name`,`table-display-name`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('SpiritualLevelMaster','SpiritualLevelMaster',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-master` (`table-name`,`table-display-name`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('TaskMaster','TaskMaster',NULL,NULL,NULL,NULL);
+
+delete from `lookup-table-detail`;
+INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('AsramaMaster','asramaDescription','asramaDescription','string',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('AsramaMaster','asramaName','asramaName','string',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('AsramaMaster','id','id','string',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('ElectronicAddressTypeMaster','id','id','string',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('ElectronicAddressTypeMaster','name','name','string',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('EventMaster','eventName','eventName','string',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('EventMaster','id','id','string',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('FestivalMaster','festivalName','festivalName','string',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('FestivalMaster','id','id','string',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('Language','id','id','string',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('Language','language','language','string',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('OutreachMaster','description','description','string',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('OutreachMaster','id','id','string',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('PaymentModeMaster','description','description',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('PaymentModeMaster','id','id','string',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('PaymentModeMaster','modeName','modeName','string',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('PhysicalAddressTypeMaster','addressType','addressType','string',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('PhysicalAddressTypeMaster','id','id','string',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('RelationshipMaster','id','id','string',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('RelationshipMaster','relationName','relationName','string',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('Skill','id','id','string',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('Skill','skillCategoryId','skillCategoryId','string',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('Skill','skillName','skillName','string',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('SkillCategory','id','id','string',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('SkillCategory','skillCategoryName','skillCategoryName','string',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('SpiritualLevelMaster','description','description','string',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('SpiritualLevelMaster','id','id','string',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('SpiritualLevelMaster','level','level','string',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('TaskMaster','applicationRoute','applicationRoute','string',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('TaskMaster','approvalRulesApplyInd','approvalRulesApplyInd','string',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('TaskMaster','id','id','string',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('TaskMaster','taskDescription','taskDescription','string',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('TaskMaster','taskName','taskName','string',NULL,NULL,NULL,NULL);
+
 
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
