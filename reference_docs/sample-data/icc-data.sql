@@ -142,4 +142,18 @@ INSERT INTO `icc`.`department-role` (`department-id`, `role-id`) VALUES ('dfcff9
 INSERT INTO `icc`.`department-role` (`department-id`, `role-id`) VALUES ('dfcff98e-02a1-11e8-929a-00505695313b', '2897a4cf-1201-11e8-94e8-d4bed99b600a');
 
 
+delete from `lookup-table-master`;
+INSERT INTO `icc`.`lookup-table-master` (`table-name`, `table-display-name`) VALUES ('OutreachMaster', 'OutreachMaster');
+INSERT INTO `icc`.`lookup-table-master` (`table-name`, `table-display-name`) VALUES ('PaymentModeMaster', 'PaymentModeMaster');
+INSERT INTO `icc`.`lookup-table-master` (`table-name`, `table-display-name`) VALUES ('RelationshipMaster', 'RelationshipMaster');
+INSERT INTO `icc`.`lookup-table-master` (`table-name`, `table-display-name`) VALUES ('SpiritualLevelMaster', 'SpiritualLevelMaster');
+INSERT INTO `icc`.`lookup-table-master` (`table-name`, `table-display-name`) VALUES ('ElectronicAddressTypeMaster', 'ElectronicAddressTypeMaster');
+INSERT INTO `icc`.`lookup-table-master` (`table-name`, `table-display-name`) VALUES ('PhysicalAddressTypeMaster', 'PhysicalAddressTypeMaster');
+INSERT INTO `icc`.`lookup-table-master` (`table-name`, `table-display-name`) VALUES ('TaskMaster', 'TaskMaster');
+INSERT INTO `icc`.`lookup-table-master` (`table-name`, `table-display-name`) VALUES ('AsramaMaster', 'AsramaMaster');
+INSERT INTO `icc`.`lookup-table-master` (`table-name`, `table-display-name`) VALUES ('FestivalMaster', 'FestivalMaster');
+INSERT INTO `icc`.`lookup-table-master` (`table-name`, `table-display-name`) VALUES ('Language', 'Language');
+INSERT INTO `icc`.`lookup-table-master` (`table-name`, `table-display-name`) VALUES ('Skill', 'Skill');
+
+
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

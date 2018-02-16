@@ -72,7 +72,7 @@
   },
   "OutreachMaster": {
     "dataSource": "mysqld",
-    "public": true
+    "public": false
   },
   "Payment": {
     "dataSource": "mysqld",
@@ -80,7 +80,7 @@
   },
   "PaymentModeMaster": {
     "dataSource": "mysqld",
-    "public": true
+    "public": false
   },
   "Pledge": {
     "dataSource": "mysqld",
@@ -92,11 +92,11 @@
   },
   "RelationshipMaster": {
     "dataSource": "mysqld",
-    "public": true
+    "public": false
   },
   "SpiritualLevelMaster": {
     "dataSource": "mysqld",
-    "public": true
+    "public": false
   },
   "Temple": {
     "dataSource": "mysqld",
@@ -112,7 +112,7 @@
   },
   "ElectronicAddressTypeMaster": {
     "dataSource": "mysqld",
-    "public": true
+    "public": false
   },
   "PhysicalAddress": {
     "dataSource": "mysqld",
@@ -120,7 +120,7 @@
   },
   "PhysicalAddressTypeMaster": {
     "dataSource": "mysqld",
-    "public": true
+    "public": false
   },
   "ApprovalArtefact": {
     "dataSource": "mysqld",
@@ -148,7 +148,7 @@
   },
   "TaskMaster": {
     "dataSource": "mysqld",
-    "public": true
+    "public": false
   },
   "MgCreditNote": {
     "dataSource": "mysqld",
@@ -260,7 +260,7 @@
   },
   "AsramaMaster": {
     "dataSource": "mysqld",
-    "public": true
+    "public": false
   },
   "DevoteeAsrama": {
     "dataSource": "mysqld",
@@ -300,11 +300,11 @@
   },
   "FestivalMaster": {
     "dataSource": "mysqld",
-    "public": true
+    "public": false
   },
   "Language": {
     "dataSource": "mysqld",
-    "public": true
+    "public": false
   },
   "MgHsn": {
     "dataSource": "mysqld",
@@ -320,9 +320,17 @@
   },
   "Skill": {
     "dataSource": "mysqld",
-    "public": true
+    "public": false
   },
   "SkillCategory": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "LookupTableMaster": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "LookupTableDetail": {
     "dataSource": "mysqld",
     "public": true
   }
