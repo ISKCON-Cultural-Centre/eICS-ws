@@ -1,6 +1,7 @@
 var _ = require('underscore');
 var utils = require('./utils');
 
+
 module.exports = function(Devotee) {
 
   /**
@@ -38,8 +39,6 @@ module.exports = function(Devotee) {
 				cb(err);
 				return cb.promise;
 			}		
-		console.log(roleMappings.length);
-	   // if (!roleMappings.length) { return cb(null, { "roles": [] }); }
 
 		var roleIds = _.uniq(roleMappings
 			.map(function (roleMapping) {
@@ -50,8 +49,8 @@ module.exports = function(Devotee) {
 		});
 		Role.find({ where: { or: conditions}}, function (err, roles) {
 			if (err) {
-				fn(err);
-				return fn.promise;
+				cb(err);
+				return cb.promise;
 			}	
 			cb(null, {roles});
 		});
@@ -87,15 +86,23 @@ module.exports = function(Devotee) {
 		}			
 		var DepartmentRole = app.models.DepartmentRole;
 		var Department = app.models.Department;
+		var Role = app.models.ServiceRole;		
+
 		Devotee.getRoles(options, function(err, authorizedRoles){
 			if (err) {
 				cb(err);
 				return cb.promise;
 			}
+			
+/* 			var conditions = authorizedRoles.map(function (roleId) {
+				return { roleId: roleId };
+			}); */
 
 			var conditions = authorizedRoles.roles.map(function (roleId) {
 				return { roleId: roleId.id };
 			});
+
+			if (!authorizedRoles.roles.length) { return cb(null, { "departments": [] }); }
 
 		DepartmentRole.find({ where : { or: conditions }}, function (err, departmentRoles) {
 			if (err) {
@@ -131,6 +138,7 @@ module.exports = function(Devotee) {
 		{
 			description: 'Get the list of Authorized Departments assigned to a Devotee',
 			accepts: [
+/* 				{arg: 'context', type: 'object', 'http': {source: 'context'}}, */
 				{arg: 'options', type: 'object', http: 'optionsFromRequest'}
 			],
 			http: {verb: 'GET', path: '/getDepartments'},

@@ -20,7 +20,7 @@
       },
       "accessTokens": {
         "type": "hasMany",
-        "model": "AccessToken",
+        "model": "Accesstoken",
         "foreignKey": "userId",
         "options": {
           "disableInclude": true
@@ -379,21 +379,9 @@
   "validations": [],
   "relations": {},
   "acls": [
+
     {
-      "accessType": "*",
-      "principalType": "ROLE",
-      "principalId": "admin",
-      "permission": "ALLOW"
-    },
-    {
-      "accessType": "*",
-      "principalType": "ROLE",
-      "principalId": "$authenticated",
-      "permission": "ALLOW",
-      "property": "getRoles"
-    },
-    {
-      "accessType": "*",
+      "accessType": "EXECUTE",
       "principalType": "ROLE",
       "principalId": "$authenticated",
       "permission": "ALLOW",
