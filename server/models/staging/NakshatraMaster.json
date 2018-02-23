@@ -1,73 +1,28 @@
 {
-  "name": "Rolemapping",
+  "name": "NakshatraMaster",
   "options": {
     "idInjection": false,
     "mysql": {
       "schema": "icc",
-      "table": "rolemapping"
+      "table": "nakshatra-master"
     },
     "relations": {}
   },
   "properties": {
-    "id": {
-      "type": "Number",
+    "nakshatra": {
+      "type": "String",
       "required": true,
-      "length": null,
-      "precision": 10,
-      "scale": 0,
+      "length": 50,
+      "precision": null,
+      "scale": null,
       "id": 1,
       "mysql": {
-        "columnName": "id",
-        "dataType": "int",
-        "dataLength": null,
-        "dataPrecision": 10,
-        "dataScale": 0,
+        "columnName": "nakshatra",
+        "dataType": "varchar",
+        "dataLength": 50,
+        "dataPrecision": null,
+        "dataScale": null,
         "nullable": "N"
-      }
-    },
-    "principaltype": {
-      "type": "String",
-      "required": false,
-      "length": 512,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "principalType",
-        "dataType": "varchar",
-        "dataLength": 512,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "principalid": {
-      "type": "String",
-      "required": false,
-      "length": 255,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "principalId",
-        "dataType": "varchar",
-        "dataLength": 255,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "roleid": {
-      "type": "Number",
-      "required": false,
-      "length": null,
-      "precision": 10,
-      "scale": 0,
-      "mysql": {
-        "columnName": "roleId",
-        "dataType": "int",
-        "dataLength": null,
-        "dataPrecision": 10,
-        "dataScale": 0,
-        "nullable": "Y"
       }
     },
     "createdOn": {

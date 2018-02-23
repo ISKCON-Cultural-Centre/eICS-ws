@@ -326,5 +326,13 @@
   "lookupMaster": {
     "dataSource": null,
     "public": true
+  },
+  "GothraMaster": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "NakshatraMaster": {
+    "dataSource": "mysqld",
+    "public": true
   }
 }

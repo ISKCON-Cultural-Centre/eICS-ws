@@ -12,10 +12,20 @@
         "type": "belongsTo",
         "foreignKey": "circleId"
       },
+      "fkDevoteeGothraMaster1rel": {
+        "model": "GothraMaster",
+        "type": "belongsTo",
+        "foreignKey": "gothra"
+      },
       "fkDevoteeLanguage1rel": {
         "model": "Language",
         "type": "belongsTo",
         "foreignKey": "motherTongueLanguageId"
+      },
+      "fkDevoteeNakshatraMaster1rel": {
+        "model": "NakshatraMaster",
+        "type": "belongsTo",
+        "foreignKey": "nakshatra"
       }
     }
   },
@@ -112,17 +122,17 @@
       }
     },
     "creditLimit": {
-      "type": "String",
+      "type": "Number",
       "required": true,
       "length": null,
       "precision": 10,
-      "scale": 2,
+      "scale": 0,
       "mysql": {
         "columnName": "credit-limit",
-        "dataType": "decimal",
+        "dataType": "int",
         "dataLength": null,
         "dataPrecision": 10,
-        "dataScale": 2,
+        "dataScale": 0,
         "nullable": "N"
       }
     },
@@ -291,36 +301,6 @@
         "nullable": "Y"
       }
     },
-    "gothra": {
-      "type": "String",
-      "required": false,
-      "length": 50,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "gothra",
-        "dataType": "varchar",
-        "dataLength": 50,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "nakshatra": {
-      "type": "String",
-      "required": false,
-      "length": 50,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "nakshatra",
-        "dataType": "varchar",
-        "dataLength": 50,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
     "governmentUniqueId": {
       "type": "String",
       "required": false,
@@ -394,6 +374,66 @@
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "N"
+      }
+    },
+    "dateOfBirth": {
+      "type": "Date",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "date-of-birth",
+        "dataType": "date",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "dayMonthOfBirth": {
+      "type": "String",
+      "required": true,
+      "length": 65,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "day-month-of-birth",
+        "dataType": "char",
+        "dataLength": 65,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "nakshatra": {
+      "type": "String",
+      "required": false,
+      "length": 50,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "nakshatra",
+        "dataType": "varchar",
+        "dataLength": 50,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "gothra": {
+      "type": "String",
+      "required": false,
+      "length": 50,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "gothra",
+        "dataType": "varchar",
+        "dataLength": 50,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
       }
     }
   }

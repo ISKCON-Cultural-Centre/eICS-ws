@@ -1,0 +1,29 @@
+{
+  "name": "GothraMaster",
+  "options": {
+    "idInjection": false,
+    "mysql": {
+      "schema": "icc",
+      "table": "gothra-master"
+    },
+    "relations": {}
+  },
+  "properties": {
+    "gothra": {
+      "type": "String",
+      "required": true,
+      "length": 50,
+      "precision": null,
+      "scale": null,
+      "id": 1,
+      "mysql": {
+        "columnName": "gothra",
+        "dataType": "varchar",
+        "dataLength": 50,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    }
+  }
+}

@@ -133,6 +133,8 @@ CREATE TABLE IF NOT EXISTS `icc`.`devotee` (
   `lpm-id` VARCHAR(20) NULL DEFAULT NULL,
   `kc-association-date` DATE NULL DEFAULT NULL,
   `mother-tongue-language-id` VARCHAR(36) NOT NULL,
+  `date-of-birth` DATE NULL,
+  `day-month-of-birth` CHAR(65) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `created-by_UNIQUE` (`created-by` ASC),
   UNIQUE INDEX `access-id_UNIQUE` (`access-id` ASC),
@@ -295,6 +297,8 @@ CREATE TABLE IF NOT EXISTS `icc`.`department` (
   `temple-id` VARCHAR(36) NOT NULL,
   `department-name` VARCHAR(50) NOT NULL,
   `department-leader-devotee-id` VARCHAR(36) NOT NULL,
+  `icon` VARCHAR(50) NULL,
+  `route` VARCHAR(255) NULL,
   `created-on` DATETIME NULL DEFAULT NULL,
   `updated-on` DATETIME NULL DEFAULT NULL,
   `created-by` VARCHAR(36) NULL DEFAULT NULL,
@@ -1775,6 +1779,41 @@ CREATE TABLE IF NOT EXISTS `icc`.`temple-branch` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `icc`.`lookup-table-master`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `icc`.`lookup-table-master` (
+  `table-name` VARCHAR(50) NOT NULL,
+  `table-display-name` VARCHAR(100) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
+  PRIMARY KEY (`table-name`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `icc`.`lookup-table-detail`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `icc`.`lookup-table-detail` (
+  `table-name` VARCHAR(50) NOT NULL,
+  `column-name` VARCHAR(50) NOT NULL,
+  `column-display-name` VARCHAR(100) NOT NULL,
+  `column-data-type` VARCHAR(50) NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
+  PRIMARY KEY (`table-name`, `column-name`),
+  CONSTRAINT `fk_lookup-table-detail_lookup-table-master1`
+    FOREIGN KEY (`table-name`)
+    REFERENCES `icc`.`lookup-table-master` (`table-name`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
