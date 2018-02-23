@@ -105,6 +105,7 @@ INSERT INTO `service-role-mapping` (`id`,`principal-type`,`principal-id`,`role-i
 INSERT INTO `service-role-mapping` (`id`,`principal-type`,`principal-id`,`role-id`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('8f0595e5-1201-11e8-94e8-d4bed99b600a','USER','32d8d067-08b0-462e-92b1-68e48da9a82a','61d269c6-1201-11e8-94e8-d4bed99b600a','2018-01-19 03:01:05','2018-01-19 03:04:27',NULL,NULL);
 INSERT INTO `service-role-mapping` (`id`,`principal-type`,`principal-id`,`role-id`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('beb6b4da-1201-11e8-94e8-d4bed99b600a','USER','3db35f39-8f62-4178-8993-fca4959536d7','61d269c6-1201-11e8-94e8-d4bed99b600a','2018-01-19 03:01:05','2018-01-19 03:04:27',NULL,NULL);
 INSERT INTO `service-role-mapping` (`id`, `principal-type`, `principal-id`, `role-id`) VALUES ('b580e31e-1243-11e8-94e8-d4bed99b600a', 'USER', '05241492-1243-11e8-94e8-d4bed99b600a', '61d269c6-1201-11e8-94e8-d4bed99b600a');
+INSERT INTO `service-role-mapping` (`id`, `principal-type`, `principal-id`, `role-id`) VALUES ('91ffbe35-185b-11e8-a3d8-00505695313b', 'USER', '3db35f39-8f62-4178-8993-fca4959536d7', '3e711585-9330-4bb4-83c6-6a7b410c44b4');
 
 
 delete from `department`;
