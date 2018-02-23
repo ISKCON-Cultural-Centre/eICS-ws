@@ -322,5 +322,9 @@
   "LookupTableDetail": {
     "dataSource": "mysqld",
     "public": true
+  },
+  "lookupMaster": {
+    "dataSource": null,
+    "public": true
   }
 }

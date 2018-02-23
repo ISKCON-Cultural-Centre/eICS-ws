@@ -22,15 +22,15 @@
       "validateUpsert": true,
       "silenceWarnings": false
     }
-  },  
+  },
   "properties": {
     "tableName": {
       "type": "String",
+      "id": 1,
       "required": true,
       "length": 50,
       "precision": null,
       "scale": null,
-      "id": 1,
       "mysql": {
         "columnName": "table-name",
         "dataType": "varchar",
@@ -42,11 +42,11 @@
     },
     "columnName": {
       "type": "String",
+      "id": 2,
       "required": true,
       "length": 50,
       "precision": null,
       "scale": null,
-      "id": 2,
       "mysql": {
         "columnName": "column-name",
         "dataType": "varchar",
@@ -86,7 +86,7 @@
         "nullable": "Y"
       }
     },
-   "createdBy": {
+    "createdBy": {
       "type": "String",
       "required": false,
       "length": 36,
@@ -116,5 +116,9 @@
         "nullable": "Y"
       }
     }
-  }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
 }

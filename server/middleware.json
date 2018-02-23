@@ -7,7 +7,7 @@
       "params": {
         "enableHttpContext": true
       }
-    },    
+    },
     "compression": {},
     "cors": {
       "params": {

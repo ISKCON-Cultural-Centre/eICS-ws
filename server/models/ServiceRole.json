@@ -118,7 +118,7 @@
       "principalId": "$authenticated",
       "permission": "ALLOW",
       "property": "getRoles"
-    }    
+    }
   ],
   "methods": {}
 }

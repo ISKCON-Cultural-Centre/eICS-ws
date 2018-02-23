@@ -379,14 +379,19 @@
   "validations": [],
   "relations": {},
   "acls": [
-
     {
       "accessType": "EXECUTE",
       "principalType": "ROLE",
       "principalId": "$authenticated",
       "permission": "ALLOW",
       "property": "getDepartments"
-    }
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "DevoteeCare-Operations",
+      "permission": "ALLOW"
+    }    
   ],
   "methods": {}
 }

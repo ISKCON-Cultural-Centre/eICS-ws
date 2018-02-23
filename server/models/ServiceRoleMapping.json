@@ -6,7 +6,7 @@
     "mysql": {
       "schema": "icc",
       "table": "service-role-mapping"
-    },   
+    },
     "relations": {
       "ServiceRole": {
         "model": "ServiceRole",
@@ -17,7 +17,7 @@
         "model": "Devotee",
         "type": "belongsTo",
         "foreignKey": "principalId"
-      }      
+      }
     }
   },
   "mixins": {
@@ -107,7 +107,7 @@
       "principalType": "ROLE",
       "principalId": "admin",
       "permission": "ALLOW"
-    },    
+    },
     {
       "accessType": "READ",
       "principalType": "ROLE",

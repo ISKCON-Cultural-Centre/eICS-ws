@@ -16,15 +16,15 @@
       "validateUpsert": true,
       "silenceWarnings": false
     }
-  },   
+  },
   "properties": {
     "tableName": {
       "type": "String",
+      "id": 1,
       "required": true,
       "length": 50,
       "precision": null,
       "scale": null,
-      "id": 1,
       "mysql": {
         "columnName": "table-name",
         "dataType": "varchar",
@@ -79,5 +79,9 @@
         "nullable": "Y"
       }
     }
-  }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
 }

@@ -206,4 +206,13 @@ INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-na
 INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('TaskMaster','taskName','taskName','string',NULL,NULL,NULL,NULL);
 
 
+delete from `task-master`;
+INSERT INTO `task-master` (`id`, `task-name`, `application-route`, `task-description`, `approval-rules-apply-ind`) VALUES ('86087a7e-16ee-11e8-a3d8-00505695313b', 'Manage Devotee Database', '/devotee', 'Add / Edit Devotee Data', '0');
+
+
+delete from `role-task-master`;
+INSERT INTO `role-task-master` (`task-master-id`, `role-id`) VALUES ('86087a7e-16ee-11e8-a3d8-00505695313b', '3e711585-9330-4bb4-83c6-6a7b410c44b4');
+
+
+
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

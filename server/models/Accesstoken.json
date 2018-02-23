@@ -8,15 +8,14 @@
       "table": "accesstoken"
     }
   },
-  "properties": {
-  },
+  "properties": {},
   "validations": [],
   "relations": {
     "user": {
       "type": "belongsTo",
       "model": "Devotee",
       "foreignKey": "userId"
-    } 
+    }
   },
   "acls": [
     {
