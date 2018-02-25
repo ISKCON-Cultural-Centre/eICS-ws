@@ -8,6 +8,11 @@
       "table": "devotee"
     },
     "relations": {
+      "fkDevoteeAsramaMaster1rel": {
+        "model": "AsramaMaster",
+        "type": "belongsTo",
+        "foreignKey": "asramaMasterId"
+      },      
       "fkDevoteeCircle1rel": {
         "model": "Circle",
         "type": "belongsTo",
@@ -413,6 +418,21 @@
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "N"
+      }
+    },
+    "asramaMasterId": {
+      "type": "String",
+      "required": false,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "asrama-master-id",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
       }
     }
   },
