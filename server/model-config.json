@@ -241,7 +241,7 @@
   },
   "Accesstoken": {
     "dataSource": "mysqld",
-    "public": false
+    "public": true
   },
   "Acl": {
     "dataSource": "mysqld",
@@ -249,7 +249,7 @@
   },
   "AsramaMaster": {
     "dataSource": "mysqld",
-    "public": false
+    "public": true
   },
   "DevoteeAsrama": {
     "dataSource": "mysqld",
@@ -289,11 +289,11 @@
   },
   "FestivalMaster": {
     "dataSource": "mysqld",
-    "public": false
+    "public": true
   },
   "Language": {
     "dataSource": "mysqld",
-    "public": false
+    "public": true
   },
   "MgHsn": {
     "dataSource": "mysqld",
@@ -309,7 +309,7 @@
   },
   "Skill": {
     "dataSource": "mysqld",
-    "public": false
+    "public": true
   },
   "SkillCategory": {
     "dataSource": "mysqld",
