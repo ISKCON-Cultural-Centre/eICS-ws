@@ -86,17 +86,14 @@ module.exports = function(Devotee) {
 		}			
 		var DepartmentRole = app.models.DepartmentRole;
 		var Department = app.models.Department;
-		var Role = app.models.ServiceRole;		
+		var Role = app.models.ServiceRole;	
+
 
 		Devotee.getRoles(options, function(err, authorizedRoles){
 			if (err) {
 				cb(err);
 				return cb.promise;
 			}
-			
-/* 			var conditions = authorizedRoles.map(function (roleId) {
-				return { roleId: roleId };
-			}); */
 
 			var conditions = authorizedRoles.roles.map(function (roleId) {
 				return { roleId: roleId.id };
@@ -132,6 +129,72 @@ module.exports = function(Devotee) {
 	};
 	
 
+/**
+   * Get the list of Tasks assigned to a Role.
+   *
+   * ```js
+   * Devotee.getDepartments(options, function (err, roles) {
+   *      console.log(token.id);
+   *    });
+   * ```
+   *
+   * @param {Object} options (context information to be included in all custom remote methods)
+   * @callback {Function} cb Callback function
+   * @param {Error} err Error object
+   * @param {authorizedDepartments} list of roles successful
+   * @promise
+   */	
+  Devotee.getRoleTasks = function (options, cb) {
+
+	cb = cb || utils.createPromiseCallback();
+
+	Devotee.getApp(function (err, app) {
+	if (err) {
+		cb(err);
+		return cb.promise;
+	}			
+	var RoleTask = app.models.RoleTaskMaster;
+	var Role = app.models.ServiceRole;		
+	var TaskMaster = app.models.TaskMaster;	
+	
+	Devotee.getRoles(options, function(err, authorizedRoles){
+		if (err) {
+			cb(err);
+			return cb.promise;
+		}
+
+		var conditions = authorizedRoles.roles.map(function (roleId) {
+			return { roleId: roleId.id };
+		});
+
+		if (!authorizedRoles.roles.length) { return cb(null, { "departments": [] }); }
+
+	RoleTask.find({ where : { or: conditions }}, function (err, RolesTasks) {
+		if (err) {
+			cb(err);
+			return cb.promise;
+		}		
+	
+	var taskIds = _.uniq(RolesTasks
+		.map(function (RoleTask) {
+		return RoleTask.taskMasterId;
+		}));
+	var conditions = taskIds.map(function (taskId) {
+		return { id: taskId };
+	});
+
+	TaskMaster.find({ where: { or: conditions}}, function (err, tasks) {
+		if (err) {
+			cb(err);
+			return cb.promise;
+		}	
+		cb(null, {tasks});
+	});
+	});
+});
+});
+return cb.promise;
+};	
 
 	Devotee.remoteMethod(
 		'getDepartments',
@@ -156,6 +219,18 @@ module.exports = function(Devotee) {
 			],
 			http: {verb: 'GET', path: '/getRoles'},
 			returns: { arg: 'roles', type: 'String', root: true}
+		}
+	);	
+
+	Devotee.remoteMethod(
+		'getRoleTasks',
+		{
+			description: 'Get the list of Tasks assigned to a Role/Devotee',
+			accepts: [
+				{arg: 'options', type: 'object', http: 'optionsFromRequest'}
+			],
+			http: {verb: 'GET', path: '/getRoleTasks'},
+			returns: { arg: 'tasks', type: 'String', root: true}						
 		}
 	);	
 
