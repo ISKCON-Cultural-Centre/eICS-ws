@@ -209,10 +209,15 @@ INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-na
 
 delete from `task-master`;
 INSERT INTO `task-master` (`id`, `task-name`, `application-route`, `task-description`, `approval-rules-apply-ind`) VALUES ('86087a7e-16ee-11e8-a3d8-00505695313b', 'Manage Devotee Database', '/devotee', 'Add / Edit Devotee Data', '0');
+INSERT INTO `task-master` (`id`, `task-name`, `application-route`, `task-description`, `approval-rules-apply-ind`) VALUES ('e7ef7d35-1bbb-11e8-9336-00505695313b', 'Devotee Role Mapping', '/devoteeRole', 'Manage Role Mappings to Devotees', '0');
+INSERT INTO `task-master` (`id`, `task-name`, `application-route`, `task-description`, `approval-rules-apply-ind`) VALUES ('4108ff76-1ac5-11e8-a069-20cf308ebc45', 'Manage List Master Data', '/lookupMaster', 'Add / Edit Master Data or List of Values', '0');
 
 
 delete from `role-task-master`;
 INSERT INTO `role-task-master` (`task-master-id`, `role-id`) VALUES ('86087a7e-16ee-11e8-a3d8-00505695313b', '3e711585-9330-4bb4-83c6-6a7b410c44b4');
+INSERT INTO `icc`.`role-task-master` (`task-master-id`, `role-id`) VALUES ('e7ef7d35-1bbb-11e8-9336-00505695313b', '106fee1d-efc2-4bfa-bc98-a930513d0a85');
+INSERT INTO `icc`.`role-task-master` (`task-master-id`, `role-id`) VALUES ('86087a7e-16ee-11e8-a3d8-00505695313b', '3e711585-9330-4bb4-83c6-6a7b410c44b4');
+
 
 delete from `nakshatra-master` ;
 INSERT INTO `nakshatra-master` (`nakshatra`) VALUES ('Anurādhā');
