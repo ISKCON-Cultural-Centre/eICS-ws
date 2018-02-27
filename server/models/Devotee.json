@@ -447,6 +447,13 @@
       "property": "getDepartments"
     },
     {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "getRoleTasks"
+    },    
+    {
       "accessType": "*",
       "principalType": "ROLE",
       "principalId": "DevoteeCare-Operations",
