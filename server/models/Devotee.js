@@ -58,6 +58,7 @@ module.exports = function(Devotee) {
 	});
 	return cb.promise;
 	};
+
 	
 
   /**
