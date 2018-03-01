@@ -334,5 +334,9 @@
   "NakshatraMaster": {
     "dataSource": "mysqld",
     "public": true
+  },
+  "ProfessionMaster": {
+    "dataSource": "mysqld",
+    "public": true
   }
 }
