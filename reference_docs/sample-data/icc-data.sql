@@ -97,6 +97,11 @@ INSERT INTO `service-role` (`id`,`name`,`description`,`created`,`modified`,`crea
 INSERT INTO `service-role` (`id`,`name`,`description`,`created`,`modified`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('e1967723-f867-4aa6-894e-91db93e98cea','PublicRelations-Operations','Public Relations - Operations',NULL,NULL,'2018-01-26 15:22:57','2018-01-26 15:22:57',NULL,NULL);
 INSERT INTO `service-role` (`id`,`name`,`description`,`created`,`modified`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('f5425e4c-d715-4ba2-b3f0-cee4932c6581','admin','IT Administrator',NULL,NULL,'2018-01-17 10:21:47','2018-01-17 10:21:47',NULL,NULL);
 INSERT INTO `service-role` (`id`,`name`,`description`,`created`,`modified`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('f618e3cd-5b4c-4b58-a5bd-cd8de37549ec','ServiceAllocation-Management','ServiceAllocation-Management',NULL,NULL,'2018-01-26 15:30:50','2018-01-26 15:30:50',NULL,NULL);
+INSERT INTO `service-role` (`id`, `name`, `description`) VALUES ('f543b7dc-1d1b-11e8-b0cb-20cf308ebc45', 'President', 'President');
+INSERT INTO `service-role` (`id`, `name`, `description`) VALUES ('fb2a548c-1d1b-11e8-b0cb-20cf308ebc45', 'Vice President', 'Vice President');
+INSERT INTO `service-role` (`id`, `name`, `description`) VALUES ('03ea4cbf-1d1c-11e8-b0cb-20cf308ebc45', 'Treasurer', 'Treasurer');
+INSERT INTO `service-role` (`id`, `name`, `description`) VALUES ('0e790d3f-1d1c-11e8-b0cb-20cf308ebc45', 'Secretary', 'Secretary');
+
 
 delete from `service-role-mapping`;
 INSERT INTO `service-role-mapping` (`id`,`principal-type`,`principal-id`,`role-id`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('21f377ba-2a38-4996-a191-88f782cfc401','USER','3db35f39-8f62-4178-8993-fca4959536d7','9dfbd3d6-9bf8-4712-91d8-64ad87159b06','2018-01-19 03:01:05','2018-01-19 03:04:27',NULL,NULL);
@@ -172,6 +177,7 @@ INSERT INTO `lookup-table-master` (`table-name`,`table-display-name`,`created-on
 INSERT INTO `lookup-table-master` (`table-name`,`table-display-name`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('SkillCategory','SkillCategory',NULL,NULL,NULL,NULL);
 INSERT INTO `lookup-table-master` (`table-name`,`table-display-name`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('SpiritualLevelMaster','SpiritualLevelMaster',NULL,NULL,NULL,NULL);
 INSERT INTO `lookup-table-master` (`table-name`,`table-display-name`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('TaskMaster','TaskMaster',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-master` (`table-name`, `table-display-name`) VALUES ('ProfessionMaster', 'ProfessionMaster');
 
 delete from `lookup-table-detail`;
 INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('AsramaMaster','asramaDescription','asramaDescription','string',NULL,NULL,NULL,NULL);
@@ -207,18 +213,22 @@ INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-na
 INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('TaskMaster','id','id','string',NULL,NULL,NULL,NULL);
 INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('TaskMaster','taskDescription','taskDescription','string',NULL,NULL,NULL,NULL);
 INSERT INTO `lookup-table-detail` (`table-name`,`column-name`,`column-display-name`,`column-data-type`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('TaskMaster','taskName','taskName','string',NULL,NULL,NULL,NULL);
+INSERT INTO `lookup-table-detail` (`table-name`, `column-name`, `column-display-name`, `column-data-type`) VALUES ('ProfessionMaster', 'ProfessionId', 'ProfessionId', 'string');
+INSERT INTO `lookup-table-detail` (`table-name`, `column-name`, `column-display-name`, `column-data-type`) VALUES ('ProfessionMaster', 'ProfessionName', 'ProfessionName', 'string');
 
 
 delete from `task-master`;
 INSERT INTO `task-master` (`id`, `task-name`, `application-route`, `task-description`, `approval-rules-apply-ind`) VALUES ('86087a7e-16ee-11e8-a3d8-00505695313b', 'Manage Devotee Database', '/devotee', 'Add / Edit Devotee Data', '0');
 INSERT INTO `task-master` (`id`, `task-name`, `application-route`, `task-description`, `approval-rules-apply-ind`) VALUES ('e7ef7d35-1bbb-11e8-9336-00505695313b', 'Devotee Role Mapping', '/devoteeRole', 'Manage Role Mappings to Devotees', '0');
 INSERT INTO `task-master` (`id`, `task-name`, `application-route`, `task-description`, `approval-rules-apply-ind`) VALUES ('4108ff76-1ac5-11e8-a069-20cf308ebc45', 'Manage List Master Data', '/lookupMaster', 'Add / Edit Master Data or List of Values', '0');
-
+INSERT INTO `task-master` (`id`, `task-name`, `application-route`, `task-description`, `approval-rules-apply-ind`) VALUES ('e819a323-1ddf-11e8-8d69-20cf308ebc45', 'Role Data Maintenance', '/organization/role', 'Add / Edit Organization Roles', '0');
 
 delete from `role-task-master`;
 INSERT INTO `role-task-master` (`task-master-id`, `role-id`) VALUES ('86087a7e-16ee-11e8-a3d8-00505695313b', '3e711585-9330-4bb4-83c6-6a7b410c44b4');
 INSERT INTO `role-task-master` (`task-master-id`, `role-id`) VALUES ('e7ef7d35-1bbb-11e8-9336-00505695313b', '106fee1d-efc2-4bfa-bc98-a930513d0a85');
 INSERT INTO `role-task-master` (`task-master-id`, `role-id`) VALUES ('86087a7e-16ee-11e8-a3d8-00505695313b', '3e711585-9330-4bb4-83c6-6a7b410c44b4');
+INSERT INTO `role-task-master` (`task-master-id`, `role-id`) VALUES ('e819a323-1ddf-11e8-8d69-20cf308ebc45', '9dfbd3d6-9bf8-4712-91d8-64ad87159b06');
+
 
 
 delete from `nakshatra-master` ;

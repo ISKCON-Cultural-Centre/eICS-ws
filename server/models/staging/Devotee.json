@@ -31,6 +31,11 @@
         "model": "NakshatraMaster",
         "type": "belongsTo",
         "foreignKey": "nakshatra"
+      },
+      "fkDevoteeProfessionMaster1rel": {
+        "model": "ProfessionMaster",
+        "type": "belongsTo",
+        "foreignKey": "professionId"
       }
     }
   },
@@ -454,6 +459,21 @@
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
+      }
+    },
+    "professionId": {
+      "type": "String",
+      "required": true,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "profession-id",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
       }
     }
   }
