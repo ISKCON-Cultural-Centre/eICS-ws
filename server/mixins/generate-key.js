@@ -5,7 +5,7 @@ module.exports = function(Model, options) {
     if (ctx.instance) {
       ctx.instance.id = uuidV4();
     } else {
-      ctx.data.id = uuidV4();
+
     }
     next();
   });
