@@ -127,10 +127,6 @@
     "dataSource": "mysqld",
     "public": true
   },
-  "DepartmentRole": {
-    "dataSource": "mysqld",
-    "public": true
-  },
   "RoleTaskMaster": {
     "dataSource": "mysqld",
     "public": true

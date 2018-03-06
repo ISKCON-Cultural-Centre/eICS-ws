@@ -6,7 +6,13 @@
       "schema": "icc",
       "table": "service-role"
     },
-    "relations": {}
+    "relations": {
+      "fkServiceRoleDepartment1rel": {
+        "model": "Department",
+        "type": "belongsTo",
+        "foreignKey": "departmentId"
+      }
+    }
   },
   "properties": {
     "id": {
@@ -143,6 +149,21 @@
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
+      }
+    },
+    "departmentId": {
+      "type": "String",
+      "required": true,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "department-id",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
       }
     }
   }
