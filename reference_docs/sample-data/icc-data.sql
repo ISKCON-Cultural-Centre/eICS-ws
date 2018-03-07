@@ -113,6 +113,7 @@ INSERT INTO `service-role-mapping` (`id`, `principal-type`, `principal-id`, `rol
 INSERT INTO `service-role-mapping` (`id`, `principal-type`, `principal-id`, `role-id`) VALUES ('91ffbe35-185b-11e8-a3d8-00505695313b', 'USER', '3db35f39-8f62-4178-8993-fca4959536d7', '3e711585-9330-4bb4-83c6-6a7b410c44b4');
 INSERT INTO `service-role-mapping` (`id`, `principal-type`, `principal-id`, `role-id`) VALUES ('ec391214-1ac5-11e8-a069-20cf308ebc45', 'USER', '3db35f39-8f62-4178-8993-fca4959536d7', '106fee1d-efc2-4bfa-bc98-a930513d0a85');
 INSERT INTO `service-role-mapping` (`id`, `principal-type`, `principal-id`, `role-id`) VALUES ('d6a96151-1ae1-11e8-9336-00505695313b', 'USER', '32d8d067-08b0-462e-92b1-68e48da9a82a', '106fee1d-efc2-4bfa-bc98-a930513d0a85');
+INSERT INTO `service-role-mapping` (`id`, `principal-type`, `principal-id`, `role-id`) VALUES ('540febde-2217-11e8-9339-00505695313b', 'USER', '3db35f39-8f62-4178-8993-fca4959536d7', 'f5425e4c-d715-4ba2-b3f0-cee4932c6581');
 
 
 delete from `department`;
@@ -223,12 +224,16 @@ INSERT INTO `task-master` (`id`, `task-name`, `application-route`, `task-descrip
 INSERT INTO `task-master` (`id`, `task-name`, `application-route`, `task-description`, `approval-rules-apply-ind`) VALUES ('e7ef7d35-1bbb-11e8-9336-00505695313b', 'Devotee Role Mapping', '/devoteeRole', 'Manage Role Mappings to Devotees', '0');
 INSERT INTO `task-master` (`id`, `task-name`, `application-route`, `task-description`, `approval-rules-apply-ind`) VALUES ('4108ff76-1ac5-11e8-a069-20cf308ebc45', 'Manage List Master Data', '/lookupMaster', 'Add / Edit Master Data or List of Values', '0');
 INSERT INTO `task-master` (`id`, `task-name`, `application-route`, `task-description`, `approval-rules-apply-ind`) VALUES ('e819a323-1ddf-11e8-8d69-20cf308ebc45', 'Role Data Maintenance', '/organization/role', 'Add / Edit Organization Roles', '0');
+INSERT INTO `task-master` (`id`, `task-name`, `application-route`, `task-description`, `approval-rules-apply-ind`) VALUES ('58f4d8fb-2212-11e8-9339-00505695313b', 'Task Master Data', '/organization/task', 'Add / Edit Task Master Data', '0');
+INSERT INTO `task-master` (`id`, `task-name`, `application-route`, `task-description`, `approval-rules-apply-ind`) VALUES ('06e2387a-2213-11e8-9339-00505695313b', 'Department Maintenance', '/organization/department', 'Manage Departments', '0');
 
 delete from `role-task-master`;
 INSERT INTO `role-task-master` (`task-master-id`, `role-id`) VALUES ('86087a7e-16ee-11e8-a3d8-00505695313b', '3e711585-9330-4bb4-83c6-6a7b410c44b4');
 INSERT INTO `role-task-master` (`task-master-id`, `role-id`) VALUES ('e7ef7d35-1bbb-11e8-9336-00505695313b', '106fee1d-efc2-4bfa-bc98-a930513d0a85');
 INSERT INTO `role-task-master` (`task-master-id`, `role-id`) VALUES ('86087a7e-16ee-11e8-a3d8-00505695313b', '3e711585-9330-4bb4-83c6-6a7b410c44b4');
 INSERT INTO `role-task-master` (`task-master-id`, `role-id`) VALUES ('e819a323-1ddf-11e8-8d69-20cf308ebc45', '9dfbd3d6-9bf8-4712-91d8-64ad87159b06');
+INSERT INTO `role-task-master` (`task-master-id`, `role-id`) VALUES ('58f4d8fb-2212-11e8-9339-00505695313b', '106fee1d-efc2-4bfa-bc98-a930513d0a85');
+INSERT INTO `role-task-master` (`task-master-id`, `role-id`) VALUES ('06e2387a-2213-11e8-9339-00505695313b', '106fee1d-efc2-4bfa-bc98-a930513d0a85');
 
 
 
