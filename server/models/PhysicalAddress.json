@@ -5,13 +5,6 @@
     "mysql": {
       "schema": "icc",
       "table": "physical-address"
-    },
-    "relations": {
-      "fkPhysicalAddressAddressTypeMaster1rel": {
-        "model": "PhysicalAddressTypeMaster",
-        "type": "belongsTo",
-        "foreignKey": "addressTypeMasterId"
-      }
     }
   },
   "mixins": {
@@ -39,21 +32,6 @@
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "N"
-      }
-    },
-    "addressTypeMasterId": {
-      "type": "String",
-      "required": false,
-      "length": 36,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "address-type-master-id",
-        "dataType": "varchar",
-        "dataLength": 36,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
       }
     },
     "addressLine1": {
@@ -213,7 +191,7 @@
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "physical-addresscol",
+        "columnName": "address-state",
         "dataType": "varchar",
         "dataLength": 36,
         "dataPrecision": null,
