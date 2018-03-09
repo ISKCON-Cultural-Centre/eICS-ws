@@ -206,7 +206,7 @@
         "nullable": "Y"
       }
     },
-    "physicalAddresscol": {
+    "addressCountry": {
       "type": "String",
       "required": false,
       "length": 36,
