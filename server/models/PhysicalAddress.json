@@ -206,7 +206,7 @@
         "nullable": "Y"
       }
     },
-    "addressCountry": {
+    "addressState": {
       "type": "String",
       "required": false,
       "length": 36,
