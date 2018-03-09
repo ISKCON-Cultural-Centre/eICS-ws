@@ -17,6 +17,7 @@ export interface PhysicalAddressInterface {
   "updatedOn"?: Date;
   "createdBy"?: string;
   "updatedBy"?: string;
+  "physicalAddresscol"?: string;
   "created-on"?: Date;
   "updated-on"?: Date;
   fkPhysicalAddressAddressTypeMaster1rel?: PhysicalAddressTypeMaster;
@@ -35,6 +36,7 @@ export class PhysicalAddress implements PhysicalAddressInterface {
   "updatedOn": Date;
   "createdBy": string;
   "updatedBy": string;
+  "physicalAddresscol": string;
   "created-on": Date;
   "updated-on": Date;
   fkPhysicalAddressAddressTypeMaster1rel: PhysicalAddressTypeMaster;
@@ -117,6 +119,10 @@ export class PhysicalAddress implements PhysicalAddressInterface {
         },
         "updatedBy": {
           name: 'updatedBy',
+          type: 'string'
+        },
+        "physicalAddresscol": {
+          name: 'physicalAddresscol',
           type: 'string'
         },
         "created-on": {

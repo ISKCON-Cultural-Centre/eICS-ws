@@ -147,10 +147,6 @@
     "dataSource": "mysqld",
     "public": true
   },
-  "DevoteePhysicalAddress": {
-    "dataSource": "mysqld",
-    "public": true
-  },
   "MgInvoice": {
     "dataSource": "mysqld",
     "public": true

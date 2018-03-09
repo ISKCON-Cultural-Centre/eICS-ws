@@ -205,6 +205,21 @@
         "dataScale": null,
         "nullable": "Y"
       }
+    },
+    "physicalAddresscol": {
+      "type": "String",
+      "required": false,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "physical-addresscol",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
     }
   },
   "validations": [],

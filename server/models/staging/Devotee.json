@@ -32,6 +32,11 @@
         "type": "belongsTo",
         "foreignKey": "nakshatra"
       },
+      "fkDevoteePhysicalAddress1rel": {
+        "model": "PhysicalAddress",
+        "type": "belongsTo",
+        "foreignKey": "physicalAddressId"
+      },
       "fkDevoteeProfessionMaster1rel": {
         "model": "ProfessionMaster",
         "type": "belongsTo",
@@ -469,6 +474,21 @@
       "scale": null,
       "mysql": {
         "columnName": "profession-id",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "physicalAddressId": {
+      "type": "String",
+      "required": false,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "physical-address-id",
         "dataType": "varchar",
         "dataLength": 36,
         "dataPrecision": null,
