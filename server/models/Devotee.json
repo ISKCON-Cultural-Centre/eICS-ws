@@ -447,7 +447,7 @@
     },
     "professionId": {
       "type": "String",
-      "required": true,
+      "required": false,
       "length": 36,
       "precision": null,
       "scale": null,
