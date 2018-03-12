@@ -26,6 +26,7 @@
       "length": 36,
       "precision": null,
       "scale": null,
+      "id": 1,
       "mysql": {
         "columnName": "devotee-id",
         "dataType": "varchar",
@@ -41,6 +42,7 @@
       "length": 36,
       "precision": null,
       "scale": null,
+      "id": 2,
       "mysql": {
         "columnName": "skill-id",
         "dataType": "varchar",
