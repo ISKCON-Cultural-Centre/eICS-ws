@@ -238,33 +238,34 @@ INSERT INTO `role-task-master` (`task-master-id`, `role-id`) VALUES ('06e2387a-2
 
 
 delete from `nakshatra-master` ;
-INSERT INTO `nakshatra-master` (`nakshatra`) VALUES ('Anurādhā');
-INSERT INTO `nakshatra-master` (`nakshatra`) VALUES ('Ashwini');
-INSERT INTO `nakshatra-master` (`nakshatra`) VALUES ('Bharani');
-INSERT INTO `nakshatra-master` (`nakshatra`) VALUES ('Chitra');
-INSERT INTO `nakshatra-master` (`nakshatra`) VALUES ('Hasta ');
-INSERT INTO `nakshatra-master` (`nakshatra`) VALUES ('Jyeshtha ');
-INSERT INTO `nakshatra-master` (`nakshatra`) VALUES ('Krittika ');
-INSERT INTO `nakshatra-master` (`nakshatra`) VALUES ('Maghā ');
-INSERT INTO `nakshatra-master` (`nakshatra`) VALUES ('Mrigashīrsha');
-INSERT INTO `nakshatra-master` (`nakshatra`) VALUES ('Mula ');
-INSERT INTO `nakshatra-master` (`nakshatra`) VALUES ('Punarvasu ');
-INSERT INTO `nakshatra-master` (`nakshatra`) VALUES ('Pushya ');
-INSERT INTO `nakshatra-master` (`nakshatra`) VALUES ('Pūrva Ashādhā ');
-INSERT INTO `nakshatra-master` (`nakshatra`) VALUES ('Pūrva Bhādrapadā ');
-INSERT INTO `nakshatra-master` (`nakshatra`) VALUES ('Pūrva or Pūrva Phalgunī ');
-INSERT INTO `nakshatra-master` (`nakshatra`) VALUES ('Revati ');
-INSERT INTO `nakshatra-master` (`nakshatra`) VALUES ('Rohini');
-INSERT INTO `nakshatra-master` (`nakshatra`) VALUES ('Shatabhisha ');
-INSERT INTO `nakshatra-master` (`nakshatra`) VALUES ('Svātī ');
-INSERT INTO `nakshatra-master` (`nakshatra`) VALUES ('Uttara Aṣāḍhā ');
-INSERT INTO `nakshatra-master` (`nakshatra`) VALUES ('Uttara Bhādrapadā ');
-INSERT INTO `nakshatra-master` (`nakshatra`) VALUES ('Uttara or Uttara Phalgunī ');
-INSERT INTO `nakshatra-master` (`nakshatra`) VALUES ('Viśākhā ');
-INSERT INTO `nakshatra-master` (`nakshatra`) VALUES ('Ārdrā ');
-INSERT INTO `nakshatra-master` (`nakshatra`) VALUES ('Āshleshā ');
-INSERT INTO `nakshatra-master` (`nakshatra`) VALUES ('Śrāvaṇa ');
-INSERT INTO `nakshatra-master` (`nakshatra`) VALUES ('Śrāviṣṭha');
+INSERT INTO `nakshatra-master` (`nakshatra`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('Anuradha',NULL,NULL,NULL,NULL);
+INSERT INTO `nakshatra-master` (`nakshatra`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('Ardra',NULL,NULL,NULL,NULL);
+INSERT INTO `nakshatra-master` (`nakshatra`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('Ashlesha',NULL,NULL,NULL,NULL);
+INSERT INTO `nakshatra-master` (`nakshatra`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('Ashwini',NULL,NULL,NULL,NULL);
+INSERT INTO `nakshatra-master` (`nakshatra`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('Bharani',NULL,NULL,NULL,NULL);
+INSERT INTO `nakshatra-master` (`nakshatra`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('Chitra',NULL,NULL,NULL,NULL);
+INSERT INTO `nakshatra-master` (`nakshatra`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('Hasta',NULL,NULL,NULL,NULL);
+INSERT INTO `nakshatra-master` (`nakshatra`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('Jyeshtha',NULL,NULL,NULL,NULL);
+INSERT INTO `nakshatra-master` (`nakshatra`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('Krittika',NULL,NULL,NULL,NULL);
+INSERT INTO `nakshatra-master` (`nakshatra`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('Magha',NULL,NULL,NULL,NULL);
+INSERT INTO `nakshatra-master` (`nakshatra`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('Mrigashirsha',NULL,NULL,NULL,NULL);
+INSERT INTO `nakshatra-master` (`nakshatra`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('Mula',NULL,NULL,NULL,NULL);
+INSERT INTO `nakshatra-master` (`nakshatra`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('Punarvasu',NULL,NULL,NULL,NULL);
+INSERT INTO `nakshatra-master` (`nakshatra`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('Purva Ashadha',NULL,NULL,NULL,NULL);
+INSERT INTO `nakshatra-master` (`nakshatra`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('Purva Bhadrapada',NULL,NULL,NULL,NULL);
+INSERT INTO `nakshatra-master` (`nakshatra`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('Purva or Purva Phalgunī ',NULL,NULL,NULL,NULL);
+INSERT INTO `nakshatra-master` (`nakshatra`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('Pushya',NULL,NULL,NULL,NULL);
+INSERT INTO `nakshatra-master` (`nakshatra`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('Revati',NULL,NULL,NULL,NULL);
+INSERT INTO `nakshatra-master` (`nakshatra`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('Rohini',NULL,NULL,NULL,NULL);
+INSERT INTO `nakshatra-master` (`nakshatra`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('Shatabhisha',NULL,NULL,NULL,NULL);
+INSERT INTO `nakshatra-master` (`nakshatra`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('Sravaṇa',NULL,NULL,NULL,NULL);
+INSERT INTO `nakshatra-master` (`nakshatra`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('Sravistha',NULL,NULL,NULL,NULL);
+INSERT INTO `nakshatra-master` (`nakshatra`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('Svati',NULL,NULL,NULL,NULL);
+INSERT INTO `nakshatra-master` (`nakshatra`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('Uttara Asadha',NULL,NULL,NULL,NULL);
+INSERT INTO `nakshatra-master` (`nakshatra`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('Uttara Bhadrapada',NULL,NULL,NULL,NULL);
+INSERT INTO `nakshatra-master` (`nakshatra`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('Uttara or Uttara Phalguni',NULL,NULL,NULL,NULL);
+INSERT INTO `nakshatra-master` (`nakshatra`,`created-on`,`updated-on`,`created-by`,`updated-by`) VALUES ('Visakha',NULL,NULL,NULL,NULL);
+
 
 
 
