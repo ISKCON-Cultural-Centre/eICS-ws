@@ -521,6 +521,13 @@
       "principalType": "ROLE",
       "principalId": "$authenticated",
       "permission": "ALLOW",
+      "property": "getRoles"
+    },      
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
       "property": "getRoleTasks"
     },    
     {
