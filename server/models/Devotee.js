@@ -168,30 +168,33 @@ module.exports = function(Devotee) {
 			return { roleId: roleId.id };
 		});
 
-		if (!authorizedRoles.roles.length) { return cb(null, { "departments": [] }); }
+		if (!authorizedRoles.roles.length) { return cb(null, { "tasks": [] });}
+		else {
+			RoleTask.find({ where : { or: conditions }}, function (err, RolesTasks) {
+				if (err) {
+					cb(err);
+					return cb.promise;
+				}		
+			
+			var taskIds = _.uniq(RolesTasks
+				.map(function (RoleTask) {
+				return RoleTask.taskMasterId;
+				}));
+			var conditions = taskIds.map(function (taskId) {
+				return { id: taskId };
+			});
+		
+			TaskMaster.find({ where: { or: conditions}}, function (err, tasks) {
+				if (err) {
+					cb(err);
+					return cb.promise;
+				}	
+				cb(null, {tasks});
+			});
+			});
+		}
 
-	RoleTask.find({ where : { or: conditions }}, function (err, RolesTasks) {
-		if (err) {
-			cb(err);
-			return cb.promise;
-		}		
-	
-	var taskIds = _.uniq(RolesTasks
-		.map(function (RoleTask) {
-		return RoleTask.taskMasterId;
-		}));
-	var conditions = taskIds.map(function (taskId) {
-		return { id: taskId };
-	});
 
-	TaskMaster.find({ where: { or: conditions}}, function (err, tasks) {
-		if (err) {
-			cb(err);
-			return cb.promise;
-		}	
-		cb(null, {tasks});
-	});
-	});
 });
 });
 return cb.promise;
