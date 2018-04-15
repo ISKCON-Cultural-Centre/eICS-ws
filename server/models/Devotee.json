@@ -531,9 +531,9 @@
       "property": "getRoleTasks"
     },    
     {
-      "accessType": "*",
+      "accessType": "READ",
       "principalType": "ROLE",
-      "principalId": "DevoteeCare-Operations",
+      "principalId": "$authenticated",
       "permission": "ALLOW"
     }    
   ],
