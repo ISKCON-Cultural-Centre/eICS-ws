@@ -33,27 +33,30 @@ module.exports = function(Devotee) {
 		}			
 		var RoleMapping = app.models.ServiceRoleMapping;
 		var Role = app.models.ServiceRole;
-
+console.log(userId);
 		RoleMapping.find({ where : { principalId: userId }}, function (err, roleMappings) {
 			if (err) {
 				cb(err);
 				return cb.promise;
 			}		
-
-		var roleIds = _.uniq(roleMappings
-			.map(function (roleMapping) {
-			return roleMapping.roleId;
-			}));
-		var conditions = roleIds.map(function (roleId) {
-			return { id: roleId };
-		});
-		Role.find({ where: { or: conditions}}, function (err, roles) {
-			if (err) {
-				cb(err);
-				return cb.promise;
-			}	
-			cb(null, {roles});
-		});
+			console.log(roleMappings.length);			
+		if (!roleMappings.length) { return cb(null, { "roles": [] });}
+		else {
+			var roleIds = _.uniq(roleMappings
+				.map(function (roleMapping) {
+				return roleMapping.roleId;
+				}));
+			var conditions = roleIds.map(function (roleId) {
+				return { id: roleId };
+			});
+			Role.find({ where: { or: conditions}}, function (err, roles) {
+				if (err) {
+					cb(err);
+					return cb.promise;
+				}	
+				cb(null, {roles});
+			});
+		}
 		});
 	});
 	return cb.promise;
