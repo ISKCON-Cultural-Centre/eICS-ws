@@ -1,78 +1,17 @@
 {
-  "name": "Devotee",
+  "name": "Donors",
   "options": {
     "idInjection": false,
-    "base": "User",
     "mysql": {
       "schema": "icc",
-      "table": "devotee"
+      "table": "donors"
     },
-    "relations": {
-      "fkDevoteeAsramaMaster1rel": {
-        "model": "AsramaMaster",
-        "type": "belongsTo",
-        "foreignKey": "asramaMasterId"
-      },      
-      "fkDevoteeCircle1rel": {
-        "model": "Circle",
-        "type": "belongsTo",
-        "foreignKey": "circleId"
-      },
-      "fkDevoteeLanguage1rel": {
-        "model": "Language",
-        "type": "belongsTo",
-        "foreignKey": "motherTongueLanguageId"
-      },
-      "fkDevoteeGothraMaster1rel": {
-        "model": "GothraMaster",
-        "type": "belongsTo",
-        "foreignKey": "gothra"
-      },
-      "fkDevoteePhysicalAddress1rel": {
-        "model": "PhysicalAddress",
-        "type": "belongsTo",
-        "foreignKey": "physicalAddressId"
-      },
-      "fkDevoteeNakshatraMaster1rel": {
-        "model": "NakshatraMaster",
-        "type": "belongsTo",
-        "foreignKey": "nakshatra"
-      },            
-      "accessTokens": {
-        "type": "hasMany",
-        "model": "Accesstoken",
-        "foreignKey": "userId",
-        "options": {
-          "disableInclude": true
-        }
-      },
-      "roleMappings": {
-        "type": "hasMany",
-        "model": "ServiceRoleMapping",
-        "foreignKey": "principalId"
-      },
-      "fkDevoteeProfessionMaster1rel": {
-        "model": "ProfessionMaster",
-        "type": "belongsTo",
-        "foreignKey": "professionId"
-      }
-    }
-  },
-  "mixins": {
-    "TimeStamp": {
-      "createdAt": "created-on",
-      "updatedAt": "updated-on",
-      "required": false,
-      "validateUpsert": true,
-      "silenceWarnings": false
-    },
-    "GenerateKey": true
+    "relations": {}
   },
   "properties": {
     "id": {
       "type": "String",
-      "id": 1,
-      "required": false,
+      "required": true,
       "length": 36,
       "precision": null,
       "scale": null,
@@ -131,7 +70,7 @@
       }
     },
     "gender": {
-      "type": "String",
+      "type": "Boolean",
       "required": false,
       "length": 1,
       "precision": null,
@@ -235,6 +174,21 @@
         "nullable": "Y"
       }
     },
+    "emailverified": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": 3,
+      "scale": 0,
+      "mysql": {
+        "columnName": "emailVerified",
+        "dataType": "tinyint",
+        "dataLength": null,
+        "dataPrecision": 3,
+        "dataScale": 0,
+        "nullable": "Y"
+      }
+    },
     "verificationtoken": {
       "type": "String",
       "required": false,
@@ -250,36 +204,6 @@
         "nullable": "Y"
       }
     },
-    "createdBy": {
-      "type": "String",
-      "required": false,
-      "length": 36,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "created-by",
-        "dataType": "varchar",
-        "dataLength": 36,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "updatedBy": {
-      "type": "String",
-      "required": false,
-      "length": 36,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "updated-by",
-        "dataType": "varchar",
-        "dataLength": 36,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
     "accessId": {
       "type": "String",
       "required": false,
@@ -290,36 +214,6 @@
         "columnName": "access-id",
         "dataType": "varchar",
         "dataLength": 100,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "gothra": {
-      "type": "String",
-      "required": false,
-      "length": 50,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "gothra",
-        "dataType": "varchar",
-        "dataLength": 50,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "nakshatra": {
-      "type": "String",
-      "required": false,
-      "length": 50,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "nakshatra",
-        "dataType": "varchar",
-        "dataLength": 50,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
@@ -387,7 +281,7 @@
     },
     "motherTongueLanguageId": {
       "type": "String",
-      "required": true,
+      "required": false,
       "length": 36,
       "precision": null,
       "scale": null,
@@ -417,7 +311,7 @@
     },
     "dayMonthOfBirth": {
       "type": "String",
-      "required": true,
+      "required": false,
       "length": 65,
       "precision": null,
       "scale": null,
@@ -425,6 +319,36 @@
         "columnName": "day-month-of-birth",
         "dataType": "char",
         "dataLength": 65,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "nakshatra": {
+      "type": "String",
+      "required": false,
+      "length": 50,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "nakshatra",
+        "dataType": "varchar",
+        "dataLength": 50,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "gothra": {
+      "type": "String",
+      "required": false,
+      "length": 50,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "gothra",
+        "dataType": "varchar",
+        "dataLength": 50,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
@@ -438,6 +362,66 @@
       "scale": null,
       "mysql": {
         "columnName": "asrama-master-id",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "createdOn": {
+      "type": "Date",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "created-on",
+        "dataType": "datetime",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "updatedOn": {
+      "type": "Date",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "updated-on",
+        "dataType": "datetime",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "createdBy": {
+      "type": "String",
+      "required": false,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "created-by",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "updatedBy": {
+      "type": "String",
+      "required": false,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "updated-by",
         "dataType": "varchar",
         "dataLength": 36,
         "dataPrecision": null,
@@ -475,21 +459,6 @@
         "nullable": "Y"
       }
     },
-    "mobileNo": {
-      "type": "String",
-      "required": false,
-      "length": 15,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "mobile-no",
-        "dataType": "varchar",
-        "dataLength": 15,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
     "landlineNo": {
       "type": "String",
       "required": false,
@@ -504,38 +473,21 @@
         "dataScale": null,
         "nullable": "Y"
       }
-    }
-  },
-  "validations": [],
-  "relations": {},
-  "acls": [
-    {
-      "accessType": "EXECUTE",
-      "principalType": "ROLE",
-      "principalId": "$authenticated",
-      "permission": "ALLOW",
-      "property": "getDepartments"
     },
-    {
-      "accessType": "EXECUTE",
-      "principalType": "ROLE",
-      "principalId": "$authenticated",
-      "permission": "ALLOW",
-      "property": "getRoles"
-    },      
-    {
-      "accessType": "EXECUTE",
-      "principalType": "ROLE",
-      "principalId": "$authenticated",
-      "permission": "ALLOW",
-      "property": "getRoleTasks"
-    },    
-    {
-      "accessType": "READ",
-      "principalType": "ROLE",
-      "principalId": "$authenticated",
-      "permission": "ALLOW"
-    }    
-  ],
-  "methods": {}
+    "mobileNo": {
+      "type": "String",
+      "required": false,
+      "length": 15,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "mobile-no",
+        "dataType": "varchar",
+        "dataLength": 15,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    }
+  }
 }

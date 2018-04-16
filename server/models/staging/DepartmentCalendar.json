@@ -1,16 +1,16 @@
 {
-  "name": "ServiceRoleMapping",
+  "name": "DepartmentCalendar",
   "options": {
     "idInjection": false,
     "mysql": {
       "schema": "icc",
-      "table": "service-role-mapping"
+      "table": "department-calendar"
     },
     "relations": {
-      "fkServiceRoleMapping1rel": {
-        "model": "ServiceRole",
+      "fkDepartmentCalendarDepartment1rel": {
+        "model": "Department",
         "type": "belongsTo",
-        "foreignKey": "roleId"
+        "foreignKey": "departmentId"
       }
     }
   },
@@ -31,48 +31,108 @@
         "nullable": "N"
       }
     },
-    "principalType": {
-      "type": "String",
-      "required": false,
-      "length": 512,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "principal-type",
-        "dataType": "varchar",
-        "dataLength": 512,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "principalId": {
-      "type": "String",
-      "required": false,
-      "length": 255,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "principal-id",
-        "dataType": "varchar",
-        "dataLength": 255,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "roleId": {
+    "departmentId": {
       "type": "String",
       "required": true,
       "length": 36,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "role-id",
+        "columnName": "department-id",
         "dataType": "varchar",
         "dataLength": 36,
         "dataPrecision": null,
         "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "eventName": {
+      "type": "String",
+      "required": true,
+      "length": 45,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "event-name",
+        "dataType": "varchar",
+        "dataLength": 45,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "date": {
+      "type": "Date",
+      "required": true,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "date",
+        "dataType": "date",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "startTime": {
+      "type": "String",
+      "required": true,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "start-time",
+        "dataType": "time",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "endTime": {
+      "type": "String",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "end-time",
+        "dataType": "time",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "allDayInd": {
+      "type": "Boolean",
+      "required": true,
+      "length": 1,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "all-day-ind",
+        "dataType": "char",
+        "dataLength": 1,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "publicInd": {
+      "type": "Number",
+      "required": true,
+      "length": null,
+      "precision": 3,
+      "scale": 0,
+      "mysql": {
+        "columnName": "public-ind",
+        "dataType": "tinyint",
+        "dataLength": null,
+        "dataPrecision": 3,
+        "dataScale": 0,
         "nullable": "N"
       }
     },

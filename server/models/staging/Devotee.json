@@ -318,7 +318,7 @@
     },
     "motherTongueLanguageId": {
       "type": "String",
-      "required": true,
+      "required": false,
       "length": 36,
       "precision": null,
       "scale": null,
@@ -328,7 +328,7 @@
         "dataLength": 36,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
     "dateOfBirth": {
@@ -344,21 +344,6 @@
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
-      }
-    },
-    "dayMonthOfBirth": {
-      "type": "String",
-      "required": true,
-      "length": 65,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "day-month-of-birth",
-        "dataType": "char",
-        "dataLength": 65,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "N"
       }
     },
     "nakshatra": {
@@ -523,6 +508,36 @@
         "dataLength": 15,
         "dataPrecision": null,
         "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "dayMonthOfBirth": {
+      "type": "String",
+      "required": false,
+      "length": 6,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "day-month-of-birth",
+        "dataType": "varchar",
+        "dataLength": 6,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "uniqueId": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": 10,
+      "scale": 0,
+      "mysql": {
+        "columnName": "unique-id",
+        "dataType": "int",
+        "dataLength": null,
+        "dataPrecision": 10,
+        "dataScale": 0,
         "nullable": "Y"
       }
     }
