@@ -162,7 +162,7 @@
     },
     "creditLimit": {
       "type": "Number",
-      "required": true,
+      "required": false,
       "length": null,
       "precision": 10,
       "scale": 0,
@@ -172,7 +172,7 @@
         "dataLength": null,
         "dataPrecision": 10,
         "dataScale": 0,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
     "realm": {
@@ -387,7 +387,7 @@
     },
     "motherTongueLanguageId": {
       "type": "String",
-      "required": true,
+      "required": false,
       "length": 36,
       "precision": null,
       "scale": null,
@@ -417,7 +417,7 @@
     },
     "dayMonthOfBirth": {
       "type": "String",
-      "required": true,
+      "required": false,
       "length": 65,
       "precision": null,
       "scale": null,
