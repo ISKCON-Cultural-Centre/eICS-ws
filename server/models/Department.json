@@ -21,6 +21,11 @@
       "type": "hasMany",
       "model": "DepartmentAnnouncement",
       "foreignKey": "departmentId"
+      },
+      "events": {
+      "type": "hasMany",
+      "model": "DepartmentCalendar",
+      "foreignKey": "departmentId"
       }
     }
   },
