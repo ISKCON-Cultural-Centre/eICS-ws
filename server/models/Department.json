@@ -21,7 +21,7 @@
       "type": "hasMany",
       "model": "DepartmentAnnouncement",
       "foreignKey": "departmentId"
-    },
+      }
     }
   },
   "mixins": {
