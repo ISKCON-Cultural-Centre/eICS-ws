@@ -1,5 +1,5 @@
 module.exports = function(RoleTaskMaster) {
-    ServiceRoleMapping.remoteMethod('destroyAll', {
+    RoleTaskMaster.remoteMethod('destroyAll', {
         isStatic: true,
         description: 'Delete all matching records',
         accessType: 'WRITE',
