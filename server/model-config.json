@@ -338,5 +338,14 @@
   "DepartmentAnnouncement": {
     "dataSource": "mysqld",
     "public": true
+  },
+  "GroupMaster": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "DevoteeGrouping": {
+    "dataSource": "mysqld",
+    "public": true
   }
+  
 }

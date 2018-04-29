@@ -1,5 +1,5 @@
 {
-  "name": "Group",
+  "name": "GroupMaster",
   "options": {
     "idInjection": false,
     "mysql": {
