@@ -71,30 +71,30 @@
         "nullable": "N"
       }
     },
-    "date": {
+    "eventDescription": {
+      "type": "String",
+      "required": false,
+      "length": 200,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "event-description",
+        "dataType": "varchar",
+        "dataLength": 200,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "startTime": {
       "type": "Date",
       "required": true,
       "length": null,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "date",
-        "dataType": "date",
-        "dataLength": null,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "N"
-      }
-    },
-    "startTime": {
-      "type": "String",
-      "required": true,
-      "length": null,
-      "precision": null,
-      "scale": null,
-      "mysql": {
         "columnName": "start-time",
-        "dataType": "time",
+        "dataType": "timestamp",
         "dataLength": null,
         "dataPrecision": null,
         "dataScale": null,
@@ -102,14 +102,14 @@
       }
     },
     "endTime": {
-      "type": "String",
+      "type": "Date",
       "required": false,
       "length": null,
       "precision": null,
       "scale": null,
       "mysql": {
         "columnName": "end-time",
-        "dataType": "time",
+        "dataType": "timestamp",
         "dataLength": null,
         "dataPrecision": null,
         "dataScale": null,

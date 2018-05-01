@@ -16,12 +16,7 @@
         "model": "Temple",
         "type": "belongsTo",
         "foreignKey": "templeId"
-      },
-        "announcements": {
-        "type": "hasMany",
-        "model": "DepartmentAnnouncement",
-        "foreignKey": "departmentId"
-      },
+      }
     }
   },
   "properties": {

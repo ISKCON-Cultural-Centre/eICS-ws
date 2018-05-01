@@ -13,7 +13,7 @@
         "foreignKey": "devoteeId"
       },
       "fkDevoteeGroupingGroups1rel": {
-        "model": "Group",
+        "model": "GroupMaster",
         "type": "belongsTo",
         "foreignKey": "groupId"
       }
