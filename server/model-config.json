@@ -275,14 +275,6 @@
     "dataSource": "mysqld",
     "public": true
   },
-  "FestivalCalendar": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "FestivalMaster": {
-    "dataSource": "mysqld",
-    "public": true
-  },
   "Language": {
     "dataSource": "mysqld",
     "public": true
