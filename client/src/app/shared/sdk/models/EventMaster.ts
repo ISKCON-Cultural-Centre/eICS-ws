@@ -2,8 +2,9 @@
 
 declare var Object: any;
 export interface EventMasterInterface {
-  "id"?: string;
-  "eventName"?: string;
+  "id": string;
+  "eventName": string;
+  "departmentId": string;
   "createdOn"?: Date;
   "updatedOn"?: Date;
   "createdBy"?: string;
@@ -15,6 +16,7 @@ export interface EventMasterInterface {
 export class EventMaster implements EventMasterInterface {
   "id": string;
   "eventName": string;
+  "departmentId": string;
   "createdOn": Date;
   "updatedOn": Date;
   "createdBy": string;
@@ -60,6 +62,10 @@ export class EventMaster implements EventMasterInterface {
         },
         "eventName": {
           name: 'eventName',
+          type: 'string'
+        },
+        "departmentId": {
+          name: 'departmentId',
           type: 'string'
         },
         "createdOn": {

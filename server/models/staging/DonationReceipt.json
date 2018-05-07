@@ -13,7 +13,7 @@
         "foreignKey": "devoteeId"
       },
       "fkDonationReceiptDonationTypeMaster1rel": {
-        "model": "DonationTypeMaster",
+        "model": "EventDonationItem",
         "type": "belongsTo",
         "foreignKey": "donationTypeMasterId"
       },

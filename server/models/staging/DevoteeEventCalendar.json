@@ -13,7 +13,7 @@
         "foreignKey": "devoteeId"
       },
       "fkDevoteeEventCalendarEventMaster1rel": {
-        "model": "EventMaster",
+        "model": "DevoteeEventMaster",
         "type": "belongsTo",
         "foreignKey": "eventMasterId"
       }

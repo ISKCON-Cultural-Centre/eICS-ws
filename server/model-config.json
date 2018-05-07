@@ -19,97 +19,13 @@
       }
     }
   },
-  "ACL": {
+  "Accesstoken": {
     "dataSource": "mysqld",
     "public": false
   },
-  "ServiceRole": {
+  "Acl": {
     "dataSource": "mysqld",
-    "public": true
-  },
-  "ServiceRoleMapping": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "Circle": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "Devotee": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "DevoteeEventCalendar": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "DevoteeKarmiFamily": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "DonationTypeMaster": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "EventMaster": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "NewContact": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "OutreachMaster": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "Payment": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "PaymentModeMaster": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "Pledge": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "PledgePayment": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "RelationshipMaster": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "SpiritualLevelMaster": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "Temple": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "TempleBranch": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "ElectronicAddress": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "ElectronicAddressTypeMaster": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "PhysicalAddress": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "PhysicalAddressTypeMaster": {
-    "dataSource": "mysqld",
-    "public": true
+    "public": false
   },
   "ApprovalArtefact": {
     "dataSource": "mysqld",
@@ -123,15 +39,147 @@
     "dataSource": "mysqld",
     "public": true
   },
+  "AsramaMaster": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "Circle": {
+    "dataSource": "mysqld",
+    "public": true
+  },
   "Department": {
     "dataSource": "mysqld",
     "public": true
   },
-  "RoleTaskMaster": {
+  "DepartmentAnnouncement": {
     "dataSource": "mysqld",
     "public": true
   },
-  "TaskMaster": {
+  "DepartmentCalendar": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "Devotee": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "DevoteeAsrama": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "DevoteeElectronicAddress": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "DevoteeEventCalendar": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "DevoteeEventMaster": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "DevoteeGrouping": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "DevoteeKarmiFamily": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "DevoteeLanguage": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "DevoteeService": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "DevoteeServiceAvailability": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "DevoteeServiceInterest": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "DevoteeSkill": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "DevoteeSpiritualProgress": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "DonationCategoryMaster": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "DonationReceipt": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "DonationTypeMaster": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "ElectronicAddress": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "ElectronicAddressTypeMaster": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "EventDonationItem": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "EventDonationMaster": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "EventMaster": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "EventService": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "EventServiceMaster": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "FestivalCalendar": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "FestivalMaster": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "GothraMaster": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "GroupMaster": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "Guru": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "Language": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "LookupTableDetail": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "LookupTableMaster": {
     "dataSource": "mysqld",
     "public": true
   },
@@ -143,11 +191,15 @@
     "dataSource": "mysqld",
     "public": true
   },
-  "DevoteeElectronicAddress": {
+  "MgHsn": {
     "dataSource": "mysqld",
     "public": true
   },
   "MgInvoice": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "MgOrder": {
     "dataSource": "mysqld",
     "public": true
   },
@@ -231,63 +283,63 @@
     "dataSource": "mysqld",
     "public": true
   },
-  "Accesstoken": {
+  "NakshatraMaster": {
     "dataSource": "mysqld",
     "public": true
   },
-  "Acl": {
-    "dataSource": "mysqld",
-    "public": false
-  },
-  "AsramaMaster": {
+  "NewContact": {
     "dataSource": "mysqld",
     "public": true
   },
-  "DevoteeAsrama": {
+  "OutreachMaster": {
     "dataSource": "mysqld",
     "public": true
   },
-  "DevoteeLanguage": {
+  "Payment": {
     "dataSource": "mysqld",
     "public": true
   },
-  "DevoteeService": {
+  "PaymentModeMaster": {
     "dataSource": "mysqld",
     "public": true
   },
-  "DevoteeServiceAvailability": {
+  "PhysicalAddress": {
     "dataSource": "mysqld",
     "public": true
   },
-  "DevoteeServiceInterest": {
+  "PhysicalAddressTypeMaster": {
     "dataSource": "mysqld",
     "public": true
   },
-  "DevoteeSkill": {
+  "Pledge": {
     "dataSource": "mysqld",
     "public": true
   },
-  "DevoteeSpiritualProgress": {
+  "PledgePayment": {
     "dataSource": "mysqld",
     "public": true
   },
-  "DonationReceipt": {
+  "ProfessionMaster": {
     "dataSource": "mysqld",
     "public": true
   },
-  "Language": {
+  "RelationshipMaster": {
     "dataSource": "mysqld",
     "public": true
   },
-  "MgHsn": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "MgOrder": {
+  "RoleTaskMaster": {
     "dataSource": "mysqld",
     "public": true
   },
   "ServiceArea": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "ServiceRole": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "ServiceRoleMapping": {
     "dataSource": "mysqld",
     "public": true
   },
@@ -299,45 +351,20 @@
     "dataSource": "mysqld",
     "public": true
   },
-  "LookupTableMaster": {
+  "SpiritualLevelMaster": {
     "dataSource": "mysqld",
     "public": true
   },
-  "LookupTableDetail": {
+  "TaskMaster": {
     "dataSource": "mysqld",
     "public": true
   },
-  "lookupMaster": {
-    "dataSource": null,
-    "public": true
-  },
-  "GothraMaster": {
+  "Temple": {
     "dataSource": "mysqld",
     "public": true
   },
-  "NakshatraMaster": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "ProfessionMaster": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "DepartmentCalendar": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "DepartmentAnnouncement": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "GroupMaster": {
-    "dataSource": "mysqld",
-    "public": true
-  },
-  "DevoteeGrouping": {
+  "TempleBranch": {
     "dataSource": "mysqld",
     "public": true
   }
-  
 }
