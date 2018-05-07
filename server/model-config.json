@@ -21,7 +21,7 @@
   },
   "Accesstoken": {
     "dataSource": "mysqld",
-    "public": false
+    "public": true
   },
   "Acl": {
     "dataSource": "mysqld",
