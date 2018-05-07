@@ -23,7 +23,7 @@
     "dataSource": "mysqld",
     "public": true
   },
-  "Acl": {
+  "ACL": {
     "dataSource": "mysqld",
     "public": false
   },
