@@ -86,6 +86,11 @@ import { SpiritualLevelMaster } from '../../models/SpiritualLevelMaster';
 import { TaskMaster } from '../../models/TaskMaster';
 import { Temple } from '../../models/Temple';
 import { TempleBranch } from '../../models/TempleBranch';
+import { FundInstrument } from '../../models/FundInstrument';
+import { FundInstrumentType } from '../../models/FundInstrumentType';
+import { InstrumentIssueRegister } from '../../models/InstrumentIssueRegister';
+import { InstrumentReturnRegister } from '../../models/InstrumentReturnRegister';
+import { InstrumentPaymentRegister } from '../../models/InstrumentPaymentRegister';
 
 export interface Models { [name: string]: any }
 
@@ -179,6 +184,11 @@ export class SDKModels {
     TaskMaster: TaskMaster,
     Temple: Temple,
     TempleBranch: TempleBranch,
+    FundInstrument: FundInstrument,
+    FundInstrumentType: FundInstrumentType,
+    InstrumentIssueRegister: InstrumentIssueRegister,
+    InstrumentReturnRegister: InstrumentReturnRegister,
+    InstrumentPaymentRegister: InstrumentPaymentRegister,
     
   };
 

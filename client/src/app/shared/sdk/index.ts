@@ -131,6 +131,11 @@ import { SpiritualLevelMasterApi } from './services/custom/SpiritualLevelMaster'
 import { TaskMasterApi } from './services/custom/TaskMaster';
 import { TempleApi } from './services/custom/Temple';
 import { TempleBranchApi } from './services/custom/TempleBranch';
+import { FundInstrumentApi } from './services/custom/FundInstrument';
+import { FundInstrumentTypeApi } from './services/custom/FundInstrumentType';
+import { InstrumentIssueRegisterApi } from './services/custom/InstrumentIssueRegister';
+import { InstrumentReturnRegisterApi } from './services/custom/InstrumentReturnRegister';
+import { InstrumentPaymentRegisterApi } from './services/custom/InstrumentPaymentRegister';
 /**
 * @module SDKBrowserModule
 * @description
@@ -246,6 +251,11 @@ export class SDKBrowserModule {
         TaskMasterApi,
         TempleApi,
         TempleBranchApi,
+        FundInstrumentApi,
+        FundInstrumentTypeApi,
+        InstrumentIssueRegisterApi,
+        InstrumentReturnRegisterApi,
+        InstrumentPaymentRegisterApi,
         internalStorageProvider,
         { provide: SDKStorage, useClass: StorageBrowser }
       ]
