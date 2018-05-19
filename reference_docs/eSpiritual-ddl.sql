@@ -67,6 +67,22 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
+-- Table `icc`.`asrama-master`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `icc`.`asrama-master` (
+  `id` VARCHAR(36) NOT NULL,
+  `asrama-name` VARCHAR(50) NOT NULL,
+  `asrama-description` VARCHAR(50) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
 -- Table `icc`.`circle`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `icc`.`circle` (
@@ -90,6 +106,20 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
+-- Table `icc`.`gothra-master`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `icc`.`gothra-master` (
+  `gothra` VARCHAR(50) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
+  PRIMARY KEY (`gothra`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
 -- Table `icc`.`language`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `icc`.`language` (
@@ -105,6 +135,57 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
+-- Table `icc`.`nakshatra-master`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `icc`.`nakshatra-master` (
+  `nakshatra` VARCHAR(50) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
+  PRIMARY KEY (`nakshatra`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `icc`.`physical-address`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `icc`.`physical-address` (
+  `id` VARCHAR(36) NOT NULL,
+  `address-type-master-id` VARCHAR(36) NULL DEFAULT NULL,
+  `address-line-1` VARCHAR(100) NULL DEFAULT NULL,
+  `address-line-2` VARCHAR(100) NULL DEFAULT NULL,
+  `address-area` VARCHAR(100) NULL DEFAULT NULL,
+  `address-city` VARCHAR(36) NULL DEFAULT NULL,
+  `address-country` VARCHAR(36) NULL DEFAULT NULL,
+  `address-pin` VARCHAR(10) NULL DEFAULT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
+  `address-state` VARCHAR(36) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `icc`.`profession-master`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `icc`.`profession-master` (
+  `profession-id` VARCHAR(36) NOT NULL,
+  `profession-name` VARCHAR(100) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
+  PRIMARY KEY (`profession-id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
 -- Table `icc`.`devotee`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `icc`.`devotee` (
@@ -114,41 +195,76 @@ CREATE TABLE IF NOT EXISTS `icc`.`devotee` (
   `spiritual-name` VARCHAR(100) NULL DEFAULT NULL,
   `gender` CHAR(1) NULL DEFAULT NULL,
   `shiksha-level` VARCHAR(100) NULL DEFAULT NULL,
-  `credit-limit` DECIMAL(10,2) NOT NULL DEFAULT '0.00',
+  `credit-limit` INT(11) NOT NULL DEFAULT '0',
   `realm` VARCHAR(512) NULL DEFAULT NULL,
   `username` VARCHAR(512) NULL DEFAULT NULL,
   `password` VARCHAR(512) NULL DEFAULT NULL,
   `email` VARCHAR(512) NULL DEFAULT NULL,
   `emailVerified` TINYINT(1) NULL DEFAULT NULL,
   `verificationToken` VARCHAR(512) NULL DEFAULT NULL,
-  `created-on` DATETIME NULL DEFAULT NULL,
-  `updated-on` DATETIME NULL DEFAULT NULL,
-  `created-by` VARCHAR(36) NULL DEFAULT NULL,
-  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   `access-id` VARCHAR(100) NULL DEFAULT NULL,
-  `gothra` VARCHAR(50) NULL DEFAULT NULL,
-  `nakshatra` VARCHAR(50) NULL DEFAULT NULL,
   `government-unique-id` VARCHAR(20) NULL DEFAULT NULL,
   `income-tax-id` VARCHAR(20) NULL DEFAULT NULL,
   `lpm-id` VARCHAR(20) NULL DEFAULT NULL,
   `kc-association-date` DATE NULL DEFAULT NULL,
-  `mother-tongue-language-id` VARCHAR(36) NOT NULL,
-  `date-of-birth` DATE NULL,
-  `day-month-of-birth` CHAR(65) NOT NULL,
+  `mother-tongue-language-id` VARCHAR(36) NULL DEFAULT NULL,
+  `date-of-birth` DATE NULL DEFAULT NULL,
+  `nakshatra` VARCHAR(50) NULL DEFAULT NULL,
+  `gothra` VARCHAR(50) NULL DEFAULT NULL,
+  `asrama-master-id` VARCHAR(36) NULL DEFAULT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
+  `profession-id` VARCHAR(36) NULL DEFAULT NULL,
+  `physical-address-id` VARCHAR(36) NULL DEFAULT NULL,
+  `mobile-no` VARCHAR(15) NULL DEFAULT NULL,
+  `landline-no` VARCHAR(15) NULL DEFAULT NULL,
+  `day-month-of-birth` VARCHAR(6) NULL DEFAULT NULL,
+  `unique-id` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `created-by_UNIQUE` (`created-by` ASC),
   UNIQUE INDEX `access-id_UNIQUE` (`access-id` ASC),
   INDEX `fk_devotee_id_idx` (`id` ASC),
   INDEX `fk_devotee_circle1_idx` (`circle-id` ASC),
   INDEX `fk_devotee_language1_idx` (`mother-tongue-language-id` ASC),
+  INDEX `fk_devotee_nakshatra-master1_idx` (`nakshatra` ASC),
+  INDEX `fk_devotee_gothra-master1_idx` (`gothra` ASC),
+  INDEX `fk_devotee_asrama-master1_idx` (`asrama-master-id` ASC),
+  INDEX `fk_devotee_profession-master1_idx` (`profession-id` ASC),
+  INDEX `fk_devotee_physical-address1_idx` (`physical-address-id` ASC),
+  CONSTRAINT `fk_devotee_asrama-master1`
+    FOREIGN KEY (`asrama-master-id`)
+    REFERENCES `icc`.`asrama-master` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
   CONSTRAINT `fk_devotee_circle1`
     FOREIGN KEY (`circle-id`)
     REFERENCES `icc`.`circle` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
+  CONSTRAINT `fk_devotee_gothra-master1`
+    FOREIGN KEY (`gothra`)
+    REFERENCES `icc`.`gothra-master` (`gothra`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
   CONSTRAINT `fk_devotee_language1`
     FOREIGN KEY (`mother-tongue-language-id`)
     REFERENCES `icc`.`language` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_devotee_nakshatra-master1`
+    FOREIGN KEY (`nakshatra`)
+    REFERENCES `icc`.`nakshatra-master` (`nakshatra`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_devotee_physical-address1`
+    FOREIGN KEY (`physical-address-id`)
+    REFERENCES `icc`.`physical-address` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_devotee_profession-master1`
+    FOREIGN KEY (`profession-id`)
+    REFERENCES `icc`.`profession-master` (`profession-id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -208,64 +324,6 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `icc`.`asrama-master`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `icc`.`asrama-master` (
-  `id` VARCHAR(36) NOT NULL,
-  `asrama-name` VARCHAR(50) NOT NULL,
-  `asrama-description` VARCHAR(50) NOT NULL,
-  `created-on` DATETIME NULL DEFAULT NULL,
-  `updated-on` DATETIME NULL DEFAULT NULL,
-  `created-by` VARCHAR(36) NULL DEFAULT NULL,
-  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
--- Table `icc`.`physical-address-type-master`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `icc`.`physical-address-type-master` (
-  `id` VARCHAR(36) NOT NULL,
-  `address-type` VARCHAR(50) NULL DEFAULT NULL,
-  `created-on` DATETIME NULL DEFAULT NULL,
-  `updated-on` DATETIME NULL DEFAULT NULL,
-  `created-by` VARCHAR(36) NULL DEFAULT NULL,
-  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
--- Table `icc`.`physical-address`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `icc`.`physical-address` (
-  `id` VARCHAR(36) NOT NULL,
-  `address-type-master-id` VARCHAR(36) NULL DEFAULT NULL,
-  `address-line-1` VARCHAR(100) NULL DEFAULT NULL,
-  `address-line-2` VARCHAR(100) NULL DEFAULT NULL,
-  `address-area` VARCHAR(100) NULL DEFAULT NULL,
-  `address-city` VARCHAR(100) NULL DEFAULT NULL,
-  `address-country` VARCHAR(100) NULL DEFAULT NULL,
-  `address-pin` VARCHAR(10) NULL DEFAULT NULL,
-  `created-on` DATETIME NULL DEFAULT NULL,
-  `updated-on` DATETIME NULL DEFAULT NULL,
-  `created-by` VARCHAR(36) NULL DEFAULT NULL,
-  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_physical-address_address-type-master1_idx` (`address-type-master-id` ASC),
-  CONSTRAINT `fk_physical-address_address-type-master1`
-    FOREIGN KEY (`address-type-master-id`)
-    REFERENCES `icc`.`physical-address-type-master` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
 -- Table `icc`.`temple`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `icc`.`temple` (
@@ -297,8 +355,8 @@ CREATE TABLE IF NOT EXISTS `icc`.`department` (
   `temple-id` VARCHAR(36) NOT NULL,
   `department-name` VARCHAR(50) NOT NULL,
   `department-leader-devotee-id` VARCHAR(36) NOT NULL,
-  `icon` VARCHAR(50) NULL,
-  `route` VARCHAR(255) NULL,
+  `icon` VARCHAR(50) NULL DEFAULT NULL,
+  `route` VARCHAR(255) NULL DEFAULT NULL,
   `created-on` DATETIME NULL DEFAULT NULL,
   `updated-on` DATETIME NULL DEFAULT NULL,
   `created-by` VARCHAR(36) NULL DEFAULT NULL,
@@ -321,44 +379,50 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `icc`.`service-role`
+-- Table `icc`.`department-announcement`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `icc`.`service-role` (
+CREATE TABLE IF NOT EXISTS `icc`.`department-announcement` (
   `id` VARCHAR(36) NOT NULL,
-  `name` VARCHAR(512) NOT NULL,
-  `description` VARCHAR(512) NULL DEFAULT NULL,
-  `created` DATETIME NULL DEFAULT NULL,
-  `modified` DATETIME NULL DEFAULT NULL,
+  `department-id` VARCHAR(36) NOT NULL,
+  `subject` VARCHAR(36) NOT NULL,
+  `message` VARCHAR(200) NOT NULL,
+  `valid-until` DATE NOT NULL,
   `created-on` DATETIME NULL DEFAULT NULL,
   `updated-on` DATETIME NULL DEFAULT NULL,
   `created-by` VARCHAR(36) NULL DEFAULT NULL,
   `updated-by` VARCHAR(36) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`))
+  PRIMARY KEY (`id`),
+  INDEX `fk_department-announcement_department1_idx` (`department-id` ASC),
+  CONSTRAINT `fk_department-announcement_department1`
+    FOREIGN KEY (`department-id`)
+    REFERENCES `icc`.`department` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `icc`.`department-role`
+-- Table `icc`.`department-calendar`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `icc`.`department-role` (
+CREATE TABLE IF NOT EXISTS `icc`.`department-calendar` (
+  `id` VARCHAR(36) NOT NULL,
   `department-id` VARCHAR(36) NOT NULL,
-  `role-id` VARCHAR(36) NOT NULL,
+  `event-name` VARCHAR(50) NOT NULL,
+  `event-description` VARCHAR(200) NULL DEFAULT NULL,
+  `start-time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `end-time` TIMESTAMP NULL DEFAULT NULL,
+  `all-day-ind` TINYINT(4) NOT NULL DEFAULT '0',
+  `public-ind` TINYINT(4) NOT NULL DEFAULT '0',
   `created-on` DATETIME NULL DEFAULT NULL,
   `updated-on` DATETIME NULL DEFAULT NULL,
   `created-by` VARCHAR(36) NULL DEFAULT NULL,
   `updated-by` VARCHAR(36) NULL DEFAULT NULL,
-  PRIMARY KEY (`department-id`, `role-id`),
-  INDEX `fk_department-role_department1_idx` (`department-id` ASC),
-  INDEX `fk_department-role_service1_idx` (`role-id` ASC),
-  CONSTRAINT `fk_department-role_department1`
+  PRIMARY KEY (`id`),
+  INDEX `fk_department-calendar_department1_idx` (`department-id` ASC),
+  CONSTRAINT `fk_department-calendar_department1`
     FOREIGN KEY (`department-id`)
     REFERENCES `icc`.`department` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_department-role_service1`
-    FOREIGN KEY (`role-id`)
-    REFERENCES `icc`.`service-role` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -459,9 +523,9 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `icc`.`event-master`
+-- Table `icc`.`devotee-event-master`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `icc`.`event-master` (
+CREATE TABLE IF NOT EXISTS `icc`.`devotee-event-master` (
   `id` VARCHAR(36) NOT NULL,
   `event-name` VARCHAR(50) NULL DEFAULT NULL,
   `created-on` DATETIME NULL DEFAULT NULL,
@@ -494,7 +558,41 @@ CREATE TABLE IF NOT EXISTS `icc`.`devotee-event-calendar` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_devotee-event-calendar_event-master1`
     FOREIGN KEY (`event-master-id`)
-    REFERENCES `icc`.`event-master` (`id`)
+    REFERENCES `icc`.`devotee-event-master` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `icc`.`group-master`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `icc`.`group-master` (
+  `id` VARCHAR(36) NOT NULL,
+  `name` VARCHAR(50) NULL DEFAULT NULL,
+  `description` VARCHAR(50) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `icc`.`devotee-grouping`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `icc`.`devotee-grouping` (
+  `devotee-id` VARCHAR(36) NOT NULL,
+  `group-id` VARCHAR(36) NOT NULL,
+  PRIMARY KEY (`devotee-id`, `group-id`),
+  INDEX `fk_devotee-grouping_groups1_idx` (`group-id` ASC),
+  CONSTRAINT `fk_devotee-grouping_devotee1`
+    FOREIGN KEY (`devotee-id`)
+    REFERENCES `icc`.`devotee` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_devotee-grouping_groups1`
+    FOREIGN KEY (`group-id`)
+    REFERENCES `icc`.`group-master` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -555,6 +653,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `icc`.`devotee-language`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `icc`.`devotee-language` (
+  `id` VARCHAR(36) NOT NULL,
   `devotee-id` VARCHAR(36) NOT NULL,
   `language-id` VARCHAR(36) NOT NULL,
   `read-ind` TINYINT(4) NOT NULL,
@@ -564,7 +663,7 @@ CREATE TABLE IF NOT EXISTS `icc`.`devotee-language` (
   `updated-on` DATETIME NULL DEFAULT NULL,
   `created-by` VARCHAR(36) NULL DEFAULT NULL,
   `updated-by` VARCHAR(36) NULL DEFAULT NULL,
-  PRIMARY KEY (`devotee-id`, `language-id`),
+  PRIMARY KEY (`id`),
   INDEX `fk_table1_language1_idx` (`language-id` ASC),
   INDEX `fk_devotee-language_devotee1_idx` (`devotee-id` ASC),
   CONSTRAINT `fk_devotee-language_devotee1`
@@ -610,88 +709,6 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `icc`.`festival-master`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `icc`.`festival-master` (
-  `id` VARCHAR(36) NOT NULL,
-  `festival-name` VARCHAR(100) NOT NULL,
-  `created-on` DATETIME NULL DEFAULT NULL,
-  `updated-on` DATETIME NULL DEFAULT NULL,
-  `created-by` VARCHAR(36) NULL DEFAULT NULL,
-  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
--- Table `icc`.`festival-calendar`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `icc`.`festival-calendar` (
-  `id` VARCHAR(36) NOT NULL,
-  `festival-master-id` VARCHAR(36) NOT NULL,
-  `year` CHAR(4) NOT NULL,
-  `date` VARCHAR(50) NULL DEFAULT NULL,
-  `created-on` DATETIME NULL DEFAULT NULL,
-  `updated-on` DATETIME NULL DEFAULT NULL,
-  `created-by` VARCHAR(36) NULL DEFAULT NULL,
-  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_festival-calendar_festival-master1_idx` (`festival-master-id` ASC),
-  CONSTRAINT `fk_festival-calendar_festival-master1`
-    FOREIGN KEY (`festival-master-id`)
-    REFERENCES `icc`.`festival-master` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
--- Table `icc`.`service-area`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `icc`.`service-area` (
-  `id` VARCHAR(36) NOT NULL,
-  `service-name` VARCHAR(50) NOT NULL,
-  `description` VARCHAR(100) NOT NULL COMMENT '	',
-  `created-on` DATETIME NULL DEFAULT NULL,
-  `updated-on` DATETIME NULL DEFAULT NULL,
-  `created-by` VARCHAR(36) NULL DEFAULT NULL,
-  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
--- Table `icc`.`devotee-service`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `icc`.`devotee-service` (
-  `id` VARCHAR(36) NOT NULL,
-  `festival-calendar-id` VARCHAR(36) NOT NULL,
-  `service-area-id` VARCHAR(36) NOT NULL,
-  `created-on` DATETIME NULL DEFAULT NULL,
-  `updated-on` DATETIME NULL DEFAULT NULL,
-  `created-by` VARCHAR(36) NULL DEFAULT NULL,
-  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_devotee-service_festival-calendar1_idx` (`festival-calendar-id` ASC),
-  INDEX `fk_devotee-service_service-area1_idx` (`service-area-id` ASC),
-  CONSTRAINT `fk_devotee-service_festival-calendar1`
-    FOREIGN KEY (`festival-calendar-id`)
-    REFERENCES `icc`.`festival-calendar` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_devotee-service_service-area1`
-    FOREIGN KEY (`service-area-id`)
-    REFERENCES `icc`.`service-area` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
 -- Table `icc`.`devotee-service-availability`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `icc`.`devotee-service-availability` (
@@ -710,6 +727,22 @@ CREATE TABLE IF NOT EXISTS `icc`.`devotee-service-availability` (
     REFERENCES `icc`.`devotee` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `icc`.`service-area`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `icc`.`service-area` (
+  `id` VARCHAR(36) NOT NULL,
+  `service-name` VARCHAR(50) NOT NULL,
+  `description` VARCHAR(100) NOT NULL COMMENT '	',
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
@@ -788,6 +821,7 @@ CREATE TABLE IF NOT EXISTS `icc`.`devotee-skill` (
   `updated-on` DATETIME NULL DEFAULT NULL,
   `created-by` VARCHAR(36) NULL DEFAULT NULL,
   `updated-by` VARCHAR(36) NULL DEFAULT NULL,
+  PRIMARY KEY (`devotee-id`, `skill-id`),
   INDEX `fk_devotee-skill_devotee1_idx` (`devotee-id` ASC),
   INDEX `fk_devotee-skill_skill1_idx` (`skill-id` ASC),
   CONSTRAINT `fk_devotee-skill_devotee1`
@@ -872,16 +906,38 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `icc`.`donation-type-master`
+-- Table `icc`.`donation-category-master`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `icc`.`donation-type-master` (
+CREATE TABLE IF NOT EXISTS `icc`.`donation-category-master` (
   `id` VARCHAR(36) NOT NULL,
-  `donation-type-name` VARCHAR(50) NULL DEFAULT NULL,
+  `donation-category-name` VARCHAR(50) NOT NULL,
   `created-on` DATETIME NULL DEFAULT NULL,
   `updated-on` DATETIME NULL DEFAULT NULL,
   `created-by` VARCHAR(36) NULL DEFAULT NULL,
   `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `icc`.`event-donation-item`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `icc`.`event-donation-item` (
+  `id` VARCHAR(36) NOT NULL,
+  `event-donation-name` VARCHAR(50) NOT NULL,
+  `department-calendar-id` VARCHAR(36) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_event-donation-master_department-calendar1_idx` (`department-calendar-id` ASC),
+  CONSTRAINT `fk_event-donation-master_department-calendar1`
+    FOREIGN KEY (`department-calendar-id`)
+    REFERENCES `icc`.`department-calendar` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
@@ -955,12 +1011,121 @@ CREATE TABLE IF NOT EXISTS `icc`.`donation-receipt` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_donation-receipt_donation-type-master1`
     FOREIGN KEY (`donation-type-master-id`)
-    REFERENCES `icc`.`donation-type-master` (`id`)
+    REFERENCES `icc`.`event-donation-item` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_donation-receipt_mg-payment1`
     FOREIGN KEY (`mg-payment-id`)
     REFERENCES `icc`.`payment` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `icc`.`event-master`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `icc`.`event-master` (
+  `id` VARCHAR(36) NOT NULL,
+  `event-name` VARCHAR(100) NOT NULL,
+  `department-id` VARCHAR(36) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_event-master_department1_idx` (`department-id` ASC))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `icc`.`event-donation-master`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `icc`.`event-donation-master` (
+  `event-master-id` VARCHAR(36) NOT NULL,
+  `donation-category-master-id` VARCHAR(36) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
+  PRIMARY KEY (`event-master-id`, `donation-category-master-id`),
+  INDEX `fk_event-donation-master_donation-category-master1_idx` (`donation-category-master-id` ASC),
+  CONSTRAINT `fk_festival-donation-master_festival-master1`
+    FOREIGN KEY (`event-master-id`)
+    REFERENCES `icc`.`event-master` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `icc`.`event-service`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `icc`.`event-service` (
+  `id` VARCHAR(36) NOT NULL,
+  `department-calendar-id` VARCHAR(36) NOT NULL,
+  `service-area-id` VARCHAR(36) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_devotee-service_service-area1_idx` (`service-area-id` ASC),
+  INDEX `fk_event-service_department-calendar1_idx` (`department-calendar-id` ASC))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `icc`.`event-service-master`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `icc`.`event-service-master` (
+  `event-master-id` VARCHAR(36) NOT NULL,
+  `service-area-id` VARCHAR(36) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
+  PRIMARY KEY (`event-master-id`, `service-area-id`),
+  INDEX `fk_festival-service-master_service-area1_idx` (`service-area-id` ASC))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `icc`.`lookup-table-master`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `icc`.`lookup-table-master` (
+  `table-name` VARCHAR(50) NOT NULL,
+  `table-display-name` VARCHAR(100) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
+  PRIMARY KEY (`table-name`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `icc`.`lookup-table-detail`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `icc`.`lookup-table-detail` (
+  `table-name` VARCHAR(50) NOT NULL,
+  `column-name` VARCHAR(50) NOT NULL,
+  `column-display-name` VARCHAR(100) NOT NULL,
+  `column-data-type` VARCHAR(50) NULL DEFAULT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
+  PRIMARY KEY (`table-name`, `column-name`),
+  CONSTRAINT `fk_lookup-table-detail_lookup-table-master1`
+    FOREIGN KEY (`table-name`)
+    REFERENCES `icc`.`lookup-table-master` (`table-name`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -1609,6 +1774,21 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
+-- Table `icc`.`physical-address-type-master`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `icc`.`physical-address-type-master` (
+  `id` VARCHAR(36) NOT NULL,
+  `address-type` VARCHAR(50) NULL DEFAULT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
 -- Table `icc`.`pledge`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `icc`.`pledge` (
@@ -1665,6 +1845,76 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
+-- Table `icc`.`task-master`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `icc`.`task-master` (
+  `id` VARCHAR(36) NOT NULL,
+  `task-name` VARCHAR(50) NOT NULL,
+  `application-route` VARCHAR(255) NOT NULL,
+  `task-description` VARCHAR(100) NULL DEFAULT NULL,
+  `approval-rules-apply-ind` TINYINT(4) NOT NULL DEFAULT '0',
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `icc`.`service-role`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `icc`.`service-role` (
+  `id` VARCHAR(36) NOT NULL,
+  `name` VARCHAR(512) NOT NULL,
+  `description` VARCHAR(512) NULL DEFAULT NULL,
+  `created` DATETIME NULL DEFAULT NULL,
+  `modified` DATETIME NULL DEFAULT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
+  `department-id` VARCHAR(36) NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_service-role_department1_idx` (`department-id` ASC),
+  CONSTRAINT `fk_service-role_department1`
+    FOREIGN KEY (`department-id`)
+    REFERENCES `icc`.`department` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `icc`.`role-task-master`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `icc`.`role-task-master` (
+  `task-master-id` VARCHAR(36) NOT NULL,
+  `role-id` VARCHAR(36) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
+  PRIMARY KEY (`task-master-id`, `role-id`),
+  INDEX `fk_role-task-master_task-master1_idx` (`task-master-id` ASC),
+  INDEX `fk_service-task-master_role_idx` (`role-id` ASC),
+  CONSTRAINT `fk_role-task-master-task-master`
+    FOREIGN KEY (`task-master-id`)
+    REFERENCES `icc`.`task-master` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_service-role-task-master`
+    FOREIGN KEY (`role-id`)
+    REFERENCES `icc`.`service-role` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
 -- Table `icc`.`rolemapping`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `icc`.`rolemapping` (
@@ -1696,7 +1946,7 @@ CREATE TABLE IF NOT EXISTS `icc`.`service-role-mapping` (
   `updated-by` VARCHAR(36) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_service-mapping_service1_idx` (`role-id` ASC),
-  CONSTRAINT `fk_service-mapping_service1`
+  CONSTRAINT `fk_service-role_mapping1`
     FOREIGN KEY (`role-id`)
     REFERENCES `icc`.`service-role` (`id`)
     ON DELETE NO ACTION
@@ -1706,46 +1956,83 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `icc`.`task-master`
+-- Table `icc`.`stgdevotee`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `icc`.`task-master` (
+CREATE TABLE IF NOT EXISTS `icc`.`stgdevotee` (
   `id` VARCHAR(36) NOT NULL,
-  `task-name` VARCHAR(50) NOT NULL,
-  `application-route` VARCHAR(255) NOT NULL,
-  `task-description` VARCHAR(100) NULL DEFAULT NULL,
-  `approval-rules-apply-ind` TINYINT(4) NOT NULL DEFAULT '0',
+  `legal-name` VARCHAR(100) NULL DEFAULT NULL,
+  `circle-id` VARCHAR(36) NULL DEFAULT NULL,
+  `spiritual-name` VARCHAR(100) NULL DEFAULT NULL,
+  `gender` CHAR(1) NULL DEFAULT NULL,
+  `shiksha-level` VARCHAR(100) NULL DEFAULT NULL,
+  `credit-limit` INT(11) NOT NULL DEFAULT '0',
+  `realm` VARCHAR(512) NULL DEFAULT NULL,
+  `username` VARCHAR(512) NULL DEFAULT NULL,
+  `password` VARCHAR(512) NULL DEFAULT NULL,
+  `email` VARCHAR(512) NULL DEFAULT NULL,
+  `emailVerified` TINYINT(1) NULL DEFAULT NULL,
+  `verificationToken` VARCHAR(512) NULL DEFAULT NULL,
+  `access-id` VARCHAR(100) NULL DEFAULT NULL,
+  `government-unique-id` VARCHAR(20) NULL DEFAULT NULL,
+  `income-tax-id` VARCHAR(20) NULL DEFAULT NULL,
+  `lpm-id` VARCHAR(20) NULL DEFAULT NULL,
+  `kc-association-date` DATE NULL DEFAULT NULL,
+  `mother-tongue-language-id` VARCHAR(36) NULL DEFAULT NULL,
+  `date-of-birth` DATE NULL DEFAULT NULL,
+  `day-month-of-birth` CHAR(65) NULL DEFAULT NULL,
+  `nakshatra` VARCHAR(50) NULL DEFAULT NULL,
+  `gothra` VARCHAR(50) NULL DEFAULT NULL,
+  `asrama-master-id` VARCHAR(36) NULL DEFAULT NULL,
   `created-on` DATETIME NULL DEFAULT NULL,
   `updated-on` DATETIME NULL DEFAULT NULL,
   `created-by` VARCHAR(36) NULL DEFAULT NULL,
   `updated-by` VARCHAR(36) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`))
+  `profession-id` VARCHAR(36) NULL DEFAULT NULL,
+  `physical-address-id` VARCHAR(36) NULL DEFAULT NULL,
+  `mobile-no` VARCHAR(15) NULL DEFAULT NULL,
+  `landline-no` VARCHAR(15) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `access-id_UNIQUE` (`access-id` ASC),
+  INDEX `fk_devotee_id_idx` (`id` ASC),
+  INDEX `fk_devotee_circle1_idx` (`circle-id` ASC),
+  INDEX `fk_devotee_language1_idx` (`mother-tongue-language-id` ASC),
+  INDEX `fk_devotee_nakshatra-master1_idx` (`nakshatra` ASC),
+  INDEX `fk_devotee_gothra-master1_idx` (`gothra` ASC),
+  INDEX `fk_devotee_asrama-master1_idx` (`asrama-master-id` ASC),
+  INDEX `fk_devotee_profession-master1_idx` (`profession-id` ASC),
+  INDEX `fk_devotee_physical-address1_idx` (`physical-address-id` ASC))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `icc`.`role-task-master`
+-- Table `icc`.`stginitiateddevotees`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `icc`.`role-task-master` (
-  `task-master-id` VARCHAR(36) NOT NULL,
-  `role-id` VARCHAR(36) NOT NULL,
-  `created-on` DATETIME NULL DEFAULT NULL,
-  `updated-on` DATETIME NULL DEFAULT NULL,
-  `created-by` VARCHAR(36) NULL DEFAULT NULL,
-  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
-  PRIMARY KEY (`task-master-id`, `role-id`),
-  INDEX `fk_role-task-master_task-master1_idx` (`task-master-id` ASC),
-  INDEX `fk_service-task-master_service1_idx` (`role-id` ASC),
-  CONSTRAINT `fk_role-task-master_task-master1`
-    FOREIGN KEY (`task-master-id`)
-    REFERENCES `icc`.`task-master` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_service-task-master_service1`
-    FOREIGN KEY (`role-id`)
-    REFERENCES `icc`.`service-role` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+CREATE TABLE IF NOT EXISTS `icc`.`stginitiateddevotees` (
+  `sname` VARCHAR(100) NOT NULL,
+  `phone1` VARCHAR(45) NOT NULL,
+  `phone2` VARCHAR(45) NULL DEFAULT NULL,
+  `kname` VARCHAR(100) NULL DEFAULT NULL,
+  `relation` VARCHAR(100) NULL DEFAULT NULL,
+  `gender` VARCHAR(1) NULL DEFAULT NULL,
+  PRIMARY KEY (`sname`, `phone1`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `icc`.`stgphysical`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `icc`.`stgphysical` (
+  `id` VARCHAR(36) NOT NULL,
+  `address-line-1` VARCHAR(100) NULL DEFAULT NULL,
+  `address-line-2` VARCHAR(100) NULL DEFAULT NULL,
+  `address-area` VARCHAR(100) NULL DEFAULT NULL,
+  `address-city` VARCHAR(36) NULL DEFAULT NULL,
+  `address-state` VARCHAR(100) NULL DEFAULT NULL,
+  `address-country` VARCHAR(36) NULL DEFAULT NULL,
+  `address-pin` VARCHAR(10) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
@@ -1782,39 +2069,152 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `icc`.`lookup-table-master`
+-- Table `icc`.`fund-instrument-type`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `icc`.`lookup-table-master` (
-  `table-name` VARCHAR(50) NOT NULL,
-  `table-display-name` VARCHAR(100) NOT NULL,
+CREATE TABLE IF NOT EXISTS `icc`.`fund-instrument-type` (
+  `id` VARCHAR(36) NOT NULL,
+  `instrument-name` VARCHAR(50) NOT NULL,
+  `denomination` INT NULL DEFAULT NULL,
   `created-on` DATETIME NULL DEFAULT NULL,
   `updated-on` DATETIME NULL DEFAULT NULL,
   `created-by` VARCHAR(36) NULL DEFAULT NULL,
   `updated-by` VARCHAR(36) NULL DEFAULT NULL,
-  PRIMARY KEY (`table-name`))
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `icc`.`lookup-table-detail`
+-- Table `icc`.`fund-instrument`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `icc`.`lookup-table-detail` (
-  `table-name` VARCHAR(50) NOT NULL,
-  `column-name` VARCHAR(50) NOT NULL,
-  `column-display-name` VARCHAR(100) NOT NULL,
-  `column-data-type` VARCHAR(50) NULL,
+CREATE TABLE IF NOT EXISTS `icc`.`fund-instrument` (
+  `id` VARCHAR(36) NOT NULL,
+  `instrument-ref-no` VARCHAR(50) NOT NULL,
+  `receipt-instrument-type-id` VARCHAR(36) NOT NULL,
+  `start-no` INT NOT NULL,
+  `end-no` INT NOT NULL,
+  `current-start-no` INT NOT NULL,
+  `current-end-no` INT NOT NULL,
+  `status-id` VARCHAR(50) NOT NULL,
   `created-on` DATETIME NULL DEFAULT NULL,
   `updated-on` DATETIME NULL DEFAULT NULL,
   `created-by` VARCHAR(36) NULL DEFAULT NULL,
   `updated-by` VARCHAR(36) NULL DEFAULT NULL,
-  PRIMARY KEY (`table-name`, `column-name`),
-  CONSTRAINT `fk_lookup-table-detail_lookup-table-master1`
-    FOREIGN KEY (`table-name`)
-    REFERENCES `icc`.`lookup-table-master` (`table-name`)
+  PRIMARY KEY (`id`, `current-start-no`, `current-end-no`),
+  INDEX `fk_receipt-instrument-detail_receipt-instrument-master1_idx` (`receipt-instrument-type-id` ASC),
+  CONSTRAINT `fk_receipt-instrument-detail_receipt-instrument-master1`
+    FOREIGN KEY (`receipt-instrument-type-id`)
+    REFERENCES `icc`.`fund-instrument-type` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+
+-- -----------------------------------------------------
+-- Table `icc`.`instrument-issue-register`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `icc`.`instrument-issue-register` (
+  `fund-instrument-id` VARCHAR(36) NOT NULL,
+  `owning-devotee-id` VARCHAR(36) NOT NULL,
+  `receipt-no` INT NOT NULL,
+  `issue-date` TIMESTAMP NOT NULL,
+  `issuer-id` VARCHAR(36) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
+  INDEX `fk_instrument-issue-register_receipt-instrument1_idx` (`fund-instrument-id` ASC),
+  PRIMARY KEY (`fund-instrument-id`, `owning-devotee-id`, `receipt-no`),
+  INDEX `fk_instrument-issued-devotee_idx` (`issuer-id` ASC),
+  CONSTRAINT `fk_instrument-issue-register_receipt-instrument1`
+    FOREIGN KEY (`fund-instrument-id`)
+    REFERENCES `icc`.`fund-instrument` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_instrument-issued-devotee`
+    FOREIGN KEY (`issuer-id`)
+    REFERENCES `icc`.`devotee` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `icc`.`instrument-return-register`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `icc`.`instrument-return-register` (
+  `fund-instrument-id` VARCHAR(36) NOT NULL,
+  `owning-devotee-id` VARCHAR(36) NOT NULL,
+  `receipt-no` INT NOT NULL,
+  `return-date` TIMESTAMP NOT NULL,
+  `receiver-id` VARCHAR(36) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
+  PRIMARY KEY (`fund-instrument-id`, `owning-devotee-id`, `receipt-no`),
+  INDEX `fk_instrument-return-devotee_idx` (`receiver-id` ASC),
+  CONSTRAINT `fk_instrument-return-register_instrument-issue-register1`
+    FOREIGN KEY (`fund-instrument-id` , `owning-devotee-id` , `receipt-no`)
+    REFERENCES `icc`.`instrument-issue-register` (`fund-instrument-id` , `owning-devotee-id` , `receipt-no`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_instrument-return-devotee`
+    FOREIGN KEY (`receiver-id`)
+    REFERENCES `icc`.`devotee` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `icc`.`instrument-payment-register`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `icc`.`instrument-payment-register` (
+  `fund-instrument-id` VARCHAR(36) NOT NULL,
+  `owning-devotee-id` VARCHAR(36) NOT NULL,
+  `receipt-no` INT NOT NULL,
+  `payment-mode-master-id` VARCHAR(36) NOT NULL,
+  `payment-reference` VARCHAR(50) NULL,
+  `payment-date` TIMESTAMP NOT NULL,
+  `amount` INT NOT NULL,
+  `receiver-id` VARCHAR(36) NOT NULL,
+  `created-on` DATETIME NULL DEFAULT NULL,
+  `updated-on` DATETIME NULL DEFAULT NULL,
+  `created-by` VARCHAR(36) NULL DEFAULT NULL,
+  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
+  PRIMARY KEY (`fund-instrument-id`, `owning-devotee-id`, `receipt-no`),
+  INDEX `fk_instrument-payment-register_payment-mode-master1_idx` (`payment-mode-master-id` ASC),
+  INDEX `fk_instrument-payment-receiver_idx` (`receiver-id` ASC),
+  CONSTRAINT `fk_instrument-payment-register_instrument-issue-register1`
+    FOREIGN KEY (`fund-instrument-id` , `owning-devotee-id` , `receipt-no`)
+    REFERENCES `icc`.`instrument-issue-register` (`fund-instrument-id` , `owning-devotee-id` , `receipt-no`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_instrument-payment-register_payment-mode-master1`
+    FOREIGN KEY (`payment-mode-master-id`)
+    REFERENCES `icc`.`payment-mode-master` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_instrument-payment-receiver`
+    FOREIGN KEY (`receiver-id`)
+    REFERENCES `icc`.`devotee` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+USE `icc` ;
+
+-- -----------------------------------------------------
+-- Placeholder table for view `icc`.`icc_council`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `icc`.`icc_council` (`id` INT, `legal-name` INT, `circle-id` INT, `spiritual-name` INT, `gender` INT, `shiksha-level` INT, `credit-limit` INT, `realm` INT, `username` INT, `password` INT, `email` INT, `emailVerified` INT, `verificationToken` INT, `access-id` INT, `government-unique-id` INT, `income-tax-id` INT, `lpm-id` INT, `kc-association-date` INT, `mother-tongue-language-id` INT, `date-of-birth` INT, `nakshatra` INT, `gothra` INT, `asrama-master-id` INT, `created-on` INT, `updated-on` INT, `created-by` INT, `updated-by` INT, `profession-id` INT, `physical-address-id` INT, `mobile-no` INT, `landline-no` INT, `day-month-of-birth` INT, `unique-id` INT);
+
+-- -----------------------------------------------------
+-- View `icc`.`icc_council`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `icc`.`icc_council`;
+USE `icc`;
+CREATE  OR REPLACE ALGORITHM=UNDEFINED DEFINER=`admin`@`%` SQL SECURITY DEFINER VIEW `icc`.`icc_council` AS select `icc`.`devotee`.`id` AS `id`,`icc`.`devotee`.`legal-name` AS `legal-name`,`icc`.`devotee`.`circle-id` AS `circle-id`,`icc`.`devotee`.`spiritual-name` AS `spiritual-name`,`icc`.`devotee`.`gender` AS `gender`,`icc`.`devotee`.`shiksha-level` AS `shiksha-level`,`icc`.`devotee`.`credit-limit` AS `credit-limit`,`icc`.`devotee`.`realm` AS `realm`,`icc`.`devotee`.`username` AS `username`,`icc`.`devotee`.`password` AS `password`,`icc`.`devotee`.`email` AS `email`,`icc`.`devotee`.`emailVerified` AS `emailVerified`,`icc`.`devotee`.`verificationToken` AS `verificationToken`,`icc`.`devotee`.`access-id` AS `access-id`,`icc`.`devotee`.`government-unique-id` AS `government-unique-id`,`icc`.`devotee`.`income-tax-id` AS `income-tax-id`,`icc`.`devotee`.`lpm-id` AS `lpm-id`,`icc`.`devotee`.`kc-association-date` AS `kc-association-date`,`icc`.`devotee`.`mother-tongue-language-id` AS `mother-tongue-language-id`,`icc`.`devotee`.`date-of-birth` AS `date-of-birth`,`icc`.`devotee`.`nakshatra` AS `nakshatra`,`icc`.`devotee`.`gothra` AS `gothra`,`icc`.`devotee`.`asrama-master-id` AS `asrama-master-id`,`icc`.`devotee`.`created-on` AS `created-on`,`icc`.`devotee`.`updated-on` AS `updated-on`,`icc`.`devotee`.`created-by` AS `created-by`,`icc`.`devotee`.`updated-by` AS `updated-by`,`icc`.`devotee`.`profession-id` AS `profession-id`,`icc`.`devotee`.`physical-address-id` AS `physical-address-id`,`icc`.`devotee`.`mobile-no` AS `mobile-no`,`icc`.`devotee`.`landline-no` AS `landline-no`,`icc`.`devotee`.`day-month-of-birth` AS `day-month-of-birth`,`icc`.`devotee`.`unique-id` AS `unique-id` from `icc`.`devotee` where `icc`.`devotee`.`id` in (select `icc`.`service-role-mapping`.`principal-id` from `icc`.`service-role-mapping` where `icc`.`service-role-mapping`.`role-id` in (select `icc`.`service-role`.`id` from `icc`.`service-role` where (`icc`.`service-role`.`name` = 'ICC Council')));
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

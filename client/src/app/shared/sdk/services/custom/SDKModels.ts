@@ -1,5 +1,6 @@
 /* tslint:disable */
 import { Injectable } from '@angular/core';
+import { Accesstoken } from '../../models/Accesstoken';
 import { ApprovalArtefact } from '../../models/ApprovalArtefact';
 import { ApprovalQue } from '../../models/ApprovalQue';
 import { ApprovalRule } from '../../models/ApprovalRule';
@@ -92,6 +93,7 @@ export interface Models { [name: string]: any }
 export class SDKModels {
 
   private models: Models = {
+    Accesstoken: Accesstoken,
     ApprovalArtefact: ApprovalArtefact,
     ApprovalQue: ApprovalQue,
     ApprovalRule: ApprovalRule,

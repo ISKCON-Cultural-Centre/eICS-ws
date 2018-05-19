@@ -1,4 +1,5 @@
 /* tslint:disable */
+export * from './Accesstoken';
 export * from './ApprovalArtefact';
 export * from './ApprovalQue';
 export * from './ApprovalRule';

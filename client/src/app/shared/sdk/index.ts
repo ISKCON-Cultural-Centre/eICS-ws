@@ -45,6 +45,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CookieBrowser } from './storage/cookie.browser';
 import { StorageBrowser } from './storage/storage.browser';
+import { AccesstokenApi } from './services/custom/Accesstoken';
 import { ApprovalArtefactApi } from './services/custom/ApprovalArtefact';
 import { ApprovalQueApi } from './services/custom/ApprovalQue';
 import { ApprovalRuleApi } from './services/custom/ApprovalRule';
@@ -159,6 +160,7 @@ export class SDKBrowserModule {
         LoggerService,
         JSONSearchParams,
         SDKModels,
+        AccesstokenApi,
         ApprovalArtefactApi,
         ApprovalQueApi,
         ApprovalRuleApi,
