@@ -366,5 +366,25 @@
   "TempleBranch": {
     "dataSource": "mysqld",
     "public": true
+  },
+  "FundInstrument": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "FundInstrumentType": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "InstrumentIssueRegister": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "InstrumentReturnRegister": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "InstrumentPaymentRegister": {
+    "dataSource": "mysqld",
+    "public": true
   }
 }
