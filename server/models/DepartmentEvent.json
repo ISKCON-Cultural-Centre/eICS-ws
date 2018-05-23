@@ -1,16 +1,21 @@
 {
-  "name": "DepartmentCalendar",
+  "name": "DepartmentEvent",
   "options": {
     "idInjection": false,
     "mysql": {
       "schema": "icc",
-      "table": "department-calendar"
+      "table": "department-event"
     },
     "relations": {
-      "fkDepartmentCalendarDepartment1rel": {
+      "fkDepartmentCalendarDepartmentrel": {
         "model": "Department",
         "type": "belongsTo",
         "foreignKey": "departmentId"
+      },
+      "fkDepartmentEventEventMaster1rel": {
+        "model": "EventMaster",
+        "type": "belongsTo",
+        "foreignKey": "eventMasterId"
       }
     }
   },
@@ -56,6 +61,21 @@
         "nullable": "N"
       }
     },
+    "eventMasterId": {
+      "type": "String",
+      "required": true,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "event-master-id",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },    
     "eventName": {
       "type": "String",
       "required": true,

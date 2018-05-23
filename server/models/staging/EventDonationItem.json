@@ -8,7 +8,7 @@
     },
     "relations": {
       "fkEventDonationMasterDepartmentCalendar1rel": {
-        "model": "DepartmentCalendar",
+        "model": "DepartmentEvent",
         "type": "belongsTo",
         "foreignKey": "departmentCalendarId"
       }

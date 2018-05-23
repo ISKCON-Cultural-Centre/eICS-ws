@@ -8,12 +8,22 @@
     },
     "relations": {
       "fkEventDonationMasterDepartmentCalendar1rel": {
-        "model": "DepartmentCalendar",
+        "model": "DepartmentEvent",
         "type": "belongsTo",
         "foreignKey": "departmentCalendarId"
       }
     }
   },
+  "mixins": {
+    "TimeStamp": {
+      "createdAt": "created-on",
+      "updatedAt": "updated-on",
+      "required": false,
+      "validateUpsert": true,
+      "silenceWarnings": false
+    },
+    "GenerateKey": true
+  },  
   "properties": {
     "id": {
       "type": "String",

@@ -6,10 +6,21 @@
       "schema": "icc",
       "table": "event-service-master"
     },
-    "relations": {}
+    "relations": {
+      "fkEventServiceMasterEventMaster1rel": {
+        "model": "EventMaster",
+        "type": "belongsTo",
+        "foreignKey": "eventMasterId"
+      },
+      "fkEventServiceMasterServiceArea1rel": {
+        "model": "ServiceArea",
+        "type": "belongsTo",
+        "foreignKey": "serviceAreaId"
+      }
+    }
   },
   "properties": {
-    "eventMasterId": {
+    "serviceAreaId": {
       "type": "String",
       "required": true,
       "length": 36,
@@ -17,7 +28,7 @@
       "scale": null,
       "id": 1,
       "mysql": {
-        "columnName": "event-master-id",
+        "columnName": "service-area-id",
         "dataType": "varchar",
         "dataLength": 36,
         "dataPrecision": null,
@@ -25,7 +36,7 @@
         "nullable": "N"
       }
     },
-    "serviceAreaId": {
+    "eventMasterId": {
       "type": "String",
       "required": true,
       "length": 36,
@@ -33,7 +44,7 @@
       "scale": null,
       "id": 2,
       "mysql": {
-        "columnName": "service-area-id",
+        "columnName": "event-master-id",
         "dataType": "varchar",
         "dataLength": 36,
         "dataPrecision": null,

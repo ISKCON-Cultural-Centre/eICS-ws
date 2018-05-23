@@ -6,10 +6,21 @@
       "schema": "icc",
       "table": "event-service"
     },
-    "relations": {}
+    "relations": {
+      "fkEventServiceDepartmentEvent1rel": {
+        "model": "DepartmentEvent",
+        "type": "belongsTo",
+        "foreignKey": "departmentEventId"
+      },
+      "fkEventServiceServiceArea1rel": {
+        "model": "ServiceArea",
+        "type": "belongsTo",
+        "foreignKey": "serviceAreaId"
+      }
+    }
   },
   "properties": {
-    "id": {
+    "departmentEventId": {
       "type": "String",
       "required": true,
       "length": 36,
@@ -17,22 +28,7 @@
       "scale": null,
       "id": 1,
       "mysql": {
-        "columnName": "id",
-        "dataType": "varchar",
-        "dataLength": 36,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "N"
-      }
-    },
-    "departmentCalendarId": {
-      "type": "String",
-      "required": true,
-      "length": 36,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "department-calendar-id",
+        "columnName": "department-event-id",
         "dataType": "varchar",
         "dataLength": 36,
         "dataPrecision": null,
@@ -46,12 +42,28 @@
       "length": 36,
       "precision": null,
       "scale": null,
+      "id": 2,
       "mysql": {
-        "columnName": "service-area-id",
+        "columnName": "service-area_id",
         "dataType": "varchar",
         "dataLength": 36,
         "dataPrecision": null,
         "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "serviceQty": {
+      "type": "Number",
+      "required": true,
+      "length": null,
+      "precision": 10,
+      "scale": 0,
+      "mysql": {
+        "columnName": "service-qty",
+        "dataType": "int",
+        "dataLength": null,
+        "dataPrecision": 10,
+        "dataScale": 0,
         "nullable": "N"
       }
     },

@@ -55,7 +55,7 @@
     "dataSource": "mysqld",
     "public": true
   },
-  "DepartmentCalendar": {
+  "DepartmentEvent": {
     "dataSource": "mysqld",
     "public": true
   },

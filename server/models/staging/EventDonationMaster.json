@@ -7,6 +7,11 @@
       "table": "event-donation-master"
     },
     "relations": {
+      "fkEventDonationMasterDonationCategoryMaster1rel": {
+        "model": "DonationCategoryMaster",
+        "type": "belongsTo",
+        "foreignKey": "donationCategoryMasterId"
+      },
       "fkFestivalDonationMasterFestivalMaster1rel": {
         "model": "EventMaster",
         "type": "belongsTo",
