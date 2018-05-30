@@ -394,5 +394,9 @@
   "OrganizationLevelMaster": {
     "dataSource": "mysqld",
     "public": true
+  },
+  "OrganizationTree": {
+    "dataSource": "mysqld",
+    "public": true
   }
 }
