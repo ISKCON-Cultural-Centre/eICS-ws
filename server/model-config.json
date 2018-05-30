@@ -386,5 +386,13 @@
   "InstrumentPaymentRegister": {
     "dataSource": "mysqld",
     "public": true
+  },
+  "Organization": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "OrganizationLevelMaster": {
+    "dataSource": "mysqld",
+    "public": true
   }
 }
