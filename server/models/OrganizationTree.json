@@ -1,7 +1,7 @@
 {
   "name": "OrganizationTree",
   "options": {
-    "idInjection": false,
+    "idInjection": true,
     "mysql": {
       "schema": "icc",
       "table": "organization-tree"
