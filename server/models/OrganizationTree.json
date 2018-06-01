@@ -1,7 +1,7 @@
 {
   "name": "OrganizationTree",
   "options": {
-    "idInjection": true,
+    "idInjection": false,
     "mysql": {
       "schema": "icc",
       "table": "organization-tree"
@@ -9,14 +9,15 @@
     "relations": {}
   },
   "properties": {
-    "lev1": {
+    "id": {
       "type": "String",
       "required": true,
       "length": 36,
       "precision": null,
       "scale": null,
+      "id": 1,
       "mysql": {
-        "columnName": "lev1",
+        "columnName": "id",
         "dataType": "varchar",
         "dataLength": 36,
         "dataPrecision": null,
@@ -24,49 +25,34 @@
         "nullable": "N"
       }
     },
-    "lev2": {
+    "name": {
       "type": "String",
       "required": false,
-      "length": 36,
+      "length": 50,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "lev2",
+        "columnName": "name",
         "dataType": "varchar",
-        "dataLength": 36,
+        "dataLength": 50,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "Y"
+        "nullable": "N"
       }
     },
-    "lev3": {
-      "type": "String",
-      "required": false,
-      "length": 36,
-      "precision": null,
-      "scale": null,
+    "depth": {
+      "type": "Number",
+      "required": true,
+      "length": null,
+      "precision": 10,
+      "scale": 0,
       "mysql": {
-        "columnName": "lev3",
-        "dataType": "varchar",
-        "dataLength": 36,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "lev4": {
-      "type": "String",
-      "required": false,
-      "length": 36,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "lev4",
-        "dataType": "varchar",
-        "dataLength": 36,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
+        "columnName": "depth",
+        "dataType": "int",
+        "dataLength": null,
+        "dataPrecision": 10,
+        "dataScale": 0,
+        "nullable": "N"
       }
     }
   }
