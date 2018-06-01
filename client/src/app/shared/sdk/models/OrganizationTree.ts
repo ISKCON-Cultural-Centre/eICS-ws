@@ -5,12 +5,14 @@ export interface OrganizationTreeInterface {
   "id": string;
   "name"?: string;
   "depth": number;
+  "displayOrder": number;
 }
 
 export class OrganizationTree implements OrganizationTreeInterface {
   "id": string;
   "name": string;
   "depth": number;
+  "displayOrder": number;
   constructor(data?: OrganizationTreeInterface) {
     Object.assign(this, data);
   }
@@ -54,6 +56,10 @@ export class OrganizationTree implements OrganizationTreeInterface {
         },
         "depth": {
           name: 'depth',
+          type: 'number'
+        },
+        "displayOrder": {
+          name: 'displayOrder',
           type: 'number'
         },
       },
