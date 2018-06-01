@@ -398,5 +398,9 @@
   "OrganizationTree": {
     "dataSource": "mysqld",
     "public": true
+  },
+  "OrganizationChildren": {
+    "dataSource": "mysqld",
+    "public": true
   }
 }
