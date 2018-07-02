@@ -7,6 +7,11 @@
       "table": "fund-instrument"
     },
     "relations": {
+      "fkFundInstrumentFundInstrumentStatusMaster1rel": {
+        "model": "FundInstrumentStatusMaster",
+        "type": "belongsTo",
+        "foreignKey": "statusId"
+      },
       "fkReceiptInstrumentDetailReceiptInstrumentMaster1rel": {
         "model": "FundInstrumentType",
         "type": "belongsTo",
@@ -126,13 +131,13 @@
     "statusId": {
       "type": "String",
       "required": true,
-      "length": 50,
+      "length": 36,
       "precision": null,
       "scale": null,
       "mysql": {
         "columnName": "status-id",
         "dataType": "varchar",
-        "dataLength": 50,
+        "dataLength": 36,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "N"
