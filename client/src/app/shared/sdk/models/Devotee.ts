@@ -41,8 +41,15 @@ export interface DevoteeInterface {
   "asramaMasterId"?: string;
   "professionId"?: string;
   "physicalAddressId"?: string;
-  "mobileNo"?: string;
+  "mobileNo1"?: string;
   "landlineNo"?: string;
+  "mobileNo2"?: string;
+  "commWhatsapp": string;
+  "commEmail": string;
+  "commSms": string;
+  "commCall": string;
+  "commLetter": string;
+  "marriedInd"?: string;
   "emailVerified"?: boolean;
   "created-on"?: Date;
   "updated-on"?: Date;
@@ -87,8 +94,15 @@ export class Devotee implements DevoteeInterface {
   "asramaMasterId": string;
   "professionId": string;
   "physicalAddressId": string;
-  "mobileNo": string;
+  "mobileNo1": string;
   "landlineNo": string;
+  "mobileNo2": string;
+  "commWhatsapp": string;
+  "commEmail": string;
+  "commSms": string;
+  "commCall": string;
+  "commLetter": string;
+  "marriedInd": string;
   "emailVerified": boolean;
   "created-on": Date;
   "updated-on": Date;
@@ -244,12 +258,40 @@ export class Devotee implements DevoteeInterface {
           name: 'physicalAddressId',
           type: 'string'
         },
-        "mobileNo": {
-          name: 'mobileNo',
+        "mobileNo1": {
+          name: 'mobileNo1',
           type: 'string'
         },
         "landlineNo": {
           name: 'landlineNo',
+          type: 'string'
+        },
+        "mobileNo2": {
+          name: 'mobileNo2',
+          type: 'string'
+        },
+        "commWhatsapp": {
+          name: 'commWhatsapp',
+          type: 'string'
+        },
+        "commEmail": {
+          name: 'commEmail',
+          type: 'string'
+        },
+        "commSms": {
+          name: 'commSms',
+          type: 'string'
+        },
+        "commCall": {
+          name: 'commCall',
+          type: 'string'
+        },
+        "commLetter": {
+          name: 'commLetter',
+          type: 'string'
+        },
+        "marriedInd": {
+          name: 'marriedInd',
           type: 'string'
         },
         "emailVerified": {

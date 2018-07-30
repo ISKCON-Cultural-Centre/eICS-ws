@@ -1,22 +1,34 @@
 {
-  "name": "IccCouncil",
+  "name": "DevoteeCounsellorHistory",
   "options": {
     "idInjection": false,
     "mysql": {
       "schema": "icc",
-      "table": "icc_council"
+      "table": "devotee-counsellor-history"
     },
-    "relations": {}
+    "relations": {
+      "fkDevoteeCounsellorHistoryDevotee1rel": {
+        "model": "Devotee",
+        "type": "belongsTo",
+        "foreignKey": "devoteeId"
+      },
+      "fkDevoteeCounsellorHistoryDevotee2rel": {
+        "model": "Devotee",
+        "type": "belongsTo",
+        "foreignKey": "counsellorId"
+      }
+    }
   },
   "properties": {
-    "id": {
+    "devoteeId": {
       "type": "String",
       "required": true,
       "length": 36,
       "precision": null,
       "scale": null,
+      "id": 1,
       "mysql": {
-        "columnName": "id",
+        "columnName": "devotee-id",
         "dataType": "varchar",
         "dataLength": 36,
         "dataPrecision": null,
@@ -24,64 +36,65 @@
         "nullable": "N"
       }
     },
-    "name": {
+    "counsellorId": {
       "type": "String",
       "required": true,
-      "length": 512,
+      "length": 36,
       "precision": null,
       "scale": null,
+      "id": 2,
       "mysql": {
-        "columnName": "name",
+        "columnName": "counsellor-id",
         "dataType": "varchar",
-        "dataLength": 512,
+        "dataLength": 36,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "N"
       }
     },
-    "description": {
+    "startDate": {
+      "type": "Date",
+      "required": true,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "start-date",
+        "dataType": "date",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "endDate": {
+      "type": "Date",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "end-date",
+        "dataType": "date",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "currentInd": {
       "type": "String",
-      "required": false,
-      "length": 512,
+      "required": true,
+      "length": 1,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "description",
+        "columnName": "current-ind",
         "dataType": "varchar",
-        "dataLength": 512,
+        "dataLength": 1,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "created": {
-      "type": "Date",
-      "required": false,
-      "length": null,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "created",
-        "dataType": "datetime",
-        "dataLength": null,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "modified": {
-      "type": "Date",
-      "required": false,
-      "length": null,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "modified",
-        "dataType": "datetime",
-        "dataLength": null,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
+        "nullable": "N"
       }
     },
     "createdOn": {
@@ -142,21 +155,6 @@
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
-      }
-    },
-    "departmentId": {
-      "type": "String",
-      "required": true,
-      "length": 36,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "department-id",
-        "dataType": "varchar",
-        "dataLength": 36,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "N"
       }
     }
   }
