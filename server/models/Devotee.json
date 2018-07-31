@@ -56,6 +56,21 @@
         "model": "ServiceRoleMapping",
         "foreignKey": "principalId"
       },
+      "fkDevoteeLanguages": {
+        "type": "hasMany",
+        "model": "DevoteeLanguage",
+        "foreignKey": "devoteeId"
+      },
+      "fkDevoteeServiceInterests": {
+        "type": "hasMany",
+        "model": "DevoteeServiceInterest",
+        "foreignKey": "devoteeId"
+      },
+      "fkDevoteeGroupings": {
+        "type": "hasMany",
+        "model": "DevoteeGrouping",
+        "foreignKey": "devoteeId"
+      },              
       "fkDevoteeProfessionMaster1rel": {
         "model": "ProfessionMaster",
         "type": "belongsTo",

@@ -3,6 +3,9 @@ import {
   Accesstoken,
   AsramaMaster,
   Circle,
+  DevoteeGrouping,
+  DevoteeLanguage,
+  DevoteeServiceInterest,
   GothraMaster,
   Language,
   NakshatraMaster,
@@ -57,6 +60,9 @@ export interface DevoteeInterface {
   accessTokens?: Accesstoken[];
   fkDevoteeAsramaMaster1rel?: AsramaMaster;
   fkDevoteeCircle1rel?: Circle;
+  fkDevoteeGroupings?: DevoteeGrouping[];
+  fkDevoteeLanguages?: DevoteeLanguage[];
+  fkDevoteeServiceInterests?: DevoteeServiceInterest[];
   fkDevoteeGothraMaster1rel?: GothraMaster;
   fkDevoteeLanguage1rel?: Language;
   fkDevoteeNakshatraMaster1rel?: NakshatraMaster;
@@ -110,6 +116,9 @@ export class Devotee implements DevoteeInterface {
   accessTokens: Accesstoken[];
   fkDevoteeAsramaMaster1rel: AsramaMaster;
   fkDevoteeCircle1rel: Circle;
+  fkDevoteeGroupings: DevoteeGrouping[];
+  fkDevoteeLanguages: DevoteeLanguage[];
+  fkDevoteeServiceInterests: DevoteeServiceInterest[];
   fkDevoteeGothraMaster1rel: GothraMaster;
   fkDevoteeLanguage1rel: Language;
   fkDevoteeNakshatraMaster1rel: NakshatraMaster;
@@ -335,6 +344,30 @@ export class Devotee implements DevoteeInterface {
           relationType: 'belongsTo',
                   keyFrom: 'circleId',
           keyTo: 'id'
+        },
+        fkDevoteeGroupings: {
+          name: 'fkDevoteeGroupings',
+          type: 'DevoteeGrouping[]',
+          model: 'DevoteeGrouping',
+          relationType: 'hasMany',
+                  keyFrom: 'id',
+          keyTo: 'devoteeId'
+        },
+        fkDevoteeLanguages: {
+          name: 'fkDevoteeLanguages',
+          type: 'DevoteeLanguage[]',
+          model: 'DevoteeLanguage',
+          relationType: 'hasMany',
+                  keyFrom: 'id',
+          keyTo: 'devoteeId'
+        },
+        fkDevoteeServiceInterests: {
+          name: 'fkDevoteeServiceInterests',
+          type: 'DevoteeServiceInterest[]',
+          model: 'DevoteeServiceInterest',
+          relationType: 'hasMany',
+                  keyFrom: 'id',
+          keyTo: 'devoteeId'
         },
         fkDevoteeGothraMaster1rel: {
           name: 'fkDevoteeGothraMaster1rel',
