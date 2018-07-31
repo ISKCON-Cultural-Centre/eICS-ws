@@ -94,5 +94,7 @@ export * from './Organization';
 export * from './OrganizationLevelMaster';
 export * from './OrganizationTree';
 export * from './OrganizationChildren';
+export * from './DevoteeDonationInterest';
+export * from './Configuration';
 export * from './SDKModels';
 export * from './logger.service';

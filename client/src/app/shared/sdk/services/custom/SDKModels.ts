@@ -95,6 +95,8 @@ import { Organization } from '../../models/Organization';
 import { OrganizationLevelMaster } from '../../models/OrganizationLevelMaster';
 import { OrganizationTree } from '../../models/OrganizationTree';
 import { OrganizationChildren } from '../../models/OrganizationChildren';
+import { DevoteeDonationInterest } from '../../models/DevoteeDonationInterest';
+import { Configuration } from '../../models/Configuration';
 
 export interface Models { [name: string]: any }
 
@@ -197,6 +199,8 @@ export class SDKModels {
     OrganizationLevelMaster: OrganizationLevelMaster,
     OrganizationTree: OrganizationTree,
     OrganizationChildren: OrganizationChildren,
+    DevoteeDonationInterest: DevoteeDonationInterest,
+    Configuration: Configuration,
     
   };
 

@@ -139,6 +139,8 @@ import { OrganizationApi } from './services/custom/Organization';
 import { OrganizationLevelMasterApi } from './services/custom/OrganizationLevelMaster';
 import { OrganizationTreeApi } from './services/custom/OrganizationTree';
 import { OrganizationChildrenApi } from './services/custom/OrganizationChildren';
+import { DevoteeDonationInterestApi } from './services/custom/DevoteeDonationInterest';
+import { ConfigurationApi } from './services/custom/Configuration';
 /**
 * @module SDKBrowserModule
 * @description
@@ -262,6 +264,8 @@ export class SDKBrowserModule {
         OrganizationLevelMasterApi,
         OrganizationTreeApi,
         OrganizationChildrenApi,
+        DevoteeDonationInterestApi,
+        ConfigurationApi,
         internalStorageProvider,
         { provide: SDKStorage, useClass: StorageBrowser }
       ]
