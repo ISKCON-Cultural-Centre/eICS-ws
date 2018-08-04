@@ -47,12 +47,12 @@ export interface DevoteeInterface {
   "mobileNo1"?: string;
   "landlineNo"?: string;
   "mobileNo2"?: string;
-  "commWhatsapp": string;
-  "commEmail": string;
-  "commSms": string;
-  "commCall": string;
-  "commLetter": string;
-  "marriedInd"?: string;
+  "commWhatsapp": number;
+  "commEmail": number;
+  "commSms": number;
+  "commCall": number;
+  "commLetter": number;
+  "marriedInd"?: number;
   "emailVerified"?: boolean;
   "created-on"?: Date;
   "updated-on"?: Date;
@@ -103,12 +103,12 @@ export class Devotee implements DevoteeInterface {
   "mobileNo1": string;
   "landlineNo": string;
   "mobileNo2": string;
-  "commWhatsapp": string;
-  "commEmail": string;
-  "commSms": string;
-  "commCall": string;
-  "commLetter": string;
-  "marriedInd": string;
+  "commWhatsapp": number;
+  "commEmail": number;
+  "commSms": number;
+  "commCall": number;
+  "commLetter": number;
+  "marriedInd": number;
   "emailVerified": boolean;
   "created-on": Date;
   "updated-on": Date;
@@ -281,27 +281,27 @@ export class Devotee implements DevoteeInterface {
         },
         "commWhatsapp": {
           name: 'commWhatsapp',
-          type: 'string'
+          type: 'number'
         },
         "commEmail": {
           name: 'commEmail',
-          type: 'string'
+          type: 'number'
         },
         "commSms": {
           name: 'commSms',
-          type: 'string'
+          type: 'number'
         },
         "commCall": {
           name: 'commCall',
-          type: 'string'
+          type: 'number'
         },
         "commLetter": {
           name: 'commLetter',
-          type: 'string'
+          type: 'number'
         },
         "marriedInd": {
           name: 'marriedInd',
-          type: 'string'
+          type: 'number'
         },
         "emailVerified": {
           name: 'emailVerified',
