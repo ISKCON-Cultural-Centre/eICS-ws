@@ -644,7 +644,22 @@
         "dataScale": 0,
         "nullable": "Y"
       }
-    }    
+    },
+    "notes": {
+      "type": "String",
+      "required": false,
+      "length": 100,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "notes",
+        "dataType": "varchar",
+        "dataLength": 100,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    }
   },
   "validations": [],
   "relations": {},
