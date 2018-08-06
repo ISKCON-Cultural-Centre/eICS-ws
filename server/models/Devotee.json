@@ -557,7 +557,7 @@
     },
     "commWhatsapp": {
       "type": "Number",
-      "required": true,
+      "required": false,
       "length": null,
       "precision": 3,
       "scale": 0,
@@ -572,7 +572,7 @@
     },
     "commEmail": {
       "type": "Number",
-      "required": true,
+      "required": false,
       "length": null,
       "precision": 3,
       "scale": 0,
@@ -587,7 +587,7 @@
     },
     "commSms": {
       "type": "Number",
-      "required": true,
+      "required": false,
       "length": null,
       "precision": 3,
       "scale": 0,
@@ -602,7 +602,7 @@
     },
     "commCall": {
       "type": "Number",
-      "required": true,
+      "required": false,
       "length": null,
       "precision": 3,
       "scale": 0,
@@ -617,7 +617,7 @@
     },
     "commLetter": {
       "type": "Number",
-      "required": true,
+      "required": false,
       "length": null,
       "precision": 3,
       "scale": 0,
