@@ -15,7 +15,7 @@ export interface DevoteeSpiritualProgressInterface {
   "createdBy"?: string;
   "updatedBy"?: string;
   "spiritualLevelMasterId": string;
-  "guruId": string;
+  "guruId"?: string;
   "created-on"?: Date;
   "updated-on"?: Date;
   fkDevoteeSpiritualFamilyDevotee1rel?: Devotee;

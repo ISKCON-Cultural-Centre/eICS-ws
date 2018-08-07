@@ -11,7 +11,7 @@ import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { DevoteeEventCalendar } from '../../models/DevoteeEventCalendar';
 import { Devotee } from '../../models/Devotee';
-import { EventMaster } from '../../models/EventMaster';
+import { DevoteeEventMaster } from '../../models/DevoteeEventMaster';
 
 
 /**

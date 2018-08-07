@@ -1,7 +1,7 @@
 /* tslint:disable */
 import {
   Devotee,
-  EventMaster
+  DevoteeEventMaster
 } from '../index';
 
 declare var Object: any;
@@ -18,7 +18,7 @@ export interface DevoteeEventCalendarInterface {
   "created-on"?: Date;
   "updated-on"?: Date;
   fkDevoteeEventCalendarDevotee2rel?: Devotee;
-  fkDevoteeEventCalendarEventMaster1rel?: EventMaster;
+  fkDevoteeEventCalendarEventMaster1rel?: DevoteeEventMaster;
 }
 
 export class DevoteeEventCalendar implements DevoteeEventCalendarInterface {
@@ -34,7 +34,7 @@ export class DevoteeEventCalendar implements DevoteeEventCalendarInterface {
   "created-on": Date;
   "updated-on": Date;
   fkDevoteeEventCalendarDevotee2rel: Devotee;
-  fkDevoteeEventCalendarEventMaster1rel: EventMaster;
+  fkDevoteeEventCalendarEventMaster1rel: DevoteeEventMaster;
   constructor(data?: DevoteeEventCalendarInterface) {
     Object.assign(this, data);
   }
@@ -124,8 +124,8 @@ export class DevoteeEventCalendar implements DevoteeEventCalendarInterface {
         },
         fkDevoteeEventCalendarEventMaster1rel: {
           name: 'fkDevoteeEventCalendarEventMaster1rel',
-          type: 'EventMaster',
-          model: 'EventMaster',
+          type: 'DevoteeEventMaster',
+          model: 'DevoteeEventMaster',
           relationType: 'belongsTo',
                   keyFrom: 'eventMasterId',
           keyTo: 'id'

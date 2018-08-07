@@ -26,23 +26,23 @@
       }
     },
     "level": {
-      "type": "String",
-      "required": false,
-      "length": 30,
-      "precision": null,
-      "scale": null,
+      "type": "Number",
+      "required": true,
+      "length": null,
+      "precision": 3,
+      "scale": 0,
       "mysql": {
         "columnName": "level",
-        "dataType": "varchar",
-        "dataLength": 30,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
+        "dataType": "tinyint",
+        "dataLength": null,
+        "dataPrecision": 3,
+        "dataScale": 0,
+        "nullable": "N"
       }
     },
     "description": {
       "type": "String",
-      "required": false,
+      "required": true,
       "length": 50,
       "precision": null,
       "scale": null,
@@ -52,7 +52,7 @@
         "dataLength": 50,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "Y"
+        "nullable": "N"
       }
     },
     "createdOn": {

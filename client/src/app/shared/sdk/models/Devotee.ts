@@ -47,12 +47,13 @@ export interface DevoteeInterface {
   "mobileNo1"?: string;
   "landlineNo"?: string;
   "mobileNo2"?: string;
-  "commWhatsapp": number;
-  "commEmail": number;
-  "commSms": number;
-  "commCall": number;
-  "commLetter": number;
+  "commWhatsapp"?: number;
+  "commEmail"?: number;
+  "commSms"?: number;
+  "commCall"?: number;
+  "commLetter"?: number;
   "marriedInd"?: number;
+  "notes"?: string;
   "emailVerified"?: boolean;
   "created-on"?: Date;
   "updated-on"?: Date;
@@ -109,6 +110,7 @@ export class Devotee implements DevoteeInterface {
   "commCall": number;
   "commLetter": number;
   "marriedInd": number;
+  "notes": string;
   "emailVerified": boolean;
   "created-on": Date;
   "updated-on": Date;
@@ -302,6 +304,10 @@ export class Devotee implements DevoteeInterface {
         "marriedInd": {
           name: 'marriedInd',
           type: 'number'
+        },
+        "notes": {
+          name: 'notes',
+          type: 'string'
         },
         "emailVerified": {
           name: 'emailVerified',
