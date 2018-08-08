@@ -83,6 +83,7 @@ export * from './Skill';
 export * from './SkillCategory';
 export * from './SpiritualLevelMaster';
 export * from './TaskMaster';
+export * from './TaskGroup';
 export * from './Temple';
 export * from './TempleBranch';
 export * from './FundInstrument';

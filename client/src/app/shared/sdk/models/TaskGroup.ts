@@ -1,13 +1,8 @@
 /* tslint:disable */
-import {
-  TaskGroup
-} from '../index';
 
 declare var Object: any;
-export interface TaskMasterInterface {
+export interface TaskGroupInterface {
   "id": string;
-  "parentId"?: string;
-  "taskGroupId": string;
   "title": string;
   "type": string;
   "translate"?: string;
@@ -19,24 +14,14 @@ export interface TaskMasterInterface {
   "externalurl"?: number;
   "openinnewtab"?: number;
   "function"?: string;
-  "taskName"?: string;
-  "approvalRulesApplyInd": number;
-  "applicationRoute"?: string;
-  "taskDescription"?: string;
+  "updatedBy"?: string;
   "createdOn"?: Date;
   "updatedOn"?: Date;
   "createdBy"?: string;
-  "updatedBy"?: string;
-  "created-on"?: Date;
-  "updated-on"?: Date;
-  fkTaskMasterTaskMaster1rel?: TaskMaster;
-  fkTaskMasterTaskGroup1rel?: TaskGroup;
 }
 
-export class TaskMaster implements TaskMasterInterface {
+export class TaskGroup implements TaskGroupInterface {
   "id": string;
-  "parentId": string;
-  "taskGroupId": string;
   "title": string;
   "type": string;
   "translate": string;
@@ -48,36 +33,28 @@ export class TaskMaster implements TaskMasterInterface {
   "externalurl": number;
   "openinnewtab": number;
   "function": string;
-  "taskName": string;
-  "approvalRulesApplyInd": number;
-  "applicationRoute": string;
-  "taskDescription": string;
+  "updatedBy": string;
   "createdOn": Date;
   "updatedOn": Date;
   "createdBy": string;
-  "updatedBy": string;
-  "created-on": Date;
-  "updated-on": Date;
-  fkTaskMasterTaskMaster1rel: TaskMaster;
-  fkTaskMasterTaskGroup1rel: TaskGroup;
-  constructor(data?: TaskMasterInterface) {
+  constructor(data?: TaskGroupInterface) {
     Object.assign(this, data);
   }
   /**
    * The name of the model represented by this $resource,
-   * i.e. `TaskMaster`.
+   * i.e. `TaskGroup`.
    */
   public static getModelName() {
-    return "TaskMaster";
+    return "TaskGroup";
   }
   /**
   * @method factory
   * @author Jonathan Casarrubias
   * @license MIT
-  * This method creates an instance of TaskMaster for dynamic purposes.
+  * This method creates an instance of TaskGroup for dynamic purposes.
   **/
-  public static factory(data: TaskMasterInterface): TaskMaster{
-    return new TaskMaster(data);
+  public static factory(data: TaskGroupInterface): TaskGroup{
+    return new TaskGroup(data);
   }
   /**
   * @method getModelDefinition
@@ -88,21 +65,13 @@ export class TaskMaster implements TaskMasterInterface {
   **/
   public static getModelDefinition() {
     return {
-      name: 'TaskMaster',
-      plural: 'TaskMasters',
-      path: 'TaskMasters',
+      name: 'TaskGroup',
+      plural: 'TaskGroups',
+      path: 'TaskGroups',
       idName: 'id',
       properties: {
         "id": {
           name: 'id',
-          type: 'string'
-        },
-        "parentId": {
-          name: 'parentId',
-          type: 'string'
-        },
-        "taskGroupId": {
-          name: 'taskGroupId',
           type: 'string'
         },
         "title": {
@@ -149,20 +118,8 @@ export class TaskMaster implements TaskMasterInterface {
           name: 'function',
           type: 'string'
         },
-        "taskName": {
-          name: 'taskName',
-          type: 'string'
-        },
-        "approvalRulesApplyInd": {
-          name: 'approvalRulesApplyInd',
-          type: 'number'
-        },
-        "applicationRoute": {
-          name: 'applicationRoute',
-          type: 'string'
-        },
-        "taskDescription": {
-          name: 'taskDescription',
+        "updatedBy": {
+          name: 'updatedBy',
           type: 'string'
         },
         "createdOn": {
@@ -177,36 +134,8 @@ export class TaskMaster implements TaskMasterInterface {
           name: 'createdBy',
           type: 'string'
         },
-        "updatedBy": {
-          name: 'updatedBy',
-          type: 'string'
-        },
-        "created-on": {
-          name: 'created-on',
-          type: 'Date'
-        },
-        "updated-on": {
-          name: 'updated-on',
-          type: 'Date'
-        },
       },
       relations: {
-        fkTaskMasterTaskMaster1rel: {
-          name: 'fkTaskMasterTaskMaster1rel',
-          type: 'TaskMaster',
-          model: 'TaskMaster',
-          relationType: 'belongsTo',
-                  keyFrom: 'parentId',
-          keyTo: 'id'
-        },
-        fkTaskMasterTaskGroup1rel: {
-          name: 'fkTaskMasterTaskGroup1rel',
-          type: 'TaskGroup',
-          model: 'TaskGroup',
-          relationType: 'belongsTo',
-                  keyFrom: 'taskGroupId',
-          keyTo: 'id'
-        },
       }
     }
   }

@@ -12,7 +12,6 @@ import { map } from 'rxjs/operators';
 import { Devotee } from '../../models/Devotee';
 import { Accesstoken } from '../../models/Accesstoken';
 import { AsramaMaster } from '../../models/AsramaMaster';
-import { Circle } from '../../models/Circle';
 import { DevoteeGrouping } from '../../models/DevoteeGrouping';
 import { DevoteeLanguage } from '../../models/DevoteeLanguage';
 import { DevoteeServiceInterest } from '../../models/DevoteeServiceInterest';
@@ -153,36 +152,6 @@ export class DevoteeApi extends BaseLoopBackApi {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/Devotees/:id/fkDevoteeAsramaMaster1rel";
-    let _routeParams: any = {
-      id: id
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    if (typeof refresh !== 'undefined' && refresh !== null) _urlParams.refresh = refresh;
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Fetches belongsTo relation fkDevoteeCircle1rel.
-   *
-   * @param {any} id Devotee id
-   *
-   * @param {boolean} refresh 
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `Devotee` object.)
-   * </em>
-   */
-  public getFkDevoteeCircle1rel(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/Devotees/:id/fkDevoteeCircle1rel";
     let _routeParams: any = {
       id: id
     };

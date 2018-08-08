@@ -359,6 +359,10 @@
     "dataSource": "mysqld",
     "public": true
   },
+  "TaskGroup": {
+    "dataSource": "mysqld",
+    "public": true
+  },  
   "Temple": {
     "dataSource": "mysqld",
     "public": true

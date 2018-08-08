@@ -12,11 +12,6 @@
         "type": "belongsTo",
         "foreignKey": "asramaMasterId"
       },
-      "fkDevoteeCircle1rel": {
-        "model": "Circle",
-        "type": "belongsTo",
-        "foreignKey": "circleId"
-      },
       "fkDevoteeGothraMaster1rel": {
         "model": "GothraMaster",
         "type": "belongsTo",
@@ -81,14 +76,14 @@
         "nullable": "Y"
       }
     },
-    "circleId": {
+    "counsellorId": {
       "type": "String",
       "required": false,
       "length": 36,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "circle-id",
+        "columnName": "counsellor-id",
         "dataType": "varchar",
         "dataLength": 36,
         "dataPrecision": null,

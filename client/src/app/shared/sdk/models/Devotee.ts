@@ -2,7 +2,6 @@
 import {
   Accesstoken,
   AsramaMaster,
-  Circle,
   DevoteeGrouping,
   DevoteeLanguage,
   DevoteeServiceInterest,
@@ -19,7 +18,7 @@ declare var Object: any;
 export interface DevoteeInterface {
   "id"?: string;
   "legalName"?: string;
-  "circleId"?: string;
+  "counsellorId"?: string;
   "organizationId"?: string;
   "spiritualName"?: string;
   "gender"?: string;
@@ -60,7 +59,6 @@ export interface DevoteeInterface {
   "password"?: string;
   accessTokens?: Accesstoken[];
   fkDevoteeAsramaMaster1rel?: AsramaMaster;
-  fkDevoteeCircle1rel?: Circle;
   fkDevoteeGroupings?: DevoteeGrouping[];
   fkDevoteeLanguages?: DevoteeLanguage[];
   fkDevoteeServiceInterests?: DevoteeServiceInterest[];
@@ -76,7 +74,7 @@ export interface DevoteeInterface {
 export class Devotee implements DevoteeInterface {
   "id": string;
   "legalName": string;
-  "circleId": string;
+  "counsellorId": string;
   "organizationId": string;
   "spiritualName": string;
   "gender": string;
@@ -117,7 +115,6 @@ export class Devotee implements DevoteeInterface {
   "password": string;
   accessTokens: Accesstoken[];
   fkDevoteeAsramaMaster1rel: AsramaMaster;
-  fkDevoteeCircle1rel: Circle;
   fkDevoteeGroupings: DevoteeGrouping[];
   fkDevoteeLanguages: DevoteeLanguage[];
   fkDevoteeServiceInterests: DevoteeServiceInterest[];
@@ -169,8 +166,8 @@ export class Devotee implements DevoteeInterface {
           name: 'legalName',
           type: 'string'
         },
-        "circleId": {
-          name: 'circleId',
+        "counsellorId": {
+          name: 'counsellorId',
           type: 'string'
         },
         "organizationId": {
@@ -341,14 +338,6 @@ export class Devotee implements DevoteeInterface {
           model: 'AsramaMaster',
           relationType: 'belongsTo',
                   keyFrom: 'asramaMasterId',
-          keyTo: 'id'
-        },
-        fkDevoteeCircle1rel: {
-          name: 'fkDevoteeCircle1rel',
-          type: 'Circle',
-          model: 'Circle',
-          relationType: 'belongsTo',
-                  keyFrom: 'circleId',
           keyTo: 'id'
         },
         fkDevoteeGroupings: {

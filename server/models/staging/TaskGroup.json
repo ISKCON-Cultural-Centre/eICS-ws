@@ -1,33 +1,12 @@
 {
-  "name": "TaskMaster",
+  "name": "TaskGroup",
   "options": {
     "idInjection": false,
     "mysql": {
       "schema": "icc",
-      "table": "task-master"
+      "table": "task-group"
     },
-    "relations": {
-      "fkTaskMasterTaskGroup1rel": {
-        "model": "TaskGroup",
-        "type": "belongsTo",
-        "foreignKey": "taskGroupId"
-      },
-      "fkTaskMasterTaskMaster1rel": {
-        "model": "TaskMaster",
-        "type": "belongsTo",
-        "foreignKey": "parentId"
-      }
-    }
-  },
-  "mixins": {
-    "TimeStamp": {
-      "createdAt": "created-on",
-      "updatedAt": "updated-on",
-      "required": false,
-      "validateUpsert": true,
-      "silenceWarnings": false
-    },
-    "GenerateKey": true
+    "relations": {}
   },
   "properties": {
     "id": {
@@ -39,36 +18,6 @@
       "id": 1,
       "mysql": {
         "columnName": "id",
-        "dataType": "varchar",
-        "dataLength": 36,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "N"
-      }
-    },
-    "parentId": {
-      "type": "String",
-      "required": false,
-      "length": 36,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "parent-id",
-        "dataType": "varchar",
-        "dataLength": 36,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "taskGroupId": {
-      "type": "String",
-      "required": true,
-      "length": 36,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "task-group-id",
         "dataType": "varchar",
         "dataLength": 36,
         "dataPrecision": null,
@@ -241,61 +190,16 @@
         "nullable": "Y"
       }
     },
-    "taskName": {
+    "updatedBy": {
       "type": "String",
       "required": false,
-      "length": 50,
+      "length": 36,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "task-name",
+        "columnName": "updated-by",
         "dataType": "varchar",
-        "dataLength": 50,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "approvalRulesApplyInd": {
-      "type": "Number",
-      "required": true,
-      "length": null,
-      "precision": 3,
-      "scale": 0,
-      "mysql": {
-        "columnName": "approval-rules-apply-ind",
-        "dataType": "tinyint",
-        "dataLength": null,
-        "dataPrecision": 3,
-        "dataScale": 0,
-        "nullable": "N"
-      }
-    },
-    "applicationRoute": {
-      "type": "String",
-      "required": false,
-      "length": 255,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "application-route",
-        "dataType": "varchar",
-        "dataLength": 255,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "taskDescription": {
-      "type": "String",
-      "required": false,
-      "length": 100,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "task-description",
-        "dataType": "varchar",
-        "dataLength": 100,
+        "dataLength": 36,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
@@ -345,32 +249,6 @@
         "dataScale": null,
         "nullable": "Y"
       }
-    },
-    "updatedBy": {
-      "type": "String",
-      "required": false,
-      "length": 36,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "updated-by",
-        "dataType": "varchar",
-        "dataLength": 36,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
     }
-  },
-  "validations": [],
-  "relations": {},
-  "acls": [
-    {
-      "accessType": "*",
-      "principalType": "ROLE",
-      "principalId": "admin",
-      "permission": "ALLOW"
-    }
-  ],
-  "methods": {}
+  }
 }

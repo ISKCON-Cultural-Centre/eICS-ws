@@ -9,15 +9,14 @@ import { LoopBackFilter,  } from '../../models/BaseModels';
 import { ErrorHandler } from '../core/error.service';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { TaskMaster } from '../../models/TaskMaster';
 import { TaskGroup } from '../../models/TaskGroup';
 
 
 /**
- * Api services for the `TaskMaster` model.
+ * Api services for the `TaskGroup` model.
  */
 @Injectable()
-export class TaskMasterApi extends BaseLoopBackApi {
+export class TaskGroupApi extends BaseLoopBackApi {
 
   constructor(
     @Inject(HttpClient) protected http: HttpClient,
@@ -26,66 +25,6 @@ export class TaskMasterApi extends BaseLoopBackApi {
     @Optional() @Inject(ErrorHandler) protected errorHandler: ErrorHandler
   ) {
     super(http,  models, auth, errorHandler);
-  }
-
-  /**
-   * Fetches belongsTo relation fkTaskMasterTaskMaster1rel.
-   *
-   * @param {any} id TaskMaster id
-   *
-   * @param {boolean} refresh 
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `TaskMaster` object.)
-   * </em>
-   */
-  public getFkTaskMasterTaskMaster1rel(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/TaskMasters/:id/fkTaskMasterTaskMaster1rel";
-    let _routeParams: any = {
-      id: id
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    if (typeof refresh !== 'undefined' && refresh !== null) _urlParams.refresh = refresh;
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Fetches belongsTo relation fkTaskMasterTaskGroup1rel.
-   *
-   * @param {any} id TaskMaster id
-   *
-   * @param {boolean} refresh 
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `TaskMaster` object.)
-   * </em>
-   */
-  public getFkTaskMasterTaskGroup1rel(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/TaskMasters/:id/fkTaskMasterTaskGroup1rel";
-    let _routeParams: any = {
-      id: id
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    if (typeof refresh !== 'undefined' && refresh !== null) _urlParams.refresh = refresh;
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
   }
 
   /**
@@ -101,13 +40,13 @@ export class TaskMasterApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `TaskMaster` object.)
+   * This usually means the response is a `TaskGroup` object.)
    * </em>
    */
   public patchOrCreate(data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PATCH";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/TaskMasters";
+    "/TaskGroups";
     let _routeParams: any = {};
     let _postBody: any = {
       data: data
@@ -120,7 +59,7 @@ export class TaskMasterApi extends BaseLoopBackApi {
   /**
    * Patch attributes for a model instance and persist it into the data source.
    *
-   * @param {any} id TaskMaster id
+   * @param {any} id TaskGroup id
    *
    * @param {object} data Request data.
    *
@@ -132,13 +71,13 @@ export class TaskMasterApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `TaskMaster` object.)
+   * This usually means the response is a `TaskGroup` object.)
    * </em>
    */
   public patchAttributes(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PATCH";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/TaskMasters/:id";
+    "/TaskGroups/:id";
     let _routeParams: any = {
       id: id
     };
@@ -152,9 +91,9 @@ export class TaskMasterApi extends BaseLoopBackApi {
 
   /**
    * The name of the model represented by this $resource,
-   * i.e. `TaskMaster`.
+   * i.e. `TaskGroup`.
    */
   public getModelName() {
-    return "TaskMaster";
+    return "TaskGroup";
   }
 }

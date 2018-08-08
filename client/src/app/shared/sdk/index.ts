@@ -128,6 +128,7 @@ import { SkillApi } from './services/custom/Skill';
 import { SkillCategoryApi } from './services/custom/SkillCategory';
 import { SpiritualLevelMasterApi } from './services/custom/SpiritualLevelMaster';
 import { TaskMasterApi } from './services/custom/TaskMaster';
+import { TaskGroupApi } from './services/custom/TaskGroup';
 import { TempleApi } from './services/custom/Temple';
 import { TempleBranchApi } from './services/custom/TempleBranch';
 import { FundInstrumentApi } from './services/custom/FundInstrument';
@@ -253,6 +254,7 @@ export class SDKBrowserModule {
         SkillCategoryApi,
         SpiritualLevelMasterApi,
         TaskMasterApi,
+        TaskGroupApi,
         TempleApi,
         TempleBranchApi,
         FundInstrumentApi,

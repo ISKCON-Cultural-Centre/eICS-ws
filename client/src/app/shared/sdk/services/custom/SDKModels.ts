@@ -84,6 +84,7 @@ import { Skill } from '../../models/Skill';
 import { SkillCategory } from '../../models/SkillCategory';
 import { SpiritualLevelMaster } from '../../models/SpiritualLevelMaster';
 import { TaskMaster } from '../../models/TaskMaster';
+import { TaskGroup } from '../../models/TaskGroup';
 import { Temple } from '../../models/Temple';
 import { TempleBranch } from '../../models/TempleBranch';
 import { FundInstrument } from '../../models/FundInstrument';
@@ -188,6 +189,7 @@ export class SDKModels {
     SkillCategory: SkillCategory,
     SpiritualLevelMaster: SpiritualLevelMaster,
     TaskMaster: TaskMaster,
+    TaskGroup: TaskGroup,
     Temple: Temple,
     TempleBranch: TempleBranch,
     FundInstrument: FundInstrument,
