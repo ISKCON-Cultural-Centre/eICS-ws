@@ -30,6 +30,7 @@ export interface TaskMasterInterface {
   "created-on"?: Date;
   "updated-on"?: Date;
   fkTaskMasterTaskMaster1rel?: TaskMaster;
+  taskChildren?: TaskMaster[];
   fkTaskMasterTaskGroup1rel?: TaskGroup;
 }
 
@@ -59,6 +60,7 @@ export class TaskMaster implements TaskMasterInterface {
   "created-on": Date;
   "updated-on": Date;
   fkTaskMasterTaskMaster1rel: TaskMaster;
+  taskChildren: TaskMaster[];
   fkTaskMasterTaskGroup1rel: TaskGroup;
   constructor(data?: TaskMasterInterface) {
     Object.assign(this, data);
@@ -198,6 +200,14 @@ export class TaskMaster implements TaskMasterInterface {
           relationType: 'belongsTo',
                   keyFrom: 'parentId',
           keyTo: 'id'
+        },
+        taskChildren: {
+          name: 'taskChildren',
+          type: 'TaskMaster[]',
+          model: 'TaskMaster',
+          relationType: 'hasMany',
+                  keyFrom: 'id',
+          keyTo: 'parentId'
         },
         fkTaskMasterTaskGroup1rel: {
           name: 'fkTaskMasterTaskGroup1rel',

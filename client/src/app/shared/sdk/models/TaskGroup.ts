@@ -1,4 +1,7 @@
 /* tslint:disable */
+import {
+  TaskMaster
+} from '../index';
 
 declare var Object: any;
 export interface TaskGroupInterface {
@@ -18,6 +21,7 @@ export interface TaskGroupInterface {
   "createdOn"?: Date;
   "updatedOn"?: Date;
   "createdBy"?: string;
+  groupTasks?: TaskMaster[];
 }
 
 export class TaskGroup implements TaskGroupInterface {
@@ -37,6 +41,7 @@ export class TaskGroup implements TaskGroupInterface {
   "createdOn": Date;
   "updatedOn": Date;
   "createdBy": string;
+  groupTasks: TaskMaster[];
   constructor(data?: TaskGroupInterface) {
     Object.assign(this, data);
   }
@@ -136,6 +141,14 @@ export class TaskGroup implements TaskGroupInterface {
         },
       },
       relations: {
+        groupTasks: {
+          name: 'groupTasks',
+          type: 'TaskMaster[]',
+          model: 'TaskMaster',
+          relationType: 'hasMany',
+                  keyFrom: 'id',
+          keyTo: 'taskGroupId'
+        },
       }
     }
   }
