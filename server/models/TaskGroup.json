@@ -6,7 +6,13 @@
       "schema": "icc",
       "table": "task-group"
     },
-    "relations": {}
+    "relations": {
+      "groupTasks": {
+        "type": "hasMany",
+        "model": "TaskMaster",
+        "foreignKey": "taskGroupId"
+      }      
+    }
   },
   "properties": {
     "id": {

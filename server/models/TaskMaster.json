@@ -16,6 +16,11 @@
         "model": "TaskMaster",
         "type": "belongsTo",
         "foreignKey": "parentId"
+      },
+      "taskChildren": {
+        "model": "TaskMaster",
+        "type": "hasMany",
+        "foreignKey": "parentId"
       }
     }
   },
