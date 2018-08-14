@@ -53,7 +53,7 @@
     },
     "taskGroupId": {
       "type": "String",
-      "required": true,
+      "required": false,
       "length": 36,
       "precision": null,
       "scale": null,
@@ -63,7 +63,7 @@
         "dataLength": 36,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
     "title": {

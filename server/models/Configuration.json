@@ -25,21 +25,6 @@
         "nullable": "N"
       }
     },
-    "name": {
-      "type": "String",
-      "required": true,
-      "length": 50,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "name",
-        "dataType": "varchar",
-        "dataLength": 50,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "N"
-      }
-    },
     "marriageEventId": {
       "type": "String",
       "required": true,
@@ -63,6 +48,21 @@
       "scale": null,
       "mysql": {
         "columnName": "devotee-care-role-id",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "devoteeTaskGroupId": {
+      "type": "String",
+      "required": true,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "devotee-task-group-id",
         "dataType": "varchar",
         "dataLength": 36,
         "dataPrecision": null,
