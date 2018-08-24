@@ -654,8 +654,7 @@
         "dataScale": null,
         "nullable": "Y"
       }
-    }
-  },
+    },
   "enrolNo": {
     "type": "Number",
     "required": false,
@@ -670,6 +669,7 @@
       "dataScale": 0,
       "nullable": "Y"
     }
+  }
   },
   "validations": [],
   "relations": {},
