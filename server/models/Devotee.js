@@ -23,6 +23,7 @@ module.exports = function(Devotee) {
 
 		const token = options && options.accessToken;
 		const userId = token.userId;
+		var finalWhereFilter = '{ "and": ['; 
 
 		cb = cb || utils.createPromiseCallback();
 
@@ -32,15 +33,49 @@ module.exports = function(Devotee) {
 			return cb.promise;
 		}			
 		var Devotee = app.models.Devotee;
+		var DevoteeServiceInterest = app.models.DevoteeServiceInterest;
 
 		if (whereFilter) {
-			otherFilter.where = whereFilter;
+			if (wherFilter.searchText) {
+				finalWhereFilter = finalWhereFilter 
+				+  '{"or": [{"legalName": {"like": "%' + 
+					this.searchText + '%"}}, {"spiritualName": {"like": "%' + 
+					this.searchText + '%"}}, {"mobileNo1": {"like": "%' + 
+					this.searchText + '%"}}, {"mobileNo2": {"like": "%' + 
+					this.searchText + '%"}}, {"landlineNo": {"like": "%' +                             
+					this.searchText + '%"}}, {"enrolNo": {"like": "%' + 
+					this.searchText + '%"}}]}, ';
+			};
+console.log(finalWhereFilter);
+			if (whereFilter.services.length > 0) {
+				DevoteeServiceInterest.find({ where : { devoteeId: {inq: whereFilter.services}}}, function (err, devotees) {
+					if (err) {
+						cb(err);
+						return cb.promise;
+					}		
+				
+					if (devotees.length)
+					{
+						var devoteeIds = devotees.map(function (devotee) {
+							return devotee.devoteeId;
+						});
+						finalWhereFilter = finalWhereFilter + '{"id": {"inq":' + wherFilter.devoteeIds + '}}, ';
+					}
+				});
+			}				
 		}
 
-console.log(whereFilter);
-console.log(otherFilter);
 
 
+		finalWhereFilter = finalWhereFilter + '] }';
+
+console.log(finalWhereFilter);
+
+console.log(whereFilter);			
+		otherFilter.where = JSON.parse(finalWhereFilter);
+
+
+console.log(otherFilter);			
 		Devotee.find(otherFilter, function (err, devotees) {
 			if (err) {
 				cb(err);
