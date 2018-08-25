@@ -9,7 +9,7 @@ declare var Object: any;
 export interface DevoteeSpiritualProgressInterface {
   "id"?: string;
   "devoteeId"?: string;
-  "levelDate": Date;
+  "levelDate"?: Date;
   "createdOn"?: Date;
   "updatedOn"?: Date;
   "createdBy"?: string;

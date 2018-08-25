@@ -53,6 +53,7 @@ export interface DevoteeInterface {
   "commLetter"?: number;
   "marriedInd"?: number;
   "notes"?: string;
+  "enrolNo"?: number;
   "emailVerified"?: boolean;
   "created-on"?: Date;
   "updated-on"?: Date;
@@ -109,6 +110,7 @@ export class Devotee implements DevoteeInterface {
   "commLetter": number;
   "marriedInd": number;
   "notes": string;
+  "enrolNo": number;
   "emailVerified": boolean;
   "created-on": Date;
   "updated-on": Date;
@@ -305,6 +307,10 @@ export class Devotee implements DevoteeInterface {
         "notes": {
           name: 'notes',
           type: 'string'
+        },
+        "enrolNo": {
+          name: 'enrolNo',
+          type: 'number'
         },
         "emailVerified": {
           name: 'emailVerified',

@@ -5,6 +5,60 @@ var utils = require('./utils');
 module.exports = function(Devotee) {
 
   /**
+   * Get the list of Devotees.
+   *
+   * ```js
+   * Devotee.getRoles(options, function (err, roles) {
+   *      console.log(token.id);
+   *    });
+   * ```
+   *
+   * @param {Object} options (context information to be included in all custom remote methods)
+   * @callback {Function} cb Callback function
+   * @param {Error} err Error object
+   * @param {authorizedRoles} list of roles successful
+   * @promise
+   */
+	Devotee.getFilteredDevotees = function (whereFilter, otherFilter,  options, cb) {
+
+		const token = options && options.accessToken;
+		const userId = token.userId;
+
+		cb = cb || utils.createPromiseCallback();
+
+		Devotee.getApp(function (err, app) {
+		if (err) {
+			cb(err);
+			return cb.promise;
+		}			
+		var Devotee = app.models.Devotee;
+
+		if (whereFilter) {
+			otherFilter.where = whereFilter;
+		}
+
+console.log(whereFilter);
+console.log(otherFilter);
+
+
+		Devotee.find(otherFilter, function (err, devotees) {
+			if (err) {
+				cb(err);
+				return cb.promise;
+			}		
+		
+			if (!devotees.length) { return cb(null, { "devotees": [] });}
+			else 
+			{
+				cb(null, {devotees});
+			} 
+		});
+	});
+	return cb.promise;
+	};
+
+
+  /**
    * Get the list of Roles assigned to a Devotee.
    *
    * ```js
@@ -208,11 +262,10 @@ return cb.promise;
 		{
 			description: 'Get the list of Authorized Departments assigned to a Devotee',
 			accepts: [
-/* 				{arg: 'context', type: 'object', 'http': {source: 'context'}}, */
 				{arg: 'options', type: 'object', http: 'optionsFromRequest'}
 			],
 			http: {verb: 'GET', path: '/getDepartments'},
-			returns: { arg: 'departments', type: 'String', root: true}						
+			returns: { arg: 'devotees', type: 'object', root: true}						
 		}
 	);
 
@@ -241,12 +294,17 @@ return cb.promise;
 		}
 	);	
 
-/* 	Devotee.remoteMethod('getDepartments', {
-		description: 'Get the list of Authorized Departments assigned to a Devotee',
-		http: { path: '/getDepartments', verb: 'get' },
-		returns: { arg: 'departments', type: 'String', root: true}
+ 	Devotee.remoteMethod('getFilteredDevotees', {
+		description: 'Get the list of filtered Devotees',
+			accepts: [
+				{arg: 'whereFilter', type: 'object'},
+				{arg: 'otherFilter', type: 'object'},				
+				{arg: 'options', type: 'object', http: 'optionsFromRequest'}
+			],		
+		http: { path: '/getFilteredDevotees', verb: 'get' },
+		returns: { arg: 'filter', type: 'String', root: true}
 		});		
- */
+ 
 /* 	Devotee.remoteMethod('getRoles', {
 		description: 'Get the list of Authorized Roles assigned to a Devotee',		
 		http: { path: '/getRoles', verb: 'get' },

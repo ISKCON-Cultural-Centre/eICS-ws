@@ -3,16 +3,16 @@
 declare var Object: any;
 export interface ConfigurationInterface {
   "id": string;
-  "name": string;
   "marriageEventId": string;
   "devoteeCareRoleId": string;
+  "devoteeTaskGroupId": string;
 }
 
 export class Configuration implements ConfigurationInterface {
   "id": string;
-  "name": string;
   "marriageEventId": string;
   "devoteeCareRoleId": string;
+  "devoteeTaskGroupId": string;
   constructor(data?: ConfigurationInterface) {
     Object.assign(this, data);
   }
@@ -50,16 +50,16 @@ export class Configuration implements ConfigurationInterface {
           name: 'id',
           type: 'string'
         },
-        "name": {
-          name: 'name',
-          type: 'string'
-        },
         "marriageEventId": {
           name: 'marriageEventId',
           type: 'string'
         },
         "devoteeCareRoleId": {
           name: 'devoteeCareRoleId',
+          type: 'string'
+        },
+        "devoteeTaskGroupId": {
+          name: 'devoteeTaskGroupId',
           type: 'string'
         },
       },

@@ -7,7 +7,7 @@ declare var Object: any;
 export interface TaskMasterInterface {
   "id": string;
   "parentId"?: string;
-  "taskGroupId": string;
+  "taskGroupId"?: string;
   "title": string;
   "type": string;
   "translate"?: string;
