@@ -36,7 +36,7 @@ module.exports = function(Devotee) {
 		var DevoteeServiceInterest = app.models.DevoteeServiceInterest;
 
 		if (whereFilter) {
-			if (wherFilter.searchText) {
+			if (whereFilter.searchText) {
 				finalWhereFilter = finalWhereFilter 
 				+  '{"or": [{"legalName": {"like": "%' + 
 					this.searchText + '%"}}, {"spiritualName": {"like": "%' + 
