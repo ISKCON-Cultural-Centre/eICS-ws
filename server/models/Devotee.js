@@ -34,47 +34,53 @@ module.exports = function(Devotee) {
 		}			
 		var Devotee = app.models.Devotee;
 		var DevoteeServiceInterest = app.models.DevoteeServiceInterest;
-
+console.log(whereFilter);
 		if (whereFilter) {
 			if (whereFilter.searchText) {
+console.log("1");
+console.log(whereFilter.searchText);
 				finalWhereFilter = finalWhereFilter 
 				+  '{"or": [{"legalName": {"like": "%' + 
-					this.searchText + '%"}}, {"spiritualName": {"like": "%' + 
-					this.searchText + '%"}}, {"mobileNo1": {"like": "%' + 
-					this.searchText + '%"}}, {"mobileNo2": {"like": "%' + 
-					this.searchText + '%"}}, {"landlineNo": {"like": "%' +                             
-					this.searchText + '%"}}, {"enrolNo": {"like": "%' + 
-					this.searchText + '%"}}]}, ';
+				whereFilter.searchText + '%"}}, {"spiritualName": {"like": "%' + 
+				whereFilter.searchText + '%"}}, {"mobileNo1": {"like": "%' + 
+				whereFilter.searchText + '%"}}, {"mobileNo2": {"like": "%' + 
+				whereFilter.searchText + '%"}}, {"landlineNo": {"like": "%' +                             
+				whereFilter.searchText + '%"}}, {"enrolNo": {"like": "%' + 
+				whereFilter.searchText + '%"}}]}';
 			};
+console.log("2");
 console.log(finalWhereFilter);
+console.log("services :" + whereFilter.services);
 			if (whereFilter.services.length > 0) {
-				DevoteeServiceInterest.find({ where : { devoteeId: {inq: whereFilter.services}}}, function (err, devotees) {
+				DevoteeServiceInterest.find({ "where" : { "serviceAreaId": {"inq": whereFilter.services}}}, function (err, devotees) {
 					if (err) {
 						cb(err);
 						return cb.promise;
 					}		
-				
+console.log("inside service devotees code");
+console.log(devotees);
 					if (devotees.length)
 					{
 						var devoteeIds = devotees.map(function (devotee) {
-							return devotee.devoteeId;
+							return '"' + devotee.devoteeId + '"';
 						});
-						finalWhereFilter = finalWhereFilter + '{"id": {"inq":' + wherFilter.devoteeIds + '}}, ';
+						finalWhereFilter = finalWhereFilter + ', {"id": {"inq":[' + devoteeIds + ']}}, ';
+						console.log("2a");						
+						console.log(finalWhereFilter);
 					}
 				});
 			}				
 		}
 
-
-
 		finalWhereFilter = finalWhereFilter + '] }';
-
+console.log("3");
 console.log(finalWhereFilter);
 
+console.log("4");
 console.log(whereFilter);			
 		otherFilter.where = JSON.parse(finalWhereFilter);
 
-
+console.log("5");
 console.log(otherFilter);			
 		Devotee.find(otherFilter, function (err, devotees) {
 			if (err) {
