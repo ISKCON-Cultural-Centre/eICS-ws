@@ -51,7 +51,7 @@ module.exports = function(Devotee) {
 					return '"' + org + '"';
 				});
 				console.log(orgIds)
-				finalWhereFilter = finalWhereFilter + ' {"organizationId": {"inq":[' + orgIds + ']}}, ';				
+				finalWhereFilter = finalWhereFilter + ' {"organizationId": {"inq":[' + orgIds + ']}} ';				
 			}
 
 			if (whereFilter.services.length > 0) {
