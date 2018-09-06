@@ -69,7 +69,7 @@ module.exports = function(Devotee) {
 						var devoteeIds = devotees.map(function (devotee) {
 							return '"' + devotee.devoteeId + '"';
 						});
-						finalWhereFilter = finalWhereFilter + ', {"id": {"inq":[' + devoteeIds + ']}}, ';
+						finalWhereFilter = finalWhereFilter + ', {"id": {"inq":[' + devoteeIds + ']}}';
 						console.log(finalWhereFilter); 
 						finalWhereFilter = finalWhereFilter + '] }';
 						console.log(finalWhereFilter); 
