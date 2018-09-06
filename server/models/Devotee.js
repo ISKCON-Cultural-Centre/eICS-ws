@@ -50,6 +50,7 @@ module.exports = function(Devotee) {
 				var orgIds = whereFilter.orgs.map(function (org) {
 					return '"' + org.id + '"';
 				});
+				console.log(orgIds);
 				finalWhereFilter = finalWhereFilter + ', {"organizationId": {"inq":[' + orgIds + ']}}, ';				
 			}
 
