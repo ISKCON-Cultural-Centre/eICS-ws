@@ -47,11 +47,12 @@ module.exports = function(Devotee) {
 			};
 
 			if (whereFilter.orgs.length > 0) {
-				var orgIds = devotees.map(function (org) {
+				var orgIds = whereFilter.orgs.map(function (org) {
 					return '"' + org.id + '"';
 				});
 				finalWhereFilter = finalWhereFilter + ', {"organizationId": {"inq":[' + orgIds + ']}}, ';				
 			}
+
 			if (whereFilter.services.length > 0) {
 				DevoteeServiceInterest.find({ "where" : { "serviceAreaId": {"inq": whereFilter.services}}}, function (err, devotees) {
 					if (err) {
