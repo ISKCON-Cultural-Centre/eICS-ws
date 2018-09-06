@@ -47,11 +47,18 @@ module.exports = function(Devotee) {
 			};
 
 			if (whereFilter.orgs.length > 0) {
-				finalWhereFilter = finalWhereFilter + '{"organizationId": {"inq":[' + whereFilter.orgs + ']}}, ';				
+				var orgIds = whereFilter.orgs.map(function (org) {
+					return '"' + org + '"';
+				});
+				console.log(orgIds)
+				finalWhereFilter = finalWhereFilter + ', {"organizationId": {"inq":[' + orgIds + ']}}, ';				
 			}
 
 			if (whereFilter.services.length > 0) {
-				DevoteeServiceInterest.find({ "where" : { "serviceAreaId": {"inq": whereFilter.services}}}, function (err, devotees) {
+				var serviceIds = whereFilter.orgs.map(function (service) {
+					return '"' + service + '"';
+				});
+				DevoteeServiceInterest.find({ "where" : { "serviceAreaId": {"inq": serviceIds}}}, function (err, devotees) {
 					if (err) {
 						cb(err);
 						return cb.promise;
