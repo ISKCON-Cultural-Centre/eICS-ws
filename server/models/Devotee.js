@@ -34,11 +34,8 @@ module.exports = function(Devotee) {
 		}			
 		var Devotee = app.models.Devotee;
 		var DevoteeServiceInterest = app.models.DevoteeServiceInterest;
-console.log(whereFilter);
 		if (whereFilter) {
 			if (whereFilter.searchText) {
-console.log("1");
-console.log(whereFilter.searchText);
 				finalWhereFilter = finalWhereFilter 
 				+  '{"or": [{"legalName": {"like": "%' + 
 				whereFilter.searchText + '%"}}, {"spiritualName": {"like": "%' + 
@@ -48,17 +45,12 @@ console.log(whereFilter.searchText);
 				whereFilter.searchText + '%"}}, {"enrolNo": {"like": "%' + 
 				whereFilter.searchText + '%"}}]}';
 			};
-console.log("2");
-console.log(finalWhereFilter);
-console.log("services :" + whereFilter.services);
 			if (whereFilter.services.length > 0) {
 				DevoteeServiceInterest.find({ "where" : { "serviceAreaId": {"inq": whereFilter.services}}}, function (err, devotees) {
 					if (err) {
 						cb(err);
 						return cb.promise;
 					}		
-console.log("inside service devotees code");
-//console.log(devotees);
 					if (devotees.length)
 					{
 						var devoteeIds = devotees.map(function (devotee) {
@@ -73,15 +65,8 @@ console.log("inside service devotees code");
 		}
 
 		finalWhereFilter = finalWhereFilter + '] }';
-console.log("3");
 console.log(finalWhereFilter); 
-
-console.log("4");
-console.log(whereFilter);	
-		otherFilter.where = JSON.parse(finalWhereFilter);
-
-console.log("5");
-console.log(otherFilter);			
+		otherFilter.where = JSON.parse(finalWhereFilter);			
 		Devotee.find(otherFilter, function (err, devotees) {
 			if (err) {
 				cb(err);
