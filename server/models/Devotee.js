@@ -73,27 +73,30 @@ module.exports = function(Devotee) {
 							finalWhereFilter = finalWhereFilter + ',';
 						}
 						finalWhereFilter = finalWhereFilter + '{"id": {"inq":[' + devoteeIds + ']}}';
-						console.log(finalWhereFilter); 
-						finalWhereFilter = finalWhereFilter + '] }';
-						console.log(finalWhereFilter); 
-								otherFilter.where = JSON.parse(finalWhereFilter);			
-								Devotee.find(otherFilter, function (err, devotees) {
-									if (err) {
-										cb(err);
-										return cb.promise;
-									}		
-									
-									if (!devotees.length) { return cb(null, { "devotees": [] });}
-									else 
-									{
-										Devotee.count(otherFilter.where, function (err, devoteeCount)	{
-											// console.log(devotees);
-											console.log(devoteeCount);
-											cb(null, {count: devoteeCount, devoteesList: devotees});
-										});				
-									} 
-								});
-					}					
+					}		
+					else {
+
+					}	
+					console.log(finalWhereFilter); 
+					finalWhereFilter = finalWhereFilter + '] }';
+					console.log(finalWhereFilter); 
+							otherFilter.where = JSON.parse(finalWhereFilter);			
+							Devotee.find(otherFilter, function (err, devotees) {
+								if (err) {
+									cb(err);
+									return cb.promise;
+								}		
+								
+								if (!devotees.length) { return cb(null, { "devotees": [] });}
+								else 
+								{
+									Devotee.count(otherFilter.where, function (err, devoteeCount)	{
+										// console.log(devotees);
+										console.log(devoteeCount);
+										cb(null, {count: devoteeCount, devoteesList: devotees});
+									});				
+								} 
+							});							
 				});
 			}				
 		}
