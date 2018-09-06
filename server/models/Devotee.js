@@ -58,7 +58,7 @@ console.log("services :" + whereFilter.services);
 						return cb.promise;
 					}		
 console.log("inside service devotees code");
-console.log(devotees);
+//console.log(devotees);
 					if (devotees.length)
 					{
 						var devoteeIds = devotees.map(function (devotee) {
@@ -87,11 +87,15 @@ console.log(otherFilter);
 				cb(err);
 				return cb.promise;
 			}		
-		
+			
 			if (!devotees.length) { return cb(null, { "devotees": [] });}
 			else 
 			{
-				cb(null, {devotees});
+				Devotee.count(otherFilter.where, function (err, devoteeCount)	{
+					// console.log(devotees);
+					console.log(devoteeCount);
+					cb(null, {count: devoteeCount, devoteesList: devotees});
+				});				
 			} 
 		});
 	});
