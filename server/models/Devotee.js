@@ -45,6 +45,13 @@ module.exports = function(Devotee) {
 				whereFilter.searchText + '%"}}, {"enrolNo": {"like": "%' + 
 				whereFilter.searchText + '%"}}]}';
 			};
+
+			if (whereFilter.orgs.length > 0) {
+				var orgIds = devotees.map(function (org) {
+					return '"' + org.id + '"';
+				});
+				finalWhereFilter = finalWhereFilter + ', {"organizationId": {"inq":[' + orgIds + ']}}, ';				
+			}
 			if (whereFilter.services.length > 0) {
 				DevoteeServiceInterest.find({ "where" : { "serviceAreaId": {"inq": whereFilter.services}}}, function (err, devotees) {
 					if (err) {
@@ -60,7 +67,7 @@ module.exports = function(Devotee) {
 /* 						console.log("2a");						
 						console.log(finalWhereFilter); */
 					}
-					finalWhereFilter = finalWhereFilter + '] }';		
+					finalWhereFilter = finalWhereFilter + '] }';
 					console.log(finalWhereFilter); 
 					otherFilter.where = JSON.parse(finalWhereFilter);			
 					Devotee.find(otherFilter, function (err, devotees) {
@@ -78,13 +85,10 @@ module.exports = function(Devotee) {
 								cb(null, {count: devoteeCount, devoteesList: devotees});
 							});				
 						} 
-					});								
+					});									
 				});
 			}				
 		}
-
-
-
 	});
 	return cb.promise;
 	};
