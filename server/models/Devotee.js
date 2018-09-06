@@ -58,7 +58,7 @@ module.exports = function(Devotee) {
 					return '"' + service + '"';
 				});
 				console.log(serviceIds);
-				DevoteeServiceInterest.find({ "where" : { "serviceAreaId": {"inq": serviceIds}}}, function (err, devotees) {
+				DevoteeServiceInterest.find({ "where" : { "serviceAreaId": {"inq": whereFilter.services}}}, function (err, devotees) {
 					if (err) {
 						cb(err);
 						return cb.promise;
