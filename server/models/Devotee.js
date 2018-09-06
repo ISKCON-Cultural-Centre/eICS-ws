@@ -57,8 +57,8 @@ module.exports = function(Devotee) {
 							return '"' + devotee.devoteeId + '"';
 						});
 						finalWhereFilter = finalWhereFilter + ', {"id": {"inq":[' + devoteeIds + ']}}, ';
-						console.log("2a");						
-						console.log(finalWhereFilter);
+/* 						console.log("2a");						
+						console.log(finalWhereFilter); */
 					}
 				});
 			}				
