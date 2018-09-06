@@ -83,6 +83,7 @@ module.exports = function(Devotee) {
 								// console.log(devotees);
 								console.log(devoteeCount);
 								cb(null, {count: devoteeCount, devoteesList: devotees});
+								return cb.promise;
 							});				
 						} 
 					});									
