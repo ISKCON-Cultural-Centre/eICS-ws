@@ -47,6 +47,7 @@ module.exports = function(Devotee) {
 			};
 
 			if (whereFilter.orgs.length > 0) {
+				console.log(whereFilter.orgs);
 				var orgIds = whereFilter.orgs.map(function (org) {
 					return '"' + org.id + '"';
 				});
