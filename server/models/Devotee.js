@@ -54,7 +54,7 @@ module.exports = function(Devotee) {
 			}
 
 			if (whereFilter.services.length > 0) {
-				var serviceIds = whereFilter.orgs.map(function (service) {
+				var serviceIds = whereFilter.services.map(function (service) {
 					return '"' + service + '"';
 				});
 				DevoteeServiceInterest.find({ "where" : { "serviceAreaId": {"inq": serviceIds}}}, function (err, devotees) {
