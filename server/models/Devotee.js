@@ -74,10 +74,10 @@ console.log(devotees);
 
 		finalWhereFilter = finalWhereFilter + '] }';
 console.log("3");
-console.log(finalWhereFilter);
+console.log(finalWhereFilter); 
 
 console.log("4");
-console.log(whereFilter);			
+console.log(whereFilter);	
 		otherFilter.where = JSON.parse(finalWhereFilter);
 
 console.log("5");
