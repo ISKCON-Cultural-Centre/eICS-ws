@@ -62,6 +62,7 @@ module.exports = function(Devotee) {
 						cb(err);
 						return cb.promise;
 					}		
+					console.log(devotees);
 					if (devotees.length)
 					{
 						var devoteeIds = devotees.map(function (devotee) {
