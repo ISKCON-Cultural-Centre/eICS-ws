@@ -50,7 +50,6 @@ module.exports = function(Devotee) {
 				var orgIds = whereFilter.orgs.map(function (org) {
 					return '"' + org + '"';
 				});
-				console.log(orgIds)
 				finalWhereFilter = finalWhereFilter + ' {"organizationId": {"inq":[' + orgIds + ']}} ';				
 			}
 
@@ -69,8 +68,7 @@ module.exports = function(Devotee) {
 							return '"' + devotee.devoteeId + '"';
 						});
 						finalWhereFilter = finalWhereFilter + ', {"id": {"inq":[' + devoteeIds + ']}}, ';
-/* 						console.log("2a");						
-						console.log(finalWhereFilter); */
+						console.log(finalWhereFilter); 
 
 					}					
 				});
