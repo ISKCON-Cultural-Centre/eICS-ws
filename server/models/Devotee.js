@@ -34,6 +34,13 @@ module.exports = function(Devotee) {
 		}			
 		var Devotee = app.models.Devotee;
 		var DevoteeServiceInterest = app.models.DevoteeServiceInterest;
+		
+		if (whereFilter) {
+			var services =  whereFilter.services ? whereFilter.services.length : 0;
+			var orgs = whereFilter.orgs ? whereFilter.orgs.length : 0;
+			var spiritualLevel = whereFilter.spiritualLevel ? whereFilter.spiritualLevel.length : 0;
+		}
+
 		if (whereFilter) {
 			if (whereFilter.searchText) {
 				finalWhereFilter = finalWhereFilter 
@@ -50,58 +57,166 @@ module.exports = function(Devotee) {
 				var orgIds = whereFilter.orgs.map(function (org) {
 					return '"' + org + '"';
 				});
+				whereFilter.searchText.length > 0 ? finalWhereFilter = finalWhereFilter + ',' : undefined;
 				finalWhereFilter = finalWhereFilter + ' {"organizationId": {"inq":[' + orgIds + ']}} ';				
 			}
-
-			if (whereFilter.services.length > 0) {
-				var serviceIds = whereFilter.services.map(function (service) {
-					return '"' + service + '"';
-				});
-				console.log(serviceIds);
-				DevoteeServiceInterest.find({ "where" : { "serviceAreaId": {"inq": whereFilter.services}}}, function (err, devotees) {
-					if (err) {
-						cb(err);
-						return cb.promise;
-					}		
-					console.log(devotees);
-					if (devotees.length)
-					{
-						var devoteeIds = devotees.map(function (devotee) {
-							return '"' + devotee.devoteeId + '"';
-						});
-						if (whereFilter.orgs.length > 0) {
-							finalWhereFilter = finalWhereFilter + ',';
-						}
-						finalWhereFilter = finalWhereFilter + '{"id": {"inq":[' + devoteeIds + ']}}';
-					}		
-				});					
-			}				
 		}
-		console.log(finalWhereFilter); 
-		finalWhereFilter = finalWhereFilter + '] }';
-		console.log(finalWhereFilter); 
-				otherFilter.where = JSON.parse(finalWhereFilter);			
+
+
+
+	if (services > 0 || spiritualLevel > 0) {
+		Promise.all([
+			services > 0 ? Devotee.getServicesDevotees(whereFilter.services) : null,
+			spiritualLevel > 0 ? Devotee.getShikshaDevotees(whereFilter.spiritualLevel) : null
+		]).then(
+			(devotees) => {
+				var devoteeIds = devotees.map(function (devotee) {
+ 					if (devotee !== null) {
+						return devotee.devoteeIds;
+					} 
+					return null;					
+				});
+				var devoteeIds = [].concat.apply([], devoteeIds);
+				var devoteeIds = devoteeIds.map(function (devoteeId) {
+					return '"' + devoteeId + '"';
+				});	
+				(whereFilter.searchText.length > 0 || orgs > 0 ) ? finalWhereFilter = finalWhereFilter + ',' : undefined;					
+				finalWhereFilter = finalWhereFilter + '{"id": {"inq":[' + devoteeIds + ']}}';
+				//console.log(finalWhereFilter);
+				finalWhereFilter = finalWhereFilter + '] }';
+				otherFilter.where = JSON.parse(finalWhereFilter);					
 				Devotee.find(otherFilter, function (err, devotees) {
 					if (err) {
 						cb(err);
 						return cb.promise;
 					}		
 					
-					if (!devotees.length) { return cb(null, { "devotees": [] });}
+					if (!devotees.length) { return cb(null, { count: 0,  devoteesList: [] });}
 					else 
 					{
 						Devotee.count(otherFilter.where, function (err, devoteeCount)	{
-							// console.log(devotees);
-							console.log(devoteeCount);
 							cb(null, {count: devoteeCount, devoteesList: devotees});
 						});				
 					} 
-				});	
+				});					
+			}
+		);
 
+	} else {
+		finalWhereFilter = finalWhereFilter + '] }';	
+		otherFilter.where = JSON.parse(finalWhereFilter);		
+		Devotee.find(otherFilter, function (err, devotees) {
+			if (err) {
+				cb(err);
+				return cb.promise;
+			}		
+			
+			if (!devotees.length) { return cb(null, { count: 0,  devoteesList: [] });}
+			else 
+			{
+				Devotee.count(otherFilter.where, function (err, devoteeCount)	{
+					cb(null, {count: devoteeCount, devoteesList: devotees});
+				});				
+			} 
+		});					
+	}		
 	});
 	return cb.promise;
 	};
 
+
+  /**
+   * Get the list of Devotees interested in some services.
+   *
+   * ```js
+   * Devotee.getServicesDevotees(options, function (err, devotees) {
+   *      
+   *    });
+   * ```
+   *
+   * @callback {Function} cb Callback function
+   * @param {Error} err Error object
+   * @param {authorizedRoles} list of devotees successful
+   * @promise
+   */
+	Devotee.getServicesDevotees = function (services, cb) {
+		cb = cb || utils.createPromiseCallback();
+
+		Devotee.getApp(function (err, app) {
+			if (err) {
+				cb(err);
+				return cb.promise;
+			}			
+			var DevoteeServiceInterest = app.models.DevoteeServiceInterest;	
+
+/* 			var serviceIds = services.map(function (service) {
+				return '"' + service + '"';
+			}); */
+			//console.log(serviceIds);
+			DevoteeServiceInterest.find({ "where" : { "serviceAreaId": {"inq": services}}}, function (err, devoteeServiceInterest) {
+				if (err) {
+					cb(err);
+					return cb.promise;
+				}		
+				
+				if (!devoteeServiceInterest.length) { return cb(null, { "devoteeIds": [] });}
+				else {				
+					var devoteeIds = devoteeServiceInterest.map(function (devotee) {
+						return devotee.devoteeId;
+				});
+					cb(null, {devoteeIds: devoteeIds});	
+				}		
+			});					
+		});
+		return cb.promise;		
+	}
+
+
+ /**
+   * Get the list of Devotees having certain shiksha levels.
+   *
+   * ```js
+   * Devotee.getShikshaDevotees(options, function (err, devotees) {
+   *      
+   *    });
+   * ```
+   *
+   * @callback {Function} cb Callback function
+   * @param {Error} err Error object
+   * @param {authorizedRoles} list of devotees successful
+   * @promise
+   */
+  Devotee.getShikshaDevotees = function (shikshas, cb) {
+	cb = cb || utils.createPromiseCallback();
+
+	Devotee.getApp(function (err, app) {
+		if (err) {
+			cb(err);
+			return cb.promise;
+		}			
+		var DevoteeSpiritualProgress = app.models.DevoteeSpiritualProgress;	
+
+/* 		var shikshaIds = shikshas.map(function (shiksha) {
+			return '"' + shiksha + '"';
+		}); */
+		//console.log(serviceIds);
+		DevoteeSpiritualProgress.find({ "where" : { "spiritualLevelMasterId": {"inq": shikshas}}}, function (err, devoteeSpiritualProgress) {
+			if (err) {
+				cb(err);
+				return cb.promise;
+			}		
+			
+			if (!devoteeSpiritualProgress.length) { return cb(null, { "devoteeIds": [] });}
+			else {
+				var devoteeIds = devoteeSpiritualProgress.map(function (devotee) {
+						return devotee.devoteeId;
+				});			
+				cb(null, {devoteeIds: devoteeIds});	
+			}		
+		});					
+	});
+	return cb.promise;		
+}
 
   /**
    * Get the list of Roles assigned to a Devotee.
@@ -350,9 +465,21 @@ return cb.promise;
 		returns: { arg: 'filter', type: 'String', root: true}
 		});		
  
-/* 	Devotee.remoteMethod('getRoles', {
-		description: 'Get the list of Authorized Roles assigned to a Devotee',		
-		http: { path: '/getRoles', verb: 'get' },
- 		returns: { arg: 'roles', type: 'String', root: true}
-		}); */
+ 	Devotee.remoteMethod('getShikshaDevotees', {
+		description: 'Get the list of Devotees who have attained certain Spiritual Levels',		
+		http: { path: '/getShikshaDevotees', verb: 'get' },
+		accepts: [
+			{arg: 'shikshas', type: 'String'},
+		],			
+ 		returns: { arg: 'devotees', type: 'String', root: true}
+		});
+
+		Devotee.remoteMethod('getServicesDevotees', {
+			description: 'Get the list of Devotees who have attained certain Spiritual Levels',		
+			http: { path: '/getServicesDevotees', verb: 'get' },
+			accepts: [
+				{arg: 'services', type: 'String'},
+			],			
+			 returns: { arg: 'devotees', type: 'String', root: true}
+		});		
 }
