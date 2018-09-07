@@ -57,7 +57,7 @@ module.exports = function(Devotee) {
 				var orgIds = whereFilter.orgs.map(function (org) {
 					return '"' + org + '"';
 				});
-				whereFilter.searchText.length > 0 ? finalWhereFilter = finalWhereFilter + ',' : undefined;
+				whereFilter.searchText ? finalWhereFilter = finalWhereFilter + ',' : undefined;
 				finalWhereFilter = finalWhereFilter + ' {"organizationId": {"inq":[' + orgIds + ']}} ';				
 			}
 		}
@@ -80,11 +80,12 @@ module.exports = function(Devotee) {
 				var devoteeIds = devoteeIds.map(function (devoteeId) {
 					return '"' + devoteeId + '"';
 				});	
-				(whereFilter.searchText.length > 0 || orgs > 0 ) ? finalWhereFilter = finalWhereFilter + ',' : undefined;					
+				(whereFilter.searchText || orgs > 0 ) ? finalWhereFilter = finalWhereFilter + ',' : undefined;					
 				finalWhereFilter = finalWhereFilter + '{"id": {"inq":[' + devoteeIds + ']}}';
 				//console.log(finalWhereFilter);
 				finalWhereFilter = finalWhereFilter + '] }';
-				otherFilter.where = JSON.parse(finalWhereFilter);					
+				otherFilter.where = JSON.parse(finalWhereFilter);	
+//console.log(otherFilter);								
 				Devotee.find(otherFilter, function (err, devotees) {
 					if (err) {
 						cb(err);
@@ -104,7 +105,8 @@ module.exports = function(Devotee) {
 
 	} else {
 		finalWhereFilter = finalWhereFilter + '] }';	
-		otherFilter.where = JSON.parse(finalWhereFilter);		
+		otherFilter.where = JSON.parse(finalWhereFilter);
+//console.log(otherFilter);
 		Devotee.find(otherFilter, function (err, devotees) {
 			if (err) {
 				cb(err);
