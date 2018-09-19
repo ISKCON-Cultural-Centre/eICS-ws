@@ -77,17 +77,20 @@ module.exports = function(Devotee) {
 					return null;					
 				});
 
-				const count = devoteeIds => 
-				devoteeIds.reduce((a, b) => 
+				console.log(devoteeIds);
+				const names = devoteeIds;
+
+				const count = names => 
+				  names.reduce((a, b) => 
 					Object.assign(a, {[b]: (a[b] || 0) + 1}), {})
 				
 				const duplicates = dict => 
 				  Object.keys(dict).filter((a) => dict[a] > 1)
 				
-				console.log(count(devoteeIds)) // { Mike: 1, Matt: 1, Nancy: 2, Adam: 1, Jenny: 1, Carl: 1 }
-				console.log(duplicates(count(devoteeIds))) // [ 'Nancy' ]
+				console.log(count(names)) // { Mike: 1, Matt: 1, Nancy: 2, Adam: 1, Jenny: 1, Carl: 1 }
+				console.log(duplicates(count(names))) // [ 'Nancy' ]
 
-				var devoteeIds = duplicates(count(devoteeIds));
+				var devoteeIds = duplicates(count(names));
 				//var devoteeIds = [].concat.apply([], devoteeIds);
 				var devoteeIds = devoteeIds.map(function (devoteeId) {
 					return '"' + devoteeId + '"';
