@@ -77,6 +77,8 @@ module.exports = function(Devotee) {
 					return null;					
 				});
 
+				var devoteeIds = [].concat.apply([], devoteeIds);
+
 				console.log(devoteeIds);
 				const names = devoteeIds;
 
@@ -91,7 +93,7 @@ module.exports = function(Devotee) {
 				console.log(duplicates(count(names))) // [ 'Nancy' ]
 
 				var devoteeIds = duplicates(count(names));
-				//var devoteeIds = [].concat.apply([], devoteeIds);
+
 				var devoteeIds = devoteeIds.map(function (devoteeId) {
 					return '"' + devoteeId + '"';
 				});	
