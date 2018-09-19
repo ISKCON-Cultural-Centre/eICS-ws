@@ -81,7 +81,9 @@ module.exports = function(Devotee) {
 
  				console.log(devoteeIds);
 
-				 if (spiritualLevel > 0) {
+				 if (spiritualLevel > 0) {				 
+					console.log("inside if");
+					console.log(devoteeIds);
 				 const names = devoteeIds;//['Mike', 'Matt', 'Nancy', 'Adam', 'Jenny', 'Nancy', 'Carl']
 
 				 const count = names => 
