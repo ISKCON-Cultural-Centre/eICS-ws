@@ -81,6 +81,7 @@ module.exports = function(Devotee) {
 
  				console.log(devoteeIds);
 
+				 if (spiritualLevel > 0) {
 				 const names = devoteeIds;//['Mike', 'Matt', 'Nancy', 'Adam', 'Jenny', 'Nancy', 'Carl']
 
 				 const count = names => 
@@ -91,9 +92,11 @@ module.exports = function(Devotee) {
 				   Object.keys(dict).filter((a) => dict[a] > 1)
 				 
 				 console.log(count(names)) // { Mike: 1, Matt: 1, Nancy: 2, Adam: 1, Jenny: 1, Carl: 1 }
-				 console.log(duplicates(count(names))) // [ 'Nancy' ]				 
-
-				var devoteeIds = duplicates(count(names)).map(function (devoteeId) {
+				 console.log(duplicates(count(names))) // [ 'Nancy' ]	
+				 
+				 devoteeIds = duplicates(count(names))				 
+				}
+				var devoteeIds = devoteeIds.map(function (devoteeId) {
 					return '"' + devoteeId + '"';
 				});	
 				(whereFilter.searchText || orgs > 0 ) ? finalWhereFilter = finalWhereFilter + ',' : undefined;					
