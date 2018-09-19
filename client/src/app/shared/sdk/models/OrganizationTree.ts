@@ -6,6 +6,7 @@ export interface OrganizationTreeInterface {
   "name"?: string;
   "depth": number;
   "displayOrder": number;
+  "organizationLevelMasterId": string;
 }
 
 export class OrganizationTree implements OrganizationTreeInterface {
@@ -13,6 +14,7 @@ export class OrganizationTree implements OrganizationTreeInterface {
   "name": string;
   "depth": number;
   "displayOrder": number;
+  "organizationLevelMasterId": string;
   constructor(data?: OrganizationTreeInterface) {
     Object.assign(this, data);
   }
@@ -61,6 +63,10 @@ export class OrganizationTree implements OrganizationTreeInterface {
         "displayOrder": {
           name: 'displayOrder',
           type: 'number'
+        },
+        "organizationLevelMasterId": {
+          name: 'organizationLevelMasterId',
+          type: 'string'
         },
       },
       relations: {
