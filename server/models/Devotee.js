@@ -80,19 +80,18 @@ module.exports = function(Devotee) {
 				var devoteeIds = [].concat.apply([], devoteeIds);
 
  				console.log(devoteeIds);
-/*				const names = devoteeIds;
 
-				const count = names => 
-				  names.reduce((a, b) => 
-					Object.assign(a, {[b]: (a[b] || 0) + 1}), {})
-				
-				const duplicates = dict => 
-				  Object.keys(dict).filter((a) => dict[a] > 1)
-				
-				console.log(count(names)) // { Mike: 1, Matt: 1, Nancy: 2, Adam: 1, Jenny: 1, Carl: 1 }
-				console.log(duplicates(count(names))) // [ 'Nancy' ]
+				 const names = devoteeIds;//['Mike', 'Matt', 'Nancy', 'Adam', 'Jenny', 'Nancy', 'Carl']
 
-				var devoteeIds = duplicates(count(names)); */
+				 const count = names => 
+				   names.reduce((a, b) => 
+					 Object.assign(a, {[b]: (a[b] || 0) + 1}), {})
+				 
+				 const duplicates = dict => 
+				   Object.keys(dict).filter((a) => dict[a] > 1)
+				 
+				 console.log(count(names)) // { Mike: 1, Matt: 1, Nancy: 2, Adam: 1, Jenny: 1, Carl: 1 }
+				 console.log(duplicates(count(names))) // [ 'Nancy' ]				 
 
 				var devoteeIds = devoteeIds.map(function (devoteeId) {
 					return '"' + devoteeId + '"';
