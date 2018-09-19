@@ -79,20 +79,18 @@ module.exports = function(Devotee) {
 
 				var devoteeIds = [].concat.apply([], devoteeIds);
 
- 				console.log(devoteeIds);
-
-				 const names = devoteeIds;//['Mike', 'Matt', 'Nancy', 'Adam', 'Jenny', 'Nancy', 'Carl']
+				/* for getting AND filter effect on Shiksha level and services*/
+				const names = devoteeIds;
 				 const count = names => 
 				   names.reduce((a, b) => 
 					 Object.assign(a, {[b]: (a[b] || 0) + 1}), {})			 
 				 const duplicates = dict => 
 				   Object.keys(dict).filter((a) => dict[a] > 1)
-				 console.log(count(names)) // { Mike: 1, Matt: 1, Nancy: 2, Adam: 1, Jenny: 1, Carl: 1 }
-				 console.log(duplicates(count(names))) // [ 'Nancy' ]	
+				 /*console.log(count(names))
+				 console.log(duplicates(count(names)))*/
 				 if (spiritualLevel > 0 && services > 0) {
 					devoteeIds = duplicates(count(names))
 				 }
-				 console.log(devoteeIds);
 				var devoteeIds = devoteeIds.map(function (devoteeId) {
 					return '"' + devoteeId + '"';
 				});	
