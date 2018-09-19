@@ -76,17 +76,7 @@ module.exports = function(Devotee) {
 					} 
 					return null;					
 				});
-
-				const count = devoteeIds => 
-				devoteeIds.reduce((a, b) => 
-					Object.assign(a, {[b]: (a[b] || 0) + 1}), {})
-				
-				const duplicates = dict => 
-				  Object.keys(dict).filter((a) => dict[a] > 1)
-				
-				devoteeIds = duplicates(count(devoteeIds));
-
-				//var devoteeIds = [].concat.apply([], devoteeIds);
+				var devoteeIds = [].concat.apply([], devoteeIds);
 				var devoteeIds = devoteeIds.map(function (devoteeId) {
 					return '"' + devoteeId + '"';
 				});	
