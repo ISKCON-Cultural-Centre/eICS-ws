@@ -77,10 +77,8 @@ module.exports = function(Devotee) {
 					return null;					
 				});
 
-				const names = ['Mike', 'Matt', 'Nancy', 'Adam', 'Jenny', 'Nancy', 'Carl']
-
 				const count = devoteeIds => 
-				  names.reduce((a, b) => 
+				devoteeIds.reduce((a, b) => 
 					Object.assign(a, {[b]: (a[b] || 0) + 1}), {})
 				
 				const duplicates = dict => 
