@@ -81,23 +81,18 @@ module.exports = function(Devotee) {
 
  				console.log(devoteeIds);
 
-				 if (spiritualLevel > 0) {				 
-					console.log("inside if");
-					console.log(devoteeIds);
 				 const names = devoteeIds;//['Mike', 'Matt', 'Nancy', 'Adam', 'Jenny', 'Nancy', 'Carl']
-
 				 const count = names => 
 				   names.reduce((a, b) => 
-					 Object.assign(a, {[b]: (a[b] || 0) + 1}), {})
-				 
+					 Object.assign(a, {[b]: (a[b] || 0) + 1}), {})			 
 				 const duplicates = dict => 
 				   Object.keys(dict).filter((a) => dict[a] > 1)
-				 
 				 console.log(count(names)) // { Mike: 1, Matt: 1, Nancy: 2, Adam: 1, Jenny: 1, Carl: 1 }
 				 console.log(duplicates(count(names))) // [ 'Nancy' ]	
-				 
-				 devoteeIds = duplicates(count(names))				 
-				}
+				 if (spiritualLevel > 0 && services > 0) {
+					devoteeIds = duplicates(count(names))
+				 }
+				 console.log(devoteeIds);
 				var devoteeIds = devoteeIds.map(function (devoteeId) {
 					return '"' + devoteeId + '"';
 				});	
