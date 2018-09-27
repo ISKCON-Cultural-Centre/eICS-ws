@@ -11,32 +11,27 @@
         "model": "Devotee",
         "type": "belongsTo",
         "foreignKey": "devoteeId"
-      },
-      "fkPledgeDonationTypeMaster1rel": {
-        "model": "DonationTypeMaster",
-        "type": "belongsTo",
-        "foreignKey": "donationTypeMasterId"
       }
     }
   },
   "mixins": {
-    "TimeStamp" : {
-      "createdAt" : "created-on",
-      "updatedAt" : "updated-on",
-      "required" : false,
+    "TimeStamp": {
+      "createdAt": "created-on",
+      "updatedAt": "updated-on",
+      "required": false,
       "validateUpsert": true,
       "silenceWarnings": false
     },
-    "GenerateKey" : true
+    "GenerateKey": true
   },
   "properties": {
     "id": {
       "type": "String",
-      "required": true,
+      "id": 1,
+      "required": false,
       "length": 36,
       "precision": null,
       "scale": null,
-      "id": 1,
       "mysql": {
         "columnName": "id",
         "dataType": "varchar",
@@ -123,7 +118,7 @@
     },
     "devoteeId": {
       "type": "String",
-      "required": true,
+      "required": false,
       "length": 36,
       "precision": null,
       "scale": null,
@@ -133,22 +128,7 @@
         "dataLength": 36,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "N"
-      }
-    },
-    "donationTypeMasterId": {
-      "type": "String",
-      "required": true,
-      "length": 36,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "donation-type-master-id",
-        "dataType": "varchar",
-        "dataLength": 36,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
     "createdOn": {
@@ -211,5 +191,16 @@
         "nullable": "Y"
       }
     }
-  }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
 }

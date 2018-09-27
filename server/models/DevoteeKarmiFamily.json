@@ -7,6 +7,11 @@
       "table": "devotee-karmi-family"
     },
     "relations": {
+      "fkDevoteeKarmiFamilyDevotee1rel": {
+        "model": "Devotee",
+        "type": "belongsTo",
+        "foreignKey": "relatedDevoteeId"
+      },
       "fkDevoteeKarmiFamilyDevotee2rel": {
         "model": "Devotee",
         "type": "belongsTo",
@@ -19,36 +24,10 @@
       }
     }
   },
-  "mixins": {
-    "TimeStamp" : {
-      "createdAt" : "created-on",
-      "updatedAt" : "updated-on",
-      "required" : false,
-      "validateUpsert": true,
-      "silenceWarnings": false
-    },
-    "GenerateKey" : true
-  },
   "properties": {
-    "id": {
-      "type": "String",
-      "required": true,
-      "length": 36,
-      "precision": null,
-      "scale": null,
-      "id": 1,
-      "mysql": {
-        "columnName": "id",
-        "dataType": "varchar",
-        "dataLength": 36,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "N"
-      }
-    },
     "familyName": {
       "type": "String",
-      "required": true,
+      "required": false,
       "length": 100,
       "precision": null,
       "scale": null,
@@ -58,17 +37,18 @@
         "dataLength": 100,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
-    "relationshipId": {
+    "devoteeId": {
       "type": "String",
+      "id": 1,
       "required": true,
       "length": 36,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "relationship-id",
+        "columnName": "devotee-id",
         "dataType": "varchar",
         "dataLength": 36,
         "dataPrecision": null,
@@ -76,14 +56,31 @@
         "nullable": "N"
       }
     },
-    "devoteeId": {
+    "relatedDevoteeId": {
       "type": "String",
+      "id": 2,
       "required": true,
       "length": 36,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "devotee-id",
+        "columnName": "related-devotee-id",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "relationshipId": {
+      "type": "String",
+      "id": 3,
+      "required": true,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "relationship-id",
         "dataType": "varchar",
         "dataLength": 36,
         "dataPrecision": null,
@@ -151,5 +148,16 @@
         "nullable": "Y"
       }
     }
-  }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
 }

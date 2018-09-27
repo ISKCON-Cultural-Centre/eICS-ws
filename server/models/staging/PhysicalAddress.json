@@ -6,13 +6,7 @@
       "schema": "icc",
       "table": "physical-address"
     },
-    "relations": {
-      "fkPhysicalAddressAddressTypeMaster1rel": {
-        "model": "PhysicalAddressTypeMaster",
-        "type": "belongsTo",
-        "foreignKey": "addressTypeMasterId"
-      }
-    }
+    "relations": {}
   },
   "properties": {
     "id": {
@@ -94,13 +88,13 @@
     "addressCity": {
       "type": "String",
       "required": false,
-      "length": 100,
+      "length": 36,
       "precision": null,
       "scale": null,
       "mysql": {
         "columnName": "address-city",
         "dataType": "varchar",
-        "dataLength": 100,
+        "dataLength": 36,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
@@ -109,13 +103,13 @@
     "addressCountry": {
       "type": "String",
       "required": false,
-      "length": 100,
+      "length": 36,
       "precision": null,
       "scale": null,
       "mysql": {
         "columnName": "address-country",
         "dataType": "varchar",
-        "dataLength": 100,
+        "dataLength": 36,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
@@ -189,6 +183,21 @@
       "scale": null,
       "mysql": {
         "columnName": "updated-by",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "addressState": {
+      "type": "String",
+      "required": false,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "address-state",
         "dataType": "varchar",
         "dataLength": 36,
         "dataPrecision": null,

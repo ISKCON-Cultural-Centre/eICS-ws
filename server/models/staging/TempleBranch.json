@@ -54,13 +54,13 @@
     "templeId": {
       "type": "String",
       "required": false,
-      "length": 16,
+      "length": 36,
       "precision": null,
       "scale": null,
       "mysql": {
         "columnName": "temple-id",
         "dataType": "varchar",
-        "dataLength": 16,
+        "dataLength": 36,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"

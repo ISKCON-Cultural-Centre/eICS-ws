@@ -13,14 +13,14 @@
         "foreignKey": "devoteeId"
       },
       "fkDevoteeEventCalendarEventMaster1rel": {
-        "model": "EventMaster",
+        "model": "DevoteeEventMaster",
         "type": "belongsTo",
         "foreignKey": "eventMasterId"
       }
     }
   },
   "properties": {
-    "devoteeId": {
+    "id": {
       "type": "String",
       "required": true,
       "length": 36,
@@ -28,7 +28,37 @@
       "scale": null,
       "id": 1,
       "mysql": {
+        "columnName": "id",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "devoteeId": {
+      "type": "String",
+      "required": true,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
         "columnName": "devotee-id",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "eventMasterId": {
+      "type": "String",
+      "required": true,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "event-master-id",
         "dataType": "varchar",
         "dataLength": 36,
         "dataPrecision": null,
@@ -51,16 +81,16 @@
         "nullable": "N"
       }
     },
-    "eventMasterId": {
+    "comments": {
       "type": "String",
       "required": false,
-      "length": 36,
+      "length": 100,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "event-master-id",
+        "columnName": "comments",
         "dataType": "varchar",
-        "dataLength": 36,
+        "dataLength": 100,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"

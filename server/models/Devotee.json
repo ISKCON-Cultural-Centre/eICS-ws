@@ -7,42 +7,90 @@
       "schema": "icc",
       "table": "devotee"
     },
-    "mixins": {
-      "TimeStamp" : {
-        "createdAt" : "created-on",
-        "updatedAt" : "updated-on",
-        "required" : false,
-        "validateUpsert": true,
-        "silenceWarnings": false
-      },
-      "GenerateKey" : true
-    },
     "relations": {
-      "fkDevoteeElectronicAddress1rel": {
-        "model": "ElectronicAddress",
+      "fkDevoteeAsramaMaster1rel": {
+        "model": "AsramaMaster",
         "type": "belongsTo",
-        "foreignKey": "electronicAddressId"
+        "foreignKey": "asramaMasterId"
+      },      
+      "fkDevoteeLanguage1rel": {
+        "model": "Language",
+        "type": "belongsTo",
+        "foreignKey": "motherTongueLanguageId"
       },
+      "fkDevoteeGothraMaster1rel": {
+        "model": "GothraMaster",
+        "type": "belongsTo",
+        "foreignKey": "gothra"
+      },
+      "fkDevoteeOrganization1rel": {
+        "model": "Organization",
+        "type": "belongsTo",
+        "foreignKey": "organizationId"
+      },      
       "fkDevoteePhysicalAddress1rel": {
         "model": "PhysicalAddress",
         "type": "belongsTo",
         "foreignKey": "physicalAddressId"
       },
-      "fkDevoteeSpiritualLevelMaster1rel": {
-        "model": "SpiritualLevelMaster",
+      "fkDevoteeNakshatraMaster1rel": {
+        "model": "NakshatraMaster",
         "type": "belongsTo",
-        "foreignKey": "spiritualLevelMasterId"
+        "foreignKey": "nakshatra"
+      },            
+      "accessTokens": {
+        "type": "hasMany",
+        "model": "Accesstoken",
+        "foreignKey": "userId",
+        "options": {
+          "disableInclude": true
+        }
+      },
+      "roleMappings": {
+        "type": "hasMany",
+        "model": "ServiceRoleMapping",
+        "foreignKey": "principalId"
+      },
+      "fkDevoteeLanguages": {
+        "type": "hasMany",
+        "model": "DevoteeLanguage",
+        "foreignKey": "devoteeId"
+      },
+      "fkDevoteeServiceInterests": {
+        "type": "hasMany",
+        "model": "DevoteeServiceInterest",
+        "foreignKey": "devoteeId"
+      },
+      "fkDevoteeGroupings": {
+        "type": "hasMany",
+        "model": "DevoteeGrouping",
+        "foreignKey": "devoteeId"
+      },              
+      "fkDevoteeProfessionMaster1rel": {
+        "model": "ProfessionMaster",
+        "type": "belongsTo",
+        "foreignKey": "professionId"
       }
     }
+  },
+  "mixins": {
+    "TimeStamp": {
+      "createdAt": "created-on",
+      "updatedAt": "updated-on",
+      "required": false,
+      "validateUpsert": true,
+      "silenceWarnings": false
+    },
+    "GenerateKey": true
   },
   "properties": {
     "id": {
       "type": "String",
-      "required": true,
+      "id": 1,
+      "required": false,
       "length": 36,
       "precision": null,
       "scale": null,
-      "id": 1,
       "mysql": {
         "columnName": "id",
         "dataType": "varchar",
@@ -54,7 +102,7 @@
     },
     "legalName": {
       "type": "String",
-      "required": true,
+      "required": false,
       "length": 100,
       "precision": null,
       "scale": null,
@@ -64,17 +112,17 @@
         "dataLength": 100,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
-    "circleId": {
+    "counsellorId": {
       "type": "String",
       "required": false,
       "length": 36,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "circle-id",
+        "columnName": "counsellor-id",
         "dataType": "varchar",
         "dataLength": 36,
         "dataPrecision": null,
@@ -82,6 +130,21 @@
         "nullable": "Y"
       }
     },
+    "organizationId": {
+      "type": "String",
+      "required": false,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "organization-id",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },    
     "spiritualName": {
       "type": "String",
       "required": false,
@@ -98,8 +161,8 @@
       }
     },
     "gender": {
-      "type": "Boolean",
-      "required": true,
+      "type": "String",
+      "required": false,
       "length": 1,
       "precision": null,
       "scale": null,
@@ -107,36 +170,6 @@
         "columnName": "gender",
         "dataType": "char",
         "dataLength": 1,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "N"
-      }
-    },
-    "physicalAddressId": {
-      "type": "String",
-      "required": false,
-      "length": 36,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "physical-address-id",
-        "dataType": "varchar",
-        "dataLength": 36,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "electronicAddressId": {
-      "type": "String",
-      "required": false,
-      "length": 36,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "electronic-address-id",
-        "dataType": "varchar",
-        "dataLength": 36,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
@@ -157,20 +190,529 @@
         "nullable": "Y"
       }
     },
-    "spiritualLevelMasterId": {
+    "creditLimit": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": 10,
+      "scale": 0,
+      "mysql": {
+        "columnName": "credit-limit",
+        "dataType": "int",
+        "dataLength": null,
+        "dataPrecision": 10,
+        "dataScale": 0,
+        "nullable": "Y"
+      }
+    },
+    "realm": {
       "type": "String",
-      "required": true,
+      "required": false,
+      "length": 512,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "realm",
+        "dataType": "varchar",
+        "dataLength": 512,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "username": {
+      "type": "String",
+      "required": false,
+      "length": 512,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "username",
+        "dataType": "varchar",
+        "dataLength": 512,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "password": {
+      "type": "String",
+      "required": false,
+      "length": 512,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "password",
+        "dataType": "varchar",
+        "dataLength": 512,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "email": {
+      "type": "String",
+      "required": false,
+      "length": 512,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "email",
+        "dataType": "varchar",
+        "dataLength": 512,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "verificationtoken": {
+      "type": "String",
+      "required": false,
+      "length": 512,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "verificationToken",
+        "dataType": "varchar",
+        "dataLength": 512,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "createdBy": {
+      "type": "String",
+      "required": false,
       "length": 36,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "spiritual-level-master-id",
+        "columnName": "created-by",
         "dataType": "varchar",
         "dataLength": 36,
         "dataPrecision": null,
         "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "updatedBy": {
+      "type": "String",
+      "required": false,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "updated-by",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "accessId": {
+      "type": "String",
+      "required": false,
+      "length": 100,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "access-id",
+        "dataType": "varchar",
+        "dataLength": 100,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "gothra": {
+      "type": "String",
+      "required": false,
+      "length": 50,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "gothra",
+        "dataType": "varchar",
+        "dataLength": 50,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "nakshatra": {
+      "type": "String",
+      "required": false,
+      "length": 50,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "nakshatra",
+        "dataType": "varchar",
+        "dataLength": 50,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "governmentUniqueId": {
+      "type": "String",
+      "required": false,
+      "length": 20,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "government-unique-id",
+        "dataType": "varchar",
+        "dataLength": 20,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "incomeTaxId": {
+      "type": "String",
+      "required": false,
+      "length": 20,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "income-tax-id",
+        "dataType": "varchar",
+        "dataLength": 20,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "lpmId": {
+      "type": "String",
+      "required": false,
+      "length": 20,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "lpm-id",
+        "dataType": "varchar",
+        "dataLength": 20,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "kcAssociationDate": {
+      "type": "Date",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "kc-association-date",
+        "dataType": "date",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "motherTongueLanguageId": {
+      "type": "String",
+      "required": false,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "mother-tongue-language-id",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "dateOfBirth": {
+      "type": "Date",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "date-of-birth",
+        "dataType": "date",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "dayMonthOfBirth": {
+      "type": "String",
+      "required": false,
+      "length": 65,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "day-month-of-birth",
+        "dataType": "char",
+        "dataLength": 65,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "asramaMasterId": {
+      "type": "String",
+      "required": false,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "asrama-master-id",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "professionId": {
+      "type": "String",
+      "required": false,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "profession-id",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "physicalAddressId": {
+      "type": "String",
+      "required": false,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "physical-address-id",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "mobileNo1": {
+      "type": "String",
+      "required": false,
+      "length": 15,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "mobile-no-1",
+        "dataType": "varchar",
+        "dataLength": 15,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "landlineNo": {
+      "type": "String",
+      "required": false,
+      "length": 15,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "landline-no",
+        "dataType": "varchar",
+        "dataLength": 15,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "mobileNo2": {
+      "type": "String",
+      "required": false,
+      "length": 15,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "mobile-no-2",
+        "dataType": "varchar",
+        "dataLength": 15,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "commWhatsapp": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": 3,
+      "scale": 0,
+      "mysql": {
+        "columnName": "comm-whatsapp",
+        "dataType": "tinyint",
+        "dataLength": null,
+        "dataPrecision": 3,
+        "dataScale": 0,
         "nullable": "N"
       }
+    },
+    "commEmail": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": 3,
+      "scale": 0,
+      "mysql": {
+        "columnName": "comm-email",
+        "dataType": "tinyint",
+        "dataLength": null,
+        "dataPrecision": 3,
+        "dataScale": 0,
+        "nullable": "N"
+      }
+    },
+    "commSms": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": 3,
+      "scale": 0,
+      "mysql": {
+        "columnName": "comm-sms",
+        "dataType": "tinyint",
+        "dataLength": null,
+        "dataPrecision": 3,
+        "dataScale": 0,
+        "nullable": "N"
+      }
+    },
+    "commCall": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": 3,
+      "scale": 0,
+      "mysql": {
+        "columnName": "comm-call",
+        "dataType": "tinyint",
+        "dataLength": null,
+        "dataPrecision": 3,
+        "dataScale": 0,
+        "nullable": "N"
+      }
+    },
+    "commLetter": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": 3,
+      "scale": 0,
+      "mysql": {
+        "columnName": "comm-letter",
+        "dataType": "tinyint",
+        "dataLength": null,
+        "dataPrecision": 3,
+        "dataScale": 0,
+        "nullable": "N"
+      }
+    },
+    "marriedInd": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": 3,
+      "scale": 0,
+      "mysql": {
+        "columnName": "married-ind",
+        "dataType": "tinyint",
+        "dataLength": null,
+        "dataPrecision": 3,
+        "dataScale": 0,
+        "nullable": "Y"
+      }
+    },
+    "notes": {
+      "type": "String",
+      "required": false,
+      "length": 100,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "notes",
+        "dataType": "varchar",
+        "dataLength": 100,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+  "enrolNo": {
+    "type": "Number",
+    "required": false,
+    "length": null,
+    "precision": 5,
+    "scale": 0,
+    "mysql": {
+      "columnName": "enrol-no",
+      "dataType": "smallint",
+      "dataLength": null,
+      "dataPrecision": 5,
+      "dataScale": 0,
+      "nullable": "N"
     }
   }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "getDepartments"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "getRoles"
+    },      
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "getRoleTasks"
+    },    
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },  
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "DevoteeCare-Operations",
+      "permission": "ALLOW"
+    },  
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "DevoteeCare-Management",
+      "permission": "ALLOW"
+    }          
+  ],
+  "methods": {}
 }

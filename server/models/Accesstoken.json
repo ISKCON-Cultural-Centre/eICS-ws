@@ -1,0 +1,29 @@
+{
+  "name": "Accesstoken",
+  "base": "AccessToken",
+  "options": {
+    "idInjection": true,
+    "mysql": {
+      "schema": "icc",
+      "table": "accesstoken"
+    }
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "Devotee",
+      "foreignKey": "userId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

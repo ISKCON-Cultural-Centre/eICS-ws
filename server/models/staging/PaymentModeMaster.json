@@ -25,33 +25,33 @@
         "nullable": "N"
       }
     },
-    "paymentModeName": {
+    "modeName": {
       "type": "String",
-      "required": false,
-      "length": 20,
+      "required": true,
+      "length": 50,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "payment-mode-name",
+        "columnName": "mode-name",
         "dataType": "varchar",
-        "dataLength": 20,
+        "dataLength": 50,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "Y"
+        "nullable": "N"
       }
     },
-    "activeInd": {
-      "type": "Number",
+    "description": {
+      "type": "String",
       "required": true,
-      "length": null,
-      "precision": 3,
-      "scale": 0,
+      "length": 100,
+      "precision": null,
+      "scale": null,
       "mysql": {
-        "columnName": "active-ind",
-        "dataType": "tinyint",
-        "dataLength": null,
-        "dataPrecision": 3,
-        "dataScale": 0,
+        "columnName": "description",
+        "dataType": "varchar",
+        "dataLength": 100,
+        "dataPrecision": null,
+        "dataScale": null,
         "nullable": "N"
       }
     },

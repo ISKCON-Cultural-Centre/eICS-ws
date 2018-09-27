@@ -7,10 +7,10 @@
       "table": "pledge-payment"
     },
     "relations": {
-      "fkPledgePaymentPayment1rel": {
+      "fkPledgePaymentMgPayment1rel": {
         "model": "Payment",
         "type": "belongsTo",
-        "foreignKey": "paymentId"
+        "foreignKey": "mgPaymentId"
       },
       "fkPledgePaymentPledge1rel": {
         "model": "Pledge",
@@ -49,21 +49,6 @@
         "dataPrecision": 5,
         "dataScale": 0,
         "nullable": "N"
-      }
-    },
-    "paymentId": {
-      "type": "String",
-      "required": false,
-      "length": 36,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "payment-id",
-        "dataType": "varchar",
-        "dataLength": 36,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
       }
     },
     "pledgeDate": {
@@ -154,6 +139,21 @@
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
+      }
+    },
+    "mgPaymentId": {
+      "type": "String",
+      "required": true,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "mg-payment-id",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
       }
     }
   }

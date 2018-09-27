@@ -6,16 +6,6 @@
       "schema": "icc",
       "table": "department"
     },
-    "mixins": {
-      "TimeStamp" : {
-        "createdAt" : "created-on",
-        "updatedAt" : "updated-on",
-        "required" : false,
-        "validateUpsert": true,
-        "silenceWarnings": false
-      },
-      "GenerateKey" : true
-    },     
     "relations": {
       "fkDepartmentDevotee1rel": {
         "model": "Devotee",
@@ -26,17 +16,37 @@
         "model": "Temple",
         "type": "belongsTo",
         "foreignKey": "templeId"
+      },
+      "announcements": {
+      "type": "hasMany",
+      "model": "DepartmentAnnouncement",
+      "foreignKey": "departmentId"
+      },
+      "events": {
+      "type": "hasMany",
+      "model": "DepartmentCalendar",
+      "foreignKey": "departmentId"
       }
     }
+  },
+  "mixins": {
+    "TimeStamp": {
+      "createdAt": "created-on",
+      "updatedAt": "updated-on",
+      "required": false,
+      "validateUpsert": true,
+      "silenceWarnings": false
+    },
+    "GenerateKey": true
   },
   "properties": {
     "id": {
       "type": "String",
-      "required": true,
+      "id": 1,
+      "required": false,
       "length": 36,
       "precision": null,
       "scale": null,
-      "id": 1,
       "mysql": {
         "columnName": "id",
         "dataType": "varchar",
@@ -90,6 +100,47 @@
         "dataScale": null,
         "nullable": "N"
       }
+    },
+    "icon": {
+      "type": "String",
+      "required": false,
+      "length": 50,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "icon",
+        "dataType": "varchar",
+        "dataLength": 50,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "route": {
+      "type": "String",
+      "required": false,
+      "length": 255,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "route",
+        "dataType": "varchar",
+        "dataLength": 255,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
     }
-  }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
 }

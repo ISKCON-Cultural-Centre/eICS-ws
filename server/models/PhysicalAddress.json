@@ -5,33 +5,26 @@
     "mysql": {
       "schema": "icc",
       "table": "physical-address"
-    },
-    "relations": {
-      "fkPhysicalAddressAddressTypeMaster1rel": {
-        "model": "AddressTypeMaster",
-        "type": "belongsTo",
-        "foreignKey": "addressTypeMasterId"
-      }
     }
   },
   "mixins": {
-    "TimeStamp" : {
-      "createdAt" : "created-on",
-      "updatedAt" : "updated-on",
-      "required" : false,
+    "TimeStamp": {
+      "createdAt": "created-on",
+      "updatedAt": "updated-on",
+      "required": false,
       "validateUpsert": true,
       "silenceWarnings": false
     },
-    "GenerateKey" : true
+    "GenerateKey": true
   },
   "properties": {
     "id": {
       "type": "String",
-      "required": true,
+      "id": 1,
+      "required": false,
       "length": 36,
       "precision": null,
       "scale": null,
-      "id": 1,
       "mysql": {
         "columnName": "id",
         "dataType": "varchar",
@@ -41,24 +34,9 @@
         "nullable": "N"
       }
     },
-    "addressTypeMasterId": {
-      "type": "String",
-      "required": true,
-      "length": 36,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "address-type-master-id",
-        "dataType": "varchar",
-        "dataLength": 36,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "N"
-      }
-    },
     "addressLine1": {
       "type": "String",
-      "required": true,
+      "required": false,
       "length": 100,
       "precision": null,
       "scale": null,
@@ -68,12 +46,12 @@
         "dataLength": 100,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
     "addressLine2": {
       "type": "String",
-      "required": true,
+      "required": false,
       "length": 100,
       "precision": null,
       "scale": null,
@@ -83,12 +61,12 @@
         "dataLength": 100,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
     "addressArea": {
       "type": "String",
-      "required": true,
+      "required": false,
       "length": 100,
       "precision": null,
       "scale": null,
@@ -98,12 +76,12 @@
         "dataLength": 100,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
     "addressCity": {
       "type": "String",
-      "required": true,
+      "required": false,
       "length": 100,
       "precision": null,
       "scale": null,
@@ -113,12 +91,12 @@
         "dataLength": 100,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
     "addressCountry": {
       "type": "String",
-      "required": true,
+      "required": false,
       "length": 100,
       "precision": null,
       "scale": null,
@@ -128,12 +106,12 @@
         "dataLength": 100,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
     "addressPin": {
       "type": "String",
-      "required": true,
+      "required": false,
       "length": 10,
       "precision": null,
       "scale": null,
@@ -143,7 +121,7 @@
         "dataLength": 10,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
     "createdOn": {
@@ -205,6 +183,32 @@
         "dataScale": null,
         "nullable": "Y"
       }
+    },
+    "addressState": {
+      "type": "String",
+      "required": false,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "address-state",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
     }
-  }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
 }

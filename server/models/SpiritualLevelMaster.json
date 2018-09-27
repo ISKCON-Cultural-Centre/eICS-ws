@@ -9,14 +9,14 @@
     "relations": {}
   },
   "mixins": {
-    "TimeStamp" : {
-      "createdAt" : "created-on",
-      "updatedAt" : "updated-on",
-      "required" : false,
+    "TimeStamp": {
+      "createdAt": "created-on",
+      "updatedAt": "updated-on",
+      "required": false,
       "validateUpsert": true,
       "silenceWarnings": false
     },
-    "GenerateKey" : true
+    "GenerateKey": true
   },
   "properties": {
     "id": {
@@ -36,17 +36,17 @@
       }
     },
     "level": {
-      "type": "String",
+      "type": "Number",
       "required": true,
-      "length": 30,
-      "precision": null,
-      "scale": null,
+      "length": null,
+      "precision": 3,
+      "scale": 0,
       "mysql": {
         "columnName": "level",
-        "dataType": "varchar",
-        "dataLength": 30,
-        "dataPrecision": null,
-        "dataScale": null,
+        "dataType": "tinyint",
+        "dataLength": null,
+        "dataPrecision": 3,
+        "dataScale": 0,
         "nullable": "N"
       }
     },
@@ -125,5 +125,16 @@
         "nullable": "Y"
       }
     }
-  }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
 }

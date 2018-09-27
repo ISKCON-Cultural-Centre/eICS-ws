@@ -7,20 +7,15 @@
       "table": "payment"
     },
     "relations": {
-      "fkPaymentDevotee2rel": {
-        "model": "Devotee",
-        "type": "belongsTo",
-        "foreignKey": "devoteeId"
-      },
-      "fkPaymentDonationTypeMaster1rel": {
-        "model": "DonationTypeMaster",
-        "type": "belongsTo",
-        "foreignKey": "donationTypeMasterId"
-      },
-      "fkPaymentPaymentModeMaster1rel": {
+      "fkDevoteePaymentPaymentModeMaster1rel": {
         "model": "PaymentModeMaster",
         "type": "belongsTo",
         "foreignKey": "paymentModeMasterId"
+      },
+      "fkOrderPaymentDevotee1rel": {
+        "model": "Devotee",
+        "type": "belongsTo",
+        "foreignKey": "devoteeId"
       }
     }
   },
@@ -43,7 +38,7 @@
     },
     "devoteeId": {
       "type": "String",
-      "required": false,
+      "required": true,
       "length": 36,
       "precision": null,
       "scale": null,
@@ -53,57 +48,12 @@
         "dataLength": 36,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "date": {
-      "type": "Date",
-      "required": true,
-      "length": null,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "date",
-        "dataType": "date",
-        "dataLength": null,
-        "dataPrecision": null,
-        "dataScale": null,
         "nullable": "N"
-      }
-    },
-    "paymentRefNumber": {
-      "type": "String",
-      "required": false,
-      "length": 50,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "payment-ref-number",
-        "dataType": "varchar",
-        "dataLength": 50,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "donationTypeMasterId": {
-      "type": "String",
-      "required": false,
-      "length": 36,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "donation-type-master-id",
-        "dataType": "varchar",
-        "dataLength": 36,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
       }
     },
     "paymentModeMasterId": {
       "type": "String",
-      "required": false,
+      "required": true,
       "length": 36,
       "precision": null,
       "scale": null,
@@ -113,7 +63,37 @@
         "dataLength": 36,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "Y"
+        "nullable": "N"
+      }
+    },
+    "paymentDate": {
+      "type": "Date",
+      "required": true,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "payment-date",
+        "dataType": "datetime",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "paymentAmount": {
+      "type": "String",
+      "required": true,
+      "length": null,
+      "precision": 10,
+      "scale": 2,
+      "mysql": {
+        "columnName": "payment-amount",
+        "dataType": "decimal",
+        "dataLength": null,
+        "dataPrecision": 10,
+        "dataScale": 2,
+        "nullable": "N"
       }
     },
     "createdOn": {
