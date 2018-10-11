@@ -414,5 +414,33 @@
   "Configuration": {
     "dataSource": "mysqld",
     "public": true
+  },
+  "CircleStrength": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "Devoteefamily": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "DevoteeList": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "DevoteeServices": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "DevoteeSevaSubscription": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "OrgTopParent": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "SevaMaster": {
+    "dataSource": "mysqld",
+    "public": true
   }
 }

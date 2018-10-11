@@ -98,6 +98,13 @@ import { OrganizationTree } from '../../models/OrganizationTree';
 import { OrganizationChildren } from '../../models/OrganizationChildren';
 import { DevoteeDonationInterest } from '../../models/DevoteeDonationInterest';
 import { Configuration } from '../../models/Configuration';
+import { CircleStrength } from '../../models/CircleStrength';
+import { Devoteefamily } from '../../models/Devoteefamily';
+import { DevoteeList } from '../../models/DevoteeList';
+import { DevoteeServices } from '../../models/DevoteeServices';
+import { DevoteeSevaSubscription } from '../../models/DevoteeSevaSubscription';
+import { OrgTopParent } from '../../models/OrgTopParent';
+import { SevaMaster } from '../../models/SevaMaster';
 
 export interface Models { [name: string]: any }
 
@@ -203,6 +210,13 @@ export class SDKModels {
     OrganizationChildren: OrganizationChildren,
     DevoteeDonationInterest: DevoteeDonationInterest,
     Configuration: Configuration,
+    CircleStrength: CircleStrength,
+    Devoteefamily: Devoteefamily,
+    DevoteeList: DevoteeList,
+    DevoteeServices: DevoteeServices,
+    DevoteeSevaSubscription: DevoteeSevaSubscription,
+    OrgTopParent: OrgTopParent,
+    SevaMaster: SevaMaster,
     
   };
 

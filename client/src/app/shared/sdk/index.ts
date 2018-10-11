@@ -142,6 +142,13 @@ import { OrganizationTreeApi } from './services/custom/OrganizationTree';
 import { OrganizationChildrenApi } from './services/custom/OrganizationChildren';
 import { DevoteeDonationInterestApi } from './services/custom/DevoteeDonationInterest';
 import { ConfigurationApi } from './services/custom/Configuration';
+import { CircleStrengthApi } from './services/custom/CircleStrength';
+import { DevoteefamilyApi } from './services/custom/Devoteefamily';
+import { DevoteeListApi } from './services/custom/DevoteeList';
+import { DevoteeServicesApi } from './services/custom/DevoteeServices';
+import { DevoteeSevaSubscriptionApi } from './services/custom/DevoteeSevaSubscription';
+import { OrgTopParentApi } from './services/custom/OrgTopParent';
+import { SevaMasterApi } from './services/custom/SevaMaster';
 /**
 * @module SDKBrowserModule
 * @description
@@ -268,6 +275,13 @@ export class SDKBrowserModule {
         OrganizationChildrenApi,
         DevoteeDonationInterestApi,
         ConfigurationApi,
+        CircleStrengthApi,
+        DevoteefamilyApi,
+        DevoteeListApi,
+        DevoteeServicesApi,
+        DevoteeSevaSubscriptionApi,
+        OrgTopParentApi,
+        SevaMasterApi,
         internalStorageProvider,
         { provide: SDKStorage, useClass: StorageBrowser }
       ]
