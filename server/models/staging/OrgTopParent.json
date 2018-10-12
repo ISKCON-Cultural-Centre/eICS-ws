@@ -1,23 +1,37 @@
 {
-  "name": "Configuration",
+  "name": "OrgTopParent",
   "options": {
     "idInjection": false,
     "mysql": {
       "schema": "icc",
-      "table": "configuration"
+      "table": "org-top-parent"
     },
     "relations": {}
   },
   "properties": {
-    "id": {
+    "name": {
+      "type": "String",
+      "required": true,
+      "length": 45,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "name",
+        "dataType": "varchar",
+        "dataLength": 45,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "orgId": {
       "type": "String",
       "required": true,
       "length": 36,
       "precision": null,
       "scale": null,
-      "id": 1,
       "mysql": {
-        "columnName": "id",
+        "columnName": "org-id",
         "dataType": "varchar",
         "dataLength": 36,
         "dataPrecision": null,
@@ -25,49 +39,34 @@
         "nullable": "N"
       }
     },
-    "devoteeTaskGroupId": {
+    "ancestorName": {
       "type": "String",
-      "required": true,
-      "length": 36,
+      "required": false,
+      "length": 45,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "devotee-task-group-id",
+        "columnName": "ancestor-name",
         "dataType": "varchar",
-        "dataLength": 36,
+        "dataLength": 45,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
-    "marriageEventId": {
+    "ancestorId": {
       "type": "String",
-      "required": true,
+      "required": false,
       "length": 36,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "marriage-event-id",
+        "columnName": "ancestor-id",
         "dataType": "varchar",
         "dataLength": 36,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "N"
-      }
-    },
-    "devoteeCareRoleId": {
-      "type": "String",
-      "required": true,
-      "length": 36,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "devotee-care-role-id",
-        "dataType": "varchar",
-        "dataLength": 36,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "N"
+        "nullable": "Y"
       }
     }
   }

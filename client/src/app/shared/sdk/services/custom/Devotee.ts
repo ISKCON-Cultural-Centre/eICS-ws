@@ -1733,6 +1733,32 @@ export class DevoteeApi extends BaseLoopBackApi {
   }
 
   /**
+   * Get the list of Devotees who have attained certain Spiritual Levels
+   *
+   * @param {any} eventDateRange 
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `Devotee` object.)
+   * </em>
+   */
+  public getEventsDevotees(eventDateRange: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/Devotees/getEventsDevotees";
+    let _routeParams: any = {};
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof eventDateRange !== 'undefined' && eventDateRange !== null) _urlParams.eventDateRange = eventDateRange;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
    * Creates a new instance in accessTokens of this model.
    *
    * @param {any} id Devotee id

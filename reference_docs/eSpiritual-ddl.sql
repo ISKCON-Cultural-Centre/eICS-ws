@@ -67,9 +67,6 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
-<<<<<<< HEAD
--- Table `icc`.`spiritual-level-master`
-=======
 -- Table `icc`.`asrama-master`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `icc`.`asrama-master` (
@@ -153,7 +150,6 @@ DEFAULT CHARACTER SET = utf8;
 
 -- -----------------------------------------------------
 -- Table `icc`.`physical-address`
->>>>>>> development
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `icc`.`physical-address` (
   `id` VARCHAR(36) NOT NULL,
@@ -199,12 +195,7 @@ CREATE TABLE IF NOT EXISTS `icc`.`devotee` (
   `spiritual-name` VARCHAR(100) NULL DEFAULT NULL,
   `gender` CHAR(1) NULL DEFAULT NULL,
   `shiksha-level` VARCHAR(100) NULL DEFAULT NULL,
-<<<<<<< HEAD
-  `spiritual-level-master-id` VARCHAR(36) NULL,
-  `credit-limit` DECIMAL(10,2) NOT NULL DEFAULT 0,
-=======
   `credit-limit` INT(11) NOT NULL DEFAULT '0',
->>>>>>> development
   `realm` VARCHAR(512) NULL DEFAULT NULL,
   `username` VARCHAR(512) NULL DEFAULT NULL,
   `password` VARCHAR(512) NULL DEFAULT NULL,
@@ -234,14 +225,6 @@ CREATE TABLE IF NOT EXISTS `icc`.`devotee` (
   PRIMARY KEY (`id`),
   UNIQUE INDEX `access-id_UNIQUE` (`access-id` ASC),
   INDEX `fk_devotee_id_idx` (`id` ASC),
-<<<<<<< HEAD
-  INDEX `fk_devotee_spiritual-level-master1_idx` (`spiritual-level-master-id` ASC),
-  INDEX `fk_devotee_circle1_idx` (`circle-id` ASC),
-  UNIQUE INDEX `created-by_UNIQUE` (`created-by` ASC),
-  CONSTRAINT `fk_devotee_spiritual-level-master1`
-    FOREIGN KEY (`spiritual-level-master-id`)
-    REFERENCES `icc`.`spiritual-level-master` (`id`)
-=======
   INDEX `fk_devotee_circle1_idx` (`circle-id` ASC),
   INDEX `fk_devotee_language1_idx` (`mother-tongue-language-id` ASC),
   INDEX `fk_devotee_nakshatra-master1_idx` (`nakshatra` ASC),
@@ -311,7 +294,6 @@ CREATE TABLE IF NOT EXISTS `icc`.`approval-que` (
   CONSTRAINT `fk_approval-que_devotee1`
     FOREIGN KEY (`approver-id`)
     REFERENCES `icc`.`devotee` (`id`)
->>>>>>> development
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_approval-que_devotee3`
@@ -584,48 +566,7 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
-<<<<<<< HEAD
--- Table `icc`.`electronic-address-type-master`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `icc`.`electronic-address-type-master` (
-  `id` VARCHAR(36) NOT NULL,
-  `name` VARCHAR(50) NULL,
-  `created-on` DATETIME NULL DEFAULT NULL,
-  `updated-on` DATETIME NULL DEFAULT NULL,
-  `created-by` VARCHAR(36) NULL DEFAULT NULL,
-  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
--- Table `icc`.`electronic-address`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `icc`.`electronic-address` (
-  `id` VARCHAR(36) NOT NULL,
-  `electronic-address-type-master-id` VARCHAR(36) NULL,
-  `electronic-address` VARCHAR(50) NULL,
-  `created-on` DATETIME NULL DEFAULT NULL,
-  `updated-on` DATETIME NULL DEFAULT NULL,
-  `created-by` VARCHAR(36) NULL DEFAULT NULL,
-  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_electronic-address_electronic-address-type-master1_idx` (`electronic-address-type-master-id` ASC),
-  CONSTRAINT `fk_electronic-address_electronic-address-type-master1`
-    FOREIGN KEY (`electronic-address-type-master-id`)
-    REFERENCES `icc`.`electronic-address-type-master` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
--- Table `icc`.`donation-type-master`
-=======
 -- Table `icc`.`group-master`
->>>>>>> development
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `icc`.`group-master` (
   `id` VARCHAR(36) NOT NULL,
@@ -674,53 +615,7 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
-<<<<<<< HEAD
--- Table `icc`.`physical-address-type-master`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `icc`.`physical-address-type-master` (
-  `id` VARCHAR(36) NOT NULL,
-  `address-type` VARCHAR(50) NULL,
-  `created-on` DATETIME NULL DEFAULT NULL,
-  `updated-on` DATETIME NULL DEFAULT NULL,
-  `created-by` VARCHAR(36) NULL DEFAULT NULL,
-  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
--- Table `icc`.`physical-address`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `icc`.`physical-address` (
-  `id` VARCHAR(36) NOT NULL,
-  `address-type-master-id` VARCHAR(36) NULL,
-  `address-line-1` VARCHAR(100) NULL,
-  `address-line-2` VARCHAR(100) NULL,
-  `address-area` VARCHAR(100) NULL,
-  `address-city` VARCHAR(100) NULL,
-  `address-country` VARCHAR(100) NULL,
-  `address-pin` VARCHAR(10) NULL,
-  `created-on` DATETIME NULL DEFAULT NULL,
-  `updated-on` DATETIME NULL DEFAULT NULL,
-  `created-by` VARCHAR(36) NULL DEFAULT NULL,
-  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_physical-address_address-type-master1_idx` (`address-type-master-id` ASC),
-  CONSTRAINT `fk_physical-address_address-type-master1`
-    FOREIGN KEY (`address-type-master-id`)
-    REFERENCES `icc`.`physical-address-type-master` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
--- Table `icc`.`new-contact`
-=======
 -- Table `icc`.`devotee-karmi-family`
->>>>>>> development
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `icc`.`devotee-karmi-family` (
   `family-name` VARCHAR(100) NULL DEFAULT NULL,
@@ -1862,16 +1757,8 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_unicode_ci;
 
-USE `mg` ;
 
 -- -----------------------------------------------------
-<<<<<<< HEAD
--- Table `mg`.`product-attribute`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mg`.`product-attribute` (
-  `id` VARCHAR(36) NOT NULL,
-  `name` VARCHAR(50) NOT NULL,
-=======
 -- Table `icc`.`outreach-master`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `icc`.`outreach-master` (
@@ -1881,36 +1768,12 @@ CREATE TABLE IF NOT EXISTS `icc`.`outreach-master` (
   `updated-on` DATETIME NULL DEFAULT NULL,
   `created-by` VARCHAR(36) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL,
   `updated-by` VARCHAR(36) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL,
->>>>>>> development
   PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
-<<<<<<< HEAD
--- Table `mg`.`product-attribute-instance`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mg`.`product-attribute-instance` (
-  `id` VARCHAR(36) NOT NULL,
-  `product-attribute-instance-value` VARCHAR(100) NOT NULL,
-  `product-attribute-id` VARCHAR(36) NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_product-attribute-instance_product-attribute1_idx` (`product-attribute-id` ASC),
-  CONSTRAINT `fk_product-attribute-instance_product-attribute1`
-    FOREIGN KEY (`product-attribute-id`)
-    REFERENCES `mg`.`product-attribute` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mg`.`unit-of-measure`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mg`.`unit-of-measure` (
-  `id` VARCHAR(36) NOT NULL,
-  `uom-name` VARCHAR(50) NULL,
-=======
 -- Table `icc`.`physical-address-type-master`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `icc`.`physical-address-type-master` (
@@ -1920,26 +1783,12 @@ CREATE TABLE IF NOT EXISTS `icc`.`physical-address-type-master` (
   `updated-on` DATETIME NULL DEFAULT NULL,
   `created-by` VARCHAR(36) NULL DEFAULT NULL,
   `updated-by` VARCHAR(36) NULL DEFAULT NULL,
->>>>>>> development
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
-<<<<<<< HEAD
--- Table `mg`.`product`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mg`.`product` (
-  `id` VARCHAR(36) NOT NULL,
-  `name` VARCHAR(100) NULL,
-  `unit-of-measure-id` VARCHAR(36) NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_product_unit-of-measure1_idx` (`unit-of-measure-id` ASC),
-  CONSTRAINT `fk_product_unit-of-measure1`
-    FOREIGN KEY (`unit-of-measure-id`)
-    REFERENCES `mg`.`unit-of-measure` (`id`)
-=======
 -- Table `icc`.`pledge`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `icc`.`pledge` (
@@ -1959,39 +1808,13 @@ CREATE TABLE IF NOT EXISTS `icc`.`pledge` (
   CONSTRAINT `fk_pledge_devotee2`
     FOREIGN KEY (`devotee-id`)
     REFERENCES `icc`.`devotee` (`id`)
->>>>>>> development
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
-<<<<<<< HEAD
--- Table `mg`.`tax-category`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mg`.`tax-category` (
-  `id` VARCHAR(36) NOT NULL,
-  `tax-category-name` VARCHAR(50) NOT NULL,
-  `tax-percent` DECIMAL(6,2) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mg`.`hsn`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mg`.`hsn` (
-  `hsn-code` VARCHAR(50) NOT NULL,
-  `tax-category-id` VARCHAR(36) NOT NULL,
-  PRIMARY KEY (`hsn-code`),
-  INDEX `fk_hsn-tax-category_tax-category1_idx` (`tax-category-id` ASC),
-  CONSTRAINT `fk_hsn-tax-category_tax-category1`
-    FOREIGN KEY (`tax-category-id`)
-    REFERENCES `mg`.`tax-category` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-=======
 -- Table `icc`.`pledge-payment`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `icc`.`pledge-payment` (
@@ -2107,7 +1930,6 @@ CREATE TABLE IF NOT EXISTS `icc`.`rolemapping` (
   INDEX `principalId` (`principalId` ASC))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
->>>>>>> development
 
 
 -- -----------------------------------------------------
@@ -2115,55 +1937,18 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `icc`.`service-role-mapping` (
   `id` VARCHAR(36) NOT NULL,
-<<<<<<< HEAD
-  `bar-code` VARCHAR(255) NOT NULL,
-  `bar-code-type` VARCHAR(50) NULL DEFAULT NULL,
-  `title` VARCHAR(255) NOT NULL,
-  `maximum-retail-price` DOUBLE NOT NULL DEFAULT '0',
-  `discounted` VARCHAR(5) NULL DEFAULT 'no',
-  `discount-allowed-ind` TINYINT NOT NULL DEFAULT b'1',
-  `in-stock-qty` INT NOT NULL DEFAULT 0,
-  `manage-stock` TINYINT NULL DEFAULT b'1',
-=======
   `principal-type` VARCHAR(512) NULL DEFAULT NULL,
   `principal-id` VARCHAR(255) NULL DEFAULT NULL,
   `role-id` VARCHAR(36) NOT NULL,
->>>>>>> development
   `created-on` DATETIME NULL DEFAULT NULL,
   `updated-on` DATETIME NULL DEFAULT NULL,
   `created-by` VARCHAR(36) NULL DEFAULT NULL,
   `updated-by` VARCHAR(36) NULL DEFAULT NULL,
-<<<<<<< HEAD
-  `product-attribute-instance-id` VARCHAR(36) NOT NULL,
-  `product-id` VARCHAR(36) NOT NULL,
-  `sell-price` DOUBLE NOT NULL,
-  `hsn-code` VARCHAR(50) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `PRODUCTS_INX_1` (`bar-code` ASC),
-  INDEX `PRODUCTS_NAME_INX` (`title` ASC),
-  INDEX `fk_product-instance_product-attribute-instance1_idx` (`product-attribute-instance-id` ASC),
-  INDEX `fk_product-sku_product1_idx` (`product-id` ASC),
-  INDEX `fk_product-sku_hsn1_idx` (`hsn-code` ASC),
-  CONSTRAINT `fk_product-instance_product-attribute-instance1`
-    FOREIGN KEY (`product-attribute-instance-id`)
-    REFERENCES `mg`.`product-attribute-instance` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_product-sku_product1`
-    FOREIGN KEY (`product-id`)
-    REFERENCES `mg`.`product` (`id`)
-=======
   PRIMARY KEY (`id`),
   INDEX `fk_service-mapping_service1_idx` (`role-id` ASC),
   CONSTRAINT `fk_service-role_mapping1`
     FOREIGN KEY (`role-id`)
     REFERENCES `icc`.`service-role` (`id`)
->>>>>>> development
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_product-sku_hsn1`
-    FOREIGN KEY (`hsn-code`)
-    REFERENCES `mg`.`hsn` (`hsn-code`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -2171,28 +1956,7 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
-<<<<<<< HEAD
--- Table `mg`.`order-status`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mg`.`order-status` (
-  `id` VARCHAR(16) NOT NULL,
-  `order-status` VARCHAR(20) NOT NULL,
-  `order-status-description` VARCHAR(50) NOT NULL,
-  `crud-allowed` VARCHAR(4) NOT NULL,
-  `created-on` DATETIME NULL DEFAULT NULL,
-  `updated-on` DATETIME NULL DEFAULT NULL,
-  `created-by` VARCHAR(36) NULL DEFAULT NULL,
-  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
--- Table `mg`.`order-return`
-=======
 -- Table `icc`.`stgdevotee`
->>>>>>> development
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `icc`.`stgdevotee` (
   `id` VARCHAR(36) NOT NULL,
@@ -2305,67 +2069,7 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
-<<<<<<< HEAD
--- Table `mg`.`order-channel`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mg`.`order-channel` (
-  `id` VARCHAR(36) NOT NULL,
-  `name` VARCHAR(50) NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-COMMENT = 'Identify the Sales Channel - Online, POS';
-
-
--- -----------------------------------------------------
--- Table `mg`.`order`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mg`.`order` (
-  `id` VARCHAR(16) NOT NULL,
-  `order-date-time` DATETIME NOT NULL,
-  `request-no` INT NOT NULL,
-  `order-no` INT NOT NULL,
-  `created-on` DATETIME NULL DEFAULT NULL,
-  `updated-on` DATETIME NULL DEFAULT NULL,
-  `created-by` VARCHAR(36) NULL DEFAULT NULL,
-  `updated-by` VARCHAR(36) NULL DEFAULT NULL,
-  `order-status-id` VARCHAR(16) NOT NULL,
-  `devotee-id` VARCHAR(36) NOT NULL,
-  `serving-devotee-id` VARCHAR(36) NULL,
-  `order-channel-id` VARCHAR(36) NOT NULL,
-  INDEX `fk_table1_book-request-status1_idx` (`order-status-id` ASC),
-  INDEX `fk_table1_devotee2_idx` (`devotee-id` ASC),
-  PRIMARY KEY (`id`),
-  INDEX `fk_order_devotee1_idx` (`serving-devotee-id` ASC),
-  INDEX `fk_order_order-channel1_idx` (`order-channel-id` ASC),
-  CONSTRAINT `fk_table1_book-request-status1`
-    FOREIGN KEY (`order-status-id`)
-    REFERENCES `mg`.`order-status` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_table1_devotee2`
-    FOREIGN KEY (`devotee-id`)
-    REFERENCES `icc`.`devotee` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_order_devotee1`
-    FOREIGN KEY (`serving-devotee-id`)
-    REFERENCES `icc`.`devotee` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_order_order-channel1`
-    FOREIGN KEY (`order-channel-id`)
-    REFERENCES `mg`.`order-channel` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
--- Table `mg`.`order-line`
-=======
 -- Table `icc`.`fund-instrument-type`
->>>>>>> development
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `icc`.`fund-instrument-type` (
   `id` VARCHAR(36) NOT NULL,
@@ -2406,276 +2110,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
-<<<<<<< HEAD
--- Table `mg`.`payment-mode-master`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mg`.`payment-mode-master` (
-  `id` VARCHAR(36) NOT NULL,
-  `mode-name` VARCHAR(50) NOT NULL,
-  `description` VARCHAR(100) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mg`.`payment`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mg`.`payment` (
-  `id` VARCHAR(36) NOT NULL,
-  `devotee-id` VARCHAR(36) NOT NULL,
-  `payment-mode-master-id` VARCHAR(36) NOT NULL,
-  `payment-date` DATETIME NOT NULL,
-  `payment-amount` DECIMAL(10,2) NOT NULL DEFAULT 0,
-  PRIMARY KEY (`id`),
-  INDEX `fk_order-payment_devotee1_idx` (`devotee-id` ASC),
-  INDEX `fk_devotee-payment_payment-mode-master1_idx` (`payment-mode-master-id` ASC),
-  CONSTRAINT `fk_order-payment_devotee1`
-    FOREIGN KEY (`devotee-id`)
-    REFERENCES `icc`.`devotee` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_devotee-payment_payment-mode-master1`
-    FOREIGN KEY (`payment-mode-master-id`)
-    REFERENCES `mg`.`payment-mode-master` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mg`.`tax-line`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mg`.`tax-line` (
-  `id` VARCHAR(36) NOT NULL,
-  `invoice-invoice-number` INT NOT NULL)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mg`.`delivery-note`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mg`.`delivery-note` (
-  `id` VARCHAR(36) NOT NULL,
-  `delivered-date` DATETIME NOT NULL,
-  `delivery-notes` VARCHAR(255) NOT NULL,
-  `order-id` VARCHAR(16) NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_delivery-note_order1_idx` (`order-id` ASC),
-  CONSTRAINT `fk_delivery-note_order1`
-    FOREIGN KEY (`order-id`)
-    REFERENCES `mg`.`order` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mg`.`credit-note`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mg`.`credit-note` (
-  `id` VARCHAR(36) NOT NULL,
-  `order-id` VARCHAR(16) NOT NULL,
-  `due-amount` DECIMAL(10,2) NOT NULL,
-  `payment-id` VARCHAR(36) NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_credit-note_order1_idx` (`order-id` ASC),
-  INDEX `fk_credit-note_payment1_idx` (`payment-id` ASC),
-  CONSTRAINT `fk_credit-note_order1`
-    FOREIGN KEY (`order-id`)
-    REFERENCES `mg`.`order` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_credit-note_payment1`
-    FOREIGN KEY (`payment-id`)
-    REFERENCES `mg`.`payment` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mg`.`tax-component`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mg`.`tax-component` (
-  `id` VARCHAR(36) NOT NULL,
-  `tax-component-name` VARCHAR(50) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mg`.`tax-category-component`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mg`.`tax-category-component` (
-  `tax-category-id` VARCHAR(36) NOT NULL,
-  `tax-component-id` VARCHAR(36) NOT NULL,
-  `tax-percent` DECIMAL(6,2) NOT NULL,
-  INDEX `fk_tax-category-component_tax-category1_idx` (`tax-category-id` ASC),
-  PRIMARY KEY (`tax-category-id`, `tax-component-id`),
-  INDEX `fk_tax-category-component_tax-component1_idx` (`tax-component-id` ASC),
-  CONSTRAINT `fk_tax-category-component_tax-category1`
-    FOREIGN KEY (`tax-category-id`)
-    REFERENCES `mg`.`tax-category` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_tax-category-component_tax-component1`
-    FOREIGN KEY (`tax-component-id`)
-    REFERENCES `mg`.`tax-component` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mg`.`invoice`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mg`.`invoice` (
-  `invoice-number` INT NOT NULL,
-  `order-id` VARCHAR(16) NOT NULL,
-  `payment-id` VARCHAR(36) NULL,
-  `credit-note-id` VARCHAR(36) NULL,
-  `invoice-amount` DECIMAL(15,2) NOT NULL COMMENT '				',
-  INDEX `fk_invoice_order1_idx` (`order-id` ASC),
-  INDEX `fk_invoice_payment1_idx` (`payment-id` ASC),
-  PRIMARY KEY (`invoice-number`),
-  CONSTRAINT `fk_invoice_order1`
-    FOREIGN KEY (`order-id`)
-    REFERENCES `mg`.`order` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_invoice_payment1`
-    FOREIGN KEY (`payment-id`)
-    REFERENCES `mg`.`payment` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mg`.`devotee-physical-address`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mg`.`devotee-physical-address` (
-  `devotee-id` VARCHAR(36) NOT NULL,
-  `physical-address-id` VARCHAR(36) NOT NULL,
-  INDEX `fk_devotee-address_devotee1_idx` (`devotee-id` ASC),
-  INDEX `fk_devotee-address_physical-address1_idx` (`physical-address-id` ASC),
-  PRIMARY KEY (`physical-address-id`, `devotee-id`),
-  CONSTRAINT `fk_devotee-address_devotee1`
-    FOREIGN KEY (`devotee-id`)
-    REFERENCES `icc`.`devotee` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_devotee-address_physical-address1`
-    FOREIGN KEY (`physical-address-id`)
-    REFERENCES `icc`.`physical-address` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mg`.`devotee-electronic-address`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mg`.`devotee-electronic-address` (
-  `devotee-id` VARCHAR(36) NOT NULL,
-  `electronic-address-id` VARCHAR(36) NOT NULL,
-  INDEX `fk_devotee-electronic-address_devotee1_idx` (`devotee-id` ASC),
-  INDEX `fk_devotee-electronic-address_electronic-address1_idx` (`electronic-address-id` ASC),
-  PRIMARY KEY (`devotee-id`, `electronic-address-id`),
-  CONSTRAINT `fk_devotee-electronic-address_devotee1`
-    FOREIGN KEY (`devotee-id`)
-    REFERENCES `icc`.`devotee` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_devotee-electronic-address_electronic-address1`
-    FOREIGN KEY (`electronic-address-id`)
-    REFERENCES `icc`.`electronic-address` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mg`.`supplier`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mg`.`supplier` (
-  `id` VARCHAR(36) NOT NULL,
-  `supplier-name` VARCHAR(255) NOT NULL,
-  `tax-identification-number` VARCHAR(20) NOT NULL,
-  `gstn-number` VARCHAR(50) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mg`.`supplier-physical-address`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mg`.`supplier-physical-address` (
-  `physical-address-id` VARCHAR(36) NOT NULL,
-  `supplier-id` VARCHAR(36) NOT NULL,
-  INDEX `fk_supplier-address_physical-address1_idx` (`physical-address-id` ASC),
-  PRIMARY KEY (`physical-address-id`, `supplier-id`),
-  INDEX `fk_supplier-physical-address_supplier1_idx` (`supplier-id` ASC),
-  CONSTRAINT `fk_supplier-address_physical-address1`
-    FOREIGN KEY (`physical-address-id`)
-    REFERENCES `icc`.`physical-address` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_supplier-physical-address_supplier1`
-    FOREIGN KEY (`supplier-id`)
-    REFERENCES `mg`.`supplier` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mg`.`supplier-electronic-address`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mg`.`supplier-electronic-address` (
-  `electronic-address-id` VARCHAR(36) NOT NULL,
-  `supplier-id` VARCHAR(36) NOT NULL,
-  INDEX `fk_supplier-electronic-address_electronic-address1_idx` (`electronic-address-id` ASC),
-  INDEX `fk_supplier-electronic-address_supplier1_idx` (`supplier-id` ASC),
-  PRIMARY KEY (`supplier-id`, `electronic-address-id`),
-  CONSTRAINT `fk_supplier-electronic-address_electronic-address1`
-    FOREIGN KEY (`electronic-address-id`)
-    REFERENCES `icc`.`electronic-address` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_supplier-electronic-address_supplier1`
-    FOREIGN KEY (`supplier-id`)
-    REFERENCES `mg`.`supplier` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mg`.`stock-inward`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mg`.`stock-inward` (
-  `id` VARCHAR(36) NOT NULL,
-  `supplier-invoice-number` VARCHAR(50) NOT NULL,
-  `invoice-date` DATE NOT NULL,
-  `supplier-id` VARCHAR(36) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mg`.`stock-current`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mg`.`stock-current` (
-  `id` VARCHAR(36) NOT NULL,
-  `product-sku-id` VARCHAR(36) NOT NULL,
-  `quantity` INT NOT NULL DEFAULT 0,
-  PRIMARY KEY (`id`),
-  INDEX `fk_product-stock-current_product-sku1_idx` (`product-sku-id` ASC),
-  CONSTRAINT `fk_product-stock-current_product-sku1`
-    FOREIGN KEY (`product-sku-id`)
-    REFERENCES `mg`.`product-sku` (`id`)
-=======
 -- Table `icc`.`instrument-issue-register`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `icc`.`instrument-issue-register` (
@@ -2699,39 +2133,10 @@ CREATE TABLE IF NOT EXISTS `icc`.`instrument-issue-register` (
   CONSTRAINT `fk_instrument-issued-devotee`
     FOREIGN KEY (`issuer-id`)
     REFERENCES `icc`.`devotee` (`id`)
->>>>>>> development
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-<<<<<<< HEAD
-
--- -----------------------------------------------------
--- Table `mg`.`stock-inward-diary`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mg`.`stock-inward-diary` (
-  `stock-inward-id` VARCHAR(36) NOT NULL,
-  `line-number` SMALLINT NOT NULL,
-  `product-sku-id` VARCHAR(36) NOT NULL,
-  `col` INT(11) NOT NULL,
-  INDEX `fk_stock-inward-diary_product-sku1_idx` (`product-sku-id` ASC),
-  PRIMARY KEY (`line-number`, `stock-inward-id`),
-  INDEX `fk_stock-inward-diary_stock-inward1_idx` (`stock-inward-id` ASC),
-  CONSTRAINT `fk_stock-inward-diary_product-sku1`
-    FOREIGN KEY (`product-sku-id`)
-    REFERENCES `mg`.`product-sku` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_stock-inward-diary_stock-inward1`
-    FOREIGN KEY (`stock-inward-id`)
-    REFERENCES `mg`.`stock-inward` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-USE `placeholder` ;
-=======
->>>>>>> development
 
 -- -----------------------------------------------------
 -- Table `icc`.`instrument-return-register`
@@ -2797,8 +2202,6 @@ CREATE TABLE IF NOT EXISTS `icc`.`instrument-payment-register` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-<<<<<<< HEAD
-=======
 USE `icc` ;
 
 -- -----------------------------------------------------
@@ -2812,7 +2215,6 @@ CREATE TABLE IF NOT EXISTS `icc`.`icc_council` (`id` INT, `legal-name` INT, `cir
 DROP TABLE IF EXISTS `icc`.`icc_council`;
 USE `icc`;
 CREATE  OR REPLACE ALGORITHM=UNDEFINED DEFINER=`admin`@`%` SQL SECURITY DEFINER VIEW `icc`.`icc_council` AS select `icc`.`devotee`.`id` AS `id`,`icc`.`devotee`.`legal-name` AS `legal-name`,`icc`.`devotee`.`circle-id` AS `circle-id`,`icc`.`devotee`.`spiritual-name` AS `spiritual-name`,`icc`.`devotee`.`gender` AS `gender`,`icc`.`devotee`.`shiksha-level` AS `shiksha-level`,`icc`.`devotee`.`credit-limit` AS `credit-limit`,`icc`.`devotee`.`realm` AS `realm`,`icc`.`devotee`.`username` AS `username`,`icc`.`devotee`.`password` AS `password`,`icc`.`devotee`.`email` AS `email`,`icc`.`devotee`.`emailVerified` AS `emailVerified`,`icc`.`devotee`.`verificationToken` AS `verificationToken`,`icc`.`devotee`.`access-id` AS `access-id`,`icc`.`devotee`.`government-unique-id` AS `government-unique-id`,`icc`.`devotee`.`income-tax-id` AS `income-tax-id`,`icc`.`devotee`.`lpm-id` AS `lpm-id`,`icc`.`devotee`.`kc-association-date` AS `kc-association-date`,`icc`.`devotee`.`mother-tongue-language-id` AS `mother-tongue-language-id`,`icc`.`devotee`.`date-of-birth` AS `date-of-birth`,`icc`.`devotee`.`nakshatra` AS `nakshatra`,`icc`.`devotee`.`gothra` AS `gothra`,`icc`.`devotee`.`asrama-master-id` AS `asrama-master-id`,`icc`.`devotee`.`created-on` AS `created-on`,`icc`.`devotee`.`updated-on` AS `updated-on`,`icc`.`devotee`.`created-by` AS `created-by`,`icc`.`devotee`.`updated-by` AS `updated-by`,`icc`.`devotee`.`profession-id` AS `profession-id`,`icc`.`devotee`.`physical-address-id` AS `physical-address-id`,`icc`.`devotee`.`mobile-no` AS `mobile-no`,`icc`.`devotee`.`landline-no` AS `landline-no`,`icc`.`devotee`.`day-month-of-birth` AS `day-month-of-birth`,`icc`.`devotee`.`unique-id` AS `unique-id` from `icc`.`devotee` where `icc`.`devotee`.`id` in (select `icc`.`service-role-mapping`.`principal-id` from `icc`.`service-role-mapping` where `icc`.`service-role-mapping`.`role-id` in (select `icc`.`service-role`.`id` from `icc`.`service-role` where (`icc`.`service-role`.`name` = 'ICC Council')));
->>>>>>> development
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

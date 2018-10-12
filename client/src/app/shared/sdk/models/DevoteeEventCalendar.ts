@@ -10,6 +10,7 @@ export interface DevoteeEventCalendarInterface {
   "devoteeId": string;
   "eventMasterId": string;
   "eventDate": Date;
+  "eventDateDayOfYear": number;
   "comments"?: string;
   "createdOn"?: Date;
   "updatedOn"?: Date;
@@ -26,6 +27,7 @@ export class DevoteeEventCalendar implements DevoteeEventCalendarInterface {
   "devoteeId": string;
   "eventMasterId": string;
   "eventDate": Date;
+  "eventDateDayOfYear": number;
   "comments": string;
   "createdOn": Date;
   "updatedOn": Date;
@@ -83,6 +85,10 @@ export class DevoteeEventCalendar implements DevoteeEventCalendarInterface {
         "eventDate": {
           name: 'eventDate',
           type: 'Date'
+        },
+        "eventDateDayOfYear": {
+          name: 'eventDateDayOfYear',
+          type: 'number'
         },
         "comments": {
           name: 'comments',

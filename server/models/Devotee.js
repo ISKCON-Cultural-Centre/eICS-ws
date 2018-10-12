@@ -7,11 +7,6 @@ module.exports = function(Devotee) {
   /**
    * Get the list of Devotees.
    *
-   * ```js
-   * Devotee.getRoles(options, function (err, roles) {
-   *      console.log(token.id);
-   *    });
-   * ```
    *
    * @param {Object} options (context information to be included in all custom remote methods)
    * @callback {Function} cb Callback function
@@ -39,6 +34,7 @@ module.exports = function(Devotee) {
 			var services =  whereFilter.services ? whereFilter.services.length : 0;
 			var orgs = whereFilter.orgs ? whereFilter.orgs.length : 0;
 			var spiritualLevel = whereFilter.spiritualLevel ? whereFilter.spiritualLevel.length : 0;
+			var eventInd = whereFilter.eventDateRange.length > 1 ? 1 : 0;
 		}
 
 		if (whereFilter) {
@@ -64,10 +60,11 @@ module.exports = function(Devotee) {
 
 
 
-	if (services > 0 || spiritualLevel > 0) {
+	if (services > 0 || spiritualLevel > 0 || eventInd) {
 		Promise.all([
 			services > 0 ? Devotee.getServicesDevotees(whereFilter.services) : null,
-			spiritualLevel > 0 ? Devotee.getShikshaDevotees(whereFilter.spiritualLevel) : null
+			spiritualLevel > 0 ? Devotee.getShikshaDevotees(whereFilter.spiritualLevel) : null,
+			eventInd > 0 ? Devotee.getEventsDevotees(whereFilter.eventDateRange) : null
 		]).then(
 			(devotees) => {
 				var devoteeIds = devotees.map(function (devotee) {
@@ -233,6 +230,54 @@ module.exports = function(Devotee) {
 	});
 	return cb.promise;		
 }
+
+ /**
+   * Get the list of Devotees having events between certain dates.
+   *
+   * ```js
+   * Devotee.getShikshaDevotees(options, function (err, devotees) {
+   *      
+   *    });
+   * ```
+   *
+   * @callback {Function} cb Callback function
+   * @param {Error} err Error object
+   * @param {authorizedRoles} list of devotees successful
+   * @promise
+   */
+  Devotee.getEventsDevotees = function (eventDateRange, cb) {
+	cb = cb || utils.createPromiseCallback();
+
+	Devotee.getApp(function (err, app) {
+		if (err) {
+			cb(err);
+			return cb.promise;
+		}			
+		var DevoteeEventCalendar = app.models.DevoteeEventCalendar;	
+
+/* 		var shikshaIds = shikshas.map(function (shiksha) {
+			return '"' + shiksha + '"';
+		}); */
+		//console.log(serviceIds);
+
+		DevoteeEventCalendar.find({ "where" : { "eventDateDayOfYear": {"between": eventDateRange}}}, function (err, devoteeEvents) {
+			if (err) {
+				cb(err);
+				return cb.promise;
+			}		
+			
+			if (!devoteeEvents.length) { return cb(null, { "devoteeIds": [] });}
+			else {
+				var devoteeIds = devoteeEvents.map(function (devotee) {
+						return devotee.devoteeId;
+				});			
+				cb(null, {devoteeIds: devoteeIds});	
+			}		
+		});					
+	});
+	return cb.promise;		
+}
+
 
   /**
    * Get the list of Roles assigned to a Devotee.
@@ -481,7 +526,7 @@ return cb.promise;
 		returns: { arg: 'filter', type: 'String', root: true}
 		});		
  
- 	Devotee.remoteMethod('getShikshaDevotees', {
+ 		Devotee.remoteMethod('getShikshaDevotees', {
 		description: 'Get the list of Devotees who have attained certain Spiritual Levels',		
 		http: { path: '/getShikshaDevotees', verb: 'get' },
 		accepts: [
@@ -498,4 +543,16 @@ return cb.promise;
 			],			
 			 returns: { arg: 'devotees', type: 'String', root: true}
 		});		
+
+		Devotee.remoteMethod('getEventsDevotees', {
+				description: 'Get the list of Devotees who have attained certain Spiritual Levels',		
+				http: { path: '/getEventsDevotees', verb: 'get' },
+				accepts: [
+					{arg: 'eventDateRange', type: 'array'},
+					// {arg: 'startDate', type: 'date'},
+					// {arg: 'endDate', type: 'date'},
+				],			
+				 returns: { arg: 'devotees', type: 'String', root: true}
+		});		
+
 }

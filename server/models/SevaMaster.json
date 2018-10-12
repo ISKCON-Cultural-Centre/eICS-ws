@@ -1,23 +1,12 @@
 {
-  "name": "DevoteeEventCalendar",
+  "name": "SevaMaster",
   "options": {
     "idInjection": false,
     "mysql": {
       "schema": "icc",
-      "table": "devotee-event-calendar"
+      "table": "seva-master"
     },
-    "relations": {
-      "fkDevoteeEventCalendarDevotee2rel": {
-        "model": "Devotee",
-        "type": "belongsTo",
-        "foreignKey": "devoteeId"
-      },
-      "fkDevoteeEventCalendarEventMaster1rel": {
-        "model": "DevoteeEventMaster",
-        "type": "belongsTo",
-        "foreignKey": "eventMasterId"
-      }
-    }
+    "relations": {}
   },
   "properties": {
     "id": {
@@ -36,79 +25,19 @@
         "nullable": "N"
       }
     },
-    "devoteeId": {
+    "name": {
       "type": "String",
       "required": true,
-      "length": 36,
+      "length": 50,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "devotee-id",
+        "columnName": "name",
         "dataType": "varchar",
-        "dataLength": 36,
+        "dataLength": 50,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "N"
-      }
-    },
-    "eventMasterId": {
-      "type": "String",
-      "required": true,
-      "length": 36,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "event-master-id",
-        "dataType": "varchar",
-        "dataLength": 36,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "N"
-      }
-    },
-    "eventDate": {
-      "type": "Date",
-      "required": true,
-      "length": null,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "event-date",
-        "dataType": "date",
-        "dataLength": null,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "N"
-      }
-    },
-    "eventDateDayOfYear": {
-      "type": "Number",
-      "required": true,
-      "length": null,
-      "precision": 5,
-      "scale": 0,
-      "mysql": {
-        "columnName": "event-date-day-of-year",
-        "dataType": "smallint",
-        "dataLength": null,
-        "dataPrecision": 5,
-        "dataScale": 0,
-        "nullable": "N"
-      }
-    },
-    "comments": {
-      "type": "String",
-      "required": false,
-      "length": 100,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "comments",
-        "dataType": "varchar",
-        "dataLength": 100,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
       }
     },
     "createdOn": {

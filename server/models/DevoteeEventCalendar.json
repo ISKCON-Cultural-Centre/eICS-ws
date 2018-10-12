@@ -91,6 +91,21 @@
         "nullable": "N"
       }
     },
+    "eventDateDayOfYear": {
+      "type": "Number",
+      "required": true,
+      "length": null,
+      "precision": 5,
+      "scale": 0,
+      "mysql": {
+        "columnName": "event-date-day-of-year",
+        "dataType": "smallint",
+        "dataLength": null,
+        "dataPrecision": 5,
+        "dataScale": 0,
+        "nullable": "N"
+      }
+    },    
     "comments": {
       "type": "String",
       "required": false,
