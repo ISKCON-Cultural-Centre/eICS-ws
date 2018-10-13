@@ -6,8 +6,10 @@ import {
 
 declare var Object: any;
 export interface DevoteeSevaSubscriptionInterface {
+  "id": string;
   "devoteeId": string;
   "sevaMasterId": string;
+  "sevaReferenceNo": string;
   "createdOn"?: Date;
   "updatedOn"?: Date;
   "createdBy"?: string;
@@ -17,8 +19,10 @@ export interface DevoteeSevaSubscriptionInterface {
 }
 
 export class DevoteeSevaSubscription implements DevoteeSevaSubscriptionInterface {
+  "id": string;
   "devoteeId": string;
   "sevaMasterId": string;
+  "sevaReferenceNo": string;
   "createdOn": Date;
   "updatedOn": Date;
   "createdBy": string;
@@ -56,14 +60,22 @@ export class DevoteeSevaSubscription implements DevoteeSevaSubscriptionInterface
       name: 'DevoteeSevaSubscription',
       plural: 'DevoteeSevaSubscriptions',
       path: 'DevoteeSevaSubscriptions',
-      idName: 'devoteeId',
+      idName: 'id',
       properties: {
+        "id": {
+          name: 'id',
+          type: 'string'
+        },
         "devoteeId": {
           name: 'devoteeId',
           type: 'string'
         },
         "sevaMasterId": {
           name: 'sevaMasterId',
+          type: 'string'
+        },
+        "sevaReferenceNo": {
+          name: 'sevaReferenceNo',
           type: 'string'
         },
         "createdOn": {
