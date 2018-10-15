@@ -96,6 +96,8 @@ module.exports = function(Devotee) {
 				//console.log(finalWhereFilter);
 				finalWhereFilter = finalWhereFilter + '] }';
 				otherFilter.where = JSON.parse(finalWhereFilter);	
+				otherFilter.include = '{ relation: "fkDevoteeSevaSubscriptions"}';
+
 //console.log(otherFilter);								
 				Devotee.find(otherFilter, function (err, devotees) {
 					if (err) {

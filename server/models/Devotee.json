@@ -65,6 +65,11 @@
         "type": "hasMany",
         "model": "DevoteeGrouping",
         "foreignKey": "devoteeId"
+      },      
+      "fkDevoteeSevaSubscriptions": {
+        "type": "hasMany",
+        "model": "DevoteeSevaSubscription",
+        "foreignKey": "devoteeId"
       },              
       "fkDevoteeProfessionMaster1rel": {
         "model": "ProfessionMaster",
