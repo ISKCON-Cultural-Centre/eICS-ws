@@ -14,6 +14,8 @@ export interface DevoteeSevaSubscriptionInterface {
   "updatedOn"?: Date;
   "createdBy"?: string;
   "updatedBy"?: string;
+  "created-on"?: Date;
+  "updated-on"?: Date;
   fkDevoteeSevaSubscriptionDevoteerel?: Devotee;
   fkDevoteeSevaSubscriptionSevarel?: SevaMaster;
 }
@@ -27,6 +29,8 @@ export class DevoteeSevaSubscription implements DevoteeSevaSubscriptionInterface
   "updatedOn": Date;
   "createdBy": string;
   "updatedBy": string;
+  "created-on": Date;
+  "updated-on": Date;
   fkDevoteeSevaSubscriptionDevoteerel: Devotee;
   fkDevoteeSevaSubscriptionSevarel: SevaMaster;
   constructor(data?: DevoteeSevaSubscriptionInterface) {
@@ -93,6 +97,14 @@ export class DevoteeSevaSubscription implements DevoteeSevaSubscriptionInterface
         "updatedBy": {
           name: 'updatedBy',
           type: 'string'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {
