@@ -80,25 +80,30 @@ module.exports = function(Devotee) {
 				const names = devoteeIds;
 				 const count = names => 
 				   names.reduce((a, b) => 
-					 Object.assign(a, {[b]: (a[b] || 0) + 1}), {})			 
-				 const duplicates = dict => 
-				   Object.keys(dict).filter((a) => dict[a] > 1)
-				 /*console.log(count(names))
-				 console.log(duplicates(count(names)))*/
-				 if (spiritualLevel > 0 && services > 0) {
-					devoteeIds = duplicates(count(names))
+					 Object.assign(a, {[b]: (a[b] || 0) + 1}), {});
+				 const duplicates2 = dict => 
+				   Object.keys(dict).filter((a) => dict[a] > 1);
+				   const duplicates3 = dict => 
+				   Object.keys(dict).filter((a) => dict[a] > 2);
+				 if ((spiritualLevel > 0 && services > 0 && eventInd == 0) || 
+				 (spiritualLevel > 0 && services == 0 && eventInd > 0) ||
+				 (spiritualLevel == 0 && services > 0 && eventInd > 0))
+				 {
+					devoteeIds = duplicates2(count(names))
 				 }
+				 if (spiritualLevel > 0 && services > 0 && eventInd > 0) {
+					devoteeIds = duplicates3(count(names))
+				 }
+
 				var devoteeIds = devoteeIds.map(function (devoteeId) {
 					return '"' + devoteeId + '"';
 				});	
 				(whereFilter.searchText || orgs > 0 ) ? finalWhereFilter = finalWhereFilter + ',' : undefined;					
 				finalWhereFilter = finalWhereFilter + '{"id": {"inq":[' + devoteeIds + ']}}';
-				//console.log(finalWhereFilter);
 				finalWhereFilter = finalWhereFilter + '] }';
 				otherFilter.where = JSON.parse(finalWhereFilter);	
 				//otherFilter.include = '{ relation: "fkDevoteeSevaSubscriptions"}';
-
-//console.log(otherFilter);								
+							
 				Devotee.find(otherFilter, function (err, devotees) {
 					if (err) {
 						cb(err);
@@ -119,7 +124,6 @@ module.exports = function(Devotee) {
 	} else {
 		finalWhereFilter = finalWhereFilter + '] }';	
 		otherFilter.where = JSON.parse(finalWhereFilter);
-//console.log(otherFilter);
 		Devotee.find(otherFilter, function (err, devotees) {
 			if (err) {
 				cb(err);
@@ -164,10 +168,6 @@ module.exports = function(Devotee) {
 			}			
 			var DevoteeServiceInterest = app.models.DevoteeServiceInterest;	
 
-/* 			var serviceIds = services.map(function (service) {
-				return '"' + service + '"';
-			}); */
-			//console.log(serviceIds);
 			DevoteeServiceInterest.find({ "where" : { "serviceAreaId": {"inq": services}}}, function (err, devoteeServiceInterest) {
 				if (err) {
 					cb(err);
@@ -211,10 +211,6 @@ module.exports = function(Devotee) {
 		}			
 		var DevoteeSpiritualProgress = app.models.DevoteeSpiritualProgress;	
 
-/* 		var shikshaIds = shikshas.map(function (shiksha) {
-			return '"' + shiksha + '"';
-		}); */
-		//console.log(serviceIds);
 		DevoteeSpiritualProgress.find({ "where" : { "spiritualLevelMasterId": {"inq": shikshas}}}, function (err, devoteeSpiritualProgress) {
 			if (err) {
 				cb(err);
@@ -256,11 +252,6 @@ module.exports = function(Devotee) {
 			return cb.promise;
 		}			
 		var DevoteeEventCalendar = app.models.DevoteeEventCalendar;	
-
-/* 		var shikshaIds = shikshas.map(function (shiksha) {
-			return '"' + shiksha + '"';
-		}); */
-		//console.log(serviceIds);
 
 		DevoteeEventCalendar.find({ "where" : { "eventDateDayOfYear": {"between": eventDateRange}}}, function (err, devoteeEvents) {
 			if (err) {
