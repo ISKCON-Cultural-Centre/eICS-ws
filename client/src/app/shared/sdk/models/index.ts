@@ -104,5 +104,6 @@ export * from './DevoteeServices';
 export * from './DevoteeSevaSubscription';
 export * from './OrgTopParent';
 export * from './SevaMaster';
+export * from './OrganizationGenderStats';
 export * from './BaseModels';
 

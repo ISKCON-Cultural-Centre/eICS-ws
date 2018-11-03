@@ -149,6 +149,7 @@ import { DevoteeServicesApi } from './services/custom/DevoteeServices';
 import { DevoteeSevaSubscriptionApi } from './services/custom/DevoteeSevaSubscription';
 import { OrgTopParentApi } from './services/custom/OrgTopParent';
 import { SevaMasterApi } from './services/custom/SevaMaster';
+import { OrganizationGenderStatsApi } from './services/custom/OrganizationGenderStats';
 /**
 * @module SDKBrowserModule
 * @description
@@ -282,6 +283,7 @@ export class SDKBrowserModule {
         DevoteeSevaSubscriptionApi,
         OrgTopParentApi,
         SevaMasterApi,
+        OrganizationGenderStatsApi,
         internalStorageProvider,
         { provide: SDKStorage, useClass: StorageBrowser }
       ]

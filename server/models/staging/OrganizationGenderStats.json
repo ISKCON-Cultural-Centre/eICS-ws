@@ -1,0 +1,58 @@
+{
+  "name": "OrganizationGenderStats",
+  "options": {
+    "idInjection": false,
+    "mysql": {
+      "schema": "icc",
+      "table": "organization-gender-stats"
+    },
+    "relations": {}
+  },
+  "properties": {
+    "name": {
+      "type": "String",
+      "required": true,
+      "length": 45,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "name",
+        "dataType": "varchar",
+        "dataLength": 45,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "prabhujis": {
+      "type": "String",
+      "required": false,
+      "length": null,
+      "precision": 23,
+      "scale": 0,
+      "mysql": {
+        "columnName": "prabhujis",
+        "dataType": "decimal",
+        "dataLength": null,
+        "dataPrecision": 23,
+        "dataScale": 0,
+        "nullable": "Y"
+      }
+    },
+    "mathajis": {
+      "type": "String",
+      "required": false,
+      "length": null,
+      "precision": 23,
+      "scale": 0,
+      "mysql": {
+        "columnName": "mathajis",
+        "dataType": "decimal",
+        "dataLength": null,
+        "dataPrecision": 23,
+        "dataScale": 0,
+        "nullable": "Y"
+      }
+    }
+  }
+}
