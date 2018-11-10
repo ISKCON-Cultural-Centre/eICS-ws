@@ -103,7 +103,7 @@
         "dataLength": null,
         "dataPrecision": 5,
         "dataScale": 0,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },    
     "comments": {
