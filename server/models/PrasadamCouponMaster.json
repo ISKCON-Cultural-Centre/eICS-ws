@@ -1,24 +1,29 @@
 {
-  "name": "DevoteeEventCalendar",
+  "name": "PrasadamCouponMaster",
   "options": {
     "idInjection": false,
     "mysql": {
       "schema": "icc",
-      "table": "devotee-event-calendar"
+      "table": "prasadam-coupon-master"
     },
     "relations": {
-      "fkDevoteeEventCalendarDevotee2rel": {
-        "model": "Devotee",
+      "fkPrasadamCouponMasterDepartmentEvent1rel": {
+        "model": "DepartmentEvent",
         "type": "belongsTo",
-        "foreignKey": "devoteeId"
-      },
-      "fkDevoteeEventCalendarEventMaster1rel": {
-        "model": "DevoteeEventMaster",
-        "type": "belongsTo",
-        "foreignKey": "eventMasterId"
+        "foreignKey": "departmentEventId"
       }
     }
   },
+  "mixins": {
+    "TimeStamp": {
+      "createdAt": "created-on",
+      "updatedAt": "updated-on",
+      "required": false,
+      "validateUpsert": true,
+      "silenceWarnings": false
+    },
+    "GenerateKey": true
+  },  
   "properties": {
     "id": {
       "type": "String",
@@ -36,14 +41,14 @@
         "nullable": "N"
       }
     },
-    "devoteeId": {
+    "departmentEventId": {
       "type": "String",
       "required": true,
       "length": 36,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "devotee-id",
+        "columnName": "department-event-id",
         "dataType": "varchar",
         "dataLength": 36,
         "dataPrecision": null,
@@ -51,64 +56,19 @@
         "nullable": "N"
       }
     },
-    "eventMasterId": {
-      "type": "String",
-      "required": true,
-      "length": 36,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "event-master-id",
-        "dataType": "varchar",
-        "dataLength": 36,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "N"
-      }
-    },
-    "eventDate": {
+    "issueDateTime": {
       "type": "Date",
       "required": true,
       "length": null,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "event-date",
-        "dataType": "date",
+        "columnName": "issue-date-time",
+        "dataType": "timestamp",
         "dataLength": null,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "N"
-      }
-    },
-    "eventDateDayOfYear": {
-      "type": "Number",
-      "required": false,
-      "length": null,
-      "precision": 5,
-      "scale": 0,
-      "mysql": {
-        "columnName": "event-date-day-of-year",
-        "dataType": "smallint",
-        "dataLength": null,
-        "dataPrecision": 5,
-        "dataScale": 0,
-        "nullable": "Y"
-      }
-    },
-    "comments": {
-      "type": "String",
-      "required": false,
-      "length": 100,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "comments",
-        "dataType": "varchar",
-        "dataLength": 100,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
       }
     },
     "createdOn": {

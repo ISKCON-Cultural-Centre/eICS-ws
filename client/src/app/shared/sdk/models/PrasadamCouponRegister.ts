@@ -1,60 +1,54 @@
 /* tslint:disable */
 import {
   Devotee,
-  DevoteeEventMaster
+  PrasadamCouponMaster
 } from '../index';
 
 declare var Object: any;
-export interface DevoteeEventCalendarInterface {
-  "id": string;
+export interface PrasadamCouponRegisterInterface {
   "devoteeId": string;
-  "eventMasterId": string;
-  "eventDate": Date;
-  "eventDateDayOfYear"?: number;
-  "comments"?: string;
+  "prasadamCouponMasterId": string;
+  "returnedOn"?: Date;
   "createdOn"?: Date;
   "updatedOn"?: Date;
   "createdBy"?: string;
   "updatedBy"?: string;
   "created-on"?: Date;
   "updated-on"?: Date;
-  fkDevoteeEventCalendarDevotee2rel?: Devotee;
-  fkDevoteeEventCalendarEventMaster1rel?: DevoteeEventMaster;
+  fkPrasadamCouponIssueRegisterDevotee1rel?: Devotee;
+  fkPrasadamCouponIssueRegisterPrasadamCouponMaster1rel?: PrasadamCouponMaster;
 }
 
-export class DevoteeEventCalendar implements DevoteeEventCalendarInterface {
-  "id": string;
+export class PrasadamCouponRegister implements PrasadamCouponRegisterInterface {
   "devoteeId": string;
-  "eventMasterId": string;
-  "eventDate": Date;
-  "eventDateDayOfYear": number;
-  "comments": string;
+  "prasadamCouponMasterId": string;
+  "returnedOn": Date;
   "createdOn": Date;
   "updatedOn": Date;
   "createdBy": string;
   "updatedBy": string;
   "created-on": Date;
   "updated-on": Date;
-  fkDevoteeEventCalendarDevotee2rel: Devotee;
-  fkDevoteeEventCalendarEventMaster1rel: DevoteeEventMaster;
-  constructor(data?: DevoteeEventCalendarInterface) {
+  fkPrasadamCouponIssueRegisterDevotee1rel: Devotee;
+  fkPrasadamCouponIssueRegisterPrasadamCouponMaster1rel: PrasadamCouponMaster;
+  constructor(data?: PrasadamCouponRegisterInterface) {
     Object.assign(this, data);
   }
   /**
    * The name of the model represented by this $resource,
-   * i.e. `DevoteeEventCalendar`.
+   * i.e. `PrasadamCouponRegister`.
    */
   public static getModelName() {
-    return "DevoteeEventCalendar";
+    return "PrasadamCouponRegister";
   }
   /**
   * @method factory
   * @author Jonathan Casarrubias
   * @license MIT
-  * This method creates an instance of DevoteeEventCalendar for dynamic purposes.
+  * This method creates an instance of PrasadamCouponRegister for dynamic purposes.
   **/
-  public static factory(data: DevoteeEventCalendarInterface): DevoteeEventCalendar{
-    return new DevoteeEventCalendar(data);
+  public static factory(data: PrasadamCouponRegisterInterface): PrasadamCouponRegister{
+    return new PrasadamCouponRegister(data);
   }
   /**
   * @method getModelDefinition
@@ -65,34 +59,22 @@ export class DevoteeEventCalendar implements DevoteeEventCalendarInterface {
   **/
   public static getModelDefinition() {
     return {
-      name: 'DevoteeEventCalendar',
-      plural: 'DevoteeEventCalendars',
-      path: 'DevoteeEventCalendars',
-      idName: 'id',
+      name: 'PrasadamCouponRegister',
+      plural: 'PrasadamCouponRegisters',
+      path: 'PrasadamCouponRegisters',
+      idName: 'devoteeId',
       properties: {
-        "id": {
-          name: 'id',
-          type: 'string'
-        },
         "devoteeId": {
           name: 'devoteeId',
           type: 'string'
         },
-        "eventMasterId": {
-          name: 'eventMasterId',
+        "prasadamCouponMasterId": {
+          name: 'prasadamCouponMasterId',
           type: 'string'
         },
-        "eventDate": {
-          name: 'eventDate',
+        "returnedOn": {
+          name: 'returnedOn',
           type: 'Date'
-        },
-        "eventDateDayOfYear": {
-          name: 'eventDateDayOfYear',
-          type: 'number'
-        },
-        "comments": {
-          name: 'comments',
-          type: 'string'
         },
         "createdOn": {
           name: 'createdOn',
@@ -120,20 +102,20 @@ export class DevoteeEventCalendar implements DevoteeEventCalendarInterface {
         },
       },
       relations: {
-        fkDevoteeEventCalendarDevotee2rel: {
-          name: 'fkDevoteeEventCalendarDevotee2rel',
+        fkPrasadamCouponIssueRegisterDevotee1rel: {
+          name: 'fkPrasadamCouponIssueRegisterDevotee1rel',
           type: 'Devotee',
           model: 'Devotee',
           relationType: 'belongsTo',
                   keyFrom: 'devoteeId',
           keyTo: 'id'
         },
-        fkDevoteeEventCalendarEventMaster1rel: {
-          name: 'fkDevoteeEventCalendarEventMaster1rel',
-          type: 'DevoteeEventMaster',
-          model: 'DevoteeEventMaster',
+        fkPrasadamCouponIssueRegisterPrasadamCouponMaster1rel: {
+          name: 'fkPrasadamCouponIssueRegisterPrasadamCouponMaster1rel',
+          type: 'PrasadamCouponMaster',
+          model: 'PrasadamCouponMaster',
           relationType: 'belongsTo',
-                  keyFrom: 'eventMasterId',
+                  keyFrom: 'prasadamCouponMasterId',
           keyTo: 'id'
         },
       }

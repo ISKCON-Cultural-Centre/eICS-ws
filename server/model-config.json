@@ -446,5 +446,29 @@
   "OrganizationGenderStats": {
     "dataSource": "mysqld",
     "public": true
+  },
+  "PrasadamCouponRegister": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "PrasadamCouponMaster": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "EventDevoteeConfirmation": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "EventDevoteeAttendance": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "DevoteeCardLog": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "CardActionMaster": {
+    "dataSource": "mysqld",
+    "public": true
   }
 }

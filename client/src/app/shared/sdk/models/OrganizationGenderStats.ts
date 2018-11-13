@@ -5,7 +5,7 @@ export interface OrganizationGenderStatsInterface {
   "name": string;
   "prabhujis"?: string;
   "mathajis"?: string;
-  "id"?: number;
+  "id": number;
 }
 
 export class OrganizationGenderStats implements OrganizationGenderStatsInterface {
@@ -44,7 +44,7 @@ export class OrganizationGenderStats implements OrganizationGenderStatsInterface
       name: 'OrganizationGenderStats',
       plural: 'OrganizationGenderStats',
       path: 'OrganizationGenderStats',
-      idName: 'id',
+      idName: '',
       properties: {
         "name": {
           name: 'name',

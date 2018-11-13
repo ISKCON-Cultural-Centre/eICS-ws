@@ -1,26 +1,35 @@
 {
-  "name": "DevoteeEventCalendar",
+  "name": "EventDevoteeAttendance",
   "options": {
     "idInjection": false,
     "mysql": {
       "schema": "icc",
-      "table": "devotee-event-calendar"
+      "table": "event-devotee-attendance"
     },
     "relations": {
-      "fkDevoteeEventCalendarDevotee2rel": {
+      "fkEventDevoteeConfirmationDepartmentEvent10rel": {
+        "model": "DepartmentEvent",
+        "type": "belongsTo",
+        "foreignKey": "departmentEventId"
+      },
+      "fkEventDevoteeConfirmationDevotee10rel": {
         "model": "Devotee",
         "type": "belongsTo",
         "foreignKey": "devoteeId"
-      },
-      "fkDevoteeEventCalendarEventMaster1rel": {
-        "model": "DevoteeEventMaster",
-        "type": "belongsTo",
-        "foreignKey": "eventMasterId"
       }
     }
   },
+  "mixins": {
+    "TimeStamp": {
+      "createdAt": "created-on",
+      "updatedAt": "updated-on",
+      "required": false,
+      "validateUpsert": true,
+      "silenceWarnings": false
+    }
+  },  
   "properties": {
-    "id": {
+    "departmentEventId": {
       "type": "String",
       "required": true,
       "length": 36,
@@ -28,7 +37,7 @@
       "scale": null,
       "id": 1,
       "mysql": {
-        "columnName": "id",
+        "columnName": "department-event-id",
         "dataType": "varchar",
         "dataLength": 36,
         "dataPrecision": null,
@@ -42,6 +51,7 @@
       "length": 36,
       "precision": null,
       "scale": null,
+      "id": 2,
       "mysql": {
         "columnName": "devotee-id",
         "dataType": "varchar",
@@ -49,66 +59,6 @@
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "N"
-      }
-    },
-    "eventMasterId": {
-      "type": "String",
-      "required": true,
-      "length": 36,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "event-master-id",
-        "dataType": "varchar",
-        "dataLength": 36,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "N"
-      }
-    },
-    "eventDate": {
-      "type": "Date",
-      "required": true,
-      "length": null,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "event-date",
-        "dataType": "date",
-        "dataLength": null,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "N"
-      }
-    },
-    "eventDateDayOfYear": {
-      "type": "Number",
-      "required": false,
-      "length": null,
-      "precision": 5,
-      "scale": 0,
-      "mysql": {
-        "columnName": "event-date-day-of-year",
-        "dataType": "smallint",
-        "dataLength": null,
-        "dataPrecision": 5,
-        "dataScale": 0,
-        "nullable": "Y"
-      }
-    },
-    "comments": {
-      "type": "String",
-      "required": false,
-      "length": 100,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "comments",
-        "dataType": "varchar",
-        "dataLength": 100,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
       }
     },
     "createdOn": {

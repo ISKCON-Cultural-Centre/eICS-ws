@@ -106,6 +106,12 @@ import { DevoteeSevaSubscription } from '../../models/DevoteeSevaSubscription';
 import { OrgTopParent } from '../../models/OrgTopParent';
 import { SevaMaster } from '../../models/SevaMaster';
 import { OrganizationGenderStats } from '../../models/OrganizationGenderStats';
+import { PrasadamCouponRegister } from '../../models/PrasadamCouponRegister';
+import { PrasadamCouponMaster } from '../../models/PrasadamCouponMaster';
+import { EventDevoteeConfirmation } from '../../models/EventDevoteeConfirmation';
+import { EventDevoteeAttendance } from '../../models/EventDevoteeAttendance';
+import { DevoteeCardLog } from '../../models/DevoteeCardLog';
+import { CardActionMaster } from '../../models/CardActionMaster';
 
 export interface Models { [name: string]: any }
 
@@ -219,6 +225,12 @@ export class SDKModels {
     OrgTopParent: OrgTopParent,
     SevaMaster: SevaMaster,
     OrganizationGenderStats: OrganizationGenderStats,
+    PrasadamCouponRegister: PrasadamCouponRegister,
+    PrasadamCouponMaster: PrasadamCouponMaster,
+    EventDevoteeConfirmation: EventDevoteeConfirmation,
+    EventDevoteeAttendance: EventDevoteeAttendance,
+    DevoteeCardLog: DevoteeCardLog,
+    CardActionMaster: CardActionMaster,
     
   };
 

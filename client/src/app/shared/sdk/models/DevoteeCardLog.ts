@@ -1,60 +1,54 @@
 /* tslint:disable */
 import {
   Devotee,
-  DevoteeEventMaster
+  CardActionMaster
 } from '../index';
 
 declare var Object: any;
-export interface DevoteeEventCalendarInterface {
+export interface DevoteeCardLogInterface {
   "id": string;
   "devoteeId": string;
-  "eventMasterId": string;
-  "eventDate": Date;
-  "eventDateDayOfYear"?: number;
-  "comments"?: string;
+  "cardActionMasterId": string;
   "createdOn"?: Date;
   "updatedOn"?: Date;
   "createdBy"?: string;
   "updatedBy"?: string;
   "created-on"?: Date;
   "updated-on"?: Date;
-  fkDevoteeEventCalendarDevotee2rel?: Devotee;
-  fkDevoteeEventCalendarEventMaster1rel?: DevoteeEventMaster;
+  fkDevoteeCardLogDevotee1rel?: Devotee;
+  fkDevoteeCardLogCardActionMaster1rel?: CardActionMaster;
 }
 
-export class DevoteeEventCalendar implements DevoteeEventCalendarInterface {
+export class DevoteeCardLog implements DevoteeCardLogInterface {
   "id": string;
   "devoteeId": string;
-  "eventMasterId": string;
-  "eventDate": Date;
-  "eventDateDayOfYear": number;
-  "comments": string;
+  "cardActionMasterId": string;
   "createdOn": Date;
   "updatedOn": Date;
   "createdBy": string;
   "updatedBy": string;
   "created-on": Date;
   "updated-on": Date;
-  fkDevoteeEventCalendarDevotee2rel: Devotee;
-  fkDevoteeEventCalendarEventMaster1rel: DevoteeEventMaster;
-  constructor(data?: DevoteeEventCalendarInterface) {
+  fkDevoteeCardLogDevotee1rel: Devotee;
+  fkDevoteeCardLogCardActionMaster1rel: CardActionMaster;
+  constructor(data?: DevoteeCardLogInterface) {
     Object.assign(this, data);
   }
   /**
    * The name of the model represented by this $resource,
-   * i.e. `DevoteeEventCalendar`.
+   * i.e. `DevoteeCardLog`.
    */
   public static getModelName() {
-    return "DevoteeEventCalendar";
+    return "DevoteeCardLog";
   }
   /**
   * @method factory
   * @author Jonathan Casarrubias
   * @license MIT
-  * This method creates an instance of DevoteeEventCalendar for dynamic purposes.
+  * This method creates an instance of DevoteeCardLog for dynamic purposes.
   **/
-  public static factory(data: DevoteeEventCalendarInterface): DevoteeEventCalendar{
-    return new DevoteeEventCalendar(data);
+  public static factory(data: DevoteeCardLogInterface): DevoteeCardLog{
+    return new DevoteeCardLog(data);
   }
   /**
   * @method getModelDefinition
@@ -65,9 +59,9 @@ export class DevoteeEventCalendar implements DevoteeEventCalendarInterface {
   **/
   public static getModelDefinition() {
     return {
-      name: 'DevoteeEventCalendar',
-      plural: 'DevoteeEventCalendars',
-      path: 'DevoteeEventCalendars',
+      name: 'DevoteeCardLog',
+      plural: 'DevoteeCardLogs',
+      path: 'DevoteeCardLogs',
       idName: 'id',
       properties: {
         "id": {
@@ -78,20 +72,8 @@ export class DevoteeEventCalendar implements DevoteeEventCalendarInterface {
           name: 'devoteeId',
           type: 'string'
         },
-        "eventMasterId": {
-          name: 'eventMasterId',
-          type: 'string'
-        },
-        "eventDate": {
-          name: 'eventDate',
-          type: 'Date'
-        },
-        "eventDateDayOfYear": {
-          name: 'eventDateDayOfYear',
-          type: 'number'
-        },
-        "comments": {
-          name: 'comments',
+        "cardActionMasterId": {
+          name: 'cardActionMasterId',
           type: 'string'
         },
         "createdOn": {
@@ -120,20 +102,20 @@ export class DevoteeEventCalendar implements DevoteeEventCalendarInterface {
         },
       },
       relations: {
-        fkDevoteeEventCalendarDevotee2rel: {
-          name: 'fkDevoteeEventCalendarDevotee2rel',
+        fkDevoteeCardLogDevotee1rel: {
+          name: 'fkDevoteeCardLogDevotee1rel',
           type: 'Devotee',
           model: 'Devotee',
           relationType: 'belongsTo',
                   keyFrom: 'devoteeId',
           keyTo: 'id'
         },
-        fkDevoteeEventCalendarEventMaster1rel: {
-          name: 'fkDevoteeEventCalendarEventMaster1rel',
-          type: 'DevoteeEventMaster',
-          model: 'DevoteeEventMaster',
+        fkDevoteeCardLogCardActionMaster1rel: {
+          name: 'fkDevoteeCardLogCardActionMaster1rel',
+          type: 'CardActionMaster',
+          model: 'CardActionMaster',
           relationType: 'belongsTo',
-                  keyFrom: 'eventMasterId',
+                  keyFrom: 'cardActionMasterId',
           keyTo: 'id'
         },
       }
