@@ -9,8 +9,6 @@ export interface EventDevoteeConfirmationInterface {
   "departmentEventId": string;
   "devoteeId": string;
   "guestCount": number;
-  "createdOn"?: Date;
-  "updatedOn"?: Date;
   "createdBy"?: string;
   "updatedBy"?: string;
   "created-on"?: Date;
@@ -23,8 +21,6 @@ export class EventDevoteeConfirmation implements EventDevoteeConfirmationInterfa
   "departmentEventId": string;
   "devoteeId": string;
   "guestCount": number;
-  "createdOn": Date;
-  "updatedOn": Date;
   "createdBy": string;
   "updatedBy": string;
   "created-on": Date;
@@ -75,14 +71,6 @@ export class EventDevoteeConfirmation implements EventDevoteeConfirmationInterfa
         "guestCount": {
           name: 'guestCount',
           type: 'number'
-        },
-        "createdOn": {
-          name: 'createdOn',
-          type: 'Date'
-        },
-        "updatedOn": {
-          name: 'updatedOn',
-          type: 'Date'
         },
         "createdBy": {
           name: 'createdBy',

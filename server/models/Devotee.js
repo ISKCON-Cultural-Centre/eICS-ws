@@ -330,6 +330,71 @@ module.exports = function(Devotee) {
 	return cb.promise;
 	};
 
+  /**
+   * Get the list of Family Memebers of a Devotee.
+   *
+   * ```js
+   * Devotee.getFamily(options, function (err, roles) {
+   *      console.log(token.id);
+   *    });
+   * ```
+   *
+   * @param {Object} options (context information to be included in all custom remote methods)
+   * @callback {Function} cb Callback function
+   * @param {Error} err Error object
+   * @param {authorizedDepartments} list of roles successful
+   * @promise
+   */	
+  Devotee.getFamily = function (devoteeId, options, cb) {
+
+
+	cb = cb || utils.createPromiseCallback();
+
+	Devotee.getApp(function (err, app) {
+	if (err) {
+		cb(err);
+		return cb.promise;
+	}			
+	var DevoteeKarmiFamily = app.models.DevoteeKarmiFamily;
+	var Devotee = app.models.Devotee;
+
+	DevoteeKarmiFamily.find({ where : { relatedDevoteeId: devoteeId }}, function (err, familyRecord) {
+		if (err) {
+			cb(err);
+			return cb.promise;
+		}		
+
+	if (!familyRecord.length) { return cb(null, { "familyMembers": [] });}
+	else {
+		var familyHead = familyRecord.map(function (member) {
+			return member.devoteeId;
+		});
+
+		DevoteeKarmiFamily.find({ where: { devoteeId: familyHead }, include: { relation: "fkDevoteeKarmiFamilyDevotee1rel"} }, function (err, family) {
+			if (err) {
+				cb(err);
+				return cb.promise;
+			}
+			//console.log(family);
+
+
+			family.forEach(function(member) {
+				// post.owner points to the relation method instead of the owner instance
+				var p = member.toJSON();
+				console.log(p.fkDevoteeKarmiFamilyDevotee1rel);
+			  });
+
+			var familyMembers = family.map(function (member) {
+				return member.toJSON().fkDevoteeKarmiFamilyDevotee1rel;
+			});		
+
+			cb(null, familyMembers);
+		});
+	}
+	});
+});
+return cb.promise;
+};
 	
 
   /**
@@ -547,5 +612,15 @@ return cb.promise;
 				],			
 				 returns: { arg: 'devotees', type: 'String', root: true}
 		});		
+		
+		Devotee.remoteMethod('getFamily', {
+			description: 'Get the list of Family Members of a Devotee who have attained certain Spiritual Levels',		
+			http: { path: '/getFamily', verb: 'get' },
+			accepts: [
+				{arg: 'devoteeId', type: 'String'},
+			],			
+			 returns: { arg: 'devotees', type: 'String', root: true}
+	});		
+
 
 }
