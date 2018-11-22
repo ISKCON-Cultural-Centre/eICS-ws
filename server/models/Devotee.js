@@ -381,7 +381,6 @@ module.exports = function(Devotee) {
 			family.forEach(function(member) {
 				// post.owner points to the relation method instead of the owner instance
 				var p = member.toJSON();
-				console.log(p.fkDevoteeKarmiFamilyDevotee1rel);
 			  });
 
 			var familyMembers = family.map(function (member) {
