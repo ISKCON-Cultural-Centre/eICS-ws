@@ -364,7 +364,7 @@ module.exports = function(Devotee) {
 			return cb.promise;
 		}		
 
-	if (!familyRecord.length) { return cb(null, { "familyMembers": [] });}
+	if (!familyRecord.length) { return cb(null, []);}
 	else {
 		var familyHead = familyRecord.map(function (member) {
 			return member.devoteeId;
