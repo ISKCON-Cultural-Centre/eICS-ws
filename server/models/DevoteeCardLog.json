@@ -68,7 +68,7 @@
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "card-action-master_id",
+        "columnName": "card-action-master-id",
         "dataType": "varchar",
         "dataLength": 36,
         "dataPrecision": null,

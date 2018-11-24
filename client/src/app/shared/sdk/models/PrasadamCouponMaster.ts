@@ -12,8 +12,6 @@ export interface PrasadamCouponMasterInterface {
   "updatedOn"?: Date;
   "createdBy"?: string;
   "updatedBy"?: string;
-  "created-on"?: Date;
-  "updated-on"?: Date;
   fkPrasadamCouponMasterDepartmentEvent1rel?: DepartmentEvent;
 }
 
@@ -25,8 +23,6 @@ export class PrasadamCouponMaster implements PrasadamCouponMasterInterface {
   "updatedOn": Date;
   "createdBy": string;
   "updatedBy": string;
-  "created-on": Date;
-  "updated-on": Date;
   fkPrasadamCouponMasterDepartmentEvent1rel: DepartmentEvent;
   constructor(data?: PrasadamCouponMasterInterface) {
     Object.assign(this, data);
@@ -88,14 +84,6 @@ export class PrasadamCouponMaster implements PrasadamCouponMasterInterface {
         "updatedBy": {
           name: 'updatedBy',
           type: 'string'
-        },
-        "created-on": {
-          name: 'created-on',
-          type: 'Date'
-        },
-        "updated-on": {
-          name: 'updated-on',
-          type: 'Date'
         },
       },
       relations: {

@@ -8,6 +8,7 @@ declare var Object: any;
 export interface EventDevoteeConfirmationInterface {
   "departmentEventId": string;
   "devoteeId": string;
+  "selfconfirm": number;
   "guestCount": number;
   "createdBy"?: string;
   "updatedBy"?: string;
@@ -20,6 +21,7 @@ export interface EventDevoteeConfirmationInterface {
 export class EventDevoteeConfirmation implements EventDevoteeConfirmationInterface {
   "departmentEventId": string;
   "devoteeId": string;
+  "selfconfirm": number;
   "guestCount": number;
   "createdBy": string;
   "updatedBy": string;
@@ -67,6 +69,10 @@ export class EventDevoteeConfirmation implements EventDevoteeConfirmationInterfa
         "devoteeId": {
           name: 'devoteeId',
           type: 'string'
+        },
+        "selfconfirm": {
+          name: 'selfconfirm',
+          type: 'number'
         },
         "guestCount": {
           name: 'guestCount',

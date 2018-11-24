@@ -7,12 +7,12 @@
       "table": "devotee-card-log"
     },
     "relations": {
-      "fkDevoteeCardLogCardActionMaster1rel": {
+      "fkDevoteeCardLogCardActionMaster10rel": {
         "model": "CardActionMaster",
         "type": "belongsTo",
         "foreignKey": "cardActionMasterId"
       },
-      "fkDevoteeCardLogDevotee1rel": {
+      "fkDevoteeCardLogDevotee10rel": {
         "model": "Devotee",
         "type": "belongsTo",
         "foreignKey": "devoteeId"
@@ -58,7 +58,7 @@
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "card-action-master_id",
+        "columnName": "card-action-master-id",
         "dataType": "varchar",
         "dataLength": 36,
         "dataPrecision": null,

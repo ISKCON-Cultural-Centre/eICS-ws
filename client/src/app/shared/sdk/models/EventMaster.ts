@@ -4,25 +4,19 @@ declare var Object: any;
 export interface EventMasterInterface {
   "id": string;
   "eventName": string;
-  "departmentId": string;
   "createdOn"?: Date;
   "updatedOn"?: Date;
   "createdBy"?: string;
   "updatedBy"?: string;
-  "created-on"?: Date;
-  "updated-on"?: Date;
 }
 
 export class EventMaster implements EventMasterInterface {
   "id": string;
   "eventName": string;
-  "departmentId": string;
   "createdOn": Date;
   "updatedOn": Date;
   "createdBy": string;
   "updatedBy": string;
-  "created-on": Date;
-  "updated-on": Date;
   constructor(data?: EventMasterInterface) {
     Object.assign(this, data);
   }
@@ -64,10 +58,6 @@ export class EventMaster implements EventMasterInterface {
           name: 'eventName',
           type: 'string'
         },
-        "departmentId": {
-          name: 'departmentId',
-          type: 'string'
-        },
         "createdOn": {
           name: 'createdOn',
           type: 'Date'
@@ -83,14 +73,6 @@ export class EventMaster implements EventMasterInterface {
         "updatedBy": {
           name: 'updatedBy',
           type: 'string'
-        },
-        "created-on": {
-          name: 'created-on',
-          type: 'Date'
-        },
-        "updated-on": {
-          name: 'updated-on',
-          type: 'Date'
         },
       },
       relations: {

@@ -12,8 +12,6 @@ export interface EventDevoteeAttendanceInterface {
   "updatedOn"?: Date;
   "createdBy"?: string;
   "updatedBy"?: string;
-  "created-on"?: Date;
-  "updated-on"?: Date;
   fkEventDevoteeConfirmationDepartmentEvent10rel?: DepartmentEvent;
   fkEventDevoteeConfirmationDevotee10rel?: Devotee;
 }
@@ -25,8 +23,6 @@ export class EventDevoteeAttendance implements EventDevoteeAttendanceInterface {
   "updatedOn": Date;
   "createdBy": string;
   "updatedBy": string;
-  "created-on": Date;
-  "updated-on": Date;
   fkEventDevoteeConfirmationDepartmentEvent10rel: DepartmentEvent;
   fkEventDevoteeConfirmationDevotee10rel: Devotee;
   constructor(data?: EventDevoteeAttendanceInterface) {
@@ -85,14 +81,6 @@ export class EventDevoteeAttendance implements EventDevoteeAttendanceInterface {
         "updatedBy": {
           name: 'updatedBy',
           type: 'string'
-        },
-        "created-on": {
-          name: 'created-on',
-          type: 'Date'
-        },
-        "updated-on": {
-          name: 'updated-on',
-          type: 'Date'
         },
       },
       relations: {

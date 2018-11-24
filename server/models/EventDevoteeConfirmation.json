@@ -61,6 +61,21 @@
         "nullable": "N"
       }
     },
+    "selfconfirm": {
+      "type": "Number",
+      "required": true,
+      "length": null,
+      "precision": 3,
+      "scale": 0,
+      "mysql": {
+        "columnName": "selfConfirm",
+        "dataType": "tinyint",
+        "dataLength": null,
+        "dataPrecision": 3,
+        "dataScale": 0,
+        "nullable": "N"
+      }
+    },
     "guestCount": {
       "type": "Number",
       "required": true,

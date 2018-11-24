@@ -37,7 +37,6 @@
       "length": 36,
       "precision": null,
       "scale": null,
-      "id": 2,
       "mysql": {
         "columnName": "department-event-id",
         "dataType": "varchar",

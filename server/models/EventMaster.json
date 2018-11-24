@@ -8,16 +8,6 @@
     },
     "relations": {}
   },
-  "mixins": {
-    "TimeStamp": {
-      "createdAt": "created-on",
-      "updatedAt": "updated-on",
-      "required": false,
-      "validateUpsert": true,
-      "silenceWarnings": false
-    },
-    "GenerateKey": true
-  },
   "properties": {
     "id": {
       "type": "String",
@@ -45,21 +35,6 @@
         "columnName": "event-name",
         "dataType": "varchar",
         "dataLength": 100,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "N"
-      }
-    },
-    "departmentId": {
-      "type": "String",
-      "required": true,
-      "length": 36,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "department-id",
-        "dataType": "varchar",
-        "dataLength": 36,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "N"
@@ -125,16 +100,5 @@
         "nullable": "Y"
       }
     }
-  },
-  "validations": [],
-  "relations": {},
-  "acls": [
-    {
-      "accessType": "*",
-      "principalType": "ROLE",
-      "principalId": "admin",
-      "permission": "ALLOW"
-    }
-  ],
-  "methods": {}
+  }
 }

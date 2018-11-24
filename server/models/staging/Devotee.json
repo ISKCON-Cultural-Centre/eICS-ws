@@ -573,7 +573,7 @@
     },
     "commWhatsapp": {
       "type": "Number",
-      "required": false,
+      "required": true,
       "length": null,
       "precision": 3,
       "scale": 0,
@@ -583,12 +583,12 @@
         "dataLength": null,
         "dataPrecision": 3,
         "dataScale": 0,
-        "nullable": "Y"
+        "nullable": "N"
       }
     },
     "commEmail": {
       "type": "Number",
-      "required": false,
+      "required": true,
       "length": null,
       "precision": 3,
       "scale": 0,
@@ -598,12 +598,12 @@
         "dataLength": null,
         "dataPrecision": 3,
         "dataScale": 0,
-        "nullable": "Y"
+        "nullable": "N"
       }
     },
     "commSms": {
       "type": "Number",
-      "required": false,
+      "required": true,
       "length": null,
       "precision": 3,
       "scale": 0,
@@ -613,12 +613,12 @@
         "dataLength": null,
         "dataPrecision": 3,
         "dataScale": 0,
-        "nullable": "Y"
+        "nullable": "N"
       }
     },
     "commCall": {
       "type": "Number",
-      "required": false,
+      "required": true,
       "length": null,
       "precision": 3,
       "scale": 0,
@@ -628,12 +628,12 @@
         "dataLength": null,
         "dataPrecision": 3,
         "dataScale": 0,
-        "nullable": "Y"
+        "nullable": "N"
       }
     },
     "commLetter": {
       "type": "Number",
-      "required": false,
+      "required": true,
       "length": null,
       "precision": 3,
       "scale": 0,
@@ -643,7 +643,7 @@
         "dataLength": null,
         "dataPrecision": 3,
         "dataScale": 0,
-        "nullable": "Y"
+        "nullable": "N"
       }
     },
     "marriedInd": {
@@ -678,7 +678,7 @@
     },
     "enrolNo": {
       "type": "Number",
-      "required": true,
+      "required": false,
       "length": null,
       "precision": 5,
       "scale": 0,
@@ -688,7 +688,7 @@
         "dataLength": null,
         "dataPrecision": 5,
         "dataScale": 0,
-        "nullable": "N"
+        "nullable": "Y"
       }
     }
   }
