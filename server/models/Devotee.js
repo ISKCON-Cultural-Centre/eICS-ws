@@ -343,7 +343,7 @@ module.exports = function (Devotee) {
 	  * @param {authorizedDepartments} list of roles successful
 	  * @promise
 	  */
-	Devotee.getDevoteeConfirmations = function (devotees, departmentEventId, options, cb) {
+	Devotee.getDevoteeConfirmations = function (devotee, family, departmentEventId, options, cb) {
 
 		cb = cb || utils.createPromiseCallback();
 
@@ -356,29 +356,46 @@ module.exports = function (Devotee) {
 			var EventDevoteeConfirmation = app.models.EventDevoteeConfirmation;
 			var Devotee = app.models.Devotee;
 
-			devotees.forEach(function (devotee) {
-				EventDevoteeConfirmation.find({
-					where: {
-						and: [
-							{ devoteeId: devotee.id },
-							{ departmentEventId: departmentEventId },
-						]
-					}
-				}, function (err, confirmationRecord) {
-					if (err) {
-						cb(err);
-						return cb.promise;
-					}
+			Devotee.getFamily(devotee.id, options, function (err, devoteeFamily) {
+				if (err) {
+					cb(err);
+					return cb.promise;
+				}
+				if (!devoteeFamily.length) {
 
-					if (!confirmationRecord.length) {
+					devoteeFamilyList = [];
+				}
+				else {
 
-						cb(null, { devotee: devotee, confirmed: false });
-					}
-					else {
-						cb(null, { devotee: devotee, confirmed: true });
-					};
-				});
-			});
+					devoteeFamily.forEach(function (devotee) {
+						EventDevoteeConfirmation.find(
+							{
+							where: {
+								and: [
+									{ devoteeId: devotee.id },
+									{ departmentEventId: departmentEventId },
+								]
+							}
+						}, function (err, devoteeconfirmations) {
+							if (err) {
+								cb(err);
+								return cb.promise;
+							}
+		
+							if (!devoteeconfirmations.length) {
+		
+								cb(null, { devotee: devotee, confirmed: false });
+							}
+							else {
+								cb(null, { devotee: devotee, confirmed: true });
+							};
+						});
+					});
+				};
+
+
+			});		
+
 		});
 		return cb.promise;
 	};
@@ -678,7 +695,8 @@ module.exports = function (Devotee) {
 		description: 'Get the event confirmation status of a set of Devotees',
 		http: { path: '/getDevoteeConfirmations', verb: 'get' },
 		accepts: [
-			{ arg: 'devotees', type: ["any"] },
+			{ arg: 'devotee', type: 'String' },
+			{ arg: 'family', type: 'Boolean' },			
 			{ arg: 'departmentEventId', type: 'String' },
 		],
 		returns: { arg: 'devoteesConfirmation', type: 'array', root: true }

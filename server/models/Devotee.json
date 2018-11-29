@@ -70,7 +70,12 @@
         "type": "hasMany",
         "model": "DevoteeSevaSubscription",
         "foreignKey": "devoteeId"
-      },              
+      },   
+      "fkDevoteeEventConfirmations": {
+        "type": "hasMany",
+        "model": "EventDevoteeConfirmation",
+        "foreignKey": "devoteeId"
+      },                  
       "fkDevoteeProfessionMaster1rel": {
         "model": "ProfessionMaster",
         "type": "belongsTo",
