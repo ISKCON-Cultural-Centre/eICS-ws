@@ -358,26 +358,28 @@ module.exports = function (Devotee) {
 			var Devotee = app.models.Devotee;
 
 			devotees.forEach(function (devotee) {
-				EventDevoteeConfirmation.find({ where: { and: [{ devoteeId: devotee.id }, { departmentEventId: departmentEventId }] } }, function (err, confirmationRecord) {
+				EventDevoteeConfirmation.find({
+					where: {
+						and: [
+							{ devoteeId: devotee.id },
+							{ departmentEventId: departmentEventId },
+						]
+					}
+				}, function (err, confirmationRecord) {
 					if (err) {
-						console.log('Error');
-						console.log(err);
 						cb(err);
 						return cb.promise;
 					}
 
 					if (!confirmationRecord.length) {
-						console.log('2a');
+
 						cb(null, { devotee: devotee, confirmed: false });
 					}
 					else {
-						console.log(confirmationRecord);
-						console.log('2b');
-						cb(null, { devotee: devotee, confirmed: true });
+						cb(null, { devotee: devotee, confirmed: confirmationRecord.selfconfirm });
 					};
 				});
 			});
-			console.log('3');
 		});
 		return cb.promise;
 	};
