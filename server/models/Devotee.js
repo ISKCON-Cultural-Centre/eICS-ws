@@ -345,7 +345,6 @@ module.exports = function (Devotee) {
 	  */
 	Devotee.getDevoteeConfirmations = function (devotees, departmentEventId, options, cb) {
 
-		console.log('1');
 		cb = cb || utils.createPromiseCallback();
 
 		Devotee.getApp(function (err, app) {
@@ -353,7 +352,7 @@ module.exports = function (Devotee) {
 				cb(err);
 				return cb.promise;
 			}
-			console.log('2');
+
 			var EventDevoteeConfirmation = app.models.EventDevoteeConfirmation;
 			var Devotee = app.models.Devotee;
 
@@ -376,7 +375,7 @@ module.exports = function (Devotee) {
 						cb(null, { devotee: devotee, confirmed: false });
 					}
 					else {
-						cb(null, { devotee: devotee, confirmed: confirmationRecord.selfconfirm });
+						cb(null, { devotee: devotee, confirmed: true });
 					};
 				});
 			});
