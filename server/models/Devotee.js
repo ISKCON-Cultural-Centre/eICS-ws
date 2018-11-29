@@ -345,7 +345,7 @@ module.exports = function (Devotee) {
 	  */
 	Devotee.getDevoteeConfirmations = function (devotees, departmentEventId, options, cb) {
 
-
+		console.log('1');
 		cb = cb || utils.createPromiseCallback();
 
 		Devotee.getApp(function (err, app) {
@@ -353,25 +353,31 @@ module.exports = function (Devotee) {
 				cb(err);
 				return cb.promise;
 			}
+			console.log('2');
 			var EventDevoteeConfirmation = app.models.EventDevoteeConfirmation;
 			var Devotee = app.models.Devotee;
 
 			devotees.forEach(function (devotee) {
 				EventDevoteeConfirmation.find({ where: { and: [{ devoteeId: devotee.id }, { departmentEventId: departmentEventId }] } }, function (err, confirmationRecord) {
 					if (err) {
+						console.log('Error');
+						console.log(err);
 						cb(err);
 						return cb.promise;
 					}
 
 					if (!confirmationRecord.length) {
-						return cb({ devotee: devotee, confirmed: false });
+						console.log('2a');
+						cb(null, { devotee: devotee, confirmed: false });
 					}
 					else {
-						return cb({ devotee: devote, confirmed: true });
+						console.log(confirmationRecord);
+						console.log('2b');
+						cb(null, { devotee: devotee, confirmed: true });
 					};
 				});
 			});
-
+			console.log('3');
 		});
 		return cb.promise;
 	};
@@ -671,10 +677,10 @@ module.exports = function (Devotee) {
 		description: 'Get the event confirmation status of a set of Devotees',
 		http: { path: '/getDevoteeConfirmations', verb: 'get' },
 		accepts: [
-			{ arg: 'devotees', type: 'array' },
+			{ arg: 'devotees', type: ["any"] },
 			{ arg: 'departmentEventId', type: 'String' },
 		],
-		returns: { arg: 'devoteesConfirmation', type: 'String', root: true }
+		returns: { arg: 'devoteesConfirmation', type: 'array', root: true }
 	});
 
 
