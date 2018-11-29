@@ -356,18 +356,38 @@ module.exports = function (Devotee) {
 			var EventDevoteeConfirmation = app.models.EventDevoteeConfirmation;
 			var Devotee = app.models.Devotee;
 
-			Devotee.getFamily(devotee.id, options, function (err, devoteeFamily) {
-				if (err) {
-					cb(err);
-					return cb.promise;
-				}
-				if (!devoteeFamily.length) {
+			if (!family) {
+				EventDevoteeConfirmation.find(
+					{
+					where: {
+						and: [
+							{ devoteeId: devotee.id },
+							{ departmentEventId: departmentEventId },
+						]
+					}
+				}, function (err, devoteeconfirmations) {
+					if (err) {
+						cb(err);
+						return cb.promise;
+					}
 
-					devoteeFamilyList = [];
-				}
-				else {
+					if (!devoteeconfirmations.length) {
 
-					devoteeFamily.forEach(function (devotee) {
+						cb(null, { devotee: devotee, confirmed: false });
+					}
+					else {
+						cb(null, { devotee: devotee, confirmed: true });
+					};
+				});
+			} else {
+				Devotee.getFamily(devotee, options, function (err, devoteeFamily) {
+					if (err) {
+						cb(err);
+						return cb.promise;
+					}
+					console.log(devoteeFamily);
+					if (!devoteeFamily.length) {
+	
 						EventDevoteeConfirmation.find(
 							{
 							where: {
@@ -390,11 +410,38 @@ module.exports = function (Devotee) {
 								cb(null, { devotee: devotee, confirmed: true });
 							};
 						});
-					});
-				};
-
-
-			});		
+					}
+					else {
+						console.log('inside else');
+						var devoteeFamilyConfirmations = devoteeFamily.forEach(function (devotee) {
+							EventDevoteeConfirmation.find(
+								{
+								where: {
+									and: [
+										{ devoteeId: devotee.id },
+										{ departmentEventId: departmentEventId },
+									]
+								}
+							}, function (err, devoteeconfirmations) {
+								if (err) {
+									cb(err);
+									return cb.promise;
+								}
+			
+								if (!devoteeconfirmations.length) {
+			
+									return { devotee: devotee, confirmed: false };
+								}
+								else {
+									return { devotee: devotee, confirmed: true };
+								};
+							});
+						});
+						console.log(devoteeFamilyConfirmations);
+						cb(null, devoteeFamilyConfirmations);						
+					};
+				});	
+			}	
 
 		});
 		return cb.promise;
