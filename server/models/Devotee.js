@@ -413,7 +413,7 @@ module.exports = function (Devotee) {
 					}
 					else {
 						console.log('inside else');
-						var devoteeFamilyConfirmations = devoteeFamily.forEach(function (devotee) {
+						devoteeFamily.forEach(function (devotee) {
 							EventDevoteeConfirmation.find(
 								{
 								where: {
