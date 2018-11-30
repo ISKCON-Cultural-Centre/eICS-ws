@@ -117,7 +117,7 @@ module.exports = function (Devotee) {
 							}
 						});
 					}
-					);
+				);
 
 			} else {
 				finalWhereFilter = finalWhereFilter + '] }';
@@ -332,7 +332,7 @@ module.exports = function (Devotee) {
 	  * Get the Devotee event confirmations.
 	  *
 	  * ```js
-	  * Devotee.getDevoteeConfirmations(options, function (err, roles) {
+	  * Devotee.getDevoteeConfirmationStatus(options, function (err, roles) {
 	  *      console.log(token.id);
 	  *    });
 	  * ```
@@ -343,6 +343,68 @@ module.exports = function (Devotee) {
 	  * @param {authorizedDepartments} list of roles successful
 	  * @promise
 	  */
+	Devotee.getDevoteeConfirmationStatus = function (devoteeIds, departmentEventId, options, cb) {
+		console.log("inside conf status");
+		cb = cb || utils.createPromiseCallback();
+
+		Devotee.getApp(function (err, app) {
+			if (err) {
+				cb(err);
+				return cb.promise;
+			}
+
+			var Devotee = app.models.Devotee;
+			var devoteeFamilyConfirmations = [];
+			console.log(devoteeIds);
+
+				Devotee.find(
+					{
+						where: {
+							and: [
+								{ devoteeId: { "inq": devoteeIds } },
+								{ departmentEventId: departmentEventId },
+							]
+						}, 
+						include: { relation: "fkDevoteeEventConfirmations" }						
+					}, function (err, devoteeconfirmations) {
+						console.log("devoteeconfirmations");
+
+						if (err) {
+							cb(err);
+							return cb.promise;
+						}
+console.log(devoteeconfirmations);
+/* 						if (!devoteeconfirmations.fkDevoteeEventConfirmations.length) {
+							devoteeFamilyConfirmations.push({ devotee: devoteeconfirmations, confirmed: false });
+						}
+						else {
+							devoteeFamilyConfirmations.push({ devotee: devoteeconfirmations, confirmed: true });
+						}; */
+					});
+
+			console.log("devoteeconfirmationsZZZ");
+			console.log(devoteeFamilyConfirmations);
+			cb(null, devoteeFamilyConfirmations);			
+		});
+		return cb.promise;
+	}
+
+
+	/**
+		  * Get the Devotee event confirmations.
+		  *
+		  * ```js
+		  * Devotee.getDevoteeConfirmations(options, function (err, roles) {
+		  *      console.log(token.id);
+		  *    });
+		  * ```
+		  *
+		  * @param {Object} options (context information to be included in all custom remote methods)
+		  * @callback {Function} cb Callback function
+		  * @param {Error} err Error object
+		  * @param {authorizedDepartments} list of roles successful
+		  * @promise
+		  */
 	Devotee.getDevoteeConfirmations = function (devotee, family, departmentEventId, options, cb) {
 
 		cb = cb || utils.createPromiseCallback();
@@ -356,92 +418,53 @@ module.exports = function (Devotee) {
 			var EventDevoteeConfirmation = app.models.EventDevoteeConfirmation;
 			var Devotee = app.models.Devotee;
 
+			var DevoteeList = [devotee.id];
+
 			if (!family) {
-				EventDevoteeConfirmation.find(
-					{
-					where: {
-						and: [
-							{ devoteeId: devotee.id },
-							{ departmentEventId: departmentEventId },
-						]
-					}
-				}, function (err, devoteeconfirmations) {
+				
+				Devotee.getDevoteeConfirmationStatus(DevoteeList, departmentEventId, options, function (err, devoteeConf) {
 					if (err) {
 						cb(err);
 						return cb.promise;
 					}
-
-					if (!devoteeconfirmations.length) {
-
-						cb(null, { devotee: devotee, confirmed: false });
-					}
-					else {
-						cb(null, { devotee: devotee, confirmed: true });
-					};
+					cb(null, devoteeConf);
 				});
 			} else {
 				Devotee.getFamily(devotee, options, function (err, devoteeFamily) {
+					console.log("inside family");
 					if (err) {
 						cb(err);
 						return cb.promise;
 					}
-					console.log(devoteeFamily);
 					if (!devoteeFamily.length) {
-	
-						EventDevoteeConfirmation.find(
-							{
-							where: {
-								and: [
-									{ devoteeId: devotee.id },
-									{ departmentEventId: departmentEventId },
-								]
-							}
-						}, function (err, devoteeconfirmations) {
+						console.log(devoteeFamily);
+						console.log("inside family length 1")
+
+						Devotee.getDevoteeConfirmationStatus(DevoteeList, departmentEventId, options, function (err, devoteeConf) {
 							if (err) {
 								cb(err);
 								return cb.promise;
 							}
-		
-							if (!devoteeconfirmations.length) {
-		
-								cb(null, { devotee: devotee, confirmed: false });
-							}
-							else {
-								cb(null, { devotee: devotee, confirmed: true });
-							};
+							cb(null, devoteeConf);
 						});
 					}
 					else {
-						console.log('inside else');
-						devoteeFamily.forEach(function (devotee) {
-							EventDevoteeConfirmation.find(
-								{
-								where: {
-									and: [
-										{ devoteeId: devotee.id },
-										{ departmentEventId: departmentEventId },
-									]
-								}
-							}, function (err, devoteeconfirmations) {
-								if (err) {
-									cb(err);
-									return cb.promise;
-								}
-			
-								if (!devoteeconfirmations.length) {
-			
-									return { devotee: devotee, confirmed: false };
-								}
-								else {
-									return { devotee: devotee, confirmed: true };
-								};
-							});
+						DevoteeList	= devoteeFamily.map(function (member) {
+							return member.id;
 						});
-						console.log(devoteeFamilyConfirmations);
-						cb(null, devoteeFamilyConfirmations);						
+						console.log("inside family length 2")
+						Devotee.getDevoteeConfirmationStatus(devoteeFamily, options, function (err, devoteeConf) {
+							if (err) {
+								cb(err);
+								return cb.promise;
+							}
+							console.log(devoteeConf);
+							cb(null, devoteeConf);
+							console.log("inside family length 3");
+						});
 					};
-				});	
-			}	
+				});
+			}
 
 		});
 		return cb.promise;
@@ -743,7 +766,7 @@ module.exports = function (Devotee) {
 		http: { path: '/getDevoteeConfirmations', verb: 'get' },
 		accepts: [
 			{ arg: 'devotee', type: 'String' },
-			{ arg: 'family', type: 'Boolean' },			
+			{ arg: 'family', type: 'Boolean' },
 			{ arg: 'departmentEventId', type: 'String' },
 		],
 		returns: { arg: 'devoteesConfirmation', type: 'array', root: true }
