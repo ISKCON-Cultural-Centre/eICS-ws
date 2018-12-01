@@ -380,7 +380,13 @@ module.exports = function (Devotee) {
 					console.log(devoteeconfirmations);
 					devoteeFamilyConfirmations = devoteeconfirmations.map(
 						function (devoteeconfirmation) {
-						console.log(devoteeconfirmation.fkDevoteeEventConfirmations);
+
+							var eventConfirmations = family.map(function (confirm) {
+								return confirm.toJSON().fkDevoteeKarmiFamilyDevotee1rel;
+							});							
+						console.log(devoteeconfirmation.map(function (confirm) {
+							return confirm.toJSON().fkDevoteeKarmiFamilyDevotee1rel;
+						}));
 						if (!devoteeconfirmation.fkDevoteeEventConfirmations.length) {						
 						return { devotee: devoteeconfirmation, confirmed: false };
 						} else {
