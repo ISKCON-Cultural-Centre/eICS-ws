@@ -419,7 +419,7 @@ console.log(devoteeconfirmations);
 			var EventDevoteeConfirmation = app.models.EventDevoteeConfirmation;
 			var Devotee = app.models.Devotee;
 			var DevoteeList = [];
-			DevoteeList.push(devotee.id);
+			DevoteeList.push(devotee);
 			console.log('devoteelist');
 console.log(DevoteeList);
 			if (!family) {
