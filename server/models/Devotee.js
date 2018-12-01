@@ -344,7 +344,7 @@ module.exports = function (Devotee) {
 	  * @promise
 	  */
 	Devotee.getDevoteeConfirmationStatus = function (devoteeIds, departmentEventId, options, cb) {
-		console.log("inside conf status");
+
 		cb = cb || utils.createPromiseCallback();
 
 		Devotee.getApp(function (err, app) {
@@ -355,8 +355,6 @@ module.exports = function (Devotee) {
 
 			var Devotee = app.models.Devotee;
 			var devoteeFamilyConfirmations = [];
-			console.log(devoteeIds);
-			console.log(departmentEventId);
 
 			Devotee.find(
 				{
@@ -377,10 +375,6 @@ module.exports = function (Devotee) {
 						cb(err);
 						return cb.promise;
 					}
-					console.log(devoteeconfirmations);
-					console.log(devoteeconfirmations.map(function (confirm) {
-						return confirm.toJSON().fkDevoteeEventConfirmations;
-					}));
 
 					devoteeFamilyConfirmations = devoteeconfirmations.map(
 						function (devoteeconfirmation) {
@@ -392,9 +386,7 @@ module.exports = function (Devotee) {
 						}
 
 					});
-					cb(null, devoteeFamilyConfirmations);					
-					console.log("devoteeconfirmationsZZZ");
-					console.log(devoteeFamilyConfirmations);					
+					cb(null, devoteeFamilyConfirmations);									
 				});
 		});
 		return cb.promise;
@@ -441,14 +433,12 @@ module.exports = function (Devotee) {
 				});
 			} else {
 				Devotee.getFamily(devotee, options, function (err, devoteeFamily) {
-					console.log("inside family");
+
 					if (err) {
 						cb(err);
 						return cb.promise;
 					}
 					if (!devoteeFamily.length) {
-						console.log(devoteeFamily);
-						console.log("inside family length 1")
 
 						Devotee.getDevoteeConfirmationStatus(DevoteeList, departmentEventId, options, function (err, devoteeConf) {
 							if (err) {
@@ -462,15 +452,15 @@ module.exports = function (Devotee) {
 						DevoteeList = devoteeFamily.map(function (member) {
 							return member.id;
 						});
-						console.log("inside family length 2")
+
 						Devotee.getDevoteeConfirmationStatus(DevoteeList, departmentEventId, options, function (err, devoteeConf) {
 							if (err) {
 								cb(err);
 								return cb.promise;
 							}
-							//console.log(devoteeConf);
+
 							cb(null, devoteeConf);
-							console.log("inside family length 3");
+
 						});
 					};
 				});
