@@ -356,6 +356,7 @@ module.exports = function (Devotee) {
 			var Devotee = app.models.Devotee;
 			var devoteeFamilyConfirmations = [];
 			console.log(devoteeIds);
+			console.log(departmentEventId);
 
 				Devotee.find(
 					{
@@ -383,7 +384,7 @@ console.log(devoteeconfirmations);
 					});
 
 			console.log("devoteeconfirmationsZZZ");
-			console.log(devoteeFamilyConfirmations);
+			//console.log(devoteeFamilyConfirmations);
 			cb(null, devoteeFamilyConfirmations);			
 		});
 		return cb.promise;
@@ -417,8 +418,8 @@ console.log(devoteeconfirmations);
 
 			var EventDevoteeConfirmation = app.models.EventDevoteeConfirmation;
 			var Devotee = app.models.Devotee;
-
-			var DevoteeList = [devotee.id];
+			var DevoteeList = [];
+			DevoteeList.push(devotee.id);
 
 			if (!family) {
 				
