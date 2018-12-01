@@ -362,7 +362,7 @@ module.exports = function (Devotee) {
 					{
 						where: {
 							and: [
-								{ devoteeId: { inq: devoteeIds } },
+								{ id: { inq: devoteeIds } },
 								{ departmentEventId: departmentEventId },
 							]
 						}, 
