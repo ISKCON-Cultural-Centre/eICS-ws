@@ -368,7 +368,7 @@ module.exports = function (Devotee) {
 					include: {
 						relation: "fkDevoteeEventConfirmations",
 						scope: {
-							where: { orderdepartmentEventId: departmentEventId } // only select order with id 5
+							where: { departmentEventId: departmentEventId } // only select order with id 5
 						}
 					}
 				}, function (err, devoteeconfirmations) {
