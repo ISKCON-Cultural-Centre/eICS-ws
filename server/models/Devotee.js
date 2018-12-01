@@ -380,10 +380,7 @@ module.exports = function (Devotee) {
 					console.log(devoteeconfirmations);
 					devoteeFamilyConfirmations = devoteeconfirmations.map(
 						function (devoteeconfirmation) {
-
-							var eventConfirmations = family.map(function (confirm) {
-								return confirm.toJSON().fkDevoteeKarmiFamilyDevotee1rel;
-							});							
+					
 						console.log(devoteeconfirmation.map(function (confirm) {
 							return confirm.toJSON().fkDevoteeKarmiFamilyDevotee1rel;
 						}));
