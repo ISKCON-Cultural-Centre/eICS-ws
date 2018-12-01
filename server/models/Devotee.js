@@ -378,12 +378,13 @@ module.exports = function (Devotee) {
 						cb(err);
 						return cb.promise;
 					}
-
-					devoteeFamilyConfirmations = devoteeconfirmations.map(function (devoteeconfirmation) {
+					console.log(devoteeConfirmations);
+					devoteeFamilyConfirmations = devoteeconfirmations.map(
+						function (devoteeconfirmation) {
 						if (!devoteeconfirmation.fkDevoteeEventConfirmations.length) {						
-						return { devotee: devoteeconfirmations, confirmed: false };
+						return { devotee: devoteeconfirmation, confirmed: false };
 						} else {
-							return { devotee: devoteeconfirmations, confirmed: true };							
+							return { devotee: devoteeconfirmation, confirmed: true };							
 						}
 
 					});
