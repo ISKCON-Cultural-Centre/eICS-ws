@@ -117,7 +117,7 @@ module.exports = function (Devotee) {
 							}
 						});
 					}
-				);
+					);
 
 			} else {
 				finalWhereFilter = finalWhereFilter + '] }';
@@ -358,34 +358,39 @@ module.exports = function (Devotee) {
 			console.log(devoteeIds);
 			console.log(departmentEventId);
 
-				Devotee.find(
-					{
-						where: {
-							and: [
-								{ id: { inq: devoteeIds } },
-								{ departmentEventId: departmentEventId },
-							]
-						}, 
-						include: { relation: "fkDevoteeEventConfirmations" }						
-					}, function (err, devoteeconfirmations) {
-						console.log("devoteeconfirmations");
+			Devotee.find(
+				{
+					where: {
+						and: [
+							{ id: { inq: devoteeIds } },
+							{ departmentEventId: departmentEventId },
+						]
+					},
+					include: {
+						relation: "fkDevoteeEventConfirmations",
+						scope: {
+							where: { orderdepartmentEventId: departmentEventId } // only select order with id 5
+						}
+					}
+				}, function (err, devoteeconfirmations) {
+					console.log("devoteeconfirmations");
 
-						if (err) {
-							cb(err);
-							return cb.promise;
-						}
-console.log(devoteeconfirmations);
-/* 						if (!devoteeconfirmations.fkDevoteeEventConfirmations.length) {
-							devoteeFamilyConfirmations.push({ devotee: devoteeconfirmations, confirmed: false });
-						}
-						else {
-							devoteeFamilyConfirmations.push({ devotee: devoteeconfirmations, confirmed: true });
-						}; */
-					});
+					if (err) {
+						cb(err);
+						return cb.promise;
+					}
+					console.log(devoteeconfirmations);
+					/* 						if (!devoteeconfirmations.fkDevoteeEventConfirmations.length) {
+												devoteeFamilyConfirmations.push({ devotee: devoteeconfirmations, confirmed: false });
+											}
+											else {
+												devoteeFamilyConfirmations.push({ devotee: devoteeconfirmations, confirmed: true });
+											}; */
+				});
 
 			console.log("devoteeconfirmationsZZZ");
 			//console.log(devoteeFamilyConfirmations);
-			cb(null, devoteeFamilyConfirmations);			
+			cb(null, devoteeFamilyConfirmations);
 		});
 		return cb.promise;
 	}
@@ -421,7 +426,7 @@ console.log(devoteeconfirmations);
 			var DevoteeList = [];
 			DevoteeList.push(devotee);
 			if (!family) {
-				
+
 				Devotee.getDevoteeConfirmationStatus(DevoteeList, departmentEventId, options, function (err, devoteeConf) {
 					if (err) {
 						cb(err);
@@ -449,7 +454,7 @@ console.log(devoteeconfirmations);
 						});
 					}
 					else {
-						DevoteeList	= devoteeFamily.map(function (member) {
+						DevoteeList = devoteeFamily.map(function (member) {
 							return member.id;
 						});
 						console.log("inside family length 2")
