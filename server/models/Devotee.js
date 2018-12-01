@@ -379,17 +379,18 @@ module.exports = function (Devotee) {
 						return cb.promise;
 					}
 
-					if (!devoteeconfirmations.fkDevoteeEventConfirmations.length) {
-						devoteeFamilyConfirmations.push({ devotee: devoteeconfirmations, confirmed: false });
-					}
-					else {
-						devoteeFamilyConfirmations.push({ devotee: devoteeconfirmations, confirmed: true });
-					};
-				});
+					devoteeFamilyConfirmations = devoteeconfirmations.map(function (devoteeconfirmation) {
+						if (!devoteeconfirmation.fkDevoteeEventConfirmations.list.length) {						
+						return { devotee: devoteeconfirmations, confirmed: false };
+						} else {
+							return { devotee: devoteeconfirmations, confirmed: true };							
+						}
 
-			console.log("devoteeconfirmationsZZZ");
-			console.log(devoteeFamilyConfirmations);
-			cb(null, devoteeFamilyConfirmations);
+					});
+					cb(null, devoteeFamilyConfirmations);					
+					console.log("devoteeconfirmationsZZZ");
+					console.log(devoteeFamilyConfirmations);					
+				});
 		});
 		return cb.promise;
 	}
