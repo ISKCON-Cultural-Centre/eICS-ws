@@ -420,7 +420,8 @@ console.log(devoteeconfirmations);
 			var Devotee = app.models.Devotee;
 			var DevoteeList = [];
 			DevoteeList.push(devotee.id);
-
+			console.log('devoteelist');
+console.log(DevoteeList);
 			if (!family) {
 				
 				Devotee.getDevoteeConfirmationStatus(DevoteeList, departmentEventId, options, function (err, devoteeConf) {
