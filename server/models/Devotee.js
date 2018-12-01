@@ -381,7 +381,7 @@ module.exports = function (Devotee) {
 					console.log(devoteeconfirmations);
 					devoteeFamilyConfirmations = devoteeconfirmations.map(
 						function (devoteeconfirmation) {
-						console.log(devoteeconfirmation.fkDevoteeEventConfirmations);
+						console.log(devoteeconfirmation.fkDevoteeEventConfirmations.length);
 						if (!devoteeconfirmation.fkDevoteeEventConfirmations.length) {						
 						return { devotee: devoteeconfirmation, confirmed: false };
 						} else {
