@@ -362,7 +362,7 @@ module.exports = function (Devotee) {
 					{
 						where: {
 							and: [
-								{ devoteeId: { "inq": devoteeIds } },
+								{ devoteeId: { inq: devoteeIds } },
 								{ departmentEventId: departmentEventId },
 							]
 						}, 
@@ -420,8 +420,6 @@ console.log(devoteeconfirmations);
 			var Devotee = app.models.Devotee;
 			var DevoteeList = [];
 			DevoteeList.push(devotee);
-			console.log('devoteelist');
-console.log(DevoteeList);
 			if (!family) {
 				
 				Devotee.getDevoteeConfirmationStatus(DevoteeList, departmentEventId, options, function (err, devoteeConf) {
