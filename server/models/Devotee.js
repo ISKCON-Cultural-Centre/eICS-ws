@@ -378,7 +378,7 @@ module.exports = function (Devotee) {
 						cb(err);
 						return cb.promise;
 					}
-					console.log(devoteeConfirmations);
+					console.log(devoteeconfirmations);
 					devoteeFamilyConfirmations = devoteeconfirmations.map(
 						function (devoteeconfirmation) {
 						if (!devoteeconfirmation.fkDevoteeEventConfirmations.length) {						
