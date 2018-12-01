@@ -381,6 +381,7 @@ module.exports = function (Devotee) {
 					console.log(devoteeconfirmations.map(function (confirm) {
 						return confirm.toJSON().fkDevoteeEventConfirmations;
 					}));
+					devoteeconfirmations = devoteeconfirmations.toJSON();
 					devoteeFamilyConfirmations = devoteeconfirmations.map(
 						function (devoteeconfirmation) {
 					
