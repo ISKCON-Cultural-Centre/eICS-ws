@@ -459,7 +459,7 @@ console.log(devoteeconfirmations);
 								cb(err);
 								return cb.promise;
 							}
-							console.log(devoteeConf);
+							//console.log(devoteeConf);
 							cb(null, devoteeConf);
 							console.log("inside family length 3");
 						});
