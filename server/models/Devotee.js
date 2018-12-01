@@ -381,14 +381,14 @@ module.exports = function (Devotee) {
 					console.log(devoteeconfirmations.map(function (confirm) {
 						return confirm.toJSON().fkDevoteeEventConfirmations;
 					}));
-					devoteeconfirmations = devoteeconfirmations.toJSON();
+
 					devoteeFamilyConfirmations = devoteeconfirmations.map(
 						function (devoteeconfirmation) {
-					
-						if (!devoteeconfirmation.fkDevoteeEventConfirmations.length) {						
-						return { devotee: devoteeconfirmation, confirmed: false };
+						var conf = devoteeconfirmation.toJSON();
+						if (!conf.fkDevoteeEventConfirmations.length) {						
+						return { devotee: conf, confirmed: false };
 						} else {
-							return { devotee: devoteeconfirmation, confirmed: true };							
+							return { devotee: conf, confirmed: true };							
 						}
 
 					});
