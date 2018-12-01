@@ -363,7 +363,6 @@ module.exports = function (Devotee) {
 					where: {
 						and: [
 							{ id: { inq: devoteeIds } },
-							{ departmentEventId: departmentEventId },
 						]
 					},
 					include: {
@@ -381,8 +380,8 @@ module.exports = function (Devotee) {
 					console.log(devoteeconfirmations);
 					devoteeFamilyConfirmations = devoteeconfirmations.map(
 						function (devoteeconfirmation) {
-						console.log(devoteeconfirmation.fkDevoteeEventConfirmations.length);
-						if (!devoteeconfirmation.fkDevoteeEventConfirmations.length) {						
+						console.log(devoteeconfirmation.fkDevoteeEventConfirmations.List.length);
+						if (!devoteeconfirmation.fkDevoteeEventConfirmations.List.length) {						
 						return { devotee: devoteeconfirmation, confirmed: false };
 						} else {
 							return { devotee: devoteeconfirmation, confirmed: true };							
