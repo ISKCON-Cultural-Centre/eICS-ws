@@ -459,7 +459,7 @@ module.exports = function (Devotee) {
 							return member.id;
 						});
 						console.log("inside family length 2")
-						Devotee.getDevoteeConfirmationStatus(DevoteeList, options, function (err, devoteeConf) {
+						Devotee.getDevoteeConfirmationStatus(DevoteeList, departmentEventId, options, function (err, devoteeConf) {
 							if (err) {
 								cb(err);
 								return cb.promise;
