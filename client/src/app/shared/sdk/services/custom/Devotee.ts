@@ -23,6 +23,7 @@ import { ProfessionMaster } from '../../models/ProfessionMaster';
 import { ServiceRoleMapping } from '../../models/ServiceRoleMapping';
 import { Organization } from '../../models/Organization';
 import { DevoteeSevaSubscription } from '../../models/DevoteeSevaSubscription';
+import { EventDevoteeConfirmation } from '../../models/EventDevoteeConfirmation';
 
 
 /**
@@ -809,6 +810,99 @@ export class DevoteeApi extends BaseLoopBackApi {
   }
 
   /**
+   * Find a related item by id for fkDevoteeEventConfirmations.
+   *
+   * @param {any} id Devotee id
+   *
+   * @param {any} fk Foreign key for fkDevoteeEventConfirmations
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `Devotee` object.)
+   * </em>
+   */
+  public findByIdFkDevoteeEventConfirmations(id: any, fk: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/Devotees/:id/fkDevoteeEventConfirmations/:fk";
+    let _routeParams: any = {
+      id: id,
+      fk: fk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Delete a related item by id for fkDevoteeEventConfirmations.
+   *
+   * @param {any} id Devotee id
+   *
+   * @param {any} fk Foreign key for fkDevoteeEventConfirmations
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * This method returns no data.
+   */
+  public destroyByIdFkDevoteeEventConfirmations(id: any, fk: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "DELETE";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/Devotees/:id/fkDevoteeEventConfirmations/:fk";
+    let _routeParams: any = {
+      id: id,
+      fk: fk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Update a related item by id for fkDevoteeEventConfirmations.
+   *
+   * @param {any} id Devotee id
+   *
+   * @param {any} fk Foreign key for fkDevoteeEventConfirmations
+   *
+   * @param {object} data Request data.
+   *
+   * This method expects a subset of model properties as request parameters.
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `Devotee` object.)
+   * </em>
+   */
+  public updateByIdFkDevoteeEventConfirmations(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "PUT";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/Devotees/:id/fkDevoteeEventConfirmations/:fk";
+    let _routeParams: any = {
+      id: id,
+      fk: fk
+    };
+    let _postBody: any = {
+      data: data
+    };
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
    * Queries accessTokens of Devotee.
    *
    * @param {any} id Devotee id
@@ -1505,6 +1599,122 @@ export class DevoteeApi extends BaseLoopBackApi {
   }
 
   /**
+   * Queries fkDevoteeEventConfirmations of Devotee.
+   *
+   * @param {any} id Devotee id
+   *
+   * @param {object} filter 
+   *
+   * @returns {object[]} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `Devotee` object.)
+   * </em>
+   */
+  public getFkDevoteeEventConfirmations(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/Devotees/:id/fkDevoteeEventConfirmations";
+    let _routeParams: any = {
+      id: id
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof filter !== 'undefined' && filter !== null) _urlParams.filter = filter;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Creates a new instance in fkDevoteeEventConfirmations of this model.
+   *
+   * @param {any} id Devotee id
+   *
+   * @param {object} data Request data.
+   *
+   * This method expects a subset of model properties as request parameters.
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `Devotee` object.)
+   * </em>
+   */
+  public createFkDevoteeEventConfirmations(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "POST";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/Devotees/:id/fkDevoteeEventConfirmations";
+    let _routeParams: any = {
+      id: id
+    };
+    let _postBody: any = {
+      data: data
+    };
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Deletes all fkDevoteeEventConfirmations of this model.
+   *
+   * @param {any} id Devotee id
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * This method returns no data.
+   */
+  public deleteFkDevoteeEventConfirmations(id: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "DELETE";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/Devotees/:id/fkDevoteeEventConfirmations";
+    let _routeParams: any = {
+      id: id
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Counts fkDevoteeEventConfirmations of Devotee.
+   *
+   * @param {any} id Devotee id
+   *
+   * @param {object} where Criteria to match model instances
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * Data properties:
+   *
+   *  - `count` – `{number}` - 
+   */
+  public countFkDevoteeEventConfirmations(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/Devotees/:id/fkDevoteeEventConfirmations/count";
+    let _routeParams: any = {
+      id: id
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof where !== 'undefined' && where !== null) _urlParams.where = where;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
    * Patch an existing model instance or insert a new one into the data source.
    *
    * @param {object} data Request data.
@@ -1969,7 +2179,7 @@ export class DevoteeApi extends BaseLoopBackApi {
   }
 
   /**
-   * Get the list of Family Members of a Devotee who have attained certain Spiritual Levels
+   * Get the list of Family Members of a Devotee
    *
    * @param {String} devoteeId 
    *
@@ -1990,6 +2200,38 @@ export class DevoteeApi extends BaseLoopBackApi {
     let _postBody: any = {};
     let _urlParams: any = {};
     if (typeof devoteeId !== 'undefined' && devoteeId !== null) _urlParams.devoteeId = devoteeId;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Get the event confirmation status of a set of Devotees
+   *
+   * @param {String} devotee 
+   *
+   * @param {Boolean} family 
+   *
+   * @param {String} departmentEventId 
+   *
+   * @returns {object[]} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `Devotee` object.)
+   * </em>
+   */
+  public getDevoteeConfirmations(devotee: any = {}, family: any = {}, departmentEventId: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/Devotees/getDevoteeConfirmations";
+    let _routeParams: any = {};
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof devotee !== 'undefined' && devotee !== null) _urlParams.devotee = devotee;
+    if (typeof family !== 'undefined' && family !== null) _urlParams.family = family;
+    if (typeof departmentEventId !== 'undefined' && departmentEventId !== null) _urlParams.departmentEventId = departmentEventId;
     let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
     return result;
   }
@@ -2181,6 +2423,39 @@ export class DevoteeApi extends BaseLoopBackApi {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/Devotees/:id/fkDevoteeSevaSubscriptions";
+    let _routeParams: any = {
+      id: id
+    };
+    let _postBody: any = {
+      data: data
+    };
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Creates a new instance in fkDevoteeEventConfirmations of this model.
+   *
+   * @param {any} id Devotee id
+   *
+   * @param {object} data Request data.
+   *
+   * This method expects a subset of model properties as request parameters.
+   *
+   * @returns {object[]} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `Devotee` object.)
+   * </em>
+   */
+  public createManyFkDevoteeEventConfirmations(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
+    let _method: string = "POST";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/Devotees/:id/fkDevoteeEventConfirmations";
     let _routeParams: any = {
       id: id
     };

@@ -12,7 +12,8 @@ import {
   ProfessionMaster,
   ServiceRoleMapping,
   Organization,
-  DevoteeSevaSubscription
+  DevoteeSevaSubscription,
+  EventDevoteeConfirmation
 } from '../index';
 
 declare var Object: any;
@@ -72,6 +73,7 @@ export interface DevoteeInterface {
   roleMappings?: ServiceRoleMapping[];
   fkDevoteeOrganization1rel?: Organization;
   fkDevoteeSevaSubscriptions?: DevoteeSevaSubscription[];
+  fkDevoteeEventConfirmations?: EventDevoteeConfirmation[];
 }
 
 export class Devotee implements DevoteeInterface {
@@ -130,6 +132,7 @@ export class Devotee implements DevoteeInterface {
   roleMappings: ServiceRoleMapping[];
   fkDevoteeOrganization1rel: Organization;
   fkDevoteeSevaSubscriptions: DevoteeSevaSubscription[];
+  fkDevoteeEventConfirmations: EventDevoteeConfirmation[];
   constructor(data?: DevoteeInterface) {
     Object.assign(this, data);
   }
@@ -433,6 +436,14 @@ export class Devotee implements DevoteeInterface {
           name: 'fkDevoteeSevaSubscriptions',
           type: 'DevoteeSevaSubscription[]',
           model: 'DevoteeSevaSubscription',
+          relationType: 'hasMany',
+                  keyFrom: 'id',
+          keyTo: 'devoteeId'
+        },
+        fkDevoteeEventConfirmations: {
+          name: 'fkDevoteeEventConfirmations',
+          type: 'EventDevoteeConfirmation[]',
+          model: 'EventDevoteeConfirmation',
           relationType: 'hasMany',
                   keyFrom: 'id',
           keyTo: 'devoteeId'
