@@ -107,7 +107,6 @@ import { OrgTopParent } from '../../models/OrgTopParent';
 import { SevaMaster } from '../../models/SevaMaster';
 import { OrganizationGenderStats } from '../../models/OrganizationGenderStats';
 import { PrasadamCouponRegister } from '../../models/PrasadamCouponRegister';
-import { PrasadamCouponMaster } from '../../models/PrasadamCouponMaster';
 import { EventDevoteeConfirmation } from '../../models/EventDevoteeConfirmation';
 import { EventDevoteeAttendance } from '../../models/EventDevoteeAttendance';
 import { DevoteeCardLog } from '../../models/DevoteeCardLog';
@@ -226,7 +225,6 @@ export class SDKModels {
     SevaMaster: SevaMaster,
     OrganizationGenderStats: OrganizationGenderStats,
     PrasadamCouponRegister: PrasadamCouponRegister,
-    PrasadamCouponMaster: PrasadamCouponMaster,
     EventDevoteeConfirmation: EventDevoteeConfirmation,
     EventDevoteeAttendance: EventDevoteeAttendance,
     DevoteeCardLog: DevoteeCardLog,

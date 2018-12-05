@@ -573,7 +573,7 @@
     },
     "commWhatsapp": {
       "type": "Number",
-      "required": true,
+      "required": false,
       "length": null,
       "precision": 3,
       "scale": 0,
@@ -583,12 +583,12 @@
         "dataLength": null,
         "dataPrecision": 3,
         "dataScale": 0,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
     "commEmail": {
       "type": "Number",
-      "required": true,
+      "required": false,
       "length": null,
       "precision": 3,
       "scale": 0,
@@ -598,12 +598,12 @@
         "dataLength": null,
         "dataPrecision": 3,
         "dataScale": 0,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
     "commSms": {
       "type": "Number",
-      "required": true,
+      "required": false,
       "length": null,
       "precision": 3,
       "scale": 0,
@@ -613,12 +613,12 @@
         "dataLength": null,
         "dataPrecision": 3,
         "dataScale": 0,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
     "commCall": {
       "type": "Number",
-      "required": true,
+      "required": false,
       "length": null,
       "precision": 3,
       "scale": 0,
@@ -628,12 +628,12 @@
         "dataLength": null,
         "dataPrecision": 3,
         "dataScale": 0,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
     "commLetter": {
       "type": "Number",
-      "required": true,
+      "required": false,
       "length": null,
       "precision": 3,
       "scale": 0,
@@ -643,7 +643,7 @@
         "dataLength": null,
         "dataPrecision": 3,
         "dataScale": 0,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
     "marriedInd": {

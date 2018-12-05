@@ -7,20 +7,20 @@
       "table": "prasadam-coupon-register"
     },
     "relations": {
-      "fkPrasadamCouponIssueRegisterDevotee1rel": {
+      "fkPrasadamCouponMasterDepartmentEvent1rel": {
+        "model": "DepartmentEvent",
+        "type": "belongsTo",
+        "foreignKey": "departmentEventId"
+      },
+      "fkPrasadamCouponMasterDevotee1rel": {
         "model": "Devotee",
         "type": "belongsTo",
         "foreignKey": "devoteeId"
-      },
-      "fkPrasadamCouponIssueRegisterPrasadamCouponMaster1rel": {
-        "model": "PrasadamCouponMaster",
-        "type": "belongsTo",
-        "foreignKey": "prasadamCouponMasterId"
       }
     }
   },
   "properties": {
-    "devoteeId": {
+    "id": {
       "type": "String",
       "required": true,
       "length": 36,
@@ -28,43 +28,57 @@
       "scale": null,
       "id": 1,
       "mysql": {
+        "columnName": "id",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "departmentEventId": {
+      "type": "String",
+      "required": true,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "department-event-id",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "issueDateTime": {
+      "type": "Date",
+      "required": true,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "issue-date-time",
+        "dataType": "timestamp",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "devoteeId": {
+      "type": "String",
+      "required": true,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
         "columnName": "devotee-id",
         "dataType": "varchar",
         "dataLength": 36,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "N"
-      }
-    },
-    "prasadamCouponMasterId": {
-      "type": "String",
-      "required": true,
-      "length": 36,
-      "precision": null,
-      "scale": null,
-      "id": 2,
-      "mysql": {
-        "columnName": "prasadam-coupon-master-id",
-        "dataType": "varchar",
-        "dataLength": 36,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "N"
-      }
-    },
-    "returnedOn": {
-      "type": "Date",
-      "required": false,
-      "length": null,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "returned-on",
-        "dataType": "timestamp",
-        "dataLength": null,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
       }
     },
     "createdOn": {

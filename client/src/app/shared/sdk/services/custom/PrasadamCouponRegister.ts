@@ -10,8 +10,8 @@ import { ErrorHandler } from '../core/error.service';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { PrasadamCouponRegister } from '../../models/PrasadamCouponRegister';
+import { DepartmentEvent } from '../../models/DepartmentEvent';
 import { Devotee } from '../../models/Devotee';
-import { PrasadamCouponMaster } from '../../models/PrasadamCouponMaster';
 
 
 /**
@@ -30,7 +30,7 @@ export class PrasadamCouponRegisterApi extends BaseLoopBackApi {
   }
 
   /**
-   * Fetches belongsTo relation fkPrasadamCouponIssueRegisterDevotee1rel.
+   * Fetches belongsTo relation fkPrasadamCouponMasterDepartmentEvent1rel.
    *
    * @param {any} id PrasadamCouponRegister id
    *
@@ -45,10 +45,10 @@ export class PrasadamCouponRegisterApi extends BaseLoopBackApi {
    * This usually means the response is a `PrasadamCouponRegister` object.)
    * </em>
    */
-  public getFkPrasadamCouponIssueRegisterDevotee1rel(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
+  public getFkPrasadamCouponMasterDepartmentEvent1rel(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PrasadamCouponRegisters/:id/fkPrasadamCouponIssueRegisterDevotee1rel";
+    "/PrasadamCouponRegisters/:id/fkPrasadamCouponMasterDepartmentEvent1rel";
     let _routeParams: any = {
       id: id
     };
@@ -60,7 +60,7 @@ export class PrasadamCouponRegisterApi extends BaseLoopBackApi {
   }
 
   /**
-   * Fetches belongsTo relation fkPrasadamCouponIssueRegisterPrasadamCouponMaster1rel.
+   * Fetches belongsTo relation fkPrasadamCouponMasterDevotee1rel.
    *
    * @param {any} id PrasadamCouponRegister id
    *
@@ -75,10 +75,10 @@ export class PrasadamCouponRegisterApi extends BaseLoopBackApi {
    * This usually means the response is a `PrasadamCouponRegister` object.)
    * </em>
    */
-  public getFkPrasadamCouponIssueRegisterPrasadamCouponMaster1rel(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
+  public getFkPrasadamCouponMasterDevotee1rel(id: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/PrasadamCouponRegisters/:id/fkPrasadamCouponIssueRegisterPrasadamCouponMaster1rel";
+    "/PrasadamCouponRegisters/:id/fkPrasadamCouponMasterDevotee1rel";
     let _routeParams: any = {
       id: id
     };

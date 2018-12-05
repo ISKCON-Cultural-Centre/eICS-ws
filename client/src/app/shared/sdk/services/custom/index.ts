@@ -106,7 +106,6 @@ export * from './OrgTopParent';
 export * from './SevaMaster';
 export * from './OrganizationGenderStats';
 export * from './PrasadamCouponRegister';
-export * from './PrasadamCouponMaster';
 export * from './EventDevoteeConfirmation';
 export * from './EventDevoteeAttendance';
 export * from './DevoteeCardLog';

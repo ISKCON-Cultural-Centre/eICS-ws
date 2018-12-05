@@ -59,7 +59,7 @@
       "precision": 3,
       "scale": 0,
       "mysql": {
-        "columnName": "selfConfirm",
+        "columnName": "selfconfirm",
         "dataType": "tinyint",
         "dataLength": null,
         "dataPrecision": 3,

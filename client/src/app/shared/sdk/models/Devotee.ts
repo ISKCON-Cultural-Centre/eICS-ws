@@ -55,7 +55,7 @@ export interface DevoteeInterface {
   "commLetter"?: number;
   "marriedInd"?: number;
   "notes"?: string;
-  "enrolNo": number;
+  "enrolNo"?: number;
   "emailVerified"?: boolean;
   "created-on"?: Date;
   "updated-on"?: Date;

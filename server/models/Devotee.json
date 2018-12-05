@@ -667,7 +667,7 @@
     },
   "enrolNo": {
     "type": "Number",
-    "required": true,
+    "required": false,
     "length": null,
     "precision": 5,
     "scale": 0,
