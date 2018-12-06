@@ -537,6 +537,111 @@ module.exports = function (Devotee) {
 
 
 	/**
+		  * Issue Coupons.
+		  *
+		  * ```js
+		  * Devotee.getDevoteeConfirmations(options, function (err, roles) {
+		  *      console.log(token.id);
+		  *    });
+		  * ```
+		  *
+		  * @param {Object} options (context information to be included in all custom remote methods)
+		  * @callback {Function} cb Callback function
+		  * @param {Error} err Error object
+		  * @param {authorizedDepartments} list of roles successful
+		  * @promise
+		  */
+		 Devotee.issueCoupons = function (devotee, departmentEventId, self, family, guest, options, cb) {
+
+			cb = cb || utils.createPromiseCallback();
+	
+			Devotee.getApp(function (err, app) {
+				if (err) {
+					cb(err);
+					return cb.promise;
+				}
+	
+				var EventDevoteeConfirmation = app.models.EventDevoteeConfirmation;
+				var PrasadamCouponRegister = app.models.PrasadamCouponRegister;
+				var Devotee = app.models.Devotee;
+				var Devotee = app.models.Devotee;
+				var CouponList = [];
+				var DevoteeList = [];
+
+				if (!family) {
+	
+					if (self) {
+					PrasadamCouponRegister.create({devoteeId: devotee, departmentEventId: departmentEventId, issueDateTime: new Date()}, function (err, coupon) {
+						if (err) {
+							cb(err);
+							return cb.promise;
+						}
+						CouponList.push(coupon);	
+						cb(null, CouponList);					
+						}
+					);
+				} else {
+					cb(null, CouponList);					
+				}
+			
+				} else {
+					Devotee.getFamily(devotee, options, function (err, devoteeFamily) {
+	
+						if (err) {
+							cb(err);
+							return cb.promise;
+						}
+						if (!devoteeFamily.length) {
+							PrasadamCouponRegister.create({devoteeId: devotee, departmentEventId: departmentEventId, issueDateTime: new Date()}, function (err, coupon) {
+								if (err) {
+									cb(err);
+									return cb.promise;
+								}
+								CouponList.push(coupon);	
+								cb(null, CouponList);					
+								}
+							);
+						}
+						else {
+							DevoteeList = devoteeFamily.map(function (member) {
+								return member.id;
+							});
+	
+							Devotee.getDevoteeConfirmationStatus(DevoteeList, departmentEventId, options, function (err, devoteeConf) {
+								if (err) {
+									cb(err);
+									return cb.promise;
+								}
+	
+								DevoteeList = devoteeConf.map(function (conf) {
+									if (conf.confirmed) {
+										return {devoteeId: conf.devotee.id, departmentEventId: departmentEventId, issueDateTime: new Date()}
+									}
+								});
+	
+								PrasadamCouponRegister.create(DevoteeList, function (err, coupons) {
+									if (err) {
+										cb(err);
+										return cb.promise;
+									}
+									CouponList.push(coupons);	
+									cb(null, CouponList);
+									}
+								);	
+
+							});
+						};
+					});
+				}
+	
+			});
+			return cb.promise;
+		};
+	
+
+
+
+	/**
 	 * Get the list of Deparments assigned to a Devotee.
 	 *
 	 * ```js
@@ -772,6 +877,17 @@ module.exports = function (Devotee) {
 		returns: { arg: 'devoteesConfirmation', type: 'array', root: true }
 	});
 
-
+	Devotee.remoteMethod('issueCoupons', {
+		description: 'Issue coupons to confirmed devotees',
+		http: { path: '/issueCoupons', verb: 'get' },
+		accepts: [
+			{ arg: 'devotee', type: 'String' },
+			{ arg: 'departmentEventId', type: 'String' },
+			{ arg: 'self', type: 'Boolean' },
+			{ arg: 'family', type: 'Boolean' },
+			{ arg: 'guest', type: 'number' },
+		],
+		returns: { arg: 'coupons', type: 'array', root: true }
+	});
 
 }
