@@ -10,6 +10,8 @@ export interface PrasadamCouponRegisterInterface {
   "departmentEventId": string;
   "issueDateTime": Date;
   "devoteeId": string;
+  "issuedToName": string;
+  "eventName": string;
   "createdBy"?: string;
   "updatedBy"?: string;
   "created-on"?: Date;
@@ -23,6 +25,8 @@ export class PrasadamCouponRegister implements PrasadamCouponRegisterInterface {
   "departmentEventId": string;
   "issueDateTime": Date;
   "devoteeId": string;
+  "issuedToName": string;
+  "eventName": string;
   "createdBy": string;
   "updatedBy": string;
   "created-on": Date;
@@ -76,6 +80,14 @@ export class PrasadamCouponRegister implements PrasadamCouponRegisterInterface {
         },
         "devoteeId": {
           name: 'devoteeId',
+          type: 'string'
+        },
+        "issuedToName": {
+          name: 'issuedToName',
+          type: 'string'
+        },
+        "eventName": {
+          name: 'eventName',
           type: 'string'
         },
         "createdBy": {

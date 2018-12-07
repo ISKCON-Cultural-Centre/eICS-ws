@@ -380,9 +380,9 @@ module.exports = function (Devotee) {
 						function (devoteeconfirmation) {
 						var conf = devoteeconfirmation.toJSON();
 						if (!conf.fkDevoteeEventConfirmations.length) {						
-						return { devotee: conf, confirmed: false };
+						return { devotee: conf, confirmed: false, guests: 0};
 						} else {
-							return { devotee: conf, confirmed: true };							
+							return { devotee: conf, confirmed: true, guests: conf.fkDevoteeEventConfirmations.guestConfirm};							
 						}
 
 					});
@@ -551,7 +551,7 @@ module.exports = function (Devotee) {
 		  * @param {authorizedDepartments} list of roles successful
 		  * @promise
 		  */
-		 Devotee.issueCoupons = function (devotee, departmentEventId, self, family, guest, options, cb) {
+		 Devotee.issueCoupons = function (devotee, departmentEventId, eventName, self, family, guest, options, cb) {
 
 			cb = cb || utils.createPromiseCallback();
 	
@@ -571,15 +571,40 @@ module.exports = function (Devotee) {
 				if (!family) {
 	
 					if (self) {
-					PrasadamCouponRegister.create({devoteeId: devotee, departmentEventId: departmentEventId, issueDateTime: new Date()}, function (err, coupon) {
-						if (err) {
-							cb(err);
-							return cb.promise;
-						}
-						CouponList.push(coupon);	
-						cb(null, CouponList);					
-						}
-					);
+						DevoteeList.push(devotee);
+						Devotee.getDevoteeConfirmationStatus(DevoteeList, departmentEventId, options, function (err, devoteeConf) {
+							if (err) {
+								cb(err);
+								return cb.promise;
+							}		
+							DevoteeList = devoteeConf.map(function (conf) {
+								if (conf.devotee.fkDevoteeEventConfirmations.length > 0) {
+								if (conf.devotee.fkDevoteeEventConfirmations[0].selfconfirm) {
+									return {devoteeId: conf.devotee.id, departmentEventId: departmentEventId, issueDateTime: new Date(), 
+										issuedToName: conf.devotee.spiritualName ? conf.devotee.spiritualName : conf.devotee.legalName, eventName: eventName}
+									}
+										for (i = 1; i <= conf.devotee.fkDevoteeEventConfirmations[0].guestConfirm; i++) { 
+								return {devoteeId: conf.devotee.id, departmentEventId: departmentEventId, issueDateTime: new Date(), 
+									issuedToName: conf.devotee.spiritualName ? conf.devotee.spiritualName : conf.devotee.legalName + "'s guest", eventName: eventName}									
+								  }	
+								}							
+							});					
+						PrasadamCouponRegister.create(DevoteeList, function (err, coupon) {
+							if (err) {
+								cb(err);
+								return cb.promise;
+							}
+							EventDevoteeConfirmation.updateAll({id: conf.devotee.fkDevoteeEventConfirmations[0].id}, {couponIssued: 1}, function(err, info) {
+								if (err) {
+									cb(err);
+									return cb.promise;
+								}	
+								CouponList.push(coupon);	
+								cb(null, CouponList);	
+							});				
+							}
+						);
+					});
 				} else {
 					cb(null, CouponList);					
 				}
@@ -592,15 +617,40 @@ module.exports = function (Devotee) {
 							return cb.promise;
 						}
 						if (!devoteeFamily.length) {
-							PrasadamCouponRegister.create({devoteeId: devotee, departmentEventId: departmentEventId, issueDateTime: new Date()}, function (err, coupon) {
+							DevoteeList.push(devotee);
+							Devotee.getDevoteeConfirmationStatus(DevoteeList, departmentEventId, options, function (err, devoteeConf) {
+								if (err) {
+									cb(err);
+									return cb.promise;
+								}		
+								DevoteeList = devoteeConf.map(function (conf) {
+									if (conf.devotee.fkDevoteeEventConfirmations.length > 0) {
+									if (conf.devotee.fkDevoteeEventConfirmations[0].selfconfirm) {
+										return {devoteeId: conf.devotee.id, departmentEventId: departmentEventId, issueDateTime: new Date(), 
+											issuedToName: conf.devotee.spiritualName ? conf.devotee.spiritualName : conf.devotee.legalName, eventName: eventName}
+										}
+											for (i = 1; i <= conf.devotee.fkDevoteeEventConfirmations[0].guestConfirm; i++) { 
+									return {devoteeId: conf.devotee.id, departmentEventId: departmentEventId, issueDateTime: new Date(), 
+										issuedToName: conf.devotee.spiritualName ? conf.devotee.spiritualName : conf.devotee.legalName + "'s guest", eventName: eventName}									
+									  }	
+									}							
+								});					
+							PrasadamCouponRegister.create(DevoteeList, function (err, coupon) {
 								if (err) {
 									cb(err);
 									return cb.promise;
 								}
-								CouponList.push(coupon);	
-								cb(null, CouponList);					
+								EventDevoteeConfirmation.updateAll({id: conf.devotee.fkDevoteeEventConfirmations[0].id}, {couponIssued: 1}, function(err, info) {
+									if (err) {
+										cb(err);
+										return cb.promise;
+									}	
+									CouponList.push(coupon);	
+									cb(null, CouponList);	
+								});				
 								}
 							);
+						});
 						}
 						else {
 							DevoteeList = devoteeFamily.map(function (member) {
@@ -612,20 +662,32 @@ module.exports = function (Devotee) {
 									cb(err);
 									return cb.promise;
 								}
-	
+		var confIdList = [];
 								DevoteeList = devoteeConf.map(function (conf) {
-									if (conf.confirmed) {
+									if (conf.devotee.fkDevoteeEventConfirmations.length > 0) {
+										confIdList.push(conf.devotee.fkDevoteeEventConfirmations[0].id);
+									if (conf.devotee.fkDevoteeEventConfirmations[0].selfconfirm) {
 										return {devoteeId: conf.devotee.id, departmentEventId: departmentEventId, issueDateTime: new Date()}
 									}
+									for (i = 1; i <= conf.devotee.fkDevoteeEventConfirmations[0].guestConfirm; i++) { 
+										return {devoteeId: conf.devotee.id, departmentEventId: departmentEventId, issueDateTime: new Date()}										
+									  }	
+									}							
 								});
-	
+
 								PrasadamCouponRegister.create(DevoteeList, function (err, coupons) {
 									if (err) {
 										cb(err);
 										return cb.promise;
 									}
-									CouponList.push(coupons);	
-									cb(null, CouponList);
+									EventDevoteeConfirmation.updateAll({id: {inq: confIdList }}, {couponIssued: 1}, function(err, info) {
+										if (err) {
+											cb(err);
+											return cb.promise;
+										}	
+										CouponList.push(coupon);	
+										cb(null, CouponList);	
+									});	
 									}
 								);	
 

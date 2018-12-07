@@ -10,6 +10,7 @@ export interface EventDevoteeConfirmationInterface {
   "devoteeId": string;
   "selfconfirm": number;
   "guestCount": number;
+  "couponIssued": number;
   "createdBy"?: string;
   "updatedBy"?: string;
   "created-on"?: Date;
@@ -23,6 +24,7 @@ export class EventDevoteeConfirmation implements EventDevoteeConfirmationInterfa
   "devoteeId": string;
   "selfconfirm": number;
   "guestCount": number;
+  "couponIssued": number;
   "createdBy": string;
   "updatedBy": string;
   "created-on": Date;
@@ -76,6 +78,10 @@ export class EventDevoteeConfirmation implements EventDevoteeConfirmationInterfa
         },
         "guestCount": {
           name: 'guestCount',
+          type: 'number'
+        },
+        "couponIssued": {
+          name: 'couponIssued',
           type: 'number'
         },
         "createdBy": {

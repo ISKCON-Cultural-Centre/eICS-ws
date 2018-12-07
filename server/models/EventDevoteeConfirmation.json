@@ -91,6 +91,21 @@
         "nullable": "N"
       }
     },
+    "couponIssued": {
+      "type": "Number",
+      "required": true,
+      "length": null,
+      "precision": 3,
+      "scale": 0,
+      "mysql": {
+        "columnName": "coupon-issued",
+        "dataType": "tinyint",
+        "dataLength": null,
+        "dataPrecision": 3,
+        "dataScale": 0,
+        "nullable": "N"
+      }
+    },
     "createdBy": {
       "type": "String",
       "required": false,
