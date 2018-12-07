@@ -609,6 +609,7 @@ module.exports = function (Devotee) {
 						if (conf.devotee.fkDevoteeEventConfirmations.length > 0) {
 				
 							if (conf.devotee.fkDevoteeEventConfirmations[0].selfconfirm) {
+								confIdList.push(conf.devotee.id);
 								devoteeCouponList.push({
 									devoteeId: conf.devotee.id, departmentEventId: departmentEventId, issueDateTime: new Date(),
 									issuedToName: conf.devotee.spiritualName ? conf.devotee.spiritualName : conf.devotee.legalName, eventName: eventName
@@ -627,8 +628,8 @@ module.exports = function (Devotee) {
 							cb(err);
 							return cb.promise;
 						}
-			
-						EventDevoteeConfirmation.updateAll({ id: { inq: confIdList } }, { couponIssued: 1 }, function (err, info) {
+	
+						EventDevoteeConfirmation.updateAll({ and: [{devoteeId: { inq: confIdList } }, {departmentEventId: departmentEventId}]}, { couponIssued: 1 }, function (err, info) {
 							if (err) {
 								cb(err);
 								return cb.promise;
