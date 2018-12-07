@@ -117,7 +117,7 @@ module.exports = function (Devotee) {
 							}
 						});
 					}
-					);
+				);
 
 			} else {
 				finalWhereFilter = finalWhereFilter + '] }';
@@ -378,15 +378,15 @@ module.exports = function (Devotee) {
 
 					devoteeFamilyConfirmations = devoteeconfirmations.map(
 						function (devoteeconfirmation) {
-						var conf = devoteeconfirmation.toJSON();
-						if (!conf.fkDevoteeEventConfirmations.length) {						
-						return { devotee: conf, confirmed: false, guests: 0};
-						} else {
-							return { devotee: conf, confirmed: true, guests: conf.fkDevoteeEventConfirmations.guestConfirm};							
-						}
+							var conf = devoteeconfirmation.toJSON();
+							if (!conf.fkDevoteeEventConfirmations.length) {
+								return { devotee: conf, confirmed: false, guests: 0 };
+							} else {
+								return { devotee: conf, confirmed: true, guests: conf.fkDevoteeEventConfirmations.guestConfirm };
+							}
 
-					});
-					cb(null, devoteeFamilyConfirmations);									
+						});
+					cb(null, devoteeFamilyConfirmations);
 				});
 		});
 		return cb.promise;
@@ -551,155 +551,99 @@ module.exports = function (Devotee) {
 		  * @param {authorizedDepartments} list of roles successful
 		  * @promise
 		  */
-		 Devotee.issueCoupons = function (devotee, departmentEventId, eventName, self, family, guest, options, cb) {
+	Devotee.issueCoupons = function (devotee, departmentEventId, eventName, self, family, options, cb) {
 
-			cb = cb || utils.createPromiseCallback();
-	
-			Devotee.getApp(function (err, app) {
-				if (err) {
-					cb(err);
-					return cb.promise;
+		cb = cb || utils.createPromiseCallback();
+
+		Devotee.getApp(function (err, app) {
+			if (err) {
+				cb(err);
+				return cb.promise;
+			}
+
+			var EventDevoteeConfirmation = app.models.EventDevoteeConfirmation;
+			var PrasadamCouponRegister = app.models.PrasadamCouponRegister;
+			var Devotee = app.models.Devotee;
+			var Devotee = app.models.Devotee;
+			var CouponList = [];
+			var DevoteeList = [];
+		
+			if (!family) {
+				if (self) {
+					DevoteeList.push(devotee);
+					getCoupons(DevoteeList, departmentEventId, eventName);
+				} else {
+					cb(null, CouponList);
 				}
-	
-				var EventDevoteeConfirmation = app.models.EventDevoteeConfirmation;
-				var PrasadamCouponRegister = app.models.PrasadamCouponRegister;
-				var Devotee = app.models.Devotee;
-				var Devotee = app.models.Devotee;
-				var CouponList = [];
-				var DevoteeList = [];
 
-				if (!family) {
-	
-					if (self) {
+			} else {			
+				Devotee.getFamily(devotee, options, function (err, devoteeFamily) {
+
+					if (err) {
+						cb(err);
+						return cb.promise;
+					}
+					if (!devoteeFamily.length) {
 						DevoteeList.push(devotee);
-						Devotee.getDevoteeConfirmationStatus(DevoteeList, departmentEventId, options, function (err, devoteeConf) {
-							if (err) {
-								cb(err);
-								return cb.promise;
-							}		
-							DevoteeList = devoteeConf.map(function (conf) {
-								if (conf.devotee.fkDevoteeEventConfirmations.length > 0) {
-								if (conf.devotee.fkDevoteeEventConfirmations[0].selfconfirm) {
-									return {devoteeId: conf.devotee.id, departmentEventId: departmentEventId, issueDateTime: new Date(), 
-										issuedToName: conf.devotee.spiritualName ? conf.devotee.spiritualName : conf.devotee.legalName, eventName: eventName}
-									}
-										for (i = 1; i <= conf.devotee.fkDevoteeEventConfirmations[0].guestConfirm; i++) { 
-								return {devoteeId: conf.devotee.id, departmentEventId: departmentEventId, issueDateTime: new Date(), 
-									issuedToName: conf.devotee.spiritualName ? conf.devotee.spiritualName : conf.devotee.legalName + "'s guest", eventName: eventName}									
-								  }	
-								}							
-							});					
-						PrasadamCouponRegister.create(DevoteeList, function (err, coupon) {
-							if (err) {
-								cb(err);
-								return cb.promise;
+						getCoupons(DevoteeList, departmentEventId, eventName);
+					}
+					else {
+						DevoteeList = devoteeFamily.map(function (member) {
+							return member.id;
+						});
+						getCoupons(DevoteeList, departmentEventId, eventName);
+					};
+				});
+			}
+
+			function getCoupons(DevoteeList, departmentEventId, eventName) {
+				couponList = [];
+				Devotee.getDevoteeConfirmationStatus(DevoteeList, departmentEventId, options, function (err, devoteeConf) {
+					if (err) {
+						cb(err);
+						return cb.promise;
+					}
+					var confIdList = [];
+					var devoteeCouponList = [];
+					devoteeConf.map(function (conf) {
+						if (conf.devotee.fkDevoteeEventConfirmations.length > 0) {
+				
+							if (conf.devotee.fkDevoteeEventConfirmations[0].selfconfirm) {
+								devoteeCouponList.push({
+									devoteeId: conf.devotee.id, departmentEventId: departmentEventId, issueDateTime: new Date(),
+									issuedToName: conf.devotee.spiritualName ? conf.devotee.spiritualName : conf.devotee.legalName, eventName: eventName
+								});
 							}
-							EventDevoteeConfirmation.updateAll({id: conf.devotee.fkDevoteeEventConfirmations[0].id}, {couponIssued: 1}, function(err, info) {
-								if (err) {
-									cb(err);
-									return cb.promise;
-								}	
-								CouponList.push(coupon);	
-								cb(null, CouponList);	
-							});				
+							for (i = 1; i <= conf.devotee.fkDevoteeEventConfirmations[0].guestCount; i++) {
+								devoteeCouponList.push( {
+									devoteeId: conf.devotee.id, departmentEventId: departmentEventId, issueDateTime: new Date(),
+									issuedToName: ((conf.devotee.spiritualName ? conf.devotee.spiritualName : conf.devotee.legalName) + "'s guest"), eventName: eventName
+								});
 							}
-						);
+						}
 					});
-				} else {
-					cb(null, CouponList);					
-				}
-			
-				} else {
-					Devotee.getFamily(devotee, options, function (err, devoteeFamily) {
-	
+					PrasadamCouponRegister.create(devoteeCouponList, function (err, coupon) {
 						if (err) {
 							cb(err);
 							return cb.promise;
 						}
-						if (!devoteeFamily.length) {
-							DevoteeList.push(devotee);
-							Devotee.getDevoteeConfirmationStatus(DevoteeList, departmentEventId, options, function (err, devoteeConf) {
-								if (err) {
-									cb(err);
-									return cb.promise;
-								}		
-								DevoteeList = devoteeConf.map(function (conf) {
-									if (conf.devotee.fkDevoteeEventConfirmations.length > 0) {
-									if (conf.devotee.fkDevoteeEventConfirmations[0].selfconfirm) {
-										return {devoteeId: conf.devotee.id, departmentEventId: departmentEventId, issueDateTime: new Date(), 
-											issuedToName: conf.devotee.spiritualName ? conf.devotee.spiritualName : conf.devotee.legalName, eventName: eventName}
-										}
-											for (i = 1; i <= conf.devotee.fkDevoteeEventConfirmations[0].guestConfirm; i++) { 
-									return {devoteeId: conf.devotee.id, departmentEventId: departmentEventId, issueDateTime: new Date(), 
-										issuedToName: conf.devotee.spiritualName ? conf.devotee.spiritualName : conf.devotee.legalName + "'s guest", eventName: eventName}									
-									  }	
-									}							
-								});					
-							PrasadamCouponRegister.create(DevoteeList, function (err, coupon) {
-								if (err) {
-									cb(err);
-									return cb.promise;
-								}
-								EventDevoteeConfirmation.updateAll({id: conf.devotee.fkDevoteeEventConfirmations[0].id}, {couponIssued: 1}, function(err, info) {
-									if (err) {
-										cb(err);
-										return cb.promise;
-									}	
-									CouponList.push(coupon);	
-									cb(null, CouponList);	
-								});				
-								}
-							);
+			
+						EventDevoteeConfirmation.updateAll({ id: { inq: confIdList } }, { couponIssued: 1 }, function (err, info) {
+							if (err) {
+								cb(err);
+								return cb.promise;
+							}
+							CouponList.push(coupon);
+							cb(null, CouponList);
 						});
-						}
-						else {
-							DevoteeList = devoteeFamily.map(function (member) {
-								return member.id;
-							});
-	
-							Devotee.getDevoteeConfirmationStatus(DevoteeList, departmentEventId, options, function (err, devoteeConf) {
-								if (err) {
-									cb(err);
-									return cb.promise;
-								}
-		var confIdList = [];
-								DevoteeList = devoteeConf.map(function (conf) {
-									if (conf.devotee.fkDevoteeEventConfirmations.length > 0) {
-										confIdList.push(conf.devotee.fkDevoteeEventConfirmations[0].id);
-									if (conf.devotee.fkDevoteeEventConfirmations[0].selfconfirm) {
-										return {devoteeId: conf.devotee.id, departmentEventId: departmentEventId, issueDateTime: new Date()}
-									}
-									for (i = 1; i <= conf.devotee.fkDevoteeEventConfirmations[0].guestConfirm; i++) { 
-										return {devoteeId: conf.devotee.id, departmentEventId: departmentEventId, issueDateTime: new Date()}										
-									  }	
-									}							
-								});
+					}
+					);
+				});	
+			}	
+		});
+		return cb.promise;
+	};
 
-								PrasadamCouponRegister.create(DevoteeList, function (err, coupons) {
-									if (err) {
-										cb(err);
-										return cb.promise;
-									}
-									EventDevoteeConfirmation.updateAll({id: {inq: confIdList }}, {couponIssued: 1}, function(err, info) {
-										if (err) {
-											cb(err);
-											return cb.promise;
-										}	
-										CouponList.push(coupon);	
-										cb(null, CouponList);	
-									});	
-									}
-								);	
-
-							});
-						};
-					});
-				}
-	
-			});
-			return cb.promise;
-		};
-	
 
 
 
@@ -945,9 +889,9 @@ module.exports = function (Devotee) {
 		accepts: [
 			{ arg: 'devotee', type: 'String' },
 			{ arg: 'departmentEventId', type: 'String' },
+			{ arg: 'eventName', type: 'String' },
 			{ arg: 'self', type: 'Boolean' },
 			{ arg: 'family', type: 'Boolean' },
-			{ arg: 'guest', type: 'number' },
 		],
 		returns: { arg: 'coupons', type: 'array', root: true }
 	});
