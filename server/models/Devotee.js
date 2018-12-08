@@ -614,7 +614,7 @@ module.exports = function (Devotee) {
 					var devoteeCouponList = [];
 					devoteeConf.map(function (conf) {
 						if (conf.devotee.fkDevoteeEventConfirmations.length > 0) {
-				
+							if (!conf.devotee.fkDevoteeEventConfirmations[0].couponIssued) {
 							if (conf.devotee.fkDevoteeEventConfirmations[0].selfconfirm) {
 								confIdList.push(conf.devotee.id);
 								devoteeCouponList.push({
@@ -628,6 +628,7 @@ module.exports = function (Devotee) {
 									issuedToName: ((conf.devotee.spiritualName ? conf.devotee.spiritualName : conf.devotee.legalName) + "'s guest"), eventName: eventName
 								});
 							}
+						}
 						}
 					});
 					PrasadamCouponRegister.create(devoteeCouponList, function (err, coupon) {
