@@ -551,7 +551,7 @@ module.exports = function (Devotee) {
 		  * @param {authorizedDepartments} list of roles successful
 		  * @promise
 		  */
-	Devotee.issueCoupons = function (devotee, departmentEventId, eventName, self, family, options, cb) {
+	Devotee.issueCoupons = function (devotee, departmentEventId, self, family, options, cb) {
 
 		cb = cb || utils.createPromiseCallback();
 
@@ -565,13 +565,19 @@ module.exports = function (Devotee) {
 			var PrasadamCouponRegister = app.models.PrasadamCouponRegister;
 			var Devotee = app.models.Devotee;
 			var Devotee = app.models.Devotee;
+			var DepartmentEvent = app.models.DepartmentEvent;
 			var CouponList = [];
 			var DevoteeList = [];
 		
+			DepartmentEvent.findOne({ where: { id: departmentEventId } }, function (err, event) {
+				if (err) {
+					cb(err);
+					return cb.promise;
+				}
 			if (!family) {
 				if (self) {
 					DevoteeList.push(devotee);
-					getCoupons(DevoteeList, departmentEventId, eventName);
+					getCoupons(DevoteeList, departmentEventId, event.eventName);
 				} else {
 					cb(null, CouponList);
 				}
@@ -585,16 +591,17 @@ module.exports = function (Devotee) {
 					}
 					if (!devoteeFamily.length) {
 						DevoteeList.push(devotee);
-						getCoupons(DevoteeList, departmentEventId, eventName);
+						getCoupons(DevoteeList, departmentEventId, event.eventName);
 					}
 					else {
 						DevoteeList = devoteeFamily.map(function (member) {
 							return member.id;
 						});
-						getCoupons(DevoteeList, departmentEventId, eventName);
+						getCoupons(DevoteeList, departmentEventId, event.eventName);
 					};
 				});
 			}
+		});
 
 			function getCoupons(DevoteeList, departmentEventId, eventName) {
 				couponList = [];
@@ -890,7 +897,6 @@ module.exports = function (Devotee) {
 		accepts: [
 			{ arg: 'devotee', type: 'String' },
 			{ arg: 'departmentEventId', type: 'String' },
-			{ arg: 'eventName', type: 'String' },
 			{ arg: 'self', type: 'Boolean' },
 			{ arg: 'family', type: 'Boolean' },
 		],

@@ -2243,8 +2243,6 @@ export class DevoteeApi extends BaseLoopBackApi {
    *
    * @param {String} departmentEventId 
    *
-   * @param {String} eventName 
-   *
    * @param {Boolean} self 
    *
    * @param {Boolean} family 
@@ -2258,7 +2256,7 @@ export class DevoteeApi extends BaseLoopBackApi {
    * This usually means the response is a `Devotee` object.)
    * </em>
    */
-  public issueCoupons(devotee: any = {}, departmentEventId: any = {}, eventName: any = {}, self: any = {}, family: any = {}, customHeaders?: Function): Observable<any> {
+  public issueCoupons(devotee: any = {}, departmentEventId: any = {}, self: any = {}, family: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/Devotees/issueCoupons";
@@ -2267,7 +2265,6 @@ export class DevoteeApi extends BaseLoopBackApi {
     let _urlParams: any = {};
     if (typeof devotee !== 'undefined' && devotee !== null) _urlParams.devotee = devotee;
     if (typeof departmentEventId !== 'undefined' && departmentEventId !== null) _urlParams.departmentEventId = departmentEventId;
-    if (typeof eventName !== 'undefined' && eventName !== null) _urlParams.eventName = eventName;
     if (typeof self !== 'undefined' && self !== null) _urlParams.self = self;
     if (typeof family !== 'undefined' && family !== null) _urlParams.family = family;
     let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
