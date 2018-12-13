@@ -466,5 +466,13 @@
   "CardActionMaster": {
     "dataSource": "mysqld",
     "public": true
+  },
+  "Resource": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "ResourceCalendar": {
+    "dataSource": "mysqld",
+    "public": true
   }
 }

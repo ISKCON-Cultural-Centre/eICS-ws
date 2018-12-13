@@ -110,5 +110,7 @@ export * from './EventDevoteeConfirmation';
 export * from './EventDevoteeAttendance';
 export * from './DevoteeCardLog';
 export * from './CardActionMaster';
+export * from './Resource';
+export * from './ResourceCalendar';
 export * from './SDKModels';
 export * from './logger.service';

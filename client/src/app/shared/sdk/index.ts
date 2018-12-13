@@ -155,6 +155,8 @@ import { EventDevoteeConfirmationApi } from './services/custom/EventDevoteeConfi
 import { EventDevoteeAttendanceApi } from './services/custom/EventDevoteeAttendance';
 import { DevoteeCardLogApi } from './services/custom/DevoteeCardLog';
 import { CardActionMasterApi } from './services/custom/CardActionMaster';
+import { ResourceApi } from './services/custom/Resource';
+import { ResourceCalendarApi } from './services/custom/ResourceCalendar';
 /**
 * @module SDKBrowserModule
 * @description
@@ -294,6 +296,8 @@ export class SDKBrowserModule {
         EventDevoteeAttendanceApi,
         DevoteeCardLogApi,
         CardActionMasterApi,
+        ResourceApi,
+        ResourceCalendarApi,
         internalStorageProvider,
         { provide: SDKStorage, useClass: StorageBrowser }
       ]
