@@ -4,6 +4,10 @@ declare var Object: any;
 export interface SaadhanaMasterInterface {
   "id": string;
   "saadhanaName": string;
+  "controlType": string;
+  "displayLabel": string;
+  "requiredInd": string;
+  "displayOrder": number;
   "createdBy"?: string;
   "updatedBy"?: string;
   "created-on"?: Date;
@@ -13,6 +17,10 @@ export interface SaadhanaMasterInterface {
 export class SaadhanaMaster implements SaadhanaMasterInterface {
   "id": string;
   "saadhanaName": string;
+  "controlType": string;
+  "displayLabel": string;
+  "requiredInd": string;
+  "displayOrder": number;
   "createdBy": string;
   "updatedBy": string;
   "created-on": Date;
@@ -57,6 +65,22 @@ export class SaadhanaMaster implements SaadhanaMasterInterface {
         "saadhanaName": {
           name: 'saadhanaName',
           type: 'string'
+        },
+        "controlType": {
+          name: 'controlType',
+          type: 'string'
+        },
+        "displayLabel": {
+          name: 'displayLabel',
+          type: 'string'
+        },
+        "requiredInd": {
+          name: 'requiredInd',
+          type: 'string'
+        },
+        "displayOrder": {
+          name: 'displayOrder',
+          type: 'number'
         },
         "createdBy": {
           name: 'createdBy',
