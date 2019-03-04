@@ -474,5 +474,13 @@
   "ResourceCalendar": {
     "dataSource": "mysqld",
     "public": true
+  },
+  "SaadhanaMaster": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "DevoteeSadhana": {
+    "dataSource": "mysqld",
+    "public": true
   }
 }

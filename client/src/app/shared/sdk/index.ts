@@ -157,6 +157,8 @@ import { DevoteeCardLogApi } from './services/custom/DevoteeCardLog';
 import { CardActionMasterApi } from './services/custom/CardActionMaster';
 import { ResourceApi } from './services/custom/Resource';
 import { ResourceCalendarApi } from './services/custom/ResourceCalendar';
+import { SaadhanaMasterApi } from './services/custom/SaadhanaMaster';
+import { DevoteeSadhanaApi } from './services/custom/DevoteeSadhana';
 /**
 * @module SDKBrowserModule
 * @description
@@ -298,6 +300,8 @@ export class SDKBrowserModule {
         CardActionMasterApi,
         ResourceApi,
         ResourceCalendarApi,
+        SaadhanaMasterApi,
+        DevoteeSadhanaApi,
         internalStorageProvider,
         { provide: SDKStorage, useClass: StorageBrowser }
       ]

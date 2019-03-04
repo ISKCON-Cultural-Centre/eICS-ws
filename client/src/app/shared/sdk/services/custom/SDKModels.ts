@@ -113,6 +113,8 @@ import { DevoteeCardLog } from '../../models/DevoteeCardLog';
 import { CardActionMaster } from '../../models/CardActionMaster';
 import { Resource } from '../../models/Resource';
 import { ResourceCalendar } from '../../models/ResourceCalendar';
+import { SaadhanaMaster } from '../../models/SaadhanaMaster';
+import { DevoteeSadhana } from '../../models/DevoteeSadhana';
 
 export interface Models { [name: string]: any }
 
@@ -233,6 +235,8 @@ export class SDKModels {
     CardActionMaster: CardActionMaster,
     Resource: Resource,
     ResourceCalendar: ResourceCalendar,
+    SaadhanaMaster: SaadhanaMaster,
+    DevoteeSadhana: DevoteeSadhana,
     
   };
 

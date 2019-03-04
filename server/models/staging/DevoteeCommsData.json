@@ -1,29 +1,14 @@
 {
-  "name": "DevoteeList",
+  "name": "DevoteeCommsData",
   "options": {
     "idInjection": false,
     "mysql": {
       "schema": "icc",
-      "table": "devotee-list"
+      "table": "devotee-comms-data"
     },
     "relations": {}
   },
   "properties": {
-    "id": {
-      "type": "String",
-      "required": true,
-      "length": 36,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "id",
-        "dataType": "varchar",
-        "dataLength": 36,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "N"
-      }
-    },
     "enrolNo": {
       "type": "Number",
       "required": false,
@@ -42,28 +27,13 @@
     "name": {
       "type": "String",
       "required": false,
-      "length": 100,
+      "length": 104,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "Name",
+        "columnName": "name",
         "dataType": "varchar",
-        "dataLength": 100,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "gender": {
-      "type": "Boolean",
-      "required": false,
-      "length": 1,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "gender",
-        "dataType": "char",
-        "dataLength": 1,
+        "dataLength": 104,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
@@ -84,31 +54,31 @@
         "nullable": "Y"
       }
     },
-    "mobileNo1": {
+    "mobile1": {
       "type": "String",
       "required": false,
-      "length": 15,
+      "length": 17,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "mobile-no-1",
+        "columnName": "mobile1",
         "dataType": "varchar",
-        "dataLength": 15,
+        "dataLength": 17,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
       }
     },
-    "mobileNo2": {
+    "concat(\"91\", `mobileNo2`)": {
       "type": "String",
       "required": false,
-      "length": 15,
+      "length": 17,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "mobile-no-2",
+        "columnName": "concat(\"91\", `mobile-no-2`)",
         "dataType": "varchar",
-        "dataLength": 15,
+        "dataLength": 17,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
@@ -141,36 +111,6 @@
         "dataLength": 512,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "description": {
-      "type": "String",
-      "required": false,
-      "length": 50,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "description",
-        "dataType": "varchar",
-        "dataLength": 50,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "age": {
-      "type": "Number",
-      "required": false,
-      "length": null,
-      "precision": 19,
-      "scale": 0,
-      "mysql": {
-        "columnName": "age",
-        "dataType": "bigint",
-        "dataLength": null,
-        "dataPrecision": 19,
-        "dataScale": 0,
         "nullable": "Y"
       }
     }

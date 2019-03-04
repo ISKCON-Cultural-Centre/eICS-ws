@@ -1,117 +1,103 @@
 {
-  "name": "Devoteefamily",
+  "name": "SaadhanaMaster",
   "options": {
     "idInjection": false,
     "mysql": {
       "schema": "icc",
-      "table": "devoteefamily"
+      "table": "saadhana-master"
     },
     "relations": {}
   },
   "properties": {
-    "familyName": {
+    "id": {
       "type": "String",
-      "required": false,
-      "length": 100,
+      "required": true,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "id": 1,
+      "mysql": {
+        "columnName": "id",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "saadhanaName": {
+      "type": "String",
+      "required": true,
+      "length": 50,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "family-name",
+        "columnName": "saadhana-name",
         "dataType": "varchar",
-        "dataLength": 100,
+        "dataLength": 50,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "Y"
+        "nullable": "N"
       }
     },
-    "enrolNo": {
-      "type": "Number",
+    "createdOn": {
+      "type": "Date",
       "required": false,
       "length": null,
-      "precision": 5,
-      "scale": 0,
+      "precision": null,
+      "scale": null,
       "mysql": {
-        "columnName": "enrol-no",
-        "dataType": "smallint",
+        "columnName": "created-on",
+        "dataType": "datetime",
         "dataLength": null,
-        "dataPrecision": 5,
-        "dataScale": 0,
-        "nullable": "Y"
-      }
-    },
-    "devotee": {
-      "type": "String",
-      "required": false,
-      "length": 100,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "devotee",
-        "dataType": "varchar",
-        "dataLength": 100,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
       }
     },
-    "relateddevotee": {
-      "type": "String",
+    "updatedOn": {
+      "type": "Date",
       "required": false,
-      "length": 100,
+      "length": null,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "relatedDevotee",
-        "dataType": "varchar",
-        "dataLength": 100,
+        "columnName": "updated-on",
+        "dataType": "datetime",
+        "dataLength": null,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
       }
     },
-    "relationName": {
+    "createdBy": {
       "type": "String",
       "required": false,
-      "length": 100,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "relation-name",
-        "dataType": "varchar",
-        "dataLength": 100,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
-      }
-    },
-    "devoteeid": {
-      "type": "String",
-      "required": true,
       "length": 36,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "devoteeId",
+        "columnName": "created-by",
         "dataType": "varchar",
         "dataLength": 36,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
-    "relateddevoteeid": {
+    "updatedBy": {
       "type": "String",
-      "required": true,
+      "required": false,
       "length": 36,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "relatedDevoteeId",
+        "columnName": "updated-by",
         "dataType": "varchar",
         "dataLength": 36,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "N"
+        "nullable": "Y"
       }
     }
   }
