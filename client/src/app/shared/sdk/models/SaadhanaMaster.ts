@@ -1,4 +1,7 @@
 /* tslint:disable */
+import {
+  DevoteeSadhana
+} from '../index';
 
 declare var Object: any;
 export interface SaadhanaMasterInterface {
@@ -16,6 +19,7 @@ export interface SaadhanaMasterInterface {
   "updatedBy"?: string;
   "created-on"?: Date;
   "updated-on"?: Date;
+  fkSaadhanaMasterDevotee?: DevoteeSadhana[];
 }
 
 export class SaadhanaMaster implements SaadhanaMasterInterface {
@@ -33,6 +37,7 @@ export class SaadhanaMaster implements SaadhanaMasterInterface {
   "updatedBy": string;
   "created-on": Date;
   "updated-on": Date;
+  fkSaadhanaMasterDevotee: DevoteeSadhana[];
   constructor(data?: SaadhanaMasterInterface) {
     Object.assign(this, data);
   }
@@ -124,6 +129,14 @@ export class SaadhanaMaster implements SaadhanaMasterInterface {
         },
       },
       relations: {
+        fkSaadhanaMasterDevotee: {
+          name: 'fkSaadhanaMasterDevotee',
+          type: 'DevoteeSadhana[]',
+          model: 'DevoteeSadhana',
+          relationType: 'hasMany',
+                  keyFrom: 'id',
+          keyTo: 'saadhanaMasterId'
+        },
       }
     }
   }
