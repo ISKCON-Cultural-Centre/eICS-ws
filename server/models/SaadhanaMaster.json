@@ -110,6 +110,66 @@
         "nullable": "N"
       }
     },
+    "valueType": {
+      "type": "String",
+      "required": true,
+      "length": 20,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "value-type",
+        "dataType": "varchar",
+        "dataLength": 20,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "minValue": {
+      "type": "Number",
+      "required": true,
+      "length": null,
+      "precision": 5,
+      "scale": 0,
+      "mysql": {
+        "columnName": "min-value",
+        "dataType": "smallint",
+        "dataLength": null,
+        "dataPrecision": 5,
+        "dataScale": 0,
+        "nullable": "N"
+      }
+    },
+    "maxValue": {
+      "type": "Number",
+      "required": true,
+      "length": null,
+      "precision": 5,
+      "scale": 0,
+      "mysql": {
+        "columnName": "max-value",
+        "dataType": "smallint",
+        "dataLength": null,
+        "dataPrecision": 5,
+        "dataScale": 0,
+        "nullable": "N"
+      }
+    },
+    "tickInterval": {
+      "type": "String",
+      "required": true,
+      "length": null,
+      "precision": 5,
+      "scale": 2,
+      "mysql": {
+        "columnName": "tick-interval",
+        "dataType": "decimal",
+        "dataLength": null,
+        "dataPrecision": 5,
+        "dataScale": 2,
+        "nullable": "N"
+      }
+    },
     "createdBy": {
       "type": "String",
       "required": false,

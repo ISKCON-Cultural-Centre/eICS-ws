@@ -8,6 +8,10 @@ export interface SaadhanaMasterInterface {
   "displayLabel": string;
   "requiredInd": string;
   "displayOrder": number;
+  "valueType": string;
+  "minValue": number;
+  "maxValue": number;
+  "tickInterval": string;
   "createdBy"?: string;
   "updatedBy"?: string;
   "created-on"?: Date;
@@ -21,6 +25,10 @@ export class SaadhanaMaster implements SaadhanaMasterInterface {
   "displayLabel": string;
   "requiredInd": string;
   "displayOrder": number;
+  "valueType": string;
+  "minValue": number;
+  "maxValue": number;
+  "tickInterval": string;
   "createdBy": string;
   "updatedBy": string;
   "created-on": Date;
@@ -81,6 +89,22 @@ export class SaadhanaMaster implements SaadhanaMasterInterface {
         "displayOrder": {
           name: 'displayOrder',
           type: 'number'
+        },
+        "valueType": {
+          name: 'valueType',
+          type: 'string'
+        },
+        "minValue": {
+          name: 'minValue',
+          type: 'number'
+        },
+        "maxValue": {
+          name: 'maxValue',
+          type: 'number'
+        },
+        "tickInterval": {
+          name: 'tickInterval',
+          type: 'string'
         },
         "createdBy": {
           name: 'createdBy',
