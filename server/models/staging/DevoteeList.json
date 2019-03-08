@@ -26,7 +26,7 @@
     },
     "enrolNo": {
       "type": "Number",
-      "required": true,
+      "required": false,
       "length": null,
       "precision": 5,
       "scale": 0,
@@ -36,7 +36,7 @@
         "dataLength": null,
         "dataPrecision": 5,
         "dataScale": 0,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
     "name": {
@@ -49,6 +49,21 @@
         "columnName": "Name",
         "dataType": "varchar",
         "dataLength": 100,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "gender": {
+      "type": "Boolean",
+      "required": false,
+      "length": 1,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "gender",
+        "dataType": "char",
+        "dataLength": 1,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"
@@ -111,6 +126,51 @@
         "dataLength": 15,
         "dataPrecision": null,
         "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "email": {
+      "type": "String",
+      "required": false,
+      "length": 512,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "email",
+        "dataType": "varchar",
+        "dataLength": 512,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "description": {
+      "type": "String",
+      "required": false,
+      "length": 50,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "description",
+        "dataType": "varchar",
+        "dataLength": 50,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "age": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": 19,
+      "scale": 0,
+      "mysql": {
+        "columnName": "age",
+        "dataType": "bigint",
+        "dataLength": null,
+        "dataPrecision": 19,
+        "dataScale": 0,
         "nullable": "Y"
       }
     }

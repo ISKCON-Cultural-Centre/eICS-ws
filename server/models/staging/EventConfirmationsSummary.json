@@ -1,0 +1,58 @@
+{
+  "name": "EventConfirmationsSummary",
+  "options": {
+    "idInjection": false,
+    "mysql": {
+      "schema": "icc",
+      "table": "event-confirmations-summary"
+    },
+    "relations": {}
+  },
+  "properties": {
+    "eventName": {
+      "type": "String",
+      "required": true,
+      "length": 50,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "event-name",
+        "dataType": "varchar",
+        "dataLength": 50,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "congregation": {
+      "type": "String",
+      "required": false,
+      "length": null,
+      "precision": 25,
+      "scale": 0,
+      "mysql": {
+        "columnName": "congregation",
+        "dataType": "decimal",
+        "dataLength": null,
+        "dataPrecision": 25,
+        "dataScale": 0,
+        "nullable": "Y"
+      }
+    },
+    "guests": {
+      "type": "String",
+      "required": false,
+      "length": null,
+      "precision": 27,
+      "scale": 0,
+      "mysql": {
+        "columnName": "guests",
+        "dataType": "decimal",
+        "dataLength": null,
+        "dataPrecision": 27,
+        "dataScale": 0,
+        "nullable": "Y"
+      }
+    }
+  }
+}

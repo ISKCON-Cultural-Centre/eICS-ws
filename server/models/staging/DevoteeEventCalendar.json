@@ -83,7 +83,7 @@
     },
     "eventDateDayOfYear": {
       "type": "Number",
-      "required": true,
+      "required": false,
       "length": null,
       "precision": 5,
       "scale": 0,
@@ -93,7 +93,7 @@
         "dataLength": null,
         "dataPrecision": 5,
         "dataScale": 0,
-        "nullable": "N"
+        "nullable": "Y"
       }
     },
     "comments": {

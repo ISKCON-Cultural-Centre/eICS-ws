@@ -10,7 +10,7 @@ export interface DevoteeEventCalendarInterface {
   "devoteeId": string;
   "eventMasterId": string;
   "eventDate": Date;
-  "eventDateDayOfYear": number;
+  "eventDateDayOfYear"?: number;
   "comments"?: string;
   "createdOn"?: Date;
   "updatedOn"?: Date;

@@ -442,5 +442,45 @@
   "SevaMaster": {
     "dataSource": "mysqld",
     "public": true
+  },
+  "OrganizationGenderStats": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "PrasadamCouponRegister": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "EventDevoteeConfirmation": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "EventDevoteeAttendance": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "DevoteeCardLog": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "CardActionMaster": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "Resource": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "ResourceCalendar": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "SaadhanaMaster": {
+    "dataSource": "mysqld",
+    "public": true
+  },
+  "DevoteeSadhana": {
+    "dataSource": "mysqld",
+    "public": true
   }
 }

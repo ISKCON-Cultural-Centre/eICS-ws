@@ -65,7 +65,17 @@
         "type": "hasMany",
         "model": "DevoteeGrouping",
         "foreignKey": "devoteeId"
-      },              
+      },      
+      "fkDevoteeSevaSubscriptions": {
+        "type": "hasMany",
+        "model": "DevoteeSevaSubscription",
+        "foreignKey": "devoteeId"
+      },   
+      "fkDevoteeEventConfirmations": {
+        "type": "hasMany",
+        "model": "EventDevoteeConfirmation",
+        "foreignKey": "devoteeId"
+      },                  
       "fkDevoteeProfessionMaster1rel": {
         "model": "ProfessionMaster",
         "type": "belongsTo",
@@ -667,7 +677,7 @@
       "dataLength": null,
       "dataPrecision": 5,
       "dataScale": 0,
-      "nullable": "N"
+      "nullable": "Y"
     }
   }
   },

@@ -6,6 +6,7 @@ export interface ConfigurationInterface {
   "marriageEventId": string;
   "devoteeCareRoleId": string;
   "devoteeTaskGroupId": string;
+  "unregisteredDevoteeId": string;
 }
 
 export class Configuration implements ConfigurationInterface {
@@ -13,6 +14,7 @@ export class Configuration implements ConfigurationInterface {
   "marriageEventId": string;
   "devoteeCareRoleId": string;
   "devoteeTaskGroupId": string;
+  "unregisteredDevoteeId": string;
   constructor(data?: ConfigurationInterface) {
     Object.assign(this, data);
   }
@@ -60,6 +62,10 @@ export class Configuration implements ConfigurationInterface {
         },
         "devoteeTaskGroupId": {
           name: 'devoteeTaskGroupId',
+          type: 'string'
+        },
+        "unregisteredDevoteeId": {
+          name: 'unregisteredDevoteeId',
           type: 'string'
         },
       },

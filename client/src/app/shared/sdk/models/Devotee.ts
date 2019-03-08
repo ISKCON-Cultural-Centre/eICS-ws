@@ -11,7 +11,9 @@ import {
   PhysicalAddress,
   ProfessionMaster,
   ServiceRoleMapping,
-  Organization
+  Organization,
+  DevoteeSevaSubscription,
+  EventDevoteeConfirmation
 } from '../index';
 
 declare var Object: any;
@@ -70,6 +72,8 @@ export interface DevoteeInterface {
   fkDevoteeProfessionMaster1rel?: ProfessionMaster;
   roleMappings?: ServiceRoleMapping[];
   fkDevoteeOrganization1rel?: Organization;
+  fkDevoteeSevaSubscriptions?: DevoteeSevaSubscription[];
+  fkDevoteeEventConfirmations?: EventDevoteeConfirmation[];
 }
 
 export class Devotee implements DevoteeInterface {
@@ -127,6 +131,8 @@ export class Devotee implements DevoteeInterface {
   fkDevoteeProfessionMaster1rel: ProfessionMaster;
   roleMappings: ServiceRoleMapping[];
   fkDevoteeOrganization1rel: Organization;
+  fkDevoteeSevaSubscriptions: DevoteeSevaSubscription[];
+  fkDevoteeEventConfirmations: EventDevoteeConfirmation[];
   constructor(data?: DevoteeInterface) {
     Object.assign(this, data);
   }
@@ -425,6 +431,22 @@ export class Devotee implements DevoteeInterface {
           relationType: 'belongsTo',
                   keyFrom: 'organizationId',
           keyTo: 'id'
+        },
+        fkDevoteeSevaSubscriptions: {
+          name: 'fkDevoteeSevaSubscriptions',
+          type: 'DevoteeSevaSubscription[]',
+          model: 'DevoteeSevaSubscription',
+          relationType: 'hasMany',
+                  keyFrom: 'id',
+          keyTo: 'devoteeId'
+        },
+        fkDevoteeEventConfirmations: {
+          name: 'fkDevoteeEventConfirmations',
+          type: 'EventDevoteeConfirmation[]',
+          model: 'EventDevoteeConfirmation',
+          relationType: 'hasMany',
+                  keyFrom: 'id',
+          keyTo: 'devoteeId'
         },
       }
     }

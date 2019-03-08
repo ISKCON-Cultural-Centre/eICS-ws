@@ -149,6 +149,16 @@ import { DevoteeServicesApi } from './services/custom/DevoteeServices';
 import { DevoteeSevaSubscriptionApi } from './services/custom/DevoteeSevaSubscription';
 import { OrgTopParentApi } from './services/custom/OrgTopParent';
 import { SevaMasterApi } from './services/custom/SevaMaster';
+import { OrganizationGenderStatsApi } from './services/custom/OrganizationGenderStats';
+import { PrasadamCouponRegisterApi } from './services/custom/PrasadamCouponRegister';
+import { EventDevoteeConfirmationApi } from './services/custom/EventDevoteeConfirmation';
+import { EventDevoteeAttendanceApi } from './services/custom/EventDevoteeAttendance';
+import { DevoteeCardLogApi } from './services/custom/DevoteeCardLog';
+import { CardActionMasterApi } from './services/custom/CardActionMaster';
+import { ResourceApi } from './services/custom/Resource';
+import { ResourceCalendarApi } from './services/custom/ResourceCalendar';
+import { SaadhanaMasterApi } from './services/custom/SaadhanaMaster';
+import { DevoteeSadhanaApi } from './services/custom/DevoteeSadhana';
 /**
 * @module SDKBrowserModule
 * @description
@@ -282,6 +292,16 @@ export class SDKBrowserModule {
         DevoteeSevaSubscriptionApi,
         OrgTopParentApi,
         SevaMasterApi,
+        OrganizationGenderStatsApi,
+        PrasadamCouponRegisterApi,
+        EventDevoteeConfirmationApi,
+        EventDevoteeAttendanceApi,
+        DevoteeCardLogApi,
+        CardActionMasterApi,
+        ResourceApi,
+        ResourceCalendarApi,
+        SaadhanaMasterApi,
+        DevoteeSadhanaApi,
         internalStorageProvider,
         { provide: SDKStorage, useClass: StorageBrowser }
       ]

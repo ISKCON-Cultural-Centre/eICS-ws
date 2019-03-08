@@ -104,5 +104,15 @@ export * from './DevoteeServices';
 export * from './DevoteeSevaSubscription';
 export * from './OrgTopParent';
 export * from './SevaMaster';
+export * from './OrganizationGenderStats';
+export * from './PrasadamCouponRegister';
+export * from './EventDevoteeConfirmation';
+export * from './EventDevoteeAttendance';
+export * from './DevoteeCardLog';
+export * from './CardActionMaster';
+export * from './Resource';
+export * from './ResourceCalendar';
+export * from './SaadhanaMaster';
+export * from './DevoteeSadhana';
 export * from './BaseModels';
 

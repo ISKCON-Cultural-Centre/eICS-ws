@@ -6,23 +6,31 @@ import {
 
 declare var Object: any;
 export interface DevoteeSevaSubscriptionInterface {
+  "id": string;
   "devoteeId": string;
   "sevaMasterId": string;
+  "sevaReferenceNo": string;
   "createdOn"?: Date;
   "updatedOn"?: Date;
   "createdBy"?: string;
   "updatedBy"?: string;
+  "created-on"?: Date;
+  "updated-on"?: Date;
   fkDevoteeSevaSubscriptionDevoteerel?: Devotee;
   fkDevoteeSevaSubscriptionSevarel?: SevaMaster;
 }
 
 export class DevoteeSevaSubscription implements DevoteeSevaSubscriptionInterface {
+  "id": string;
   "devoteeId": string;
   "sevaMasterId": string;
+  "sevaReferenceNo": string;
   "createdOn": Date;
   "updatedOn": Date;
   "createdBy": string;
   "updatedBy": string;
+  "created-on": Date;
+  "updated-on": Date;
   fkDevoteeSevaSubscriptionDevoteerel: Devotee;
   fkDevoteeSevaSubscriptionSevarel: SevaMaster;
   constructor(data?: DevoteeSevaSubscriptionInterface) {
@@ -56,14 +64,22 @@ export class DevoteeSevaSubscription implements DevoteeSevaSubscriptionInterface
       name: 'DevoteeSevaSubscription',
       plural: 'DevoteeSevaSubscriptions',
       path: 'DevoteeSevaSubscriptions',
-      idName: 'devoteeId',
+      idName: 'id',
       properties: {
+        "id": {
+          name: 'id',
+          type: 'string'
+        },
         "devoteeId": {
           name: 'devoteeId',
           type: 'string'
         },
         "sevaMasterId": {
           name: 'sevaMasterId',
+          type: 'string'
+        },
+        "sevaReferenceNo": {
+          name: 'sevaReferenceNo',
           type: 'string'
         },
         "createdOn": {
@@ -81,6 +97,14 @@ export class DevoteeSevaSubscription implements DevoteeSevaSubscriptionInterface
         "updatedBy": {
           name: 'updatedBy',
           type: 'string'
+        },
+        "created-on": {
+          name: 'created-on',
+          type: 'Date'
+        },
+        "updated-on": {
+          name: 'updated-on',
+          type: 'Date'
         },
       },
       relations: {

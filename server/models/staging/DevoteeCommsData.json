@@ -1,0 +1,118 @@
+{
+  "name": "DevoteeCommsData",
+  "options": {
+    "idInjection": false,
+    "mysql": {
+      "schema": "icc",
+      "table": "devotee-comms-data"
+    },
+    "relations": {}
+  },
+  "properties": {
+    "enrolNo": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": 5,
+      "scale": 0,
+      "mysql": {
+        "columnName": "enrol-no",
+        "dataType": "smallint",
+        "dataLength": null,
+        "dataPrecision": 5,
+        "dataScale": 0,
+        "nullable": "Y"
+      }
+    },
+    "name": {
+      "type": "String",
+      "required": false,
+      "length": 104,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "name",
+        "dataType": "varchar",
+        "dataLength": 104,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "circle/sector": {
+      "type": "String",
+      "required": false,
+      "length": 45,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "Circle/Sector",
+        "dataType": "varchar",
+        "dataLength": 45,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "mobile1": {
+      "type": "String",
+      "required": false,
+      "length": 17,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "mobile1",
+        "dataType": "varchar",
+        "dataLength": 17,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "concat(\"91\", `mobileNo2`)": {
+      "type": "String",
+      "required": false,
+      "length": 17,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "concat(\"91\", `mobile-no-2`)",
+        "dataType": "varchar",
+        "dataLength": 17,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "landlineNo": {
+      "type": "String",
+      "required": false,
+      "length": 15,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "landline-no",
+        "dataType": "varchar",
+        "dataLength": 15,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "email": {
+      "type": "String",
+      "required": false,
+      "length": 512,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "email",
+        "dataType": "varchar",
+        "dataLength": 512,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    }
+  }
+}

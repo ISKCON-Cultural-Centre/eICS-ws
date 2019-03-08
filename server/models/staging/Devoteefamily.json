@@ -24,6 +24,21 @@
         "nullable": "Y"
       }
     },
+    "enrolNo": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": 5,
+      "scale": 0,
+      "mysql": {
+        "columnName": "enrol-no",
+        "dataType": "smallint",
+        "dataLength": null,
+        "dataPrecision": 5,
+        "dataScale": 0,
+        "nullable": "Y"
+      }
+    },
     "devotee": {
       "type": "String",
       "required": false,

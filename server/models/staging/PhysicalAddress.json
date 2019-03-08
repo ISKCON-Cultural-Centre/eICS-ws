@@ -43,13 +43,13 @@
     "addressLine1": {
       "type": "String",
       "required": false,
-      "length": 100,
+      "length": 200,
       "precision": null,
       "scale": null,
       "mysql": {
         "columnName": "address-line-1",
         "dataType": "varchar",
-        "dataLength": 100,
+        "dataLength": 200,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "Y"

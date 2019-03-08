@@ -69,6 +69,21 @@
         "dataScale": null,
         "nullable": "N"
       }
+    },
+    "unregisteredDevoteeId": {
+      "type": "String",
+      "required": true,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "unregistered-devotee-id",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
     }
   }
 }

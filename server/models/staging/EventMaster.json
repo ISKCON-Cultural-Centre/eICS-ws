@@ -40,21 +40,6 @@
         "nullable": "N"
       }
     },
-    "departmentId": {
-      "type": "String",
-      "required": true,
-      "length": 36,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "department-id",
-        "dataType": "varchar",
-        "dataLength": 36,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "N"
-      }
-    },
     "createdOn": {
       "type": "Date",
       "required": false,
