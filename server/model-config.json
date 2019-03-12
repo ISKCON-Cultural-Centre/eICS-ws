@@ -482,5 +482,9 @@
   "DevoteeSadhana": {
     "dataSource": "mysqld",
     "public": true
-  }
+  },
+  "EventConfirmationsDetail": {
+    "dataSource": "mysqld",
+    "public": true
+  }  
 }
