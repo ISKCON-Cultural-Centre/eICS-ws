@@ -159,6 +159,7 @@ import { ResourceApi } from './services/custom/Resource';
 import { ResourceCalendarApi } from './services/custom/ResourceCalendar';
 import { SaadhanaMasterApi } from './services/custom/SaadhanaMaster';
 import { DevoteeSadhanaApi } from './services/custom/DevoteeSadhana';
+import { EventConfirmationsDetailApi } from './services/custom/EventConfirmationsDetail';
 /**
 * @module SDKBrowserModule
 * @description
@@ -302,6 +303,7 @@ export class SDKBrowserModule {
         ResourceCalendarApi,
         SaadhanaMasterApi,
         DevoteeSadhanaApi,
+        EventConfirmationsDetailApi,
         internalStorageProvider,
         { provide: SDKStorage, useClass: StorageBrowser }
       ]

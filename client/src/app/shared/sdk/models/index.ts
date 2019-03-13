@@ -114,5 +114,6 @@ export * from './Resource';
 export * from './ResourceCalendar';
 export * from './SaadhanaMaster';
 export * from './DevoteeSadhana';
+export * from './EventConfirmationsDetail';
 export * from './BaseModels';
 

@@ -115,6 +115,7 @@ import { Resource } from '../../models/Resource';
 import { ResourceCalendar } from '../../models/ResourceCalendar';
 import { SaadhanaMaster } from '../../models/SaadhanaMaster';
 import { DevoteeSadhana } from '../../models/DevoteeSadhana';
+import { EventConfirmationsDetail } from '../../models/EventConfirmationsDetail';
 
 export interface Models { [name: string]: any }
 
@@ -237,6 +238,7 @@ export class SDKModels {
     ResourceCalendar: ResourceCalendar,
     SaadhanaMaster: SaadhanaMaster,
     DevoteeSadhana: DevoteeSadhana,
+    EventConfirmationsDetail: EventConfirmationsDetail,
     
   };
 
