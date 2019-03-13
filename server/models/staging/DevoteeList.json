@@ -129,6 +129,21 @@
         "nullable": "Y"
       }
     },
+    "contact": {
+      "type": "String",
+      "required": false,
+      "length": 51,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "contact",
+        "dataType": "varchar",
+        "dataLength": 51,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
     "email": {
       "type": "String",
       "required": false,
