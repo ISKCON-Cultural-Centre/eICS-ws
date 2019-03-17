@@ -126,6 +126,21 @@
         "nullable": "Y"
       }
     },
+    "couponStartNo": {
+      "type": "Number",
+      "required": true,
+      "length": null,
+      "precision": 10,
+      "scale": 0,
+      "mysql": {
+        "columnName": "coupon-start-no",
+        "dataType": "int",
+        "dataLength": null,
+        "dataPrecision": 10,
+        "dataScale": 0,
+        "nullable": "N"
+      }
+    },
     "allDayInd": {
       "type": "Number",
       "required": true,

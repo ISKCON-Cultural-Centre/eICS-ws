@@ -21,18 +21,18 @@
   },
   "properties": {
     "id": {
-      "type": "String",
+      "type": "Number",
       "required": true,
-      "length": 36,
-      "precision": null,
-      "scale": null,
+      "length": null,
+      "precision": 10,
+      "scale": 0,
       "id": 1,
       "mysql": {
         "columnName": "id",
-        "dataType": "varchar",
-        "dataLength": 36,
-        "dataPrecision": null,
-        "dataScale": null,
+        "dataType": "int",
+        "dataLength": null,
+        "dataPrecision": 10,
+        "dataScale": 0,
         "nullable": "N"
       }
     },

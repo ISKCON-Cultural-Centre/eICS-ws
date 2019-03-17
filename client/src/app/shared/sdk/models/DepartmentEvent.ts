@@ -13,6 +13,7 @@ export interface DepartmentEventInterface {
   "eventDescription"?: string;
   "startTime": Date;
   "endTime"?: Date;
+  "couponStartNo": number;
   "allDayInd": number;
   "publicInd": number;
   "createdOn"?: Date;
@@ -33,6 +34,7 @@ export class DepartmentEvent implements DepartmentEventInterface {
   "eventDescription": string;
   "startTime": Date;
   "endTime": Date;
+  "couponStartNo": number;
   "allDayInd": number;
   "publicInd": number;
   "createdOn": Date;
@@ -103,6 +105,10 @@ export class DepartmentEvent implements DepartmentEventInterface {
         "endTime": {
           name: 'endTime',
           type: 'Date'
+        },
+        "couponStartNo": {
+          name: 'couponStartNo',
+          type: 'number'
         },
         "allDayInd": {
           name: 'allDayInd',

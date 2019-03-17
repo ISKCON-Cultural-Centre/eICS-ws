@@ -6,7 +6,7 @@ import {
 
 declare var Object: any;
 export interface PrasadamCouponRegisterInterface {
-  "id": string;
+  "id": number;
   "departmentEventId": string;
   "issueDateTime": Date;
   "devoteeId": string;
@@ -21,7 +21,7 @@ export interface PrasadamCouponRegisterInterface {
 }
 
 export class PrasadamCouponRegister implements PrasadamCouponRegisterInterface {
-  "id": string;
+  "id": number;
   "departmentEventId": string;
   "issueDateTime": Date;
   "devoteeId": string;
@@ -68,7 +68,7 @@ export class PrasadamCouponRegister implements PrasadamCouponRegisterInterface {
       properties: {
         "id": {
           name: 'id',
-          type: 'string'
+          type: 'number'
         },
         "departmentEventId": {
           name: 'departmentEventId',
