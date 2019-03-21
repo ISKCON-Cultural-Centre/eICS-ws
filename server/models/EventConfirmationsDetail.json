@@ -173,6 +173,21 @@
         "dataScale": null,
         "nullable": "N"
       }
+    },
+    "totalCount": {
+      "type": "String",
+      "required": false,
+      "length": null,
+      "precision": 28,
+      "scale": 0,
+      "mysql": {
+        "columnName": "total-count",
+        "dataType": "decimal",
+        "dataLength": null,
+        "dataPrecision": 28,
+        "dataScale": 0,
+        "nullable": "Y"
+      }
     }
   }
 }

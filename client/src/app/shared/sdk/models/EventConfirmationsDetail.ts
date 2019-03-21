@@ -13,6 +13,7 @@ export interface EventConfirmationsDetailInterface {
   "guestCount": number;
   "couponIssued": number;
   "id": string;
+  "totalCount"?: string;
 }
 
 export class EventConfirmationsDetail implements EventConfirmationsDetailInterface {
@@ -27,6 +28,7 @@ export class EventConfirmationsDetail implements EventConfirmationsDetailInterfa
   "guestCount": number;
   "couponIssued": number;
   "id": string;
+  "totalCount": string;
   constructor(data?: EventConfirmationsDetailInterface) {
     Object.assign(this, data);
   }
@@ -102,6 +104,10 @@ export class EventConfirmationsDetail implements EventConfirmationsDetailInterfa
         },
         "id": {
           name: 'id',
+          type: 'string'
+        },
+        "totalCount": {
+          name: 'totalCount',
           type: 'string'
         },
       },

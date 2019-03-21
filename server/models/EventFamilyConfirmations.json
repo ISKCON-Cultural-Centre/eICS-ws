@@ -1,0 +1,73 @@
+{
+  "name": "EventFamilyConfirmations",
+  "options": {
+    "idInjection": false,
+    "mysql": {
+      "schema": "icc",
+      "table": "event-family-confirmations"
+    },
+    "relations": {}
+  },
+  "properties": {
+    "departmentEventId": {
+      "type": "String",
+      "required": true,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "department-event-id",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "eventName": {
+      "type": "String",
+      "required": true,
+      "length": 50,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "event-name",
+        "dataType": "varchar",
+        "dataLength": 50,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "id": {
+      "type": "String",
+      "required": false,
+      "length": 100,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "id",
+        "dataType": "varchar",
+        "dataLength": 100,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "totalCount": {
+      "type": "String",
+      "required": false,
+      "length": null,
+      "precision": 28,
+      "scale": 0,
+      "mysql": {
+        "columnName": "total-count",
+        "dataType": "decimal",
+        "dataLength": null,
+        "dataPrecision": 28,
+        "dataScale": 0,
+        "nullable": "Y"
+      }
+    }
+  }
+}

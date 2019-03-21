@@ -6,7 +6,7 @@ import {
 
 declare var Object: any;
 export interface PrasadamCouponRegisterInterface {
-  "id": number;
+  "id"?: number;
   "departmentEventId": string;
   "issueDateTime": Date;
   "devoteeId": string;
