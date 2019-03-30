@@ -176,17 +176,17 @@
     },
     "totalCount": {
       "type": "String",
-      "required": false,
-      "length": null,
-      "precision": 28,
-      "scale": 0,
+      "required": true,
+      "length": 29,
+      "precision": null,
+      "scale": null,
       "mysql": {
         "columnName": "total-count",
-        "dataType": "decimal",
-        "dataLength": null,
-        "dataPrecision": 28,
-        "dataScale": 0,
-        "nullable": "Y"
+        "dataType": "varchar",
+        "dataLength": 29,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
       }
     }
   }

@@ -1,0 +1,28 @@
+{
+  "name": "QrScanTest",
+  "options": {
+    "idInjection": false,
+    "mysql": {
+      "schema": "icc",
+      "table": "qr-scan-test"
+    },
+    "relations": {}
+  },
+  "properties": {
+    "data": {
+      "type": "String",
+      "required": true,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "data",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    }
+  }
+}

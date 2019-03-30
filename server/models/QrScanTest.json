@@ -1,0 +1,27 @@
+{
+  "name": "qrscantest",
+  "options": {
+    "mysql": {
+      "schema": "icc",
+      "table": "qr-scan-test"
+    },
+    "relations": {}
+  },
+  "properties": {
+    "barcodevalue": {
+      "type": "String",
+      "required": true,
+      "length": 36,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "data",
+        "dataType": "varchar",
+        "dataLength": 36,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    }
+  }
+}

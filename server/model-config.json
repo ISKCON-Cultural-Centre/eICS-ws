@@ -486,5 +486,9 @@
   "EventConfirmationsDetail": {
     "dataSource": "mysqld",
     "public": true
+  }  ,
+  "qrscantest": {
+    "dataSource": "mysqld",
+    "public": true
   }  
 }
